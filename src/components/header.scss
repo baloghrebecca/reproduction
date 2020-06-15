@@ -1,0 +1,47 @@
+@import "../styles/index.scss";
+
+#header {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: $grid;
+  grid-template-rows: 0;
+  background-color: transparent;
+  padding: 0 $margin-left-right $margin-top $margin-left-right;
+  transition: all ease 1s;
+}
+
+#bean {
+  fill: $primary-color;
+}
+
+#nav {
+  justify-self: center;
+  grid-column: 4 / span 2;
+}
+
+.cart {
+  justify-self: end;
+  grid-column: 7 / span 2;
+}
+
+#h1 {
+  cursor: pointer;
+  grid-column: 1 / 8;
+}
+
+#h1:hover {
+  transition: all ease 1s;
+}
+
+@media (max-width: 770px) {
+  #nav {
+    display: none;
+  }
+  #header {
+    display: flex;
+    justify-content: space-between;
+  }
+}

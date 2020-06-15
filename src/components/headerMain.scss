@@ -1,0 +1,54 @@
+@import "../styles/index.scss";
+
+#headerMain {
+  grid-column-gap: $gap;
+  width: 100%;
+  height: 60px;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: $grid;
+  grid-template-rows: 0;
+  background-color: transparent;
+  padding: $margin-top $margin-left-right;
+  transition: all ease 1s;
+  margin-bottom: $margin-bottom-primary;
+}
+
+#bean {
+  fill: $primary-color;
+}
+
+#navMain {
+  grid-column: 5 / span 2;
+}
+
+.cartMain {
+  justify-self: end;
+  grid-column: 7 / span 2;
+}
+
+#h1Main {
+  cursor: pointer;
+  grid-column: 1 / span 4;
+}
+
+#h1Main:hover {
+  transition: all ease 1s;
+}
+
+@media (max-width: 1100px) {
+  #navMain {
+    display: none;
+  }
+  #headerMain {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+@media (max-width: 750px) {
+  #headerMain {
+    margin-bottom: $margin-bottom-mobile;
+  }
+}

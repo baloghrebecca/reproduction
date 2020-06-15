@@ -1,0 +1,22 @@
+3. Generate a new page for each post 
+from the Gatsby.md follow the steps.
+
+Install Strapi
+
+///////TO DO LIST
+
+#####!!!HEADER!!!
+Links: active from landing page? maybe manually... scroll to the books
+POOL: wrong hover, correct it, change logo
+Morphing: morphing Vertical forms too fast, check again
+
+
+
+
+////RESEARCH
+Research:
+#MORPHING
+https://codesandbox.io/s/31lzml4nr1?file=/src/index.js:94-104
+
+For Grid:
+https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column

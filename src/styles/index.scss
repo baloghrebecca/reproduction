@@ -1,0 +1,123 @@
+//////////////////
+$background-color: #fff;
+$primary-color: #000;
+$primary-grey: #dddddd;
+$font: "Nuckle Book", sans-serif;
+$margin-left-right: 1.0625rem;
+$margin-top: 1.05rem;
+$font-size: 1.5625rem;
+$margin-bottom-primary: 13.5rem;
+$margin-bottom-mobile: 3rem;
+$font-size-small: 0.9375rem;
+$grid: repeat(8, 1fr);
+$grid-tablet: repeat(4, 1fr);
+$gap: 1.875rem;
+$gap-mobile-bottom: 3rem;
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: $primary-color;
+  font-family: $font;
+  font-size: $font-size;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  // padding: $margin-top;
+}
+
+path {
+  fill: $primary-grey;
+}
+
+section {
+  margin: 0;
+}
+
+h1 {
+  margin: 0;
+  font-weight: normal;
+  font-size: $font-size;
+}
+
+p {
+  margin: 0;
+  margin-bottom: 1.5625rem;
+  padding: 0;
+}
+
+h2 {
+  font-weight: normal;
+  text-transform: uppercase;
+  font-size: $font-size-small;
+  margin-bottom: 0.75rem;
+}
+
+div {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: $primary-color;
+  margin: 0;
+}
+
+a:hover {
+  color: $primary-grey;
+}
+
+.active {
+  color: $primary-grey;
+}
+
+//Grid layout
+
+.col1 {
+  grid-column: 1 / span 2;
+}
+
+.col2 {
+  grid-column: 3 / span 2;
+}
+
+.col3 {
+  grid-column: 5 / span 2;
+}
+
+.col4 {
+  grid-column: 7 / span 2;
+}
+
+@media (max-width: 1170px) {
+  .col1 {
+    grid-column: 1 / span 2;
+  }
+
+  .col2 {
+    grid-column: 3 / span 2;
+  }
+
+  .col3 {
+    grid-column: 1 / span 2;
+  }
+
+  .col4 {
+    grid-column: 3 / span 2;
+  }
+}
+
+@media (max-width: 750px) {
+  .col1, 
+  .col2, 
+  .col3, 
+  .col4 {
+    margin-bottom: $gap-mobile-bottom;
+  }
+
+  p {
+      font-size: $font-size-small;
+  }
+}

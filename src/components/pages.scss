@@ -1,0 +1,22 @@
+@import "../styles/index.scss";
+
+#about {
+  display: grid;
+  grid-column-gap: $gap;
+  grid-template-columns: $grid;
+  grid-template-rows: 1;
+  padding: 0 $margin-left-right;
+}
+
+@media (max-width: 1170px) {
+  #about {
+    grid-template-columns: $grid-tablet;
+    grid-template-rows: 2;
+  }
+}
+
+@media (max-width: 750px) {
+  #about {
+    display: block;
+  }
+}

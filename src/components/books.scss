@@ -1,0 +1,20 @@
+@import "../styles/index.scss";
+
+
+#books {
+    margin: $margin-left-right;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: $gap;
+}
+
+.book {
+    width: 100%;
+}
+
+.bookRenderingContainer {
+    width: 100%;
+    height: 400px;
+}
+
+

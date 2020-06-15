@@ -1,15 +1,18 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import '../styles/index.scss'
-import Forms from '../components/forms'
+import Layout from '../components/layout'
+import Books from '../components/booksComponent'
 
-export default function Home() {
+export default function About() {
   return (<>
     <Helmet>
       <meta charSet="utf-8" />
       <title>POOL Publishing</title>
       <link rel="canonical" href="http://mysite.com/example" />
     </Helmet>
-    <Forms />
+    <Layout>
+        <Books />
+    </Layout>
   </>)
 }
