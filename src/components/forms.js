@@ -31,7 +31,8 @@ export default class Forms extends React.Component {
     updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
     }
-
+//https://rrott.com/blog/svg/issue-with-css-transition-animation-in-safari.html
+//https://github.com/emilbjorklund/svg-weirdness/issues/27
     render() {
         const renderHorizontalOrVerticalPaths = this.state.width > 600 ? this.state.horizontalPaths : this.state.verticalPaths
         const whichViewBox = this.state.width > 600 ? `0 0 1891.65 1049.79` : `0 0 397 851`
