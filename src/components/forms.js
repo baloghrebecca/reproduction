@@ -42,7 +42,7 @@ export default class Forms extends React.Component {
                     id="ab9e6db3-c004-49c5-b031-1fda9a52585a"
                     xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="none meet">
                     <path id="form">
-                        <animate id="animation-to-check"
+                        <animate id="animationToCheck"
                             repeatCount="indefinite" attributeName="d" dur="12s"
                             values={renderHorizontalOrVerticalPaths} />
                     </path>
@@ -53,3 +53,6 @@ export default class Forms extends React.Component {
         )
     }
 }
+//Animation:
+// https://codepen.io/nicoladelazzari/pen/PRVEPp
+
