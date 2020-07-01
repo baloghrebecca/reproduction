@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import './header.scss'
 
 
-export default class HeaderMain extends React.Component {
+export default class Header extends React.Component {
     constructor(props) {
         super(props)
         this.state = {

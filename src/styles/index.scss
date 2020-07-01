@@ -2,6 +2,7 @@
 $background-color: #fff;
 $primary-color: #000;
 $primary-grey: #dddddd;
+$secondary-gray: #9B9B9B;
 $font: "Nuckle Book", sans-serif;
 $margin-left-right: 1.0625rem;
 $margin-top: 1.05rem;
@@ -71,6 +72,10 @@ a:hover {
 
 .active {
   color: $primary-grey;
+}
+
+.activeMobile {
+  color: $secondary-gray;
 }
 
 //Grid layout

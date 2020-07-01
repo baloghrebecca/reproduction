@@ -14,15 +14,106 @@
   margin-bottom: $margin-bottom-primary;
 }
 
-#bean {
+
+#mobileNav {
+  transition: all 0.5s;
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  z-index: 20;
+  background-color: $primary-grey;
+  margin: 0;
+  padding: 0.625rem;
+  height: 100vh;
+  transform: translateY(-100%);
+}
+
+#mobileNestedNav {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-top: 150px;
+  padding-bottom: 10px;
+}
+
+#mobileNestedNav a {
+  width: 100%;
+  display: block;
+  padding: 5px 0;
+  border-top: solid 1px $secondary-gray;
+}
+
+#mobileNestedNav a:nth-last-child(1) {
+  border-bottom: solid 1px $secondary-gray;
+}
+
+#mobileNav a:hover {
+  color: $secondary-gray;
+}
+
+#beanWrapper {
+  margin: 0 1px;
+}
+
+.bean {
   fill: $primary-color;
+}
+
+#burgerWrapper {
+  transition: ease 0.3;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close {
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  position: fixed;
+  width: 24px;
+  height: 24px;
+}
+
+.close:before, .close:after {
+  position: fixed;
+  content: ' ';
+  height: 25px;
+  width: 1.4px;
+  background-color: $secondary-gray;
+}
+
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+
+#burgerIcon {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: $margin-left-right;
+}
+
+#burgerX {
+  // float: right;
+  cursor: pointer;
+}
+
+#x {
+  stroke: $secondary-gray;
 }
 
 #navMain {
   grid-column: 5 / span 2;
 }
 
-.cartMain {
+#cartMain {
   justify-self: end;
   grid-column: 7 / span 2;
 }
@@ -49,6 +140,15 @@
 
 @media (max-width: 750px) {
   #headerMain {
+    font-size: $font-size-small;
     margin-bottom: $margin-bottom-mobile;
+    // background-color: $primary-grey;
+  }
+  #h1Main {
+    font-size: $font-size-small;
+  }
+
+  #mobileNav {
+    font-size: $font-size-small;
   }
 }

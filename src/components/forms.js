@@ -44,7 +44,7 @@ export default class Forms extends React.Component {
                     xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="none meet">
                     <path id="form">
                         <animate id="animationToCheck"
-                            repeatCount="indefinite" attributeName="d" dur="12s"
+                            repeatCount="indefinite" attributeName="d" dur="11s"
                             values={renderHorizontalOrVerticalPaths} />
                     </path>
                 </svg>

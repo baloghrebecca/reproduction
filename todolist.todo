@@ -1,0 +1,28 @@
+HEADER:
+    ✔ POOL Hover change @done (6/28/2020, 8:06:43 PM)
+    ✔ POOL Logo change Hauptseiten @done (6/28/2020, 8:07:06 PM)
+    ✔ POOL Logo Hover only on desktop @done (6/28/2020, 11:35:18 PM)
+    ✔ POOL logo change mobile + font @done (6/28/2020, 11:35:44 PM)
+    ☐ POOL logo transition on hover @high 
+
+DEPLOYMENT:
+    ☐ Deploy latest version
+
+STARTSEITE:
+    ☐ Fix height mobile @low 
+    ☐ Morping compatible for Safari @low 
+    ✔ Morphing faster @done (6/28/2020, 8:08:41 PM)
+    ☐ No scrolling back to the forms @low
+
+MENÜ: 
+    ✔ Mobile Navigation @done (6/28/2020, 10:41:07 PM)
+    ✔ x austauschen (1px stroke) @done (6/28/2020, 11:35:24 PM)
+    ☐ Scroll behaviour when clicking a page (scroll until Navigation is on top) @low 
+    ☐ Sticky Navigation @high 
+    ✔ Hover gray change mobile menu @high @done (7/1/2020, 8:06:21 PM)
+    ☐ Form navigation mobile navigation @high 
+    ☐ x animation? @high
+
+
+PAGE:
+    ☐ transition between pages
