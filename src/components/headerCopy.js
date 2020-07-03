@@ -2,7 +2,6 @@ import React from 'react'
 import { Link } from 'gatsby'
 import './headerMain.scss'
 
-
 export default class HeaderMain extends React.Component {
     constructor(props) {
         super(props)
@@ -11,7 +10,7 @@ export default class HeaderMain extends React.Component {
             display: "block",
             visibility: 'visible',
             active: false,
-            top: "translateY(-100%)",
+            top: "translateY(0%)",
             width: 0,
             height: 0,
             cursor: "pointer",
@@ -29,7 +28,6 @@ export default class HeaderMain extends React.Component {
     };
 
     componentDidMount() {
-
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
     }
@@ -42,16 +40,14 @@ export default class HeaderMain extends React.Component {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
 
         //if desktop, hide mobile navigation
-        if(this.state.width > 1100) {
-            this.setState({top: "translateY(-100%)", visibility: 'visible'})
+        if(this.state.width >= 1100) {
+            this.setState({top: "translateY(0%)", visibility: 'visible'})
             document.body.style.overflow = ""
         }
-
         if(this.state.width < 1100) {
-            this.setState({top: "translateY(-100%)", visibility: 'visible'})
+            this.setState({top: "translateY(0%)", visibility: 'visible'})
             document.body.style.overflow = ""
         }
-
     }
 
     handleClickLink(e) {
@@ -62,17 +58,17 @@ export default class HeaderMain extends React.Component {
     handleClickLogo(e) {
         if (this.state.width <= 1100) {
             e.preventDefault()
-            this.setState({ top: 'translateY(0%)', visibility: 'hidden' })
+            this.setState({ top: 'translateY(-100%)', visibility: 'hidden' })
             document.body.style.overflow = "hidden";
         }
     };
 
     handleClickBurger(e) {
         e.preventDefault()
-        this.setState({ top: 'translateY(-100%)'})
+        this.setState({ top: 'translateY(0%)'})
         setTimeout(() => {
             this.setState({visibility: 'visible'});
-          }, 500)
+          }, 550)
         document.body.style.overflow = "";
     };
 
@@ -112,7 +108,7 @@ export default class HeaderMain extends React.Component {
                     </div>
                 </div>
             </nav>
-            <header id="headerMain" style={{ visibility: this.state.visibility}}>
+            <header id="headerMainLandingPage" style={{ visibility: this.state.visibility}}>
                 <h1 id="h1Main" onClick={this.handleClickLogo} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} P<span id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>L</h1>
                 <nav id="navMain">
                     <Link activeClassName="active" to='/book'>BOOKS</Link>,

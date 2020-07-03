@@ -9,6 +9,7 @@ $margin-top: 1.05rem;
 $font-size: 1.5625rem;
 $margin-bottom-primary: 13.5rem;
 $margin-bottom-mobile: 3rem;
+$margin-mobile: 0.625rem;
 $font-size-small: 0.9375rem;
 $grid: repeat(8, 1fr);
 $grid-tablet: repeat(4, 1fr);
@@ -78,6 +79,10 @@ a:hover {
   color: $secondary-gray;
 }
 
+.content {
+  padding-top: $margin-bottom-primary;
+}
+
 //Grid layout
 
 .col1 {
@@ -120,6 +125,10 @@ a:hover {
   .col3, 
   .col4 {
     margin-bottom: $gap-mobile-bottom;
+  }
+
+  .content {
+    padding-top: 80px;
   }
 
   p {

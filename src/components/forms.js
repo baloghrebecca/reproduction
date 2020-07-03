@@ -49,7 +49,7 @@ export default class Forms extends React.Component {
                     </path>
                 </svg>
             </section>
-            <Header />
+            {/* <Header /> */}
         </>
         )
     }

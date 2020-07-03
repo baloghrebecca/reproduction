@@ -7,22 +7,39 @@ HEADER:
 
 DEPLOYMENT:
     ☐ Deploy latest version
+    ✔ Change the books link @critical @done (7/3/2020, 11:21:30 PM)
 
 STARTSEITE:
-    ☐ Fix height mobile @low 
-    ☐ Morping compatible for Safari @low 
+    ☐ Morping compatible for Safari, + Chrome mobile
     ✔ Morphing faster @done (6/28/2020, 8:08:41 PM)
-    ☐ No scrolling back to the forms @low
+    ☐ No scrolling back to the forms 
+    ✔ Height of the forms should not cut off at navigation @critical @done (7/3/2020, 3:17:04 PM)
+    ✔ Firefox logo problem (mobile, hover) L abgeschnitten @critical (check apptruistic, min-width maybe?) @done (7/3/2020, 9:33:59 PM) {Fixed with fixed height CSS}
+    ✔ Formen hight taller @done (7/3/2020, 9:34:26 PM)
 
 MENÜ: 
+    ✔ Responsive Navigation Startseite @critical @done (7/3/2020, 2:50:14 PM)
     ✔ Mobile Navigation @done (6/28/2020, 10:41:07 PM)
     ✔ x austauschen (1px stroke) @done (6/28/2020, 11:35:24 PM)
-    ☐ Scroll behaviour when clicking a page (scroll until Navigation is on top) @low 
-    ☐ Sticky Navigation @high 
+    ☐ Scroll behaviour when clicking a page (scroll until Navigation is on top)
+    ✔ Grid display when mounting headerMain @critical (maybe just play with visibility instead display) @done (7/3/2020, 11:18:20 PM)
+    ✔ Mobile headerMain flex mobile @critical  @done (7/3/2020, 9:44:58 PM)
+    ✔ Sticky Navigation @high @done (7/1/2020, 8:28:08 PM)
     ✔ Hover gray change mobile menu @high @done (7/1/2020, 8:06:21 PM)
-    ☐ Form navigation mobile navigation @high 
     ☐ x animation? @high
+    ✔ Resize problem at when switching from mobile to tablet/ or the other way around @critical @done (7/3/2020, 2:31:51 PM)
+    ✔ Kleiner sprung nach oben zwischen Desktop und tablet version @done (7/1/2020, 9:46:17 PM)
+    ✔ Small bean problem @high @done (7/1/2020, 9:55:19 PM)
+    ☐ x springt herum 
 
+MOBILE:
+    ☐ Height Landing page @critical 
+    ☐ mobile nav height landing page @critical 
+    ✔ mobile navigation height (make the balken on browser dissapear when menu opens) @critical {solved with height: 100% instead of 100vh} @done (7/3/2020, 11:19:09 PM)
 
 PAGE:
     ☐ transition between pages
+
+FIXES: 
+    ☐ index.scss -> variables.scss 
+    ☐ Refactor headerCopy

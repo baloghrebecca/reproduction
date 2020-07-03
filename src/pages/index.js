@@ -2,6 +2,8 @@ import React from "react"
 import { Helmet } from "react-helmet"
 import '../styles/index.scss'
 import Forms from '../components/forms'
+import HeaderCopy from '../components/headerCopy'
+import Layout from '../components/layout'
 
 export default function Home() {
   return (<>
@@ -10,6 +12,7 @@ export default function Home() {
       <title>POOL Publishing</title>
       <link rel="canonical" href="http://mysite.com/example" />
     </Helmet>
-    <Forms />
+      <Forms />
+      <HeaderCopy />
   </>)
 }
