@@ -46,12 +46,6 @@ export default class HeaderMain extends React.Component {
             this.setState({top: "translateY(-100%)", visibility: 'visible'})
             document.body.style.overflow = ""
         }
-
-        if(this.state.width < 1100) {
-            this.setState({top: "translateY(-100%)", visibility: 'visible'})
-            document.body.style.overflow = ""
-        }
-
     }
 
     handleClickLink(e) {

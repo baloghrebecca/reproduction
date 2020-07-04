@@ -31,6 +31,9 @@ MENÜ:
     ✔ Kleiner sprung nach oben zwischen Desktop und tablet version @done (7/1/2020, 9:46:17 PM)
     ✔ Small bean problem @high @done (7/1/2020, 9:55:19 PM)
     ☐ x springt herum 
+    ✔ Rezising bug at 750px @critical (solved with the height of landing page) @done (7/4/2020, 11:57:26 AM)
+    ☐ Rezising bug is back :-( @critical 
+    ✔ height mobile NOT solved @critical (solved with Javascript direct dom maniplulation) @done (7/4/2020, 11:56:45 AM)
 
 MOBILE:
     ✔ Height Landing page @critical (webkit fix CSS) @done (7/4/2020, 11:22:38 AM)

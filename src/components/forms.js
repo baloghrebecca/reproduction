@@ -18,6 +18,7 @@ export default class Forms extends React.Component {
     }
 
     componentDidMount() {
+        document.getElementById("forms").style.height = window.innerHeight + 'px';
         this.setState({ horizontalPaths: FormPathsHorizontal })
         this.setState({ verticalPaths: FormPathsVertical })
         this.updateWindowDimensions();
