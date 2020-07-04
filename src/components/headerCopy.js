@@ -105,7 +105,7 @@ export default class HeaderMain extends React.Component {
                 </div>
             </nav>
             <header id="headerMainLandingPage" style={{ visibility: this.state.visibility}}>
-                <h1 id="h1Main" onClick={this.handleClickLogo} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} P<span id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>L</h1>
+                <h1 id="h1Main" onClick={this.handleClickLogo} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} POOL</h1>
                 <nav id="navMain">
                     <Link activeClassName="active" to='/book'>BOOKS</Link>,
                     <Link activeClassName="active" to='/about'>ABOUT</Link>,
