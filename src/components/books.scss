@@ -5,6 +5,53 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-gap: $gap;
+    margin-bottom: $margin-bottom-primary;
+}
+
+#aboutPoolBooksWrapper {
+    margin: $margin-left-right;
+    display: grid;
+    grid-template-columns: $grid;
+    color: $primary-grey;
+    grid-template-rows: 0;
+    grid-column-gap: 1.875rem;
+}
+
+#aboutPoolBooksWrapper a {
+    color: $primary-grey;
+}
+
+#aboutPoolBooksWrapper a:hover {
+    color: black;
+}
+
+#aboutPoolBooksAboutText {
+    grid-column: 1 / span 4;
+}
+
+#aboutPoolBooksAboutAddress {
+    grid-column: 5 / span 3;
+}
+
+#aboutPoolBooksSocialMedia {
+    justify-self: end;
+    grid-column: 7 / span 2;
+}
+
+
+sup {
+    vertical-align: top;
+    font-size: $font-size-small;
+}
+
+.bookTitle {
+    margin-top: 30px;
+}
+
+.priceMobile {
+    margin-top: 8px;
+    color: $primary-grey;
+    display: none;
 }
 
 .book {
@@ -25,5 +72,24 @@
 @media (max-width: 750px) {
     #books {
         grid-template-columns: 1fr;
+        margin-bottom: $margin-bottom-mobile;
     }
+
+    #aboutPoolBooksWrapper {
+        display: block;
+    }
+
+    .bookTitle {
+        display: none;
+    }
+
+
+    .priceMobile {
+        display: block;
+    }
+
+    .priceDesktop {
+        display: none;
+    }
+
 }

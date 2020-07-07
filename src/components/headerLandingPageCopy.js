@@ -47,12 +47,6 @@ export default class HeaderLandingPageCopy extends React.Component {
         window.removeEventListener('scroll', this.handleScroll);
     }
 
-    componentDidUpdate() {
-        // let bounding = this.myRef.current.getBoundingClientRect();
-        // const boundingY = bounding.y
-        // this.setState({position: boundingY})
-    }
-
     updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
         //if desktop, hide mobile navigation
@@ -69,7 +63,7 @@ export default class HeaderLandingPageCopy extends React.Component {
 
     handleClickLogo(e) {
         if (this.state.width <= 1100) {
-            e.preventDefault()
+            // e.preventDefault()
             this.setState({ top: 'translateY(-100%)', visibility: 'hidden' })
             //deactivate scroll on body
             document.body.style.overflow = "hidden";

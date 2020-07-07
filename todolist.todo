@@ -8,18 +8,21 @@ DEPLOYMENT:
 STARTSEITE:
     ☐ Scrolling down to books @high 
     ☐ Morping compatible for Safari, + Chrome mobile
-    ☐ async/await einrichten.. one function after the other please
+    ✔ async/await einrichten.. one function after the other please @done (7/7/2020, 4:41:58 PM)
 
 MENÜ: 
     ☐ x animation? @high
     ☐ x ipad abgeschnitten (witdh problem??)
-    ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) 
+    ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) @high 
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
+    ✔ landing page mobile menu not working @critical @done (7/7/2020, 4:41:01 PM)
     ☐ Hover 'books' landing page @critical 
     ☐ von 'OO' zu einer Bohne transition @critical 
 
 BOOKS:
     ☐ Mobile slide in gacki @critical 
+    ☐ Grid mobile not like in sketch! fixed height? @high 
+    ☐ Figure out own book CSS hahaha @critical 
     
 MOBILE:
 
