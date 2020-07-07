@@ -7,8 +7,8 @@ const Footer = () => {
         <footer id="footer">
             <nav id="footerNav">
                     <Link activeClassName="active" to='/imprint'>IMPRINT</Link>,
-                    <Link activeClassName="active" to='/imprint'>TERMS</Link>,
-                    <Link activeClassName="active" to='/imprint'>PRIVACY POLICY</Link>
+                    <Link activeClassName="active" to='/imprint'> TERMS</Link>,
+                    <Link activeClassName="active" to='/imprint'> PRIVACY POLICY</Link>
                 </nav>
         </footer>
     )

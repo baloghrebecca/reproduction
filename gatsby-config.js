@@ -34,6 +34,8 @@ module.exports = {
       }
     }, 
     `gatsby-plugin-sass`,
+    `gatsby-plugin-smoothscroll`,
+    'gatsby-plugin-page-transitions',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,

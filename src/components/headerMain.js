@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import './headerMain.scss'
-
+import { motion } from "framer-motion"
 
 export default class HeaderMain extends React.Component {
     constructor(props) {
@@ -29,7 +29,6 @@ export default class HeaderMain extends React.Component {
     };
 
     componentDidMount() {
-
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
     }
@@ -40,7 +39,6 @@ export default class HeaderMain extends React.Component {
 
     updateWindowDimensions() {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
-
         //if desktop, hide mobile navigation
         if(this.state.width > 1100) {
             this.setState({top: "translateY(-100%)", visibility: 'visible'})
@@ -49,7 +47,7 @@ export default class HeaderMain extends React.Component {
     }
 
     handleClickLink(e) {
-        //deactivate scroll on body
+        //reactivate scroll on body
         document.body.style.overflow = "";
     }
 
@@ -57,6 +55,7 @@ export default class HeaderMain extends React.Component {
         if (this.state.width <= 1100) {
             e.preventDefault()
             this.setState({ top: 'translateY(0%)', visibility: 'hidden' })
+            //deactivate scroll on body
             document.body.style.overflow = "hidden";
         }
     };
@@ -89,12 +88,11 @@ export default class HeaderMain extends React.Component {
             <nav id="mobileNav" style={{ display: this.state.display, transform: this.state.top }}>
                 <div id="burgerWrapper">
                     <div className="close" onClick={this.handleClickBurger}>
-                        
                     </div>
                 </div>
                 <div id="mobileNestedNav">
                     <div>
-                        <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/book'>BOOKS</Link>
+                        <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/books'>BOOKS</Link>
                         <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/about'>ABOUT</Link>
                         <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/stockings'>STOCKINGS</Link>
                         <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/'>0 ITEMS (0€)</Link>
@@ -109,9 +107,9 @@ export default class HeaderMain extends React.Component {
             <header id="headerMain" style={{ visibility: this.state.visibility}}>
                 <h1 id="h1Main" onClick={this.handleClickLogo} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} P<span id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>L</h1>
                 <nav id="navMain">
-                    <Link activeClassName="active" to='/book'>BOOKS</Link>,
-                    <Link activeClassName="active" to='/about'>ABOUT</Link>,
-                    <Link activeClassName="active" to='/stockings'>STOCKINGS</Link>
+                    <Link activeClassName="active" to='/books'>BOOKS</Link>,
+                    <Link activeClassName="active" to='/about'> ABOUT</Link>,
+                    <Link activeClassName="active" to='/stockings'> STOCKINGS</Link>
                 </nav>
                 <Link id="cartMain" to='/'>0 ITEMS (0€)</Link>
             </header>

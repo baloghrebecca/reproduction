@@ -1,6 +1,5 @@
 import React from 'react'
 import './forms.scss'
-import Header from './header'
 import { FormPathsHorizontal, FormPathsVertical } from './formPaths'
 
 export default class Forms extends React.Component {
@@ -50,7 +49,6 @@ export default class Forms extends React.Component {
                     </path>
                 </svg>
             </section>
-            {/* <Header /> */}
         </>
         )
     }

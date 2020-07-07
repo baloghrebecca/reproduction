@@ -21,13 +21,13 @@ $gap-mobile-bottom: 3rem;
 }
 
 body {
+  scroll-behavior: smooth;
   color: $primary-color;
   font-family: $font;
   font-size: $font-size;
   margin: 0;
   padding: 0;
   height: 100%;
-  // padding: $margin-top;
 }
 
 path {
@@ -81,6 +81,10 @@ a:hover {
 
 .content {
   padding-top: $margin-bottom-primary;
+}
+
+#filler {
+  height: 300px;
 }
 
 //Grid layout

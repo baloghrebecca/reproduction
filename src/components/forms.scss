@@ -1,7 +1,13 @@
 @import "../styles/index.scss";
 @import "./header.scss";
 
+
+#formsDiv {
+  transition: all 1.2s linear;
+}
+
 #forms {
+  scroll-behavior: smooth;
   position: relative;
   z-index: -10;
   height: 100vh;

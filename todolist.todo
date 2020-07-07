@@ -1,48 +1,31 @@
 HEADER:
-    ✔ POOL Hover change @done (6/28/2020, 8:06:43 PM)
-    ✔ POOL Logo change Hauptseiten @done (6/28/2020, 8:07:06 PM)
-    ✔ POOL Logo Hover only on desktop @done (6/28/2020, 11:35:18 PM)
-    ✔ POOL logo change mobile + font @done (6/28/2020, 11:35:44 PM)
-    ☐ POOL logo transition on hover @high 
+    ☐ POOL logo transition effect on hover @high 
 
 DEPLOYMENT:
-    ☐ Deploy latest version
-    ✔ Change the books link @critical @done (7/3/2020, 11:21:30 PM)
+    ☐ Deploy latest version 
 
 STARTSEITE:
+    ☐ Scrolling down to books @high 
     ☐ Morping compatible for Safari, + Chrome mobile
-    ✔ Morphing faster @done (6/28/2020, 8:08:41 PM)
-    ☐ No scrolling back to the forms 
-    ✔ Height of the forms should not cut off at navigation @critical @done (7/3/2020, 3:17:04 PM)
-    ✔ Firefox logo problem (mobile, hover) L abgeschnitten @critical (check apptruistic, min-width maybe?) @done (7/3/2020, 9:33:59 PM) {Fixed with fixed height CSS}
-    ✔ Formen hight taller @done (7/3/2020, 9:34:26 PM)
+    ✔ No scrolling back to the forms @done (7/6/2020, 11:33:58 PM)
+    ✔ when scroll is around 50% of the viewport on landing page, the forms should dissapear @done (7/6/2020, 11:33:56 PM)
+    ☐ async/await einrichten.. one function after the other please
 
 MENÜ: 
-    ✔ Responsive Navigation Startseite @critical @done (7/3/2020, 2:50:14 PM)
-    ✔ Mobile Navigation @done (6/28/2020, 10:41:07 PM)
-    ✔ x austauschen (1px stroke) @done (6/28/2020, 11:35:24 PM)
-    ☐ Scroll behaviour when clicking a page (scroll until Navigation is on top)
-    ✔ Grid display when mounting headerMain @critical (maybe just play with visibility instead display) @done (7/3/2020, 11:18:20 PM)
-    ✔ Mobile headerMain flex mobile @critical  @done (7/3/2020, 9:44:58 PM)
-    ✔ Sticky Navigation @high @done (7/1/2020, 8:28:08 PM)
-    ✔ Hover gray change mobile menu @high @done (7/1/2020, 8:06:21 PM)
     ☐ x animation? @high
-    ✔ Resize problem at when switching from mobile to tablet/ or the other way around @critical @done (7/3/2020, 2:31:51 PM)
-    ✔ Kleiner sprung nach oben zwischen Desktop und tablet version @done (7/1/2020, 9:46:17 PM)
-    ✔ Small bean problem @high @done (7/1/2020, 9:55:19 PM)
-    ☐ x springt herum 
-    ✔ Rezising bug at 750px @critical (solved with the height of landing page) @done (7/4/2020, 11:57:26 AM)
-    ☐ Rezising bug is back :-( @critical 
-    ✔ height mobile NOT solved @critical (solved with Javascript direct dom maniplulation) @done (7/4/2020, 11:56:45 AM)
+    ☐ x ipad abgeschnitten (witdh problem??)
+    ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) 
+        problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
+    ✔ mobileMenu not here landingPage @done (7/6/2020, 11:30:30 PM)
+    ☐ Hover 'books' landing page
+    ☐ mobile/tablet scroll transition not working
 
+BOOKS:
+    ☐ Page transition different than the other pages
+    
 MOBILE:
-    ✔ Height Landing page @critical (webkit fix CSS) @done (7/4/2020, 11:22:38 AM)
-    ✔ mobile nav height landing page @critical (webkit fix CSS) @done (7/4/2020, 11:22:47 AM)
-    ✔ mobile navigation height (make the balken on browser dissapear when menu opens) @critical {solved with height: 100% instead of 100vh} @done (7/3/2020, 11:19:09 PM)
-
-PAGE:
-    ☐ transition between pages
+   ☐ Scroll to component not working properly on mobile + tablet (stops at wrong point) (probably solvable with the interception observer)
 
 FIXES: 
     ☐ index.scss -> variables.scss 
-    ☐ Refactor headerCopy
+    ☐ refactor layout component
