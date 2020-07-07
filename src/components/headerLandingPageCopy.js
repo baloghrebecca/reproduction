@@ -12,6 +12,7 @@ export default class HeaderLandingPageCopy extends React.Component {
             text: "",
             color: 'black',
             display: "block",
+            displayForms: "block",
             visibility: 'visible',
             visibilityForms: 'visible',
             active: false,
@@ -24,8 +25,6 @@ export default class HeaderLandingPageCopy extends React.Component {
             widthBean: "33",
             header: 'headerMainLandingPage',
             hasScrolled: true,
-            beanMobile: `M13.22,1.39c-1.28,0-1.66.89-3.33.89C7.17,2.28,7.06,0,4.22,0A4.21,4.21,0,0,0,0,4.17C0,7.5,3.28,9,7.39,9,10.67,9,16,7.28,16,4.17A2.83,2.83,0,0,0,13.22,1.39Z`,
-            bean: `M26.4446457,2.77773641 C23.8888515,2.77773641 23.1114331,4.55528667 19.7782205,4.55528667 C14.3338077,4.55528667 14.1110967,0 8.44480091,0 C3.77780653,0 0,3.77792256 0,8.33320923 C0,15.0002792 6.55548369,18 14.7775737,18 C21.3338853,18 32,14.5554728 32,8.33320923 C32,5.33348846 29.4450338,2.77773641 26.4446457,2.77773641`
         }
         this.handleClickLink = this.handleClickLink.bind(this)
         this.handleClickLogo = this.handleClickLogo.bind(this)
@@ -46,6 +45,12 @@ export default class HeaderLandingPageCopy extends React.Component {
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
         window.removeEventListener('scroll', this.handleScroll);
+    }
+
+    componentDidUpdate() {
+        // let bounding = this.myRef.current.getBoundingClientRect();
+        // const boundingY = bounding.y
+        // this.setState({position: boundingY})
     }
 
     updateWindowDimensions() {
@@ -88,21 +93,21 @@ export default class HeaderLandingPageCopy extends React.Component {
         this.setState({ text: "" })
     };
 
-    handleScroll() {
+    handleScroll(e) {
+        var scrolled = document.scrollingElement.scrollTop;
+        var position = this.myRef.current.offsetTop;
+
+        //if scrollTop == offsetTop 
+        if (scrolled >= position) {
+            navigate('/books')
+        }
+
         if (this.state.hasScrolled) {
             this.setState({ opacity: 0, color: '#dddddd' })
+            this.setState({ hasScrolled: false});
             const reference = document.getElementById('headerMainLandingPage')
             document.body.style.overflow = "hidden";
-            function doHomework(ref, callback) {
-                setTimeout(() => navigate('/books'), 1000);
-                scrollToComponent(ref, { offset: 0, align: 'top', duration: 800, ease: 'linear' });
-                callback();
-            }
-
-            doHomework(reference, function () {
-                console.log('AFTER')
-            });
-            this.setState({ hasScrolled: false });
+            scrollToComponent(reference, { offset: 0, align: 'top', duration: 500, ease:'' });
         } else {
             return;
         }
@@ -110,15 +115,8 @@ export default class HeaderLandingPageCopy extends React.Component {
 
 
     render() {
-        const svg = <svg height="18.5" width="33">
-            <path className="bean" d="M26.4446457,2.77773641 C23.8888515,2.77773641 23.1114331,4.55528667 19.7782205,4.55528667 C14.3338077,4.55528667 14.1110967,0 8.44480091,0 C3.77780653,0 0,3.77792256 0,8.33320923 C0,15.0002792 6.55548369,18 14.7775737,18 C21.3338853,18 32,14.5554728 32,8.33320923 C32,5.33348846 29.4450338,2.77773641 26.4446457,2.77773641" />
-        </svg>
-        const svgMobile = <svg height="9.80" width="16.5" >
-            <path id="smallBean" className="bean" d="M13.22,1.39c-1.28,0-1.66.89-3.33.89C7.17,2.28,7.06,0,4.22,0A4.21,4.21,0,0,0,0,4.17C0,7.5,3.28,9,7.39,9,10.67,9,16,7.28,16,4.17A2.83,2.83,0,0,0,13.22,1.39Z" />
-        </svg>
-
         return (<div id="landingPageWrapper">
-            <div id="formsDiv" onWheel={this.handleScroll} style={{ opacity: this.state.opacity }}>
+            <div id="formsDiv" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
                 <Forms />
             </div>
             <nav id="mobileNav" style={{ display: this.state.display, transform: this.state.top }}>
@@ -141,7 +139,7 @@ export default class HeaderLandingPageCopy extends React.Component {
                 </div>
             </nav>
             <header ref={this.myRef} id="headerMainLandingPage" style={{ visibility: this.state.visibility }}>
-                <h1 id="h1Main" onClick={() => this.handleClickLogo(this.navigateTo)} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} P<span id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>L</h1>
+                <h1 id="h1Main" onClick={() => this.handleClickLogo(this.navigateTo)} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} POOL</h1>
                 <nav id="navMain">
                     <Link activeClassName="active" to='/#headerMainLandingPage' style={{color: this.state.color}}>BOOKS</Link>,
                     <Link activeClassName="active" to='/about'> ABOUT</Link>,

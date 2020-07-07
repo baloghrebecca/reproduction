@@ -31,19 +31,19 @@ export default class Imprint extends React.Component {
   render() {
   return (<>
       {this.state.width > 1100 ? <HeaderMain /> : ''}
-    <PageTransition
-      defaultStyle={{
-        transition: 'top 400ms cubic-bezier(0.47, 0, 0.75, 0.72)',
-        top: '100%',
-        position: 'absolute',
-        width: '100%',
-      }}
-      transitionStyles={{
-        entering: { top: '0%' },
-        entered: { top: '0%' },
-        exiting: { top: '100%' },
-      }}
-      transitionTime={300}>
+      <PageTransition
+        defaultStyle={{
+          transition: 'top 600ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+          top: '100%',
+          position: 'absolute',
+          width: '100%',
+        }}
+        transitionStyles={{
+          entering: { top: '0%' },
+          entered: { top: '0%' },
+          exiting: { top: '100%' },
+        }}
+        transitionTime={600}>
       <>
       {this.state.width <= 1100 ? <HeaderMain /> : ''}
       <Layout>

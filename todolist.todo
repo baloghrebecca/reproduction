@@ -3,12 +3,11 @@ HEADER:
 
 DEPLOYMENT:
     ☐ Deploy latest version 
+    ☐ all page transitions same @critical 
 
 STARTSEITE:
     ☐ Scrolling down to books @high 
     ☐ Morping compatible for Safari, + Chrome mobile
-    ✔ No scrolling back to the forms @done (7/6/2020, 11:33:58 PM)
-    ✔ when scroll is around 50% of the viewport on landing page, the forms should dissapear @done (7/6/2020, 11:33:56 PM)
     ☐ async/await einrichten.. one function after the other please
 
 MENÜ: 
@@ -16,15 +15,13 @@ MENÜ:
     ☐ x ipad abgeschnitten (witdh problem??)
     ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) 
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
-    ✔ mobileMenu not here landingPage @done (7/6/2020, 11:30:30 PM)
-    ☐ Hover 'books' landing page
-    ☐ mobile/tablet scroll transition not working
+    ☐ Hover 'books' landing page @critical 
+    ☐ von 'OO' zu einer Bohne transition @critical 
 
 BOOKS:
-    ☐ Page transition different than the other pages
+    ☐ Mobile slide in gacki @critical 
     
 MOBILE:
-   ☐ Scroll to component not working properly on mobile + tablet (stops at wrong point) (probably solvable with the interception observer)
 
 FIXES: 
     ☐ index.scss -> variables.scss 

@@ -10,12 +10,14 @@ export default class About extends React.Component {
     super(props);
     this.state = {
       height: 0,
-      width: 0
+      width: 0,
+      opacity: 0,
     }
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
+    this.setState({ opacity: 1 })
     document.body.style.overflow = "";
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
@@ -31,10 +33,12 @@ export default class About extends React.Component {
 
   render() {
     return (<>
-      <HeaderMain /> 
+      <div id="booksMenuWrapper" style={{opacity: this.state.opacity}}>
+        <HeaderMain />
+      </div>
       <PageTransition
         defaultStyle={{
-          transition: 'top 400ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+          transition: 'top 600ms cubic-bezier(0.47, 0, 0.75, 0.72)',
           top: '100%',
           position: 'absolute',
           width: '100%',
@@ -44,12 +48,11 @@ export default class About extends React.Component {
           entered: { top: '0%' },
           exiting: { top: '100%' },
         }}
-        transitionTime={300}>
-        <> 
-
-        <Layout>
-          <Books />
-        </Layout>
+        transitionTime={600}>
+        <>
+          <Layout>
+            <Books />
+          </Layout>
         </>
       </PageTransition>
     </>)

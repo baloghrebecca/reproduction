@@ -33,7 +33,7 @@ export default class Stockings extends React.Component {
       {this.state.width > 1100 ? <HeaderMain /> : ''}
       <PageTransition
         defaultStyle={{
-          transition: 'top 400ms cubic-bezier(0.47, 0, 0.75, 0.72)',
+          transition: 'top 600ms cubic-bezier(0.47, 0, 0.75, 0.72)',
           top: '100%',
           position: 'absolute',
           width: '100%',
@@ -43,7 +43,7 @@ export default class Stockings extends React.Component {
           entered: { top: '0%' },
           exiting: { top: '100%' },
         }}
-        transitionTime={300}>
+        transitionTime={600}>
         {this.state.width <= 1100 ? <HeaderMain /> : ''}
         <Layout>
           <StockingsComponent />

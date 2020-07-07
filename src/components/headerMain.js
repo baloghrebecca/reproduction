@@ -8,6 +8,7 @@ export default class HeaderMain extends React.Component {
         super(props)
         this.state = {
             text: "",
+            flag: false,
             display: "block",
             visibility: 'visible',
             active: false,
@@ -29,6 +30,7 @@ export default class HeaderMain extends React.Component {
     };
 
     componentDidMount() {
+        this.setState({flag: true})
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
     }
@@ -105,7 +107,7 @@ export default class HeaderMain extends React.Component {
                 </div>
             </nav>
             <header id="headerMain" style={{ visibility: this.state.visibility}}>
-                <h1 id="h1Main" onClick={this.handleClickLogo} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} P<span id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>L</h1>
+                <h1 id="h1Main" onClick={this.handleClickLogo} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} P{!this.state.flag ? 'OO' : <span id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>}L</h1>
                 <nav id="navMain">
                     <Link activeClassName="active" to='/books'>BOOKS</Link>,
                     <Link activeClassName="active" to='/about'> ABOUT</Link>,

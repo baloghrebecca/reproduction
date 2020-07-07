@@ -16,12 +16,6 @@ export default class Books extends React.Component {
             <section id="books">
                <Book />
                <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
-               <Book />
             </section>
         </>
         )
