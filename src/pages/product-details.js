@@ -1,7 +1,7 @@
 import React from "react";
 import '../styles/index.scss';
 import Layout from '../components/layout';
-import AboutComponent from '../components/aboutComponent';
+import ProductPage from '../components/product';
 import PageTransition from 'gatsby-plugin-page-transitions';
 import HeaderMain from '../components/headerMain'
 
@@ -16,7 +16,6 @@ export default class About extends React.Component {
   }
 
   componentDidMount() {
-    document.body.style.overflow = "";
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }
@@ -31,7 +30,7 @@ export default class About extends React.Component {
 
   render() {
     return (<>
-      {this.state.width > 1100 ? <HeaderMain /> : ''}
+      <HeaderMain />
       <PageTransition
         defaultStyle={{
           transition: 'top 600ms cubic-bezier(0.47, 0, 0.75, 0.72)',
@@ -45,12 +44,7 @@ export default class About extends React.Component {
           exiting: { top: '100%' },
         }}
         transitionTime={600}>
-        <>
-          {this.state.width <= 1100 ? <HeaderMain /> : ''}
-          <Layout>
-            <AboutComponent />
-          </Layout>
-        </>
+        <ProductPage />
       </PageTransition>
     </>)
   }

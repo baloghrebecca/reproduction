@@ -1,5 +1,12 @@
 HEADER:
-    ☐ POOL logo transition effect on hover @high 
+    ☐ POOL logo transition effect on hover @low
+
+GENERAL:
+    ☐ mobile abstände zwischen Absätzen ??
+    ☐ font not properly installed :(
+
+SLIDER: 
+
 
 DEPLOYMENT:
     ☐ Deploy latest version 
@@ -11,18 +18,21 @@ STARTSEITE:
     ✔ async/await einrichten.. one function after the other please @done (7/7/2020, 4:41:58 PM)
 
 MENÜ: 
-    ☐ x animation? @high
+    ☐ x animation? @low
     ☐ x ipad abgeschnitten (witdh problem??)
     ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) @high 
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
-    ✔ landing page mobile menu not working @critical @done (7/7/2020, 4:41:01 PM)
     ☐ Hover 'books' landing page @critical 
-    ☐ von 'OO' zu einer Bohne transition @critical 
+    ☐ von 'OO' zu einer Bohne transition @high
+    ☐ When clicking menu point also scroll behavior @high
+    ☐ Wrong scroll behaviour when clicking on books mobile/tablet @critical 
+    ☐ Padding bottom navigation too big on mobile @critical 
 
 BOOKS:
-    ☐ Mobile slide in gacki @critical 
+    ✔ Mobile slide in gacki @critical @done (7/8/2020, 2:38:22 PM)
     ☐ Grid mobile not like in sketch! fixed height? @high 
     ☐ Figure out own book CSS hahaha @critical 
+    ✔ Books text fat @done (7/8/2020, 1:22:58 PM)
     
 MOBILE:
 

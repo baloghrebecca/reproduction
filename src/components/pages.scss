@@ -1,6 +1,9 @@
 @import "../styles/index.scss";
 
-#about {
+//Pages
+
+#about,
+#aboutProductPageWrapper {
   display: grid;
   grid-column-gap: $gap;
   grid-template-columns: $grid;
@@ -8,15 +11,89 @@
   padding: 0 $margin-left-right;
 }
 
+
+.productPageCart {
+  justify-self: end;
+}
+
+#aboutProductMobile {
+  display: none;
+}
+
+//Gallery + Slides
+
+#galleryProductPage {
+  position: relative;
+  margin-top: 60px;
+  overflow: hidden;
+  background-color: $primary-grey;
+  height: 65vh;
+  width: 100%;
+  margin-bottom: $margin-top;
+}
+
+.imgContainerGallery {
+  margin-right: 100px;
+  width: 100%;
+}
+
+.imgContainerGallery img {
+  height: 50vh;
+  min-width: 100%;
+  display: inline-block;
+  object-fit: contain;
+}
+
+.imgContainerGallery:nth-last-child() {
+  margin-right: 0px;
+}
+
+img {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+#slides {
+  position: absolute;
+  transition: left 1s;
+  width: 100%;
+  cursor: pointer;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+
 @media (max-width: 1170px) {
-  #about {
+  #about,
+  #aboutProductPageWrapper {
     grid-template-columns: $grid-tablet;
     grid-template-rows: 2;
+  }
+
+  #aboutProductMobile {
+    padding: 0 $margin-left-right;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .hideMobile {
+    display: none;
   }
 }
 
 @media (max-width: 750px) {
-  #about {
+  #galleryProductPage {
+    height: 410px;
+  }
+
+  #about,
+  #aboutProductPageWrapper {
     display: block;
   }
 }

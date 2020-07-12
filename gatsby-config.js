@@ -3,6 +3,9 @@
  *
  * See: https://www.gatsbyjs.org/docs/gatsby-config/
  */
+
+const path = require(`path`)
+
 module.exports = {
   siteMetadata: {
     title: 'POOL Publishing',
@@ -35,13 +38,15 @@ module.exports = {
     }, 
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     'gatsby-plugin-page-transitions',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: path.join(__dirname, `src`, `images`),
       },
     },
     // {

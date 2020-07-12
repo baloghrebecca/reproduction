@@ -34,6 +34,7 @@ export default class HeaderLandingPageCopy extends React.Component {
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
         this.handleScroll = this.handleScroll.bind(this)
         this.myRef = React.createRef()
+
     };
 
     componentDidMount() {
@@ -135,7 +136,7 @@ export default class HeaderLandingPageCopy extends React.Component {
             <header ref={this.myRef} id="headerMainLandingPage" style={{ visibility: this.state.visibility }}>
                 <h1 id="h1Main" onClick={() => this.handleClickLogo(this.navigateTo)} onMouseEnter={this.handleChange} onMouseLeave={this.handleLeave}>{this.state.text} POOL</h1>
                 <nav id="navMain">
-                    <Link activeClassName="active" to='/#headerMainLandingPage' style={{color: this.state.color}}>BOOKS</Link>,
+                    <Link activeClassName="active" to='/books' style={{color: this.state.color}}>BOOKS</Link>,
                     <Link activeClassName="active" to='/about'> ABOUT</Link>,
                     <Link activeClassName="active" to='/stockings'> STOCKINGS</Link>
                 </nav>

@@ -16,6 +16,7 @@ export default class Imprint extends React.Component {
   }
 
   componentDidMount() {
+    document.body.style.overflow = "";
     this.updateWindowDimensions();
     window.addEventListener('resize', this.updateWindowDimensions);
   }

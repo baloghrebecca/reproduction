@@ -5,6 +5,8 @@ import { Link } from 'gatsby'
 
 const Book = () => {
     return (
+       // https://argument.gmbh/ (no 3d, but frames!)
+       //https://greensock.com/ (SVG animation)
         //https://3dtransforms.desandro.com/cube
         <div className="book">
             <div className="bookRenderingContainer">
@@ -23,7 +25,7 @@ const Book = () => {
             </div>
             <h2 className="bookTitle">FOUNTAIN’S EDIT</h2>
             <p><span className="priceMobile"><strike>€25.00</strike> €20.00<br /></span>
-            <Link to='/prouct-page'>DISCIPLIN</Link> <span className="priceDesktop"><sup><strike>€25.00</strike> €20.00</sup></span></p>
+            <Link to='/product-details'>DISCIPLIN</Link> <span className="priceDesktop"><sup><strike>€25.00</strike> €20.00</sup></span></p>
         </div>
     )
 }

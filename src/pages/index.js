@@ -1,11 +1,8 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import '../styles/index.scss'
-import Forms from '../components/forms'
 import HeaderLandingPageCopy from '../components/headerLandingPageCopy'
 import LayoutLandingPage from '../components/layoutLandingPage'
-import Books from '../components/booksComponent'
-import HeaderMain from '../components/headerMain'
 
 export default class Home extends React.Component {
   constructor(props) {
