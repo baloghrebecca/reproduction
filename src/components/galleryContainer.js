@@ -68,14 +68,16 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleDrag(e) {
-    e.target.style.cursor = 'grabbing';
+    console.log(e)
+    e.target.style.cursor = 'pointer';
     const posX2 = this.state.posX1 - e.clientX;
     const posX1 = e.clientX;
     this.setState({
       posX2: posX2,
-      posX1: posX1
+      posX1: posX1,
+      positionXInitial: posX1
     })
-    console.log('X1 initial', this.state.positionXInitial, 'X1', posX1, 'X2', posX2)
+    console.log('X1 initial', this.state.positionXInitial, 'X1', posX1, 'X1-X2', posX2)
     if (this.state.positionXInitial > posX2) {
       console.log('initial bigger')
     const sliderPositionLeft = this.slider.current.offsetLeft
@@ -96,13 +98,16 @@ export default class GalleryContainer extends React.Component {
 
   handleDragStart(e) {
     // e.preventDefault();
+    e.target.style.cursor = 'grabbing';
     const sliderLeft = this.slider.current.offsetLeft
     const positionXStart = e.clientX
+    console.log('firedstart', positionXStart)
     this.setState({
       posInitial: sliderLeft,
       posX1: positionXStart,
       positionXInitial: positionXStart
     })
+    
   }
 
   handleDragEnd(e) {
@@ -130,7 +135,7 @@ export default class GalleryContainer extends React.Component {
 
   render() {
     return (<>
-      <div onDragStart={this.handleDragStartStop} onMouseUp={this.handleDragEnd} onClick={this.handleDragStart} onMouseDown={this.handleDrag} ref={this.container} id="galleryProductPage">
+      <div onDragStart={this.handleDragStartStop} onMouseUp={this.handleDrag} onMouseDown={this.handleDragStart} ref={this.container} id="galleryProductPage">
         <div draggable="false" ref={this.slider}  style={{ left: `${this.state.currentPosition}px` }} id="slides">
           {this.props.children}
         </div>
