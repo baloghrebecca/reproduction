@@ -6,44 +6,30 @@ import ProductImages from './getProductImages'
 
 const Book = (props) => {
     const [index, setIndex] = useState(0);
-    const [posX, setPosX] = useState(0);
-    const [bookContainerWidth, setBookContainerWidth] = useState(0);
     const bookRender = useRef()
 
-    useEffect(() => {
-        const booksContainerWidthHalf = bookRender.current.clientWidth / 2
-        setBookContainerWidth(booksContainerWidthHalf)
-    });
-
     const handleMouseOver = (e) => {
-        if (e.clientX > bookContainerWidth) {
-            if (index < 36) {
-                setIndex(index + 6)
-                console.log(index);
-            } else {
-                return;
-            }
+        const x = e.nativeEvent.offsetX
+        const width = e.target.offsetWidth
+        const percentage = x / width
+        const imageNumber = Math.floor(percentage * props.sliderLength)
+        console.log('img nr', imageNumber, '%', percentage, 'length', props.sliderLength-1);
+        if (imageNumber > props.sliderLength-1 || imageNumber === props.sliderLength) {
+            setIndex(props.sliderLength-1)
+            return;
         }
-        if (e.clientX < bookContainerWidth) {
-            if (index > 0) {
-                setIndex(index - 6)
-                console.log(index);
-            } else {
-                return;
-            }
-        }
-        if (e.clientX === bookContainerWidth) {
+        if (x < 0) {
             setIndex(0)
+            return;
+        } else {
+            setIndex(imageNumber)
         }
     }
 
-    const handleMouseEnter = (e) => {
-        setPosX(e.clientX)
-    }
 
     return (
         <div className="book">
-            <div onMouseEnter={handleMouseEnter} onMouseMove={handleMouseOver} ref={bookRender} className="bookRenderingContainer">
+            <div onMouseMove={handleMouseOver} ref={bookRender} className="bookRenderingContainer">
                 <img src={props.images[index].node.childImageSharp.sizes.src} />
             </div>
             <h2 className="bookTitle">FOUNTAIN’S EDIT</h2>

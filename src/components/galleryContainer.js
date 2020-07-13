@@ -24,7 +24,7 @@ export default class GalleryContainer extends React.Component {
     containerWidth: window.innerWidth,
     currentPosition: window.innerWidth / 2.5,
     endOfLeft: window.innerWidth / 2.5,
-    endOfRight: this.slider.current.scrollWidth
+    endOfRight: this.slider.current.scrollWidth-window.innerWidth / 3
   });
 
   componentDidMount() {
@@ -71,7 +71,7 @@ export default class GalleryContainer extends React.Component {
       cursor: 'pointer'
     })
     e.preventDefault();
-    console.log('current Position', this.state.currentPosition, 'initital endright', this.state.endOfRight)
+    console.log('current Position', this.state.currentPosition, 'initital endright', this.state.endOfRight, 'positon initial', this.state.endOfLeft)
     if (this.state.currentPosition < -this.state.endOfRight) {
       const inititalPosition = this.state.endOfLeft
       this.setState({
@@ -99,7 +99,7 @@ export default class GalleryContainer extends React.Component {
     const firstSlideSize = this.slider.current.getElementsByClassName("imgContainerGallery")[0].clientWidth
     const sliderArray = this.slider.current.getElementsByClassName("imgContainerGallery")
     const slides = this.slider.current
-    const endOfSlider = this.slider.current.scrollWidth-150
+    const endOfSlider = this.slider.current.scrollWidth - window.innerWidth / 3
     this.setState({
       sliderArray: sliderArray,
       slides: slides,
