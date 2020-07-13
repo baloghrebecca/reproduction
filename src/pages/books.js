@@ -2,7 +2,6 @@ import React from "react"
 import '../styles/index.scss'
 import Layout from '../components/layout'
 import Books from '../components/booksComponent'
-import PageTransition from 'gatsby-plugin-page-transitions';
 import HeaderMain from '../components/headerMain'
 
 export default class About extends React.Component {
@@ -33,28 +32,12 @@ export default class About extends React.Component {
 
   render() {
     return (<>
-      <div id="booksMenuWrapper" style={{opacity: this.state.opacity}}>
+      <div id="booksMenuWrapper" style={{ opacity: this.state.opacity }}>
         <HeaderMain />
       </div>
-      <PageTransition
-        defaultStyle={{
-          transition: 'top 600ms cubic-bezier(0.47, 0, 0.75, 0.72)',
-          top: '100%',
-          position: 'absolute',
-          width: '100%',
-        }}
-        transitionStyles={{
-          entering: { top: '0%' },
-          entered: { top: '0%' },
-          exiting: { top: '100%' },
-        }}
-        transitionTime={600}>
-        <>
-          <Layout>
-            <Books />
-          </Layout>
-        </>
-      </PageTransition>
+      <Layout>
+        <Books />
+      </Layout>
     </>)
   }
 }

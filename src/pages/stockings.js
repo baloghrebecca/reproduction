@@ -2,7 +2,6 @@ import React from "react"
 import '../styles/index.scss'
 import Layout from '../components/layout'
 import StockingsComponent from '../components/stockingsComponent'
-import PageTransition from 'gatsby-plugin-page-transitions';
 import HeaderMain from '../components/headerMain'
 
 export default class Stockings extends React.Component {
@@ -31,25 +30,10 @@ export default class Stockings extends React.Component {
 
   render() {
     return (<>
-      {this.state.width > 1100 ? <HeaderMain /> : ''}
-      <PageTransition
-        defaultStyle={{
-          transition: 'top 600ms cubic-bezier(0.47, 0, 0.75, 0.72)',
-          top: '100%',
-          position: 'absolute',
-          width: '100%',
-        }}
-        transitionStyles={{
-          entering: { top: '0%' },
-          entered: { top: '0%' },
-          exiting: { top: '100%' },
-        }}
-        transitionTime={600}>
-        {this.state.width <= 1100 ? <HeaderMain /> : ''}
+          <HeaderMain />
         <Layout>
           <StockingsComponent />
         </Layout>
-      </PageTransition>
-    </>)
+        </>)
   }
 }
