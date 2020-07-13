@@ -18,10 +18,10 @@ $gap-mobile-bottom: 3rem;
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  scroll-behavior: smooth;
   color: $primary-color;
   font-family: $font;
   font-size: $font-size;
