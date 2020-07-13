@@ -26,7 +26,7 @@ const Slides = () => {
     return <div key={index.toString()} className="imgContainerGallery"><img src={image.node.childImageSharp.sizes.src} /></div>
   });
   const allImagesSize = allImages.length
-  return (<GalleryContainer sliderLength={allImagesSize} images={allImagesSorted}> {allImages} </GalleryContainer>)
+  return (<GalleryContainer sliderLength={allImagesSize} allImagesWithContainer={allImages} images={allImagesSorted}> {allImages} </GalleryContainer>)
 }
 
 export default Slides
