@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import './headerMain.scss'
-import { motion } from "framer-motion"
 
 export default class HeaderMain extends React.Component {
     constructor(props) {

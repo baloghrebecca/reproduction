@@ -2,7 +2,6 @@ import React from 'react'
 import './forms.scss'
 import Header from './header'
 import SvgMorphPlugin from 'rc-tween-one/lib/plugin/SvgMorphPlugin';
-import PropTypes from 'prop-types';
 import Tween from 'rc-tween-one';
 Tween.plugins.push(SvgMorphPlugin);
 

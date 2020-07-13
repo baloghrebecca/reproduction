@@ -1,25 +1,24 @@
 import React from 'react'
 import './books.scss'
-import Book from './book.js'
+import ProductImages from './getProductImages'
 
 export default class Books extends React.Component {
 
     constructor(props) {
         super(props)
         this.state = {
-
         }
     }
 
     render() {
         return (<>
             <section id="books">
-                <Book />
-                <Book />
-                <Book />
-                <Book />
-                <Book />
-                <Book />
+                <ProductImages />
+                <ProductImages />
+                <ProductImages />
+                <ProductImages />
+                <ProductImages />
+                <ProductImages />
             </section>
             <section id="aboutPoolBooksWrapper">
                 <p id="aboutPoolBooksAboutText">The Vienna-based cultural association “POOL publishing” is a contemporary publishing house.

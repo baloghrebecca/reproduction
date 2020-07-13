@@ -1,13 +1,12 @@
 import React from 'react'
 import './pages.scss'
 import { useStaticQuery, graphql } from "gatsby"
-import GalleryContainer from './galleryContainer'
+import Book from './book'
 
-//https://codepen.io/cconceicao/pen/PBQawy
-const Slides = () => {
+const ProductImages = () => {
   const data = useStaticQuery(graphql`
-  query GetAllImages {
-    allFile(filter: {dir: {regex: "/images/gallery/"}}) {
+  query ProductImages {
+    allFile(filter: {dir: {regex: "/images/product/"}}) {
       edges {
         node {
           childImageSharp {
@@ -26,7 +25,7 @@ const Slides = () => {
     return <div key={index.toString()} className="imgContainerGallery"><img src={image.node.childImageSharp.sizes.src} /></div>
   });
   const allImagesSize = allImages.length
-  return (<GalleryContainer sliderLength={allImagesSize} images={allImagesSorted}> {allImages} </GalleryContainer>)
+  return (<Book sliderLength={allImagesSize} images={allImagesSorted} />)
 }
 
-export default Slides
+export default ProductImages

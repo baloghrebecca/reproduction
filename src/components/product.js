@@ -1,10 +1,7 @@
 import React from 'react'
 import './pages.scss'
 import { Link } from 'gatsby'
-import GalleryPlug from './galleryPlugHook'
 import Slides from './slidesComponent'
-import GalleryContainer from './galleryContainer'
-import Example from './functionalComponent'
 
 const ProductPage = () => {
     return (
