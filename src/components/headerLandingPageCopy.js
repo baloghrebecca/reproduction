@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import './headerMain.scss'
 import Forms from '../components/forms'
-import scrollToComponent from 'react-scroll-to-component';
+// import scrollToComponent from 'react-scroll-to-component';
 import { navigate } from '@reach/router';
 
 export default class HeaderLandingPageCopy extends React.Component {
@@ -102,7 +102,7 @@ export default class HeaderLandingPageCopy extends React.Component {
             this.setState({ hasScrolled: false});
             const reference = document.getElementById('headerMainLandingPage')
             document.body.style.overflow = "hidden";
-            scrollToComponent(reference, { offset: 0, align: 'top', duration: 500, ease:'' });
+            // scrollToComponent(reference, { offset: 0, align: 'top', duration: 500, ease:'' });
         } else {
             return;
         }

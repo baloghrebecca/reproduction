@@ -46,7 +46,6 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-pose": "^3.1.0-rc",
-    "react-scroll-to-component": "^1.0.2",
     "react-slick": "^0.26.1",
     "sharp": "^0.25.4",
     "smooth-scroll": "^16.1.3",
