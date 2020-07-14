@@ -144,8 +144,7 @@ export default class GalleryContainer extends React.Component {
   handleTouchStart = (e) => {
     const { touches } = e
     if (touches && touches.length === 1) {
-      console.log(this.state.currentPosition);
-
+      document.body.style.overflow = "hidden"
       const touch = touches[0]
       const startX = touch.clientX
       this.setState({ posX1: startX })
@@ -166,6 +165,7 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleTouchEnd = () => {
+    document.body.style.overflow = ""
     const { currentPosition, endOfLeft, endOfRight} = this.state
     if (currentPosition > endOfLeft) {
       this.setState({
