@@ -4,12 +4,7 @@ import './headerMain.scss'
 import Forms from '../components/forms'
 import { navigate } from '@reach/router';
 import smoothscroll from 'smoothscroll-polyfill';
-import {
-    isFirefox,
-    isChrome,
-    isEdge,
-    isSafari
-} from "react-device-detect";
+import { isFirefox } from "react-device-detect";
 
 export default class HeaderLandingPageCopy extends React.Component {
     constructor(props) {
@@ -95,21 +90,23 @@ export default class HeaderLandingPageCopy extends React.Component {
     handleScroll = (e) => {
             var scrolled = document.scrollingElement.scrollTop;
             var position = this.navigation.current.offsetTop;
+            this.setState({ opacity: 0, color: '#dddddd' })
+
             //if scrollTop == offsetTop 
             if (scrolled >= position) {
-                navigate('/books')
+                setTimeout(() => {
+                    navigate('/books')
+                }, 200)
             }
 
             if (!isFirefox) {
                 if (this.state.hasScrolled) {
-                    console.log('not fire entered');
-                    this.setState({ opacity: 0, color: '#dddddd' })
                     this.setState({ hasScrolled: false });
-                    this.navigation.current.scrollIntoView({ block: 'start', behavior: 'smooth' });
+                    this.navigation.current.scrollIntoView({ behavior: 'smooth' });
                     document.body.style.overflow = "hidden";
-                }
+                } 
             } else if (isFirefox) {
-                this.navigation.current.scrollIntoView({ block: 'start' });
+                this.navigation.current.scrollIntoView();
             } else {
                 return;
             }

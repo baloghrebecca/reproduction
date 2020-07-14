@@ -9,6 +9,9 @@ const Book = (props) => {
     const bookRender = useRef()
 
     const handleMouseOver = (e) => {
+
+
+
         const x = e.nativeEvent.offsetX
         const width = e.target.offsetWidth
         const percentage = x / width

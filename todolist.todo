@@ -2,7 +2,7 @@ HEADER:
     ☐ POOL logo transition effect on hover @low
 
 GENERAL:
-    ☐ font not properly installed :(
+    ✔ font not properly installed :( (safari) @done (7/13/2020, 11:43:28 PM)
 
 SLIDER: 
     ☐ End of Slider right and left bump
@@ -10,12 +10,11 @@ SLIDER:
 
 DEPLOYMENT:
     ☐ Deploy latest version 
-    ☐ all page transitions same @critical 
 
 STARTSEITE:
-    ☐ Scrolling down to books @high 
+    ✔ Scrolling down to books @high @done (7/13/2020, 11:27:09 PM)
     ☐ Morping compatible for Safari, + Chrome mobile
-    ☐ scroll down to component @critical 
+    ✔ scroll down to component @critical @done (7/13/2020, 11:27:03 PM)
     ✔ async/await einrichten.. one function after the other please @done (7/7/2020, 4:41:58 PM)
 
 MENÜ: 
@@ -28,10 +27,13 @@ MENÜ:
     ☐ When clicking menu point also scroll behavior @high
     ☐ Wrong scroll behaviour when clicking on books mobile/tablet @critical 
     ☐ Padding bottom navigation too big on mobile @critical 
+    ☐ transition, slide to top, during revealing of website
 
 BOOKS:
     ☐ Grid mobile not like in sketch! fixed height? @high 
     ☐ firefox grid not working
+    ☐ images not sorted
+    ☐ all page transitions same @critical (books comes from above when scrolling down landing page)
     
 MOBILE:
 
@@ -39,8 +41,3 @@ FIXES:
     ☐ index.scss -> variables.scss 
     ☐ refactor layout component
 
-
-
-https://argument.gmbh/ (no 3d, but frames!)
-https://greensock.com/ (SVG animation)
-https://3dtransforms.desandro.com/cube

@@ -1,4 +1,8 @@
-//////////////////
+@font-face {
+  font-family: "Nuckle Book";
+  src: url("../fonts/NuckleBook.woff");
+}
+
 $background-color: #fff;
 $primary-color: #000;
 $primary-grey: #dddddd;
@@ -81,6 +85,7 @@ a:hover {
 }
 
 .content {
+  transition: transform 0.6s ease;
   padding-top: $margin-bottom-primary;
 }
 

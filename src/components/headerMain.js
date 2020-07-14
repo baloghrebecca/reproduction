@@ -1,7 +1,9 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import './headerMain.scss'
+import { navigate } from '@reach/router';
 
+//delay with navigate to!!!
 export default class HeaderMain extends React.Component {
     constructor(props) {
         super(props)
@@ -20,12 +22,6 @@ export default class HeaderMain extends React.Component {
             beanMobile: `M13.22,1.39c-1.28,0-1.66.89-3.33.89C7.17,2.28,7.06,0,4.22,0A4.21,4.21,0,0,0,0,4.17C0,7.5,3.28,9,7.39,9,10.67,9,16,7.28,16,4.17A2.83,2.83,0,0,0,13.22,1.39Z`,
             bean: `M26.4446457,2.77773641 C23.8888515,2.77773641 23.1114331,4.55528667 19.7782205,4.55528667 C14.3338077,4.55528667 14.1110967,0 8.44480091,0 C3.77780653,0 0,3.77792256 0,8.33320923 C0,15.0002792 6.55548369,18 14.7775737,18 C21.3338853,18 32,14.5554728 32,8.33320923 C32,5.33348846 29.4450338,2.77773641 26.4446457,2.77773641`
         }
-        this.handleClickLink = this.handleClickLink.bind(this)
-        this.handleClickLogo = this.handleClickLogo.bind(this)
-        this.handleClickBurger = this.handleClickBurger.bind(this)
-        this.handleChange = this.handleChange.bind(this)
-        this.handleLeave = this.handleLeave.bind(this)
-        this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
     };
 
     componentDidMount() {
@@ -38,7 +34,7 @@ export default class HeaderMain extends React.Component {
         window.removeEventListener('resize', this.updateWindowDimensions);
     }
 
-    updateWindowDimensions() {
+    updateWindowDimensions = () => {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
         //if desktop, hide mobile navigation
         if(this.state.width > 1100) {
@@ -47,12 +43,12 @@ export default class HeaderMain extends React.Component {
         }
     }
 
-    handleClickLink(e) {
+    handleClickLink = (e) => {
         //reactivate scroll on body
         document.body.style.overflow = "";
     }
 
-    handleClickLogo(e) {
+    handleClickLogo = (e) => {
         if (this.state.width <= 1100) {
             e.preventDefault()
             this.setState({ top: 'translateY(0%)', visibility: 'hidden' })
@@ -61,7 +57,7 @@ export default class HeaderMain extends React.Component {
         }
     };
 
-    handleClickBurger(e) {
+    handleClickBurger = (e) => {
         e.preventDefault()
         this.setState({ top: 'translateY(-100%)'})
         setTimeout(() => {
@@ -70,11 +66,11 @@ export default class HeaderMain extends React.Component {
         document.body.style.overflow = "";
     };
 
-    handleChange() {
+    handleChange = () => {
         this.setState({ text: "LIFE IS BETTER AT THE " })
     };
 
-    handleLeave() {
+    handleLeave = () => {
         this.setState({ text: "" })
     };
 
