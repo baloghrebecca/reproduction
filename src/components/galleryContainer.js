@@ -1,6 +1,5 @@
 import * as React from "react"
 import './pages.scss'
-import { clearConfigCache } from "prettier";
 
 export default class GalleryContainer extends React.Component {
   constructor(props) {
@@ -22,12 +21,13 @@ export default class GalleryContainer extends React.Component {
     containerWidth: window.innerWidth,
     currentPosition: window.innerWidth / 2.5,
     endOfLeft: window.innerWidth / 2.5,
-    endOfRight: this.slider.current.scrollWidth - window.innerWidth / 3
   });
 
   componentDidMount() {
-    const rightEndOfSlider = this.slider.current.getBoundingClientRect().right
-    this.setState({rightEnd: rightEndOfSlider})
+    this.setState({
+      //right end of container
+      endSlidesRight: this.slider.current.getBoundingClientRect().right
+    })
     //position the slideshow correctly according to window size
     this.handleResize();
     //repositions slideshow to the middle of the screen when resizing the browsers window
@@ -73,7 +73,7 @@ export default class GalleryContainer extends React.Component {
       cursor: 'pointer'
     })
     e.preventDefault();
-    //check if end of slider has been reached
+    //check if right end of slider has been reached
     if (this.state.currentPosition < -this.state.endOfRight) {
       const inititalPosition = this.state.endOfLeft
       this.setState({
@@ -95,27 +95,28 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleKeyDown = (e) => {
-    console.log('offsetRight', this.slider.current.getBoundingClientRect().right);
-    const widthOfStep = this.state.containerWidth / (this.props.sliderLength-2)
+    const widthOfStep = this.state.endOfLeft
     const sliderPositionLeft = this.slider.current.offsetLeft
     this.setState({
       step: widthOfStep
     })
-    console.log('currentPosition', this.state.currentPosition, 'end left', this.state.endOfLeft, 'end right', -this.state.endOfLeft*this.props.sliderLength-1);
+
     if (e.keyCode === 39) {
-      const endOfRight = this.slider.current.getBoundingClientRect().right
-      console.log('left', this.state.endOfLeft, 'right', endOfRight);
-      if (this.state.endOfLeft < -endOfRight){
-        console.log('enter end');
+      if (-this.state.currentPosition > this.state.endSlidesRight) {
+        this.setState({ currentPosition: this.state.endOfLeft })
         return;
       }
       const position = sliderPositionLeft - widthOfStep
       this.setState({
-        currentPosition: position
+        currentPosition: position,
+        //right end of container
+        endOfRight: this.slider.current.getBoundingClientRect().right
       })
-    } 
+    }
+    console.log('position', this.state.currentPosition, 'left', this.state.endOfLeft, 'right', this.state.endSlidesRight);
     if (e.keyCode === 37) {
-      if (this.state.endOfLeft < this.state.currentPosition) {
+      if (this.state.currentPosition > this.state.endOfLeft) {
+        this.setState({ currentPosition: this.state.endOfLeft })
         return;
       }
       const position = sliderPositionLeft + widthOfStep
@@ -140,10 +141,41 @@ export default class GalleryContainer extends React.Component {
     })
   }
 
+  handleTouchStart = (e) => {
+    console.log('touch start');
+    const { touches } = e
+    if (touches && touches.length === 1) {
+      const touch = touches[0]
+      const startX = touch.clientX
+      this.setState({posX1: startX})
+    }
+  }
+
+  handleTouchMove = (e) => {
+    console.log('touchmove');
+        const posX2 = this.state.posX1 - e.touches[0].clientX;
+        this.setState({
+          posX2: posX2,
+        })
+        //the current left position of the slider 
+        const sliderPositionLeft = this.slider.current.offsetLeft
+        //get new position by subtracting the travelled pixel 
+        const position = sliderPositionLeft - posX2
+        this.setState({
+          currentPosition: position
+        })
+  }
+
+  handleTouchEnd = () => {
+    console.log('end');
+  }
+
   render() {
     return (<>
       <div onLoad={this.handleOnLoad}
-        onTouchStart={this.handleDragStart}
+        onTouchStart={this.handleTouchStart}
+        onTouchEnd={this.handleTouchEnd}
+        onTouchMove={this.handleTouchMove}
         onKeyDown={this.handleKeyDown}
         onTouchMove={this.handleDrag}
         onTouchEnd={this.handleDragEnd}
