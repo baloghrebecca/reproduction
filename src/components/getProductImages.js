@@ -5,12 +5,12 @@ import Book from './book'
 
 const ProductImages = () => {
   const data = useStaticQuery(graphql`
-  query ProductImages {
-    allFile(filter: {dir: {regex: "/images/product/"}}) {
+  query ll {
+    allFile(filter: {dir: {regex: "/images/product/"}}, sort: {order: DESC, fields: name}) {
       edges {
         node {
           childImageSharp {
-            sizes {
+            fluid {
               src
               originalName
             }
@@ -20,12 +20,12 @@ const ProductImages = () => {
     }
   }  
     `)
-  const allImagesSorted = data.allFile.edges.sort()
-  const allImages = allImagesSorted.map((image, index) => {
-    return <div key={index.toString()} className="imgContainerGallery"><img src={image.node.childImageSharp.sizes.src} /></div>
+  const imageList = data.allFile.edges
+  const allImages = imageList.map((image, index) => {
+    return <div key={index.toString()} className="imgContainerGallery"><img src={image.node.childImageSharp.fluid.src} /></div>
   });
   const allImagesSize = allImages.length
-  return (<Book sliderLength={allImagesSize} images={allImagesSorted} />)
+  return (<Book sliderLength={allImagesSize} images={allImages} />)
 }
 
 export default ProductImages

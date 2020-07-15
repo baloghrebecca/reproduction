@@ -124,7 +124,6 @@ export default class GalleryContainer extends React.Component {
         currentPosition: position
       })
     }
-
   }
 
   handleOnLoad = (e) => {
@@ -152,16 +151,13 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleTouchMove = (e) => {
-    console.log('touchmove');
     const posX2 = Math.floor(this.state.posX1 - e.touches[0].clientX)
     const sliderPositionLeft = this.slider.current.offsetLeft
-    const position = Math.floor(sliderPositionLeft - posX2)
+    const position = Math.floor(sliderPositionLeft - (posX2+60))
     this.setState({
       posX2: posX2,
       currentPosition: position
     })
-
-    console.log('endleft', this.state.endOfLeft, 'endRight', this.state.endOfRight, 'current position', -this.state.currentPosition)
   }
 
   handleTouchEnd = () => {

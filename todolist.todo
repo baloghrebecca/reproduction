@@ -7,6 +7,7 @@ GENERAL:
 SLIDER: 
     ☐ End of Slider right and left bump
     ☐ Fancy: slider on arrow left and right
+    ☐ middle on mobile
 
 DEPLOYMENT:
     ☐ Deploy latest version 
