@@ -1,4 +1,4 @@
-@import "../styles/index.scss";
+@import "../styles/variables.scss";
 
 //Pages
 
@@ -37,7 +37,7 @@
   display: block;
   margin-right: 100px;
   // min-width: 100%;
-  width: 100%;
+  // width: 100%;
 }
 
 .imgContainerGallery img {

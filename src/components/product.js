@@ -1,12 +1,13 @@
 import React from 'react'
 import './pages.scss'
 import { Link } from 'gatsby'
-import Slides from './slidesComponent'
+import Slider from './Slider'
+import Images from '../services/getGalleryImages'
 
 const ProductPage = () => {
     return (
         <section id="productPageWrapper">
-                <Slides />
+                <Slider images={<Images />} />
             <div id="aboutProductMobile">
                     <p>
                     <strike>€25.00</strike> €20.00
@@ -16,7 +17,6 @@ const ProductPage = () => {
                     </p>
                 </div>
             <div id="aboutProductPageWrapper">
-            
                 <div className="col1">
                     <h2>Discipline</h2>
                     <p>The Vienna-based photo collective Fountain’s Edit sheds a light on the notion of discipline in six series and an accompanying glossary. The softcover book underlines and emphasizes their different photographic styles and aesthetics by using a different kind of paper for each series. </p>

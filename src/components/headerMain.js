@@ -92,7 +92,7 @@ export default class HeaderMain extends React.Component {
                         <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/books'>BOOKS</Link>
                         <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/about'>ABOUT</Link>
                         <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/stockings'>STOCKINGS</Link>
-                        <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/'>0 ITEMS (0€)</Link>
+                        <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/cart'>0 ITEMS (0€)</Link>
                     </div>
                     <div>
                         <Link onClick={this.handleClickLink} activeClassName="activeMobile" to='/imprint'>IMPRINT</Link>
@@ -108,7 +108,7 @@ export default class HeaderMain extends React.Component {
                     <Link activeClassName="active" to='/about'> ABOUT</Link>,
                     <Link activeClassName="active" to='/stockings'> STOCKINGS</Link>
                 </nav>
-                <Link id="cartMain" to='/'>0 ITEMS (0€)</Link>
+                <Link id="cartMain" to='/cart'>2 ITEMS (35€)</Link>
             </header>
         </>)
     };

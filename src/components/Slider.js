@@ -1,5 +1,6 @@
 import * as React from "react"
 import './pages.scss'
+import Slider from '../services/getGalleryImages.js'
 
 export default class GalleryContainer extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ export default class GalleryContainer extends React.Component {
       posX2: 0,
       slides: '',
       slideSize: '',
-      endOfRight: '',
+      rightEndOfSlider: '',
       currentPosition: '',
       index: 0
     }
@@ -20,7 +21,7 @@ export default class GalleryContainer extends React.Component {
   handleResize = () => this.setState({
     containerWidth: window.innerWidth,
     currentPosition: window.innerWidth / 2.5,
-    endOfLeft: window.innerWidth / 2.5,
+    leftEndOfSlider: window.innerWidth / 2.5,
   });
 
   componentDidMount() {
@@ -74,15 +75,15 @@ export default class GalleryContainer extends React.Component {
     })
     e.preventDefault();
     //check if right end of slider has been reached
-    if (this.state.currentPosition < -this.state.endOfRight) {
-      const inititalPosition = this.state.endOfLeft
+    if (this.state.currentPosition < -this.state.rightEndOfSlider) {
+      const inititalPosition = this.state.leftEndOfSlider
       this.setState({
         currentPosition: inititalPosition,
       })
     }
     //check if start of slider has been reached
-    if (this.state.currentPosition > this.state.endOfLeft) {
-      const inititalPosition = this.state.endOfLeft
+    if (this.state.currentPosition > this.state.leftEndOfSlider) {
+      const inititalPosition = this.state.leftEndOfSlider
       this.setState({
         currentPosition: inititalPosition,
       })
@@ -95,7 +96,7 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleKeyDown = (e) => {
-    const widthOfStep = this.state.endOfLeft
+    const widthOfStep = this.state.leftEndOfSlider
     const sliderPositionLeft = this.slider.current.offsetLeft
     this.setState({
       step: widthOfStep
@@ -103,20 +104,20 @@ export default class GalleryContainer extends React.Component {
 
     if (e.keyCode === 39) {
       if (-this.state.currentPosition > this.state.endSlidesRight) {
-        this.setState({ currentPosition: this.state.endOfLeft })
+        this.setState({ currentPosition: this.state.leftEndOfSlider })
         return;
       }
       const position = sliderPositionLeft - widthOfStep
       this.setState({
         currentPosition: position,
         //right end of container
-        endOfRight: this.slider.current.getBoundingClientRect().right
+        rightEndOfSlider: this.slider.current.getBoundingClientRect().right
       })
     }
-    // console.log('position', this.state.currentPosition, 'left', this.state.endOfLeft, 'right', this.state.endSlidesRight);
+    // console.log('position', this.state.currentPosition, 'left', this.state.leftEndOfSlider, 'right', this.state.endSlidesRight);
     if (e.keyCode === 37) {
-      if (this.state.currentPosition > this.state.endOfLeft) {
-        this.setState({ currentPosition: this.state.endOfLeft })
+      if (this.state.currentPosition > this.state.leftEndOfSlider) {
+        this.setState({ currentPosition: this.state.leftEndOfSlider })
         return;
       }
       const position = sliderPositionLeft + widthOfStep
@@ -130,13 +131,11 @@ export default class GalleryContainer extends React.Component {
     window.scrollBy(0, 1);
     const firstSlideSize = this.slider.current.getElementsByClassName("imgContainerGallery")[0].clientWidth
     const sliderArray = this.slider.current.getElementsByClassName("imgContainerGallery")
-    const slides = this.slider.current
     const endOfSlider = this.slider.current.scrollWidth - window.innerWidth / 3
     this.setState({
       sliderArray: sliderArray,
-      slides: slides,
       slideSize: firstSlideSize,
-      endOfRight: endOfSlider
+      rightEndOfSlider: endOfSlider
     })
   }
 
@@ -162,15 +161,15 @@ export default class GalleryContainer extends React.Component {
 
   handleTouchEnd = () => {
     document.body.style.overflow = ""
-    const { currentPosition, endOfLeft, endOfRight} = this.state
-    if (currentPosition > endOfLeft) {
+    const { currentPosition, leftEndOfSlider, rightEndOfSlider} = this.state
+    if (currentPosition > leftEndOfSlider) {
       this.setState({
-        currentPosition: endOfLeft
+        currentPosition: leftEndOfSlider
       })
     }
-    if (endOfRight < -currentPosition) {
+    if (rightEndOfSlider < -currentPosition) {
       this.setState({
-        currentPosition: endOfLeft
+        currentPosition: leftEndOfSlider
       })
     }
   }
@@ -196,7 +195,7 @@ export default class GalleryContainer extends React.Component {
           ref={this.slider}
           style={{ left: `${this.state.currentPosition}px`, cursor: this.state.cursor }}
           id="slides">
-          {this.props.children}
+          {this.props.images}
         </div>
       </div>
     </>)

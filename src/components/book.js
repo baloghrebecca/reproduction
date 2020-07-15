@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './books.scss'
-import '../styles/boockup.css'
 import { Link } from 'gatsby'
-import ProductImages from './getProductImages'
 
 const Book = (props) => {
     const [index, setIndex] = useState(0);
@@ -20,9 +18,9 @@ const Book = (props) => {
         //split images across the width of the element with the base
         //so we devide the element and set an image according to the percentage the mouse is moving across the element
         const imageNumber = Math.floor(percentage * sliderLength)
-        
-        if (imageNumber > sliderLength-1 || imageNumber === sliderLength) {
-            setIndex(sliderLength-1)
+
+        if (imageNumber > sliderLength - 1 || imageNumber === sliderLength) {
+            setIndex(sliderLength - 1)
             return;
         }
         if (x < 0) {
@@ -43,16 +41,12 @@ const Book = (props) => {
 
     const handleTouchMove = (e) => {
         const { sliderLength } = props
-        //get the x position of the element 
         const x = e.touches[0].clientX
-        //get elements width
         const width = e.currentTarget.offsetWidth
-        console.log('width',);
-        //base to calculate how much the mouse is on the way across 
         const percentage = x / width
         const imageNumber = Math.floor(percentage * sliderLength)
-        if (imageNumber > sliderLength-1 || imageNumber === sliderLength) {
-            setIndex(sliderLength-1)
+        if (imageNumber > sliderLength - 1 || imageNumber === sliderLength) {
+            setIndex(sliderLength - 1)
             return;
         }
         if (x < 0) {
@@ -61,17 +55,34 @@ const Book = (props) => {
         } else {
             setIndex(imageNumber)
         }
+    }
 
+    //go back to original position, slowly
+    const handleMouseLeave = () => {
+        setIntervalLimited(function () {
+            if (index > 0 && index < props.sliderLength) {
+                setIndex(prevIndex => prevIndex - 1)
+            }
+            console.log(index);
+        }, 10, index-1)
+
+        function setIntervalLimited(callback, interval, x) {
+            for (var i = 0; i < x; i++) {
+                setTimeout(callback, i * interval);
+            }
+        }
     }
 
     return (
         <div className="book">
-            <div onTouchMove={handleTouchMove} onMouseMove={handleMouseOver} ref={bookRender} className="bookRenderingContainer">
-                <img src={props.images[index].props.children.props.src} />
+            <div onTouchEnd={handleMouseLeave} onTouchMove={handleTouchMove} onMouseMove={handleMouseOver} ref={bookRender} className="bookRenderingContainer">
+                <img onMouseLeave={handleMouseLeave} src={props.images[index].props.children.props.src} />
             </div>
-            <h2 className="bookTitle">FOUNTAIN’S EDIT</h2>
-            <p><span className="priceMobile"><strike>€25.00</strike> €20.00<br /></span>
-                <Link to='/product-details'>DISCIPLIN</Link> <span className="priceDesktop"><sup><strike>€25.00</strike> €20.00</sup></span></p>
+            <div>
+                <h2 className="bookTitle">FOUNTAIN’S EDIT</h2>
+                <p><span className="priceMobile"><strike>€25.00</strike> €20.00<br /></span>
+                    <Link to='/product-details'>DISCIPLIN</Link> <span className="priceDesktop"><sup><strike>€25.00</strike> €20.00</sup></span></p>
+            </div>
         </div>
     )
 }

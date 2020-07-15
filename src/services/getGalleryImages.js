@@ -1,7 +1,7 @@
 import React from 'react'
-import './pages.scss'
 import { useStaticQuery, graphql } from "gatsby"
 //https://codepen.io/cconceicao/pen/PBQawy
+
 const Images = () => {
   const data = useStaticQuery(graphql`
   query MyQuery {
@@ -22,7 +22,7 @@ const Images = () => {
   const allImagesSorted = data.allFile.edges.sort()
   const allImages = allImagesSorted.map((image, index) => {
     // return <div key={index.toString()} className="imgContainerGallery"><img src={image.node.childImageSharp.sizes.src} /></div>
-    return <div draggable="false" key={index.toString()} className="imgContainerGallery"><img draggable="false" src={image.node.childImageSharp.sizes.src} /></div>
+    return <div draggable="false" key={index.toString()} className="imgContainerGallery"><img draggable="false" aria-label={image.node.childImageSharp.sizes.originalName} src={image.node.childImageSharp.sizes.src} /></div>
   });
 
   return allImages;

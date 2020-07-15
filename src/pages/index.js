@@ -1,7 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import '../styles/index.scss'
-import HeaderLandingPageCopy from '../components/headerLandingPageCopy'
+import HeaderLandingPageCopy from '../components/headerLandingPage'
 import LayoutLandingPage from '../components/layoutLandingPage'
 
 export default class Home extends React.Component {

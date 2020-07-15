@@ -31,7 +31,7 @@ export default class About extends React.Component {
     return (<>
       <HeaderMain />
       <LayoutNoMargin>
-      <ProductPage />
+        <ProductPage />
       </LayoutNoMargin>
     </>)
   }
