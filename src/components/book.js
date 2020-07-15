@@ -6,7 +6,7 @@ import ProductImages from './getProductImages'
 
 const Book = (props) => {
     const [index, setIndex] = useState(0);
-    const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+    const [windowWidth, setWindowWidth] = useState()
     const bookRender = useRef()
 
     const handleMouseOver = (e) => {
@@ -35,6 +35,7 @@ const Book = (props) => {
 
     //update on window width resize
     useEffect(() => {
+        setWindowWidth(window.innerWidth)
         if (window.innerWidth != windowWidth) {
             setWindowWidth(window.innerWidth)
         }
