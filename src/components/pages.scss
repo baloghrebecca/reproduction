@@ -150,6 +150,7 @@ img {
 
 @media (max-width: 750px) {
   #galleryProductPage {
+    margin-top: 45px;
     height: 410px;
   }
 
@@ -174,7 +175,7 @@ img {
 
   #galleryProductPageMobile {
     // position: relative;
-    margin-top: 60px;
+    margin-top: 45px;
     overflow: hidden;
     background-color: $primary-grey;
     height: 410px;

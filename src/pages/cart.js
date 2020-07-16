@@ -5,8 +5,10 @@ import Cart from '../components/Cart'
 import HeaderMain from '../components/headerMain'
 
 export default class CartPage extends React.Component {
-  render() {
+  componentDidMount() {
     document.body.style.overflow = "";
+  }
+  render() {
     return (<>
       <HeaderMain />
       <LayoutNoMargin>
