@@ -9,6 +9,7 @@ const Book = (props) => {
 
     const handleMouseOver = (e) => {
         const { sliderLength } = props
+        document.body.style.overflow = "hidden"
         //get the x position of the element 
         const x = e.nativeEvent.offsetX
         //get elements width
@@ -40,6 +41,8 @@ const Book = (props) => {
     });
 
     const handleTouchMove = (e) => {
+        document.body.style.overflow = "hidden"
+        //Refactor, maybe? It didn't work putting it all in the handleMouseOver
         const { sliderLength } = props
         const x = e.touches[0].clientX
         const width = e.currentTarget.offsetWidth
@@ -59,11 +62,11 @@ const Book = (props) => {
 
     //go back to original position, slowly
     const handleMouseLeave = () => {
+        document.body.style.overflow = ""
         setIntervalLimited(function () {
             if (index > 0 && index < props.sliderLength) {
                 setIndex(prevIndex => prevIndex - 1)
             }
-            console.log(index);
         }, 10, index-1)
 
         function setIntervalLimited(callback, interval, x) {

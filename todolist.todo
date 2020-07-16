@@ -4,13 +4,7 @@ HEADER:
 GENERAL:
 
 SLIDER: 
-    ☐ End of Slider right and left bump
-    ☐ Fancy: slider on arrow left and right
-    ☐ middle on mobile
-    ☐ End of Slider on the right not correct
-
-DEPLOYMENT:
-    ☐ Deploy latest version 
+    ☐ swipe left brings you to the end 
 
 STARTSEITE:
     ☐ Morping compatible for Safari, + Chrome mobile
@@ -36,3 +30,18 @@ FIXES:
     ☐ index.scss -> variables.scss 
     ☐ refactor layout component
 
+    // onLoad={handleOnLoad}
+    // onTouchMove={handleDrag}
+    // onTouchEnd={handleDragEnd}
+    // onDragStart={handleDragStartStop}
+    // onClick={handleDragEnd}
+    // onMouseUp={handleDrag}
+    // onMouseDown={handleDragStart}
+    // onTouchStart={handleTouchStart}
+    // ref={container}
+    // onTouchMove={handleTouchMove}
+    // style={{ overflow: overflow }}
+
+    // draggable="false"
+    // ref={slider}
+    // style={{ left: `${currentPosition}px`}}

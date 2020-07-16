@@ -6,6 +6,7 @@ import HeaderMain from '../components/headerMain'
 
 export default class CartPage extends React.Component {
   render() {
+    document.body.style.overflow = "";
     return (<>
       <HeaderMain />
       <LayoutNoMargin>

@@ -1,6 +1,5 @@
 import * as React from "react"
 import './pages.scss'
-import Slider from '../services/getGalleryImages.js'
 
 export default class GalleryContainer extends React.Component {
   constructor(props) {
@@ -18,12 +17,14 @@ export default class GalleryContainer extends React.Component {
     this.slider = React.createRef();
   }
 
-  handleResize = () => this.setState({
-    containerWidth: window.innerWidth,
-    currentPosition: window.innerWidth / 2.5,
-    leftEndOfSlider: window.innerWidth / 2.5,
-  });
-
+  handleResize = () => {
+      this.setState({
+        containerWidth: window.innerWidth,
+        currentPosition: window.innerWidth / 3,
+        leftEndOfSlider: window.innerWidth / 3,
+      });
+    }
+  
   componentDidMount() {
     this.setState({
       //right end of container
@@ -33,12 +34,12 @@ export default class GalleryContainer extends React.Component {
     this.handleResize();
     //repositions slideshow to the middle of the screen when resizing the browsers window
     window.addEventListener('resize', this.handleResize)
-    window.addEventListener("keydown", this.handleKeyDown);
+
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize)
-    window.removeEventListener("keydown", this.handleKeyDown);
+
   }
 
   handleDrag = (e) => {
@@ -69,62 +70,9 @@ export default class GalleryContainer extends React.Component {
 
   }
 
-  handleDragEnd = (e) => {
-    this.setState({
-      cursor: 'pointer'
-    })
-    e.preventDefault();
-    //check if right end of slider has been reached
-    if (this.state.currentPosition < -this.state.rightEndOfSlider) {
-      const inititalPosition = this.state.leftEndOfSlider
-      this.setState({
-        currentPosition: inititalPosition,
-      })
-    }
-    //check if start of slider has been reached
-    if (this.state.currentPosition > this.state.leftEndOfSlider) {
-      const inititalPosition = this.state.leftEndOfSlider
-      this.setState({
-        currentPosition: inititalPosition,
-      })
-    }
-  }
-
   handleDragStartStop = (e) => {
     //disable ghost images when dragging the images
     e.preventDefault()
-  }
-
-  handleKeyDown = (e) => {
-    const widthOfStep = this.state.leftEndOfSlider
-    const sliderPositionLeft = this.slider.current.offsetLeft
-    this.setState({
-      step: widthOfStep
-    })
-
-    if (e.keyCode === 39) {
-      if (-this.state.currentPosition > this.state.endSlidesRight) {
-        this.setState({ currentPosition: this.state.leftEndOfSlider })
-        return;
-      }
-      const position = sliderPositionLeft - widthOfStep
-      this.setState({
-        currentPosition: position,
-        //right end of container
-        rightEndOfSlider: this.slider.current.getBoundingClientRect().right
-      })
-    }
-    // console.log('position', this.state.currentPosition, 'left', this.state.leftEndOfSlider, 'right', this.state.endSlidesRight);
-    if (e.keyCode === 37) {
-      if (this.state.currentPosition > this.state.leftEndOfSlider) {
-        this.setState({ currentPosition: this.state.leftEndOfSlider })
-        return;
-      }
-      const position = sliderPositionLeft + widthOfStep
-      this.setState({
-        currentPosition: position
-      })
-    }
   }
 
   handleOnLoad = (e) => {
@@ -152,32 +100,31 @@ export default class GalleryContainer extends React.Component {
   handleTouchMove = (e) => {
     const posX2 = Math.floor(this.state.posX1 - e.touches[0].clientX)
     const sliderPositionLeft = this.slider.current.offsetLeft
-    const position = Math.floor(sliderPositionLeft - (posX2+60))
+    const position = Math.floor(sliderPositionLeft - (posX2 + 60))
     this.setState({
       posX2: posX2,
       currentPosition: position
     })
   }
 
-  handleTouchEnd = () => {
-    document.body.style.overflow = ""
-    const { currentPosition, leftEndOfSlider, rightEndOfSlider} = this.state
-    if (currentPosition > leftEndOfSlider) {
-      this.setState({
-        currentPosition: leftEndOfSlider
-      })
-    }
-    if (rightEndOfSlider < -currentPosition) {
-      this.setState({
-        currentPosition: leftEndOfSlider
-      })
+  handleDragEnd = (e) => {
+    this.setState({
+      cursor: 'pointer'
+    })
+    e.preventDefault();
+    const { currentPosition, leftEndOfSlider, rightEndOfSlider } = this.state
+    const hasReachedTheEnd = currentPosition > leftEndOfSlider || rightEndOfSlider < -currentPosition || this.slider.current.offsetWidth < this.container.current.offsetWidth
+    if (hasReachedTheEnd) {
+      setTimeout(() => {
+        this.setState({ currentPosition: leftEndOfSlider })
+      }, 500)
     }
   }
+
 
   render() {
     return (<>
       <div onLoad={this.handleOnLoad}
-        onKeyDown={this.handleKeyDown}
         onTouchMove={this.handleDrag}
         onTouchEnd={this.handleDragEnd}
         onDragStart={this.handleDragStartStop}
@@ -185,7 +132,6 @@ export default class GalleryContainer extends React.Component {
         onMouseUp={this.handleDrag}
         onMouseDown={this.handleDragStart}
         onTouchStart={this.handleTouchStart}
-        onTouchEnd={this.handleTouchEnd}
         ref={this.container}
         onTouchMove={this.handleTouchMove}
         style={{ overflow: this.state.overflow }}
@@ -201,5 +147,3 @@ export default class GalleryContainer extends React.Component {
     </>)
   }
 }
-
-//https://medium.com/@claudiaconceic/infinite-plain-javascript-slider-click-and-touch-events-540c8bd174f2
