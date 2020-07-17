@@ -40,34 +40,12 @@ export default class HeaderLandingPageCopy extends React.Component {
         smoothscroll.polyfill();
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
-        window.addEventListener('scroll', function (e) {
-            var fired = false;
-            if (fired === false) {
-                e.preventDefault()
-                document.body.style.overflow = "hidden"
-                let navigation = 0
-                if (window.innerWidth < 750) {
-                    navigation = 50
-                } else {
-                    navigation = 66
-                }
-                anime({
-                    targets: '#landingPageWrapper',
-                    translateY: -window.innerHeight + navigation,
-                    easing: 'easeInOutQuad',
-                    complete: function (anim) {
-                        setTimeout(navigate('/books'), 100)
-                    }
-                });
-                fired = true;
-            }
-        }, true);
+        window.addEventListener('scroll', this.handleScroll);
     }
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
         window.removeEventListener('scroll', this.handleScroll);
-
     }
 
     updateWindowDimensions = () => {
@@ -111,22 +89,26 @@ export default class HeaderLandingPageCopy extends React.Component {
     };
 
     handleScroll = (e) => {
-        e.preventDefault()
-        document.body.style.overflow = "hidden"
-        let navigation = 0
-        if (window.innerWidth < 750) {
-            navigation = 50
-        } else {
-            navigation = 60
-        }
-        anime({
-            targets: '#landingPageWrapper',
-            translateY: -window.innerHeight + navigation,
-            easing: 'easeInOutQuad',
-            complete: function (anim) {
-                setTimeout(navigate('/books'), 600)
+        var fired = false;
+        if (fired === false) {
+            e.preventDefault()
+            document.body.style.overflow = "hidden"
+            let navigation = 0
+            if (window.innerWidth < 750) {
+                navigation = 55
+            } else {
+                navigation = 64
             }
-        });
+            anime({
+                targets: '#landingPageWrapper',
+                translateY: -window.innerHeight + navigation,
+                easing: 'easeInOutQuad',
+                complete: function (anim) {
+                    setTimeout(navigate('/books'), 100)
+                }
+            });
+            fired = true;
+        }
     }
 
 
