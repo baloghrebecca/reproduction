@@ -4,7 +4,13 @@ HEADER:
 GENERAL:
 
 SLIDER: 
-    ☐ swipe left brings you to the end 
+    ✔ swipe left brings you to the end @done (7/17/2020, 9:58:15 AM)
+    ✔ check other slider again (mobile) @done (7/17/2020, 12:32:27 PM)
+    ☐ mobile rezising smoother 
+    ✔ mobile, jump back to the beginning when dragging left at the end @done (7/17/2020, 10:49:37 AM)
+
+SCROLL: 
+    ☐ check scoll function, it's not working with the navigation height 
 
 STARTSEITE:
     ☐ Morping compatible for Safari, + Chrome mobile
@@ -24,24 +30,12 @@ MENÜ:
 
 BOOKS:
     ☐ all page transitions same @critical (books comes from above when scrolling down landing page)
-    ☐ sometimes mouseLeave throws an error (probably problem with setIndex)
+    ☐ sometimes mouseLeave throws an error (probably problem with setIndex) @high
+    ✔ overflow hidden delete @critical @done (7/16/2020, 8:23:35 PM)
     
 FIXES: 
-    ☐ index.scss -> variables.scss 
+    ✔ index.scss -> variables.scss @done (7/16/2020, 8:20:28 PM)
     ☐ refactor layout component
 
-    // onLoad={handleOnLoad}
-    // onTouchMove={handleDrag}
-    // onTouchEnd={handleDragEnd}
-    // onDragStart={handleDragStartStop}
-    // onClick={handleDragEnd}
-    // onMouseUp={handleDrag}
-    // onMouseDown={handleDragStart}
-    // onTouchStart={handleTouchStart}
-    // ref={container}
-    // onTouchMove={handleTouchMove}
-    // style={{ overflow: overflow }}
 
-    // draggable="false"
-    // ref={slider}
-    // style={{ left: `${currentPosition}px`}}
+ 

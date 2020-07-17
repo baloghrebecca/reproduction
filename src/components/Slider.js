@@ -10,6 +10,7 @@ export default class GalleryContainer extends React.Component {
       slides: '',
       slideSize: '',
       rightEndOfSlider: '',
+      leftEndOfSlider: '',
       currentPosition: '',
       index: 0
     }
@@ -18,28 +19,69 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleResize = () => {
+    if (window.innerWidth < 750) {
       this.setState({
-        containerWidth: window.innerWidth,
+        currentPosition: 0,
+        leftEndOfSlider: 0
+      });
+    } else {
+      this.setState({
         currentPosition: window.innerWidth / 3,
-        leftEndOfSlider: window.innerWidth / 3,
+        leftEndOfSlider: window.innerWidth / 3
       });
     }
-  
-  componentDidMount() {
+    const end = this.slider.current.scrollWidth - window.innerWidth / 2
     this.setState({
-      //right end of container
-      endSlidesRight: this.slider.current.getBoundingClientRect().right
-    })
+      containerWidth: window.innerWidth,
+      rightEndOfSlider: end,
+    });
+  }
+
+  componentDidMount() {
+    if (window.innerWidth < 750) {
+      this.setState({
+        currentPosition: 0,
+        leftEndOfSlider: 0
+      });
+    } else {
+      this.setState({
+        currentPosition: window.innerWidth / 3,
+        leftEndOfSlider: window.innerWidth / 3
+      });
+    }
     //position the slideshow correctly according to window size
     this.handleResize();
     //repositions slideshow to the middle of the screen when resizing the browsers window
     window.addEventListener('resize', this.handleResize)
+  }
 
+  handleOnLoad = (e) => {
+    window.scrollBy(0, 1);
+    const endOfSlider = this.slider.current.scrollWidth - window.innerWidth / 2
+    const firstSlideSize = this.slider.current.getElementsByClassName("imgContainerGallery")[0].clientWidth
+    const sliderArray = this.slider.current.getElementsByClassName("imgContainerGallery")
+    if (window.innerWidth < 750) {
+      if (window.innerWidth < 750) {
+        this.setState({
+          currentPosition: 0,
+          leftEndOfSlider: 0
+        });
+      } else {
+        this.setState({
+          currentPosition: window.innerWidth / 3,
+          leftEndOfSlider: window.innerWidth / 3
+        });
+      }
+    }
+    this.setState({
+      sliderArray: sliderArray,
+      slideSize: firstSlideSize,
+      rightEndOfSlider: endOfSlider,
+    })
   }
 
   componentWillUnmount() {
     window.removeEventListener('resize', this.handleResize)
-
   }
 
   handleDrag = (e) => {
@@ -59,6 +101,7 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleDragStart = (e) => {
+    document.body.style.overflow = "hidden"
     this.setState({
       cursor: 'grabbing'
     })
@@ -73,18 +116,6 @@ export default class GalleryContainer extends React.Component {
   handleDragStartStop = (e) => {
     //disable ghost images when dragging the images
     e.preventDefault()
-  }
-
-  handleOnLoad = (e) => {
-    window.scrollBy(0, 1);
-    const firstSlideSize = this.slider.current.getElementsByClassName("imgContainerGallery")[0].clientWidth
-    const sliderArray = this.slider.current.getElementsByClassName("imgContainerGallery")
-    const endOfSlider = this.slider.current.scrollWidth - window.innerWidth / 3
-    this.setState({
-      sliderArray: sliderArray,
-      slideSize: firstSlideSize,
-      rightEndOfSlider: endOfSlider
-    })
   }
 
   handleTouchStart = (e) => {
@@ -108,6 +139,8 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleDragEnd = (e) => {
+    console.log('pos', this.state.currentPosition, 'endOfRight', this.state.rightEndOfSlider);
+    document.body.style.overflow = ""
     this.setState({
       cursor: 'pointer'
     })

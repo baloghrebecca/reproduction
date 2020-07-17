@@ -9,7 +9,7 @@ const Book = (props) => {
 
     const handleMouseOver = (e) => {
         const { sliderLength } = props
-        document.body.style.overflow = "hidden"
+        document.body.style.overflow = ""
         //get the x position of the element 
         const x = e.nativeEvent.offsetX
         //get elements width

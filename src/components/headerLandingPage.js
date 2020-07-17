@@ -4,7 +4,8 @@ import './headerMain.scss'
 import Forms from './forms'
 import { navigate } from '@reach/router';
 import smoothscroll from 'smoothscroll-polyfill';
-import { isFirefox } from "react-device-detect";
+import anime from 'animejs/lib/anime.es.js';
+import { isFirefox, isChrome, isEdge, isSafari, isIE } from "react-device-detect";
 
 export default class HeaderLandingPageCopy extends React.Component {
     constructor(props) {
@@ -24,10 +25,10 @@ export default class HeaderLandingPageCopy extends React.Component {
             cursor: "pointer",
             heightBean: "18.5",
             widthBean: "33",
-            header: 'headerMainLandingPage',
             hasScrolled: true,
             counter: 0
         }
+        this.forms = React.createRef()
         this.navigation = React.createRef()
         this.scroll = React.createRef()
     };
@@ -36,9 +37,31 @@ export default class HeaderLandingPageCopy extends React.Component {
         document.onload = () => {
             smoothscroll.polyfill();
         }
+        smoothscroll.polyfill();
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
-        window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('scroll', function (e) {
+            var fired = false;
+            if (fired === false) {
+                e.preventDefault()
+                document.body.style.overflow = "hidden"
+                let navigation = 0
+                if (window.innerWidth < 750) {
+                    navigation = 50
+                } else {
+                    navigation = 66
+                }
+                anime({
+                    targets: '#landingPageWrapper',
+                    translateY: -window.innerHeight + navigation,
+                    easing: 'easeInOutQuad',
+                    complete: function (anim) {
+                        setTimeout(navigate('/books'), 100)
+                    }
+                });
+                fired = true;
+            }
+        }, true);
     }
 
     componentWillUnmount() {
@@ -88,34 +111,30 @@ export default class HeaderLandingPageCopy extends React.Component {
     };
 
     handleScroll = (e) => {
-            var scrolled = document.scrollingElement.scrollTop;
-            var position = this.navigation.current.offsetTop;
-            this.setState({ opacity: 0, color: '#dddddd' })
-
-            //if scrollTop == offsetTop 
-            if (scrolled >= position) {
-                setTimeout(() => {
-                    navigate('/books')
-                }, 300)
-            }
-
-            if (!isFirefox) {
-                if (this.state.hasScrolled) {
-                    this.setState({ hasScrolled: false });
-                    this.navigation.current.scrollIntoView({ behavior: 'smooth' });
-                    document.body.style.overflow = "hidden";
-                } 
-            } else if (isFirefox) {
-                this.navigation.current.scrollIntoView();
-            } else {
-                return;
-            }
+        e.preventDefault()
+        document.body.style.overflow = "hidden"
+        let navigation = 0
+        if (window.innerWidth < 750) {
+            navigation = 50
+        } else {
+            navigation = 60
         }
+        anime({
+            targets: '#landingPageWrapper',
+            translateY: -window.innerHeight + navigation,
+            easing: 'easeInOutQuad',
+            complete: function (anim) {
+                setTimeout(navigate('/books'), 600)
+            }
+        });
+    }
+
+
 
     render() {
         return (<>
             <div id="landingPageWrapper">
-                <div onWheel={this.handleScroll} onClick={this.handleScroll} id="formsDiv" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
+                <div ref={this.forms} onClick={this.handleScroll} id="formsDiv" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
                     <Forms />
                 </div>
                 <nav id="mobileNav" style={{ display: this.state.display, transform: this.state.top }}>

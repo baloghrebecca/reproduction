@@ -1,5 +1,9 @@
 @import "../styles/variables.scss";
 
+#footerWrapper {
+  margin-top: $margin-bottom-primary;
+}
+
 #footer {
   width: 100%;
   z-index: 100;
@@ -19,6 +23,11 @@
 }
 
 @media (max-width: 1100px) {
+
+  #footerWrapper {
+    margin-top: $margin-bottom-mobile;
+  }
+
   #footer {
     margin-top: 0px;
     display: none;

@@ -7,7 +7,6 @@ const SliderMobile = (props) => {
   const [sliderLength, setSliderLength] = useState()
   const [posX1, setPosX1] = useState()
   const [windowWidth, setWindowWith] = useState()
-  const [hasReachedLeftEnd, setHasReachedLeftEnd] = useState(false)
   const slider = useRef()
 
   useEffect(() => {
@@ -30,22 +29,24 @@ const SliderMobile = (props) => {
 
   const handleDragEnd = () => {
     const halfOfWindowWith = windowWidth / 2
-    if (posX1 < halfOfWindowWith && counter < sliderLength) {
+    if (posX1 < halfOfWindowWith && counter <= sliderLength) {
+      if (counter === 1) {
+        const endPosition = 100 * (sliderLength)
+        setCounter(sliderLength + 1)
+        setCurrentPosition(-endPosition)
+      }
       setCounter(prevCounter => prevCounter - 1)
       setCurrentPosition(prevCurrentPosition => prevCurrentPosition + 100)
     }
-    if (posX1 > halfOfWindowWith && counter < sliderLength && !hasReachedLeftEnd) {
+    if (posX1 > halfOfWindowWith && counter <= sliderLength) {
       setCounter(prevCounter => prevCounter + 1)
       setCurrentPosition(prevCurrentPosition => prevCurrentPosition - 100)
-    }
-
-    if (counter > sliderLength - 1 ) {
-      setCounter(1)
-      setCurrentPosition(0)
-      setHasReachedLeftEnd(false)
+      if (counter === sliderLength) {
+        setCounter(1)
+        setCurrentPosition(0)
+      }
     }
   }
-
 
   const handleDragStartStop = (e) => {
     //disable ghost images when dragging the images
@@ -65,16 +66,12 @@ const SliderMobile = (props) => {
   return (<>
     <div
       // onLoad={handleOnLoad}
-      // onTouchMove={handleDrag}
       onTouchEnd={handleDragEnd}
       onDragStart={handleDragStartStop}
       onTouchStart={handleDragStart}
       // onClick={handleDragEnd}
       onMouseUp={handleDragEnd}
       onMouseDown={handleDragStart}
-      // ref={container}
-      // onTouchMove={handleTouchMove}
-      // style={{ overflow: overflow }}
       id="galleryProductPageMobile">
       <div
         draggable="false"

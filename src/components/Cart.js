@@ -12,7 +12,8 @@ const Cart = () => {
     //update on window width resize
     
   useEffect(() => {
-    const handleResize = _debounce(() => setWindowWidth(window.innerWidth), 0)
+    setWindowWidth(window.innerWidth)
+    const handleResize = _debounce(() => setWindowWidth(window.innerWidth), 10)
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -23,8 +24,7 @@ const Cart = () => {
     const cartItems = ["DISCIPLINE", "MEMORIES OF THE CAVE"]
     const prices = ["€20.00", "€15.00"]
     const quantities = ["1", "1"]
-    const whichGallery = windowWidth <= 750 ? <CartSliderMobile images={<CartImages />} /> : <CartSlider images={<CartImages />} />
-    console.log(windowWidth, '2');
+    const whichGallery = windowWidth <= 750 ? <CartSliderMobile images={<CartImages class="imgContainerGallery mobileCart" />} /> : <CartSlider images={<CartImages class="imgContainerGallery" />} />
     return (
         <section id="cart" >
             {whichGallery}
