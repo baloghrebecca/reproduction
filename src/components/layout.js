@@ -6,11 +6,12 @@ import { Helmet } from "react-helmet"
 
 //refactor layout
 const Layout = (props) => {
-    const [top, setTop] = useState(100 - Math.floor(window.scrollY / 100 * 10))
+    const [top, setTop] = useState(100)
     const [opacity, setOpacity] = useState(0)
     const content = useRef()
 
     useEffect(() => {
+        // setTop(100 - Math.floor(window.scrollY / 100 * 10))
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
         const foo = () => {

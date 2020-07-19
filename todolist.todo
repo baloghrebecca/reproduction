@@ -9,11 +9,13 @@ SLIDER:
     ✔ mobile rezising smoother @done (7/18/2020, 11:24:24 AM)
     ✔ overflow @done (7/18/2020, 11:22:33 AM)
     ✔ mobile, jump back to the beginning when dragging left at the end @done (7/17/2020, 10:49:37 AM)
-    ☐ slider end later in safari :(
+    ☐ slider end later in safari :( 
 
 SCROLL: 
     ✔ check scoll function, it's not working with the navigation height (kinda...) @done (7/18/2020, 12:46:10 PM)
-    ☐ opacity (optional)
+    ✔ opacity (optional) @done (7/19/2020, 11:27:22 AM)
+    ☐ scroll up on without margin one
+
 
 STARTSEITE:
     ☐ Morping compatible for Safari, + Chrome mobile

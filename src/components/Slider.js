@@ -32,14 +32,12 @@ export default class GalleryContainer extends React.Component {
   handleOnLoad = (e) => {
     const slider = this.slider.current
     window.scrollBy(0, 1);
-    const endOfSlider = slider.scrollWidth - window.innerWidth / 2
     const firstSlideSize = slider.getElementsByClassName("imgContainerGallery")[0].clientWidth
     const sliderArray = slider.getElementsByClassName("imgContainerGallery")
     this.setCurrentPositionAndLeftAndOfSlider();
     this.setState({
       sliderArray: sliderArray,
       slideSize: firstSlideSize,
-      rightEndOfSlider: endOfSlider,
     })
   }
 
@@ -120,6 +118,7 @@ export default class GalleryContainer extends React.Component {
   }
 
   render() {
+    console.log(this.state.leftEndOfSlider, this.state.rightEndOfSlider, this.state.currentPosition);
     return (<>
       <div onLoad={this.handleOnLoad}
         onTouchMove={this.handleDrag}
@@ -155,11 +154,11 @@ export default class GalleryContainer extends React.Component {
     }
     else {
       this.setState({
-        currentPosition: window.innerWidth / 3,
-        leftEndOfSlider: window.innerWidth / 3
+        currentPosition: Math.floor(window.innerWidth / 3),
+        leftEndOfSlider: Math.floor(window.innerWidth / 3)
       });
     }
-    const end = this.slider.current.scrollWidth - window.innerWidth / 2;
+    const end = Math.floor(this.slider.current.scrollWidth - window.innerWidth / 2);
     this.setState({
       containerWidth: window.innerWidth,
       rightEndOfSlider: end,

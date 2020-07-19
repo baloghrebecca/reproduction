@@ -25,6 +25,7 @@ export default class HeaderLandingPageCopy extends React.Component {
             heightBean: "18.5",
             widthBean: "33",
             opacityO: 1,
+            displayText: 'none',
             opacityBean: 0,
         }
         this.forms = React.createRef()
@@ -78,11 +79,38 @@ export default class HeaderLandingPageCopy extends React.Component {
     };
 
     handleChange = () => {
-        this.setState({ text: "LIFE IS BETTER AT THE " })
+        // this.setState({ text: "LIFE IS BETTER AT THE " })
+        const setDisplay = () => this.setState({ displayText: 'inline-block' })
+        setDisplay()
+        anime.timeline({ loop: false })
+        .add({
+            targets: '#poolText',
+            translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
+            easing: "easeOutExpo",
+            duration: 800,
+        })
+        .add({
+            targets: '#text',
+            translateX: [-50,0],
+            opacity: [0, 1],
+            easing: "easeOutExpo",
+            duration: 0,
+            direction: 'alternate',
+        })
     };
 
     handleLeave = () => {
-        this.setState({ text: "" })
+        // this.setState({ text: "" })
+        this.setState({ displayText: 'none' })
+        const displayChange = () => this.setState({ scaleX: 0 })
+        setTimeout(displayChange, 100)
+        anime.timeline({ loop: false })
+        .add({
+            targets: '#poolText',
+            translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
+            easing: "easeOutExpo",
+            duration: 600,
+        })
     };
 
     handleScroll = (link, e) => {
@@ -131,7 +159,7 @@ export default class HeaderLandingPageCopy extends React.Component {
         </svg>
         return (<>
             <div id="landingPageWrapper">
-                <div ref={this.forms} style={{ overflow: 'hidden' }} onClick={() => this.handleScroll('/books')} id="formsDiv" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
+                <div ref={this.forms} style={{ overflow: 'hidden' }} onClick={(e) => this.handleScroll('/books', e)} id="formsDiv" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
                     <Forms />
                 </div>
                 <nav id="mobileNav" style={{ display: this.state.display, transform: this.state.top }}>
@@ -157,11 +185,13 @@ export default class HeaderLandingPageCopy extends React.Component {
                     <h1 id="h1Main"
                         onClick={this.handleClickLogo}
                         onMouseEnter={this.handleChange}
-                        onMouseLeave={this.handleLeave}>{this.state.text} P{this.state.flag ? <span style={{ opacity: this.state.opacityO }}>OO</span> : <span style={{ opacity: this.state.opacityBean }} id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>}L</h1>
+                        onMouseLeave={this.handleLeave}>
+                        <span ref={this.poolText} id='text' style={{ display: this.state.displayText, transform: `translateX(-280px)` }}>LIFE IS BETTER AT THE  </span>
+                        <span id="poolText">P{this.state.flag ? <span style={{ opacity: this.state.opacityO }}>OO</span> : <span style={{ opacity: this.state.opacityBean }} id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>}L</span></h1>
                     <nav id="navMain">
-                        <a onClick={() => this.handleScroll('/books')} style={{cursor: 'pointer'}}>BOOKS</a>,
-                        <a onClick={() => this.handleScroll('/about')} style={{cursor: 'pointer'}}> ABOUT</a>,
-                        <a onClick={() => this.handleScroll('/stockings')} style={{cursor: 'pointer'}}> STOCKINGS</a>
+                        <a onClick={(e) => this.handleScroll('/books', e)} style={{cursor: 'pointer'}}>BOOKS</a>,
+                        <a onClick={(e) => this.handleScroll('/about', e)} style={{cursor: 'pointer'}}> ABOUT</a>,
+                        <a onClick={(e) => this.handleScroll('/stockings', e)} style={{cursor: 'pointer'}}> STOCKINGS</a>
                     </nav>
                     <Link id="cartMain" to='/cart'>2 ITEMS (35€)</Link>
                 </header>

@@ -6,13 +6,14 @@ import { Helmet } from "react-helmet"
 
 //with props we get access to the children (JSX files)
 const LayoutNoMargin = (props) => {
-    const [top, setTop] = useState(100 - Math.floor(window.scrollY/100*10))
+    const [top, setTop] = useState()
     const [opacity, setOpacity] = useState(0)
     const content = useRef()
 
     useEffect(() => {
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+        setTop(100 - Math.floor(window.scrollY / 100 * 10))
         const foo = () => {
             setTop(0)
         }

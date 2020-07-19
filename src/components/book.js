@@ -85,7 +85,7 @@ const Book = (props) => {
             <div>
                 <h2 className="bookTitle">FOUNTAIN’S EDIT</h2>
                 <p><span className="priceMobile"><strike>€25.00</strike> €20.00<br /></span>
-                    <Link to='/product-details'>DISCIPLIN</Link> <span className="priceDesktop"><sup><strike>€25.00</strike> €20.00</sup></span></p>
+                    <Link to='/product-details'>DISCIPLIN</Link> <span className="priceDesktop"><span id="strike"><sup>€25.00</sup></span><sup> €20.00</sup></span></p>
             </div>
         </div>
     )

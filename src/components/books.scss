@@ -10,6 +10,11 @@
     grid-gap: $gap;
 }
 
+#strike {
+    text-decoration: line-through;
+    display: inline-block;
+}
+
 #aboutPoolBooksWrapper {
     min-height: 0;
     min-width:0;

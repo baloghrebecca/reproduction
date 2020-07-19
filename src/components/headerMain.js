@@ -81,23 +81,22 @@ export default class HeaderMain extends React.Component {
             targets: '#poolText',
             translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
             easing: "easeOutExpo",
-            duration: 500,
+            duration: 800,
         })
         .add({
             targets: '#text',
-            // opacity: [0, 1],
-            translateX: [-100,0],
-            easing: "easeInExpo",
+            translateX: [-50,0],
+            opacity: [0, 1],
+            easing: "easeOutExpo",
             duration: 0,
+            direction: 'alternate',
         })
     };
 
     handleLeave = () => {
         this.setState({ displayText: 'none' })
         const displayChange = () => this.setState({ scaleX: 0 })
-        setTimeout(displayChange, 10)
-        // this.setState({ text: "" })
-
+        setTimeout(displayChange, 100)
         anime.timeline({ loop: false })
         .add({
             targets: '#poolText',
@@ -138,8 +137,9 @@ export default class HeaderMain extends React.Component {
                 <h1 id="h1Main"
                     onClick={this.handleClickLogo}
                     onMouseEnter={this.handleChange}
-                    onMouseLeave={this.handleLeave}><span ref={this.poolText} id='text' style={{ display: this.state.displayText, transform: `translateX(-280px)` }}>LIFE IS BETTER AT THE  </span>
-                    <span id="poolText">P<span style={{ transform: `translateY(${this.state.y})` }} id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>L</span></h1>
+                    onMouseLeave={this.handleLeave}>
+                    <span ref={this.poolText} id='text' style={{ display: this.state.displayText, transform: `translateX(-280px)` }}>LIFE IS BETTER AT THE  </span>
+                    <span id="poolText">P<span id="beanWrapper">{this.state.width < 750 ? svgMobile : svg}</span>L</span></h1>
                 <nav id="navMain">
                     <Link activeClassName="active" to='/books'>BOOKS</Link>,
                     <Link activeClassName="active" to='/about'> ABOUT</Link>,
