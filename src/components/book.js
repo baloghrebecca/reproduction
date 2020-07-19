@@ -9,7 +9,7 @@ const Book = (props) => {
 
     const handleMouseOver = (e) => {
         const { sliderLength } = props
-        document.body.style.overflow = ""
+        showOverflow();
         //get the x position of the element 
         const x = e.nativeEvent.offsetX
         //get elements width
@@ -41,7 +41,7 @@ const Book = (props) => {
     });
 
     const handleTouchMove = (e) => {
-        document.body.style.overflow = "hidden"
+        hideOverFlow();
         //Refactor, maybe? It didn't work putting it all in the handleMouseOver
         const { sliderLength } = props
         const x = e.touches[0].clientX
@@ -62,7 +62,8 @@ const Book = (props) => {
 
     //go back to original position, slowly
     const handleMouseLeave = () => {
-        document.body.style.overflow = ""
+        showOverflow();
+        //only repeat x number of times
         setIntervalLimited(function () {
             if (index > 0 && index < props.sliderLength) {
                 setIndex(prevIndex => prevIndex - 1)
@@ -90,3 +91,12 @@ const Book = (props) => {
     )
 }
 export default Book
+
+
+function showOverflow() {
+    document.body.style.overflow = "";
+}
+
+function hideOverFlow() {
+    document.body.style.overflow = "hidden";
+}

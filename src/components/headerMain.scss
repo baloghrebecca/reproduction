@@ -14,12 +14,11 @@
   transition: all ease 1s;
   margin-bottom: $margin-bottom-primary;
   z-index: 10;
-  transition: ease all 0.3s;
+  transition: ease all 1s;
 }
 
 #headerMainLandingPage {
   min-width: 0;
-  background-color: transparent;
   width: 100%;
   position: absolute;
   bottom: 25px;
@@ -29,7 +28,6 @@
   display: grid;
   grid-template-columns: $grid;
   grid-template-rows: 0;
-  background-color: transparent;
   padding: 0 $margin-left-right $margin-top $margin-left-right;
 }
 
@@ -61,10 +59,16 @@
 }
 
 #mobileNestedNav a {
+  line-height: 1;
   width: 100%;
   display: block;
-  padding: 5px 0;
+  padding: 10px 0 4px 0;
   border-top: solid 1px $secondary-gray;
+}
+
+#text {
+  display: inline-block;
+  transition: ease 0.4s all;
 }
 
 #mobileNestedNav a:nth-last-child(1) {
@@ -75,7 +79,13 @@
   color: $secondary-gray;
 }
 
+#poolText {
+  display: inline-block;
+  transition: ease 0.4s all;
+}
+
 #beanWrapper {
+  transition: ease 0.4s all;
   margin: 0 1px;
 }
 
@@ -154,6 +164,11 @@
 #h1Main {
   cursor: default;
   grid-column: 1 / span 4;
+  transition: opacity ease 0.4s;
+}
+
+#h1Main span {
+  transition: opacity ease 1s;
 }
 
 #h1Main:hover {
@@ -178,6 +193,10 @@
 }
 
 @media (max-width: 750px) {
+  #mobileNestedNav a {
+    padding: 6px 0 4px 0;
+  }
+
   #headerMain {
     font-size: $font-size-small;
     height: 50px;

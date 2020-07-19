@@ -71,11 +71,12 @@ a:hover {
 }
 
 .content {
-  transition: transform 0.6s ease;
+  transition: all 0.6s ease;
   padding-top: $margin-bottom-primary;
 }
 
 .contentWithoutMargin {
+  transition: all 0.6s ease;
   padding-top: 2px;
 }
 

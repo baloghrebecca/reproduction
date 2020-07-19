@@ -17,6 +17,7 @@ const SliderMobile = (props) => {
   }, []);
 
   const handleDragStart = (e) => {
+    hideOverflow()
     const { clientX, type, touches } = e
     if (type === 'touchstart') {
       const touch = touches[0]
@@ -28,6 +29,7 @@ const SliderMobile = (props) => {
   }
 
   const handleDragEnd = () => {
+    showOverflow()
     const halfOfWindowWith = windowWidth / 2
     if (posX1 < halfOfWindowWith && counter <= sliderLength) {
       if (counter === 1) {
@@ -65,11 +67,9 @@ const SliderMobile = (props) => {
 
   return (<>
     <div
-      // onLoad={handleOnLoad}
       onTouchEnd={handleDragEnd}
       onDragStart={handleDragStartStop}
       onTouchStart={handleDragStart}
-      // onClick={handleDragEnd}
       onMouseUp={handleDragEnd}
       onMouseDown={handleDragStart}
       id="galleryProductPageMobile">
@@ -88,3 +88,11 @@ const SliderMobile = (props) => {
 }
 
 export default SliderMobile
+
+function showOverflow() {
+  document.body.style.overflow = ""
+}
+
+function hideOverflow() {
+  document.body.style.overflow = "hidden"
+}

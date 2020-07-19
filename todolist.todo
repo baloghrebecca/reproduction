@@ -6,11 +6,14 @@ GENERAL:
 SLIDER: 
     ✔ swipe left brings you to the end @done (7/17/2020, 9:58:15 AM)
     ✔ check other slider again (mobile) @done (7/17/2020, 12:32:27 PM)
-    ☐ mobile rezising smoother 
+    ✔ mobile rezising smoother @done (7/18/2020, 11:24:24 AM)
+    ✔ overflow @done (7/18/2020, 11:22:33 AM)
     ✔ mobile, jump back to the beginning when dragging left at the end @done (7/17/2020, 10:49:37 AM)
+    ☐ slider end later in safari :(
 
 SCROLL: 
-    ☐ check scoll function, it's not working with the navigation height 
+    ✔ check scoll function, it's not working with the navigation height (kinda...) @done (7/18/2020, 12:46:10 PM)
+    ☐ opacity (optional)
 
 STARTSEITE:
     ☐ Morping compatible for Safari, + Chrome mobile
@@ -20,16 +23,18 @@ MENÜ:
     ☐ x ipad abgeschnitten (witdh problem??)
     ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) @high 
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
-    ☐ Hover 'books' landing page @critical 
-    ☐ von 'OO' zu einer Bohne transition @high
-    ☐ When clicking menu point also scroll behavior @high
+    ✔ Hover 'books' landing page @critical @done (7/18/2020, 6:25:23 PM)
+    ✔ von 'OO' zu einer Bohne transition @high @done (7/18/2020, 12:56:02 PM)
+    ✔ When clicking menu point also scroll behavior @high @done (7/18/2020, 10:03:00 PM)
     ☐ Wrong scroll behaviour when clicking on books mobile/tablet @critical 
-    ☐ Padding bottom navigation too big on mobile @critical 
-    ☐ transition, slide to top, during revealing of website
+    ✔ Padding bottom navigation too big on mobile @critical @done (7/18/2020, 12:55:52 PM)
+    ✔ transition, slide to top, during revealing of website @done (7/18/2020, 12:56:15 PM)
     ☐ reuse navigation?
+    ✔ Books grey opacity @done (7/18/2020, 6:25:31 PM)
+    ✔ not opening tablet + mobile @done (7/18/2020, 9:16:04 PM)
 
 BOOKS:
-    ☐ all page transitions same @critical (books comes from above when scrolling down landing page)
+    ✔ all page transitions same @critical (books comes from above when scrolling down landing page) @done (7/18/2020, 12:56:22 PM)
     ☐ sometimes mouseLeave throws an error (probably problem with setIndex) @high
     ✔ overflow hidden delete @critical @done (7/16/2020, 8:23:35 PM)
     

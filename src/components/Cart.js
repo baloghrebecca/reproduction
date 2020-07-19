@@ -27,7 +27,7 @@ const Cart = () => {
     const whichGallery = windowWidth <= 750 ? <CartSliderMobile images={<CartImages class="imgContainerGallery mobileCart" />} /> : <CartSlider images={<CartImages class="imgContainerGallery" />} />
     return (
         <section id="cart" >
-            {whichGallery}
+            <CartSlider images={<CartImages class="imgContainerGallery" />} />
             <div id="cartInfo">
                 <div className="cartGeneral">
                     <h1>PRODUCT</h1>

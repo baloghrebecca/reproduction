@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../styles/index.scss';
 import LayoutNoMargin from '../components/layoutWithoutMarginBottom';
 import Cart from '../components/Cart'
 import HeaderMain from '../components/headerMain'
 
-export default class CartPage extends React.Component {
-  componentDidMount() {
-    document.body.style.overflow = "";
-  }
-  render() {
-    return (<>
-      <HeaderMain />
-      <LayoutNoMargin>
-        <Cart />
-      </LayoutNoMargin>
-    </>)
-  }
+const CartPage = (props) => {
+  useEffect(() => {
+    showOverflow();
+  });
+  return (<>
+    <HeaderMain />
+    <LayoutNoMargin>
+      <Cart />
+    </LayoutNoMargin>
+  </>)
 }
+
+export default CartPage
+
+function showOverflow() {
+  document.body.style.overflow = "";
+}
+
