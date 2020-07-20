@@ -1,24 +1,24 @@
 import React, { useEffect } from "react";
 import '../styles/index.scss';
-import LayoutNoMargin from '../components/layoutWithoutMarginBottom';
+import Layout from '../components/layout';
 import Cart from '../components/Cart'
 import HeaderMain from '../components/headerMain'
+import { showOverflow } from '../services/manageOverflow'
 
 const CartPage = (props) => {
   useEffect(() => {
     showOverflow();
   });
+
   return (<>
     <HeaderMain />
-    <LayoutNoMargin>
+    <Layout class="contentWithoutMargin">
       <Cart />
-    </LayoutNoMargin>
+    </Layout>
   </>)
 }
 
 export default CartPage
 
-function showOverflow() {
-  document.body.style.overflow = "";
-}
+
 

@@ -1,39 +1,22 @@
-import React from "react"
+import React, { useEffect } from "react"
 import '../styles/index.scss'
 import Layout from '../components/layout'
 import StockingsComponent from '../components/stockingsComponent'
 import HeaderMain from '../components/headerMain'
+import { showOverflow } from '../services/manageOverflow'
 
-export default class Stockings extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      height: 0,
-      width: 0
-    }
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
+const Stockings = () => {
+  useEffect(() => {
+    showOverflow();
+  });
 
-  componentDidMount() {
-    document.body.style.overflow = "";
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  }
-
-  render() {
-    return (<>
-          <HeaderMain />
-        <Layout>
-          <StockingsComponent />
-        </Layout>
-        </>)
-  }
+  return (<>
+    <HeaderMain />
+    <Layout class="content">
+      <StockingsComponent />
+    </Layout>
+  </>)
 }
+
+export default Stockings
+

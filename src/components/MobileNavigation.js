@@ -2,9 +2,9 @@ import React from 'react'
 import { Link } from 'gatsby'
 
 const MobileNavigation = (props) => {
-    return (<>
+    return (<nav id="mobileNav" style={{ display: props.display, transform: props.top }}>
         <div id="burgerWrapper">
-            <div className="close" onClick={props.onBurgerClick}>
+            <div className="close" onClick={props.handleClick}>
             </div>
         </div>
         <div id="mobileNestedNav">
@@ -20,7 +20,7 @@ const MobileNavigation = (props) => {
                 <Link activeClassName="activeMobile" to='/imprint'>PRIVACY POLICY</Link>
             </div>
         </div>
-    </>)
+    </nav>)
 }
 
 export default MobileNavigation

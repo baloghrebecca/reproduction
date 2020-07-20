@@ -1,5 +1,6 @@
 import * as React from "react"
 import './pages.scss'
+import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
 export default class GalleryContainer extends React.Component {
   constructor(props) {
@@ -64,7 +65,7 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleDragStart = (e) => {
-    this.hideOverflow();
+    hideOverflow();
     this.setState({
       cursor: 'grabbing'
     })
@@ -84,7 +85,7 @@ export default class GalleryContainer extends React.Component {
   handleTouchStart = (e) => {
     const { touches } = e
     if (touches && touches.length === 1) {
-      this.hideOverflow();
+      hideOverflow();
       const touch = touches[0]
       const startX = touch.clientX
       this.setState({ posX1: startX })
@@ -95,6 +96,7 @@ export default class GalleryContainer extends React.Component {
     const slider = this.slider.current
     const posX2 = Math.floor(this.state.posX1 - e.touches[0].clientX)
     const sliderPositionLeft = slider.offsetLeft
+    //repositions slider according to user input 
     const position = Math.floor(sliderPositionLeft - (posX2 + 60))
     this.setState({
       posX2: posX2,
@@ -104,7 +106,7 @@ export default class GalleryContainer extends React.Component {
 
   handleDragEnd = (e) => {
     const { currentPosition, leftEndOfSlider, rightEndOfSlider } = this.state
-    this.showOverflow();
+    showOverflow();
     this.setState({
       cursor: 'pointer'
     })
@@ -165,11 +167,4 @@ export default class GalleryContainer extends React.Component {
     });
   }
 
-  showOverflow() {
-    document.body.style.overflow = "";
-  }
-
-  hideOverflow() {
-    document.body.style.overflow = "hidden";
-  }
 }

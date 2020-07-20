@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './books.scss'
 import { Link } from 'gatsby'
+import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
 const Book = (props) => {
     const [index, setIndex] = useState(0);
@@ -41,8 +42,7 @@ const Book = (props) => {
     });
 
     const handleTouchMove = (e) => {
-        hideOverFlow();
-        //Refactor, maybe? It didn't work putting it all in the handleMouseOver
+        hideOverflow();
         const { sliderLength } = props
         const x = e.touches[0].clientX
         const width = e.currentTarget.offsetWidth
@@ -91,12 +91,3 @@ const Book = (props) => {
     )
 }
 export default Book
-
-
-function showOverflow() {
-    document.body.style.overflow = "";
-}
-
-function hideOverFlow() {
-    document.body.style.overflow = "hidden";
-}

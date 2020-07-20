@@ -1,43 +1,24 @@
-import React from "react"
+import React, { useEffect } from "react"
 import '../styles/index.scss'
 import Layout from '../components/layout'
 import Books from '../components/booksComponent'
 import HeaderMain from '../components/headerMain'
+import { showOverflow } from '../services/manageOverflow'
 
-export default class About extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      height: 0,
-      width: 0,
-      opacity: 0,
-    }
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
+const BooksPage = () => {
+  useEffect(() => {
+    showOverflow();
+  });
 
-  componentDidMount() {
-    this.setState({ opacity: 1 })
-    document.body.style.overflow = "";
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  }
-
-  render() {
-    return (<>
-      <div id="booksMenuWrapper" style={{ opacity: this.state.opacity }}>
-        <HeaderMain />
-      </div>
-      <Layout>
-        <Books />
-      </Layout>
-    </>)
-  }
+  return (<>
+    <div id="booksMenuWrapper">
+      <HeaderMain />
+    </div>
+    <Layout class="content">
+      <Books />
+    </Layout>
+  </>)
 }
+
+export default BooksPage
+

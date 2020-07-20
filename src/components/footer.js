@@ -25,8 +25,8 @@ const Footer = () => {
             </p>
         </section>
         <footer id="footer">
-            <nav id="footerNav">
-                <Link activeClassName="active" to='/imprint'>IMPRINT</Link>,
+            <nav id="footerNav"> 
+                    <Link activeClassName="active" to='/imprint'>IMPRINT</Link>,
                     <Link activeClassName="active" to='/imprint'> TERMS</Link>,
                     <Link activeClassName="active" to='/imprint'> PRIVACY POLICY</Link>
             </nav>

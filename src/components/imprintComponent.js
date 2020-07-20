@@ -1,7 +1,7 @@
 import React from 'react'
 import './imprintComponent.scss'
 
-const AboutComponent = () => {
+const ImprintComponent = () => {
     return (
         <section id="imprint">
             <div className="col1Imprint">
@@ -84,4 +84,4 @@ const AboutComponent = () => {
         </section>)
 }
 
-export default AboutComponent;
+export default ImprintComponent;

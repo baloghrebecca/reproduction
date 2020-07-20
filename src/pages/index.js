@@ -1,38 +1,22 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import '../styles/index.scss'
-import HeaderLandingPageCopy from '../components/headerLandingPage'
-import LayoutLandingPage from '../components/layoutLandingPage'
+import HeaderLandingPage from '../components/headerLandingPage'
+import Layout from '../components/layout'
 
-export default class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasReachedId: false,
-    };
-  }
-
-  render() {
-    //smooth scroll
-    if (typeof window !== "undefined") {
-      // eslint-disable-next-line global-require
-      require("smooth-scroll")('a[href*="#"]')
-    }
-
-    return (<>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>POOL Publishing</title>
-        <link rel="canonical" href="http://mysite.com/example" />
-      </Helmet>
-      <HeaderLandingPageCopy />
-      <LayoutLandingPage>
-        <div id="filler"></div>
-  
-      </LayoutLandingPage>
-    </>)
-  }
-
+const Home = () => {
+  return (<>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>POOL Publishing</title>
+      <link rel="canonical" href="https://p-oo-l.com" />
+    </Helmet>
+    <HeaderLandingPage />
+    <Layout>
+      <div id="filler"></div>
+    </Layout>
+  </>)
 }
+export default Home
 
 

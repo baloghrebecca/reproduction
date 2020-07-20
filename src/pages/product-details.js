@@ -1,38 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../styles/index.scss';
-import LayoutNoMargin from '../components/layoutWithoutMarginBottom';
+import Layout from '../components/layout';
 import ProductPage from '../components/product';
 import HeaderMain from '../components/headerMain'
+import { showOverflow } from '../services/manageOverflow'
 
-export default class About extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      height: 0,
-      width: 0
-    }
-    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
-  }
+const ProductDetails = () => {
+  useEffect(() => {
+    showOverflow();
+  });
 
-  componentDidMount() {
-    this.updateWindowDimensions();
-    window.addEventListener('resize', this.updateWindowDimensions);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.updateWindowDimensions);
-  }
-
-  updateWindowDimensions() {
-    this.setState({ width: window.innerWidth, height: window.innerHeight });
-  }
-
-  render() {
-    return (<>
-      <HeaderMain />
-      <LayoutNoMargin>
-        <ProductPage />
-      </LayoutNoMargin>
-    </>)
-  }
+  return (<>
+    <HeaderMain />
+    <Layout class="contentWithoutMargin">
+      <ProductPage />
+    </Layout>
+  </>)
 }
+
+export default ProductDetails

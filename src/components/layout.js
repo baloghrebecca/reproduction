@@ -10,7 +10,7 @@ const Layout = (props) => {
     const [opacity, setOpacity] = useState(0)
     const content = useRef()
 
-    useEffect(() => {
+    useEffect((props) => {
         // setTop(100 - Math.floor(window.scrollY / 100 * 10))
         document.body.scrollTop = 0; // For Safari
         document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
@@ -28,9 +28,9 @@ const Layout = (props) => {
         <Helmet>
             <meta charSet="utf-8" />
             <title>POOL Publishing</title>
-            <link rel="canonical" href="http://mysite.com/example" />
+            <link rel="canonical" href="https://p-oo-l.com" />
         </Helmet>
-        <div ref={content} className="content" style={{ transform: `translateY(${top}%)`, opacity: opacity }}>
+        <div ref={content} className={props.class} style={{ transform: `translateY(${top}%)`, opacity: opacity }}>
             {props.children}
         </div>
         <Footer />
