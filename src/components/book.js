@@ -83,9 +83,9 @@ const Book = (props) => {
                 <img onMouseLeave={handleMouseLeave} src={props.images[index].props.children.props.src} />
             </div>
             <div>
-                <h2 className="bookTitle">FOUNTAIN’S EDIT</h2>
-                <p><span className="priceMobile"><strike>€25.00</strike> €20.00<br /></span>
-                    <Link to='/product-details'>DISCIPLIN</Link> <span className="priceDesktop"><span id="strike"><sup>€25.00</sup></span><sup> €20.00</sup></span></p>
+                {/* <h2 className="bookTitle">FOUNTAIN’S EDIT</h2> */}
+                <p className="priceBook"><span className="priceBook"><strike>€25.00</strike> €20.00</span><br />
+                <Link to='/product-details'>DISCIPLIN</Link> </p>
             </div>
         </div>
     )

@@ -1,10 +1,9 @@
 import React from 'react'
-import './stockingsComponent.scss'
 
-const StockingsComponent = () => {
+const StockistsComponent = () => {
     return (
-        <section id="stockings">
-            <div className="col2Stockings">
+        <section id="stockists">
+            <div className="col1">
                 <h2>AUSTRIA</h2>
                 <p>
                     → 21er Haus (Vienna) <br />
@@ -14,14 +13,6 @@ const StockingsComponent = () => {
                     → Mumok (Vienna)
                     <br />
                 </p>
-                <h2>BELGIUM</h2>
-                <p>
-                    → _bulk
-                </p>
-                <h2>FINLAND</h2>
-                <p>
-                    → Arkadia Bookshop (Finland)
-                    </p>
                 <h2>GERMANY</h2>
                 <p>
                     → Berlin (Berlin) <br />
@@ -29,6 +20,16 @@ const StockingsComponent = () => {
                     → Gudberg Nerger (Hamburg) <br />
                     → Mzin (Leipzig) <br />
                     → AAP Archive Artist Publications (Munich)
+                    </p>
+            </div>
+            <div className="col2">
+                <h2>BELGIUM</h2>
+                <p>
+                    → _bulk
+                </p>
+                <h2>FINLAND</h2>
+                <p>
+                    → Arkadia Bookshop (Finland)
                     </p>
                 <h2>ITALY</h2>
                 <p>
@@ -38,8 +39,6 @@ const StockingsComponent = () => {
                 <p>
                     → Papercut (Stockholm)
                      </p>
-            </div>
-            <div className="col3Stockings">
                 <h2>SWITZERLAND</h2>
                 <p>
                     → Material (Zurich) <br />
@@ -58,21 +57,24 @@ const StockingsComponent = () => {
                 <p>
                     → Basheer Graphic Book
                 </p>
+            </div>
+            <div className="col3">
                 <h2>DISTRIBUTOR</h2>
                 <p>
                     → NOVA MD GmbH
             </p><p>
                     And in the permanent collection of:</p>
-                   <h2> VIENNA</h2>
-                    <p>
-                        → Salon für Kunstbuch
+                <h2> VIENNA</h2>
+                <p>
+                    → Salon für Kunstbuch
                     </p>
-                    <h2>FRANKFURT</h2>
-                    <p>
-                        → Museum für Angewandte Kunst
+                <h2>FRANKFURT</h2>
+                <p>
+                    → Museum für Angewandte Kunst
                     </p>
             </div>
-            <div className="col4Stockings">
+            <div className="col4">
+                <h2>Wanna join?</h2>
                 <p>For booksellers, POOL offers a wholesale discount.<br />
                     Just get in touch with us via e-mail!
                 </p>
@@ -80,4 +82,4 @@ const StockingsComponent = () => {
         </section >)
 }
 
-export default StockingsComponent;
+export default StockistsComponent;

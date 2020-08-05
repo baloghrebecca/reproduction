@@ -19,6 +19,12 @@ module.exports = {
         logo: "./src/favicon.png"
       }
     },
+    // {
+		// 	resolve: 'gatsby-plugin-snipcart-advanced',
+		// 	options: {
+		// 		apiKey: 'YOUR_SNIPCART_KEY'
+		// 	}
+		// },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -48,17 +54,17 @@ module.exports = {
         path: path.join(__dirname, `src`, `images`),
       },
     },
-    // {
-    //   resolve: 'gatsby-source-strapi',
-    //   options: {
-    //     apiURL: 'http://localhost:1337',
-    //     contentTypes: [ // List of the Content Types you want to be able to request from Gatsby.
-    //       // 'article',
-    //       // 'user'
-    //     ],
-    //     queryLimit: 1000,
-    //   },
-    // },
+    {
+      resolve: 'gatsby-source-strapi',
+      options: {
+        apiURL: 'http://localhost:1337',
+        contentTypes: [ // List of the Content Types you want to be able to request from Gatsby.
+          // 'article',
+          // 'user'
+        ],
+        queryLimit: 1000,
+      },
+    },
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-transformer-remark',

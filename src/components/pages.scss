@@ -5,7 +5,8 @@
 #about,
 #aboutProductPageWrapper,
 #cartInfo,
-#cartCheckoutInfos {
+#cartCheckoutInfos,
+#stockists {
   display: grid;
   grid-column-gap: $gap;
   grid-template-columns: $grid;
@@ -108,7 +109,8 @@ img {
 
 @media (max-width: 1170px) {
   #about,
-  #aboutProductPageWrapper {
+  #aboutProductPageWrapper,
+  #stockists {
     grid-template-columns: $grid-tablet;
     grid-template-rows: 2;
   }
@@ -227,7 +229,8 @@ img {
   }
 
   #about,
-  #aboutProductPageWrapper {
+  #aboutProductPageWrapper,
+  #stockists {
     display: block;
   }
 

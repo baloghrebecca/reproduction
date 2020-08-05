@@ -23,6 +23,10 @@ const ImprintComponent = () => {
                 <p>Catherine Hazotte<br />
                     Maximilian Mauracher
                 </p>
+                <p>
+                <h2>Coding</h2>
+                <a href="http://www.rebeccabalogh.com" target="blank">Rebecca Balogh</a>
+                </p>
                 <h2>LIABILITY FOR THE CONTENT</h2>
                 <p>The contents of this site have been created with the utmost care. We cannot guarantee the correctness, completeness and actuality of the contents.
                 </p>

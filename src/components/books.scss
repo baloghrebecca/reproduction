@@ -68,12 +68,9 @@ sup {
     margin-top: 30px;
 }
 
-.priceMobile {
-    min-height: 0;
-    min-width:0;
-    margin-top: 8px;
+.priceBook {
+    margin-top: 16px;
     color: $primary-grey;
-    display: none;
 }
 
 .book {
@@ -123,8 +120,8 @@ sup {
         display: none;
     }
 
-    .priceMobile {
-        display: block;
+    .priceBook {
+        margin-top: 8px;
     }
 
     .priceDesktop {

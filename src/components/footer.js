@@ -26,9 +26,7 @@ const Footer = () => {
         </section>
         <footer id="footer">
             <nav id="footerNav"> 
-                    <Link activeClassName="active" to='/imprint'>IMPRINT</Link>,
-                    <Link activeClassName="active" to='/imprint'> TERMS</Link>,
-                    <Link activeClassName="active" to='/imprint'> PRIVACY POLICY</Link>
+                    <Link activeClassName="active" to='/imprint'>IMPRINT, TERMS, PRIVACY POLICY</Link>
             </nav>
         </footer>
     </section>

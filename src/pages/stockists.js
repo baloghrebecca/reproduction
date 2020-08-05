@@ -5,7 +5,7 @@ import StockingsComponent from '../components/stockingsComponent'
 import HeaderMain from '../components/headerMain'
 import { showOverflow } from '../services/manageOverflow'
 
-const Stockings = () => {
+const Stockists = () => {
   useEffect(() => {
     showOverflow();
   });
@@ -18,5 +18,5 @@ const Stockings = () => {
   </>)
 }
 
-export default Stockings
+export default Stockists
 

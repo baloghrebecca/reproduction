@@ -63,6 +63,7 @@ export default class HeaderMain extends React.Component {
 
     handleClickBurger = (e) => {
         e.preventDefault()
+        e.stopPropagation()
         this.setState({ top: 'translateY(-100%)' })
         setTimeout(() => {
             this.setState({ visibility: 'visible' });
@@ -106,10 +107,14 @@ export default class HeaderMain extends React.Component {
                 display={this.state.display}
                 top={this.state.top}
                 handleClick={this.handleClickBurger}
+                width={this.state.width}
+                bean={bean}
+                beanMobile={beanMobile}
             />
             <Navigation
                 visibility={this.state.visibility}
                 handleClick={this.handleClickLogo}
+                handleClickMenu={this.handleClickBurger}
                 handleMouseEnter={this.handleChange}
                 handleMouseLeave={this.handleLeave}
                 displayText={this.state.displayText}

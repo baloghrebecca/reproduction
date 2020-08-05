@@ -50,7 +50,7 @@
 }
 
 #mobileNestedNav {
-  height: 100%;
+  height: 96%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -58,7 +58,8 @@
   padding-bottom: 10px;
 }
 
-#mobileNestedNav a {
+#mobileNestedNav a,
+#mobileNestedNav .linkMobileMenu {
   line-height: 1;
   width: 100%;
   display: block;
@@ -71,8 +72,28 @@
   // transition: ease 0.4s all;
 }
 
-#mobileNestedNav a:nth-last-child(1) {
+#cartMobile {
   border-bottom: solid 1px $secondary-gray;
+}
+
+#privacyMobile {
+  border-bottom: solid 1px $secondary-gray;
+}
+
+// #mobileNestedNav a:nth-last-child(1) {
+//   border-bottom: solid 1px $secondary-gray;
+// }
+
+// #mobileNavLastChild {
+//   border-bottom: solid 1px $secondary-gray;
+//   margin-bottom: 20px;
+//   padding-bottom: 0;
+//   // padding: 10px 0 0px 0;
+// }
+
+#mobileNestedNav .linkMobileMenu:nth-child(1) {
+  border-top: none;
+  padding-top: 0;
 }
 
 #mobileNav a:hover {
@@ -97,12 +118,13 @@
   transition: ease 0.3;
   width: 100%;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  padding-right: $margin-left-right/2;
 }
 
 .close {
-  display: flex;
-  justify-content: center;
+  // display: flex;
+  // justify-content: center;
   cursor: pointer;
   position: fixed;
   width: 24px;
@@ -162,6 +184,7 @@
 }
 
 #h1Main {
+  z-index: 101;
   cursor: default;
   grid-column: 1 / span 4;
   transition: opacity ease 0.4s;
@@ -175,9 +198,21 @@
   transition: all ease 1s;
 }
 
+.menuMain {
+  display: none;
+}
+
 @media (max-width: 1100px) {
   #h1Main {
     cursor: pointer;
+  }
+
+  .cartMain {
+    display: none;
+  }
+
+  .menuMain {
+    display: inline-block;
   }
 
   #navMain {
@@ -185,23 +220,29 @@
   }
   #headerMain,
   #headerMainLandingPage {
-    // padding-top: 19px;
     display: flex;
     justify-content: space-between;
-    // align-items: center;
   }
 }
 
 @media (max-width: 750px) {
-  #mobileNestedNav a {
+  #mobileNestedNav {
+    height: 98%;
+  }
+
+  #mobileNestedNav a,
+  #mobileNestedNav .linkMobileMenu {
     padding: 6px 0 4px 0;
+  }
+
+  #mobileNavLastChild {
+    padding: 0;
   }
 
   #headerMain {
     font-size: $font-size-small;
     height: 50px;
     margin-bottom: $margin-bottom-mobile;
-    // padding-top: 0;
   }
 
   #headerMainLandingPage {

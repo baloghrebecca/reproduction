@@ -12,9 +12,19 @@ const Navigation = (props) => {
         <nav id="navMain">
             <Link activeClassName="active" to='/books'>BOOKS</Link>,
             <Link activeClassName="active" to='/about'> ABOUT</Link>,
-            <Link activeClassName="active" to='/stockings'> STOCKINGS</Link>
+            <Link activeClassName="active" to='/stockists'> STOCKISTS</Link>
         </nav>
-        <Link id="cartMain" activeClassName="active" to='/cart'>2 ITEMS (35€)</Link>
+        <Link 
+        className="menuMain" 
+        activeClassName="active" 
+        to='/'
+        onClick={props.handleClick}
+        >Menu</Link>
+        <Link 
+        id="cartMain"
+        className="cartMain" 
+        activeClassName="active" 
+        to='/cart'>2 ITEMS (35€)</Link>
     </header>)
 }
 

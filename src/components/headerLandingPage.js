@@ -133,7 +133,7 @@ export default class HeaderLandingPageCopy extends React.Component {
                 complete: function (anim) {
                     console.log(link);
                     const navigatoTo = () => {
-                        if (link === '/books' || link === '/about' || link === '/stockings') {
+                        if (link === '/books' || link === '/about' || link === '/stockists' || link === '/cart') {
                             navigate(`${link}`)
                         } else {
                             navigate(`/books`)
@@ -158,6 +158,9 @@ export default class HeaderLandingPageCopy extends React.Component {
                     display={this.state.display}
                     top={this.state.top}
                     handleClick={this.handleClickBurger}
+                    width={this.state.width}
+                    bean={bean}
+                    beanMobile={beanMobile}
                 />
                 <header ref={this.navigation} id="headerMainLandingPage" style={{ visibility: this.state.visibility }}>
                     <h1 id="h1Main"
@@ -169,9 +172,19 @@ export default class HeaderLandingPageCopy extends React.Component {
                     <nav id="navMain">
                         <a onClick={(e) => this.handleScroll('/books', e)} style={{ cursor: 'pointer' }}>BOOKS</a>,
                         <a onClick={(e) => this.handleScroll('/about', e)} style={{ cursor: 'pointer' }}> ABOUT</a>,
-                        <a onClick={(e) => this.handleScroll('/stockings', e)} style={{ cursor: 'pointer' }}> STOCKINGS</a>
+                        <a onClick={(e) => this.handleScroll('/stockists', e)} style={{ cursor: 'pointer' }}> STOCKISTS</a>
                     </nav>
-                    <Link id="cartMain" activeClassName="active" to='/cart'>2 ITEMS (35€)</Link>
+                    <Link
+                        className="menuMain"
+                        to='/'
+                        onClick={this.handleClickLogo}
+                    >Menu</Link>
+                    <a
+                        className="cartMain"
+                        id="cartMain"
+                        onClick={(e) => this.handleScroll('/cart', e)}
+                        style={{ cursor: 'pointer' }}
+                    >2 ITEMS (35€)</a>
                 </header>
             </div>
         </>)
