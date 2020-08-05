@@ -19,12 +19,6 @@ module.exports = {
         logo: "./src/favicon.png"
       }
     },
-    // {
-		// 	resolve: 'gatsby-plugin-snipcart-advanced',
-		// 	options: {
-		// 		apiKey: 'YOUR_SNIPCART_KEY'
-		// 	}
-		// },
     {
       resolve: "gatsby-plugin-react-svg",
       options: {
@@ -58,10 +52,14 @@ module.exports = {
       resolve: 'gatsby-source-strapi',
       options: {
         apiURL: 'http://localhost:1337',
-        contentTypes: [ // List of the Content Types you want to be able to request from Gatsby.
+        contentTypes: [ // Collection of the Content Types you want to be able to request from Gatsby.
           // 'article',
           // 'user'
         ],
+        singleType: [
+          //`home-page`,
+          //`contact`,
+        ], 
         queryLimit: 1000,
       },
     },

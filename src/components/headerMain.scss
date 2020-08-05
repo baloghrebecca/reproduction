@@ -230,6 +230,11 @@
     height: 98%;
   }
 
+  #h1mobile {
+    transition: all 0.3s ease;
+    margin-top: 7px;
+  }
+
   #mobileNestedNav a,
   #mobileNestedNav .linkMobileMenu {
     padding: 6px 0 4px 0;
