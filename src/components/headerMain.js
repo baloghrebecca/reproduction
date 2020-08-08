@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'gatsby'
 import './headerMain.scss'
 import anime from 'animejs/lib/anime.es.js';
 import { showOverflow, hideOverflow } from '../services/manageOverflow'

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import '../styles/index.scss';
-import Layout from '../components/layout';
-import ProductPage from '../components/product';
-import HeaderMain from '../components/headerMain'
+import Layout from '../components/Layout';
+import ProductPage from '../components/Product';
+import HeaderMain from '../components/HeaderMain'
 import { showOverflow } from '../services/manageOverflow'
 
 const ProductDetails = () => {

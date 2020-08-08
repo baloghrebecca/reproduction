@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import '../styles/index.scss';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import Cart from '../components/Cart'
-import HeaderMain from '../components/headerMain'
+import HeaderMain from '../components/HeaderMain'
 import { showOverflow } from '../services/manageOverflow'
 
 const CartPage = (props) => {

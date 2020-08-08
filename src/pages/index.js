@@ -1,8 +1,8 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 import '../styles/index.scss'
-import HeaderLandingPage from '../components/headerLandingPage'
-import Layout from '../components/layout'
+import HeaderLandingPage from '../components/HeaderLandingPage'
+import Layout from '../components/Layout'
 
 const Home = () => {
   return (<>
