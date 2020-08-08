@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql } from "gatsby"
-import Book from '../components/book'
+import Book from '../components/Book'
 
 const ProductImages = () => {
   const data = useStaticQuery(graphql`
