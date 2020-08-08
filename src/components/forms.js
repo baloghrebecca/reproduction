@@ -1,6 +1,6 @@
 import React from 'react'
 import './forms.scss'
-import { FormPathsHorizontal, FormPathsVertical } from './formPaths'
+import { FormPathsHorizontal, FormPathsVertical } from './FormPaths'
 
 export default class Forms extends React.Component {
 
