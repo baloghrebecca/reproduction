@@ -48,7 +48,7 @@
     "react-div-100vh": "^0.3.8",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
-    "react-pose": "^3.1.0-rc",
+    "react-pose": "^3.4.0",
     "react-scroll": "^1.8.0",
     "react-slick": "^0.26.1",
     "sharp": "^0.25.4",

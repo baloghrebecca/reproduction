@@ -6,7 +6,7 @@ const Footer = () => {
     return (
     <section id="footerWrapper">
         <section id="aboutPoolBooksWrapper">
-            <p id="aboutPoolBooksAboutText">The Vienna-based cultural association “POOL publishing” is a contemporary publishing house.
+            <p id="aboutPoolBooksAboutText">POOL is a contemporary publishing house based in Vienna and Berlin with a focus on illustration, graphic design and photography. Together with creatives from all over the world we create unique publications, speak at conferences about our experiences and run workshops on artist books and self-publishing.
             <br /> <br />
             The association, whose activities are not aimed at profit, pursues exclusively non-profit purposes, Promotion of art and culture, promotion of cultural activity, mediation of culture, enrichment of cultural life.
             <br />POOL publishing

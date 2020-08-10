@@ -23,10 +23,11 @@ export default class HeaderMain extends React.Component {
             widthBean: "33",
             opacity: 0,
             displayText: 'none',
+            translatePool: "translateY(281px)",
         }
     };
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         const showLogo = () => this.setState({ flag: true, opacity: 1 })
         setTimeout(showLogo, 100)
     }
@@ -44,6 +45,10 @@ export default class HeaderMain extends React.Component {
         //if desktop, hide mobile navigation
         if (this.state.width > 1100) {
             this.setState({ top: "translateY(-100%)", visibility: 'visible' })
+            showOverflow()
+        }
+        if (this.state.width < 750) {
+            this.setState({ translatePool: "translateY(157px)"})
             showOverflow()
         }
     }
@@ -71,21 +76,32 @@ export default class HeaderMain extends React.Component {
     };
 
     handleChange = () => {
-        this.setState({ displayText: 'inline-block' })
+        const { width } = this.state
+        // this.setState({ displayText: 'inline-block' })
+        console.log(document.querySelector('#text'));
+        //281
+        //157
+        const widthOfPoolText = width <= 1100 ? 157 : 281
         anime.timeline({ loop: false })
+            .add({
+                targets: '#text',
+                translateX: 250,
+                duration: 800,
+            })
             .add({
                 targets: '#poolText',
                 translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
+                // translateX: [0, `${widthOfPoolText}`],
                 easing: "easeOutExpo",
                 duration: 800,
             })
             .add({
-                targets: '#text',
-                translateX: [-50, 0],
+                targets: '#poolText',
+                translateX: [0, 0],
                 opacity: [0, 1],
                 easing: "easeOutExpo",
                 duration: 0,
-                direction: 'alternate',
+                // direction: 'alternate',
             })
     };
 
@@ -111,12 +127,13 @@ export default class HeaderMain extends React.Component {
                 beanMobile={beanMobile}
             />
             <Navigation
+                translatePool={this.state.translatePool}
                 visibility={this.state.visibility}
                 handleClick={this.handleClickLogo}
                 handleClickMenu={this.handleClickBurger}
                 handleMouseEnter={this.handleChange}
                 handleMouseLeave={this.handleLeave}
-                displayText={this.state.displayText}
+                displayText='inline-block'
                 width={this.state.width}
                 bean={bean}
                 beanMobile={beanMobile}

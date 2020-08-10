@@ -7,7 +7,7 @@ const Navigation = (props) => {
             onClick={props.handleClick}
             onMouseEnter={props.handleMouseEnter}
             onMouseLeave={props.handleMouseLeave}>
-            <span id='text' style={{ display: props.displayText, transform: `translateX(-280px)` }}>LIFE IS BETTER AT THE  </span>
+            <span id='text' style={{ display: props.displayText }}>LIFE IS BETTER AT THE  </span>
             <span id="poolText">P<span id="beanWrapper">{props.width < 750 ? props.beanMobile : props.bean}</span>L</span></h1>
         <nav id="navMain">
             <Link activeClassName="active" to='/books'>BOOKS</Link>,

@@ -3,6 +3,7 @@ import './books.scss'
 import { Link } from 'gatsby'
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
+
 const Book = (props) => {
     const [index, setIndex] = useState(0);
     const [windowWidth, setWindowWidth] = useState()
@@ -20,7 +21,6 @@ const Book = (props) => {
         //split images across the width of the element with the base
         //so we devide the element and set an image according to the percentage the mouse is moving across the element
         const imageNumber = Math.floor(percentage * sliderLength)
-
         if (imageNumber > sliderLength - 1 || imageNumber === sliderLength) {
             setIndex(sliderLength - 1)
             return;
@@ -30,6 +30,7 @@ const Book = (props) => {
             return;
         } else {
             setIndex(imageNumber)
+            return;
         }
     }
 
@@ -39,6 +40,7 @@ const Book = (props) => {
         if (window.innerWidth != windowWidth) {
             setWindowWidth(window.innerWidth)
         }
+
     });
 
     const handleTouchMove = (e) => {
@@ -48,9 +50,14 @@ const Book = (props) => {
         const width = e.currentTarget.offsetWidth
         const percentage = x / width
         const imageNumber = Math.floor(percentage * sliderLength)
+        console.log('img number', imageNumber);
+
         if (imageNumber > sliderLength - 1 || imageNumber === sliderLength) {
             setIndex(sliderLength - 1)
             return;
+        }
+        if (imageNumber === 0 && x === 0) {
+            setIndex(0)
         }
         if (x < 0) {
             setIndex(0)
@@ -66,9 +73,12 @@ const Book = (props) => {
         //only repeat x number of times
         setIntervalLimited(function () {
             if (index > 0 && index < props.sliderLength) {
+                if (index === 0) {
+                    return;
+                }
                 setIndex(prevIndex => prevIndex - 1)
             }
-        }, 10, index-1)
+        }, 10, index - 1)
 
         function setIntervalLimited(callback, interval, x) {
             for (var i = 0; i < x; i++) {
@@ -77,17 +87,26 @@ const Book = (props) => {
         }
     }
 
+    //Sometimes prints -1, but it should stop at 0.
+    console.log(index);
+
+    const baseURL = 'http://localhost:1337'
+
+    //Refactor this: 
+    const hasOldPrice = props.oldPrice !== '.' ? <strike>{props.oldPrice}</strike> : ''
     return (
         <div className="book">
             <div onTouchEnd={handleMouseLeave} onTouchMove={handleTouchMove} onMouseMove={handleMouseOver} ref={bookRender} className="bookRenderingContainer">
-                <img onMouseLeave={handleMouseLeave} src={props.images[index].props.children.props.src} />
+                <img onMouseLeave={handleMouseLeave} alt={props.images[index].alternativeText} src={baseURL + props.images[index].url} />
             </div>
             <div>
-                {/* <h2 className="bookTitle">FOUNTAIN’S EDIT</h2> */}
-                <p className="priceBook"><span className="priceBook"><strike>€25.00</strike> €20.00</span><br />
-                <Link to='/product-details'>DISCIPLIN</Link> </p>
+                <p className="priceBook"><span className="priceBook">{hasOldPrice} {props.price}</span><br />
+                    <Link to='/product-details'>{props.title}</Link> </p>
             </div>
         </div>
     )
 }
+
 export default Book
+
+const createSlug = (slug) => `/product-details/${slug}`

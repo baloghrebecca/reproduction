@@ -22,7 +22,7 @@ MENÜ:
 
 
 BOOKS:
-    ☐ sometimes mouseLeave throws an error (probably problem with setIndex) @high
+    ☐ sometimes mouseLeave throws an error (probably problem with setIndex) @high (it goes on until "-1" , instead of stopping at "0")
 
 FIXES: 
     ☐ refactor layout component
@@ -34,3 +34,7 @@ FIXES:
  FEEDBACK:
     ☐ Logo animation langsamer
     ☐ Cookie leiste
+    ✔ Text ersetzen Footer @done (8/8/2020, 10:34:31 PM)
+    ☐ Schriftart ersetzen
+
+
