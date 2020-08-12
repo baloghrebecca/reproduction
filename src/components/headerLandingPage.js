@@ -184,7 +184,7 @@ export default class HeaderLandingPageCopy extends React.Component {
                         id="cart-main"
                         onClick={(e) => this.handleScroll('/cart', e)}
                         style={{ cursor: 'pointer' }}
-                    >2 ITEMS (35€)</a>
+                    >{this.props.itemSize} {this.props.items} ({this.props.totalPrice}€)</a>
                 </header>
             </div>
         </>)
