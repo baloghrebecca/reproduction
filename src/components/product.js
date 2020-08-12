@@ -1,9 +1,8 @@
-import React, {useState, updateState, useCallback, useEffect} from 'react'
+import React from 'react'
 import './pages.scss'
 
 import Slider from './Slider'
 import ReactMarkdown from 'react-markdown'
-import {addToCart} from '../services/cart'
 
 
 const ProductPage = (props) => {
@@ -15,9 +14,9 @@ const ProductPage = (props) => {
     // const convertToHtml = <ReactMarkdown src={props.hardFacts} />
 
     return (
-        <section id="productPageWrapper">
+        <section id="product-page-wrapper">
             <Slider images={getImageDivs} />
-            <div id="aboutProductMobile">
+            <div id="about-product-mobile">
                 <p>
                     {hasOldPrice} €{props.price}
                 </p>
@@ -29,22 +28,22 @@ const ProductPage = (props) => {
                         href='/'>ADD TO CART</a>
                 </p>
             </div>
-            <div id="aboutProductPageWrapper">
-                <div className="col1">
+            <div id="about-product-page-wrapper">
+                <div className="col-1">
                     <h2>{props.title}</h2>
                     <p>{props.aboutBook}</p>
                 </div>
-                <div className="col2">
+                <div className="col-2">
                     <h2>Artist</h2>
                     <p>{props.aboutArtist}</p>
                 </div>
-                <div className="col3">
-                    <h2 className="hideMobile">&nbsp; </h2>
-                    <p><span className="hideMobile">{hasOldPrice} €{props.price} <br /> <br /></span>
+                <div className="col-3">
+                    <h2 className="hide-mobile">&nbsp; </h2>
+                    <p><span className="hide-mobile">{hasOldPrice} €{props.price} <br /> <br /></span>
                         {props.hardFacts}
                     </p>
                 </div>
-                <div className="col4 productPageCart hideMobile">
+                <div className="col-4 product-page-cart hide-mobile">
                     <h2>&nbsp; </h2>
                     <p>
                     <a
@@ -67,7 +66,7 @@ function generateImageDivs(images) {
         return <div
             draggable="false"
             key={image.id}
-            className="imgContainerGallery">
+            className="img-container-gallery">
             <img draggable="false"
                 aria-label={image.alternativeText}
                 src={url} />

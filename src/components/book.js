@@ -91,11 +91,11 @@ const Book = (props) => {
     const hasOldPrice = props.oldPrice !== '.0' ? <strike>€{props.oldPrice}</strike> : ''
     return (
         <div className="book">
-            <div onTouchEnd={handleMouseLeave} onTouchMove={handleTouchMove} onMouseMove={handleMouseOver} ref={bookRender} className="bookRenderingContainer">
+            <div onTouchEnd={handleMouseLeave} onTouchMove={handleTouchMove} onMouseMove={handleMouseOver} ref={bookRender} className="book-rendering-container">
                 <img onMouseLeave={handleMouseLeave} alt={props.images[index].alternativeText} src={baseURL + props.images[index].url} />
             </div>
             <div>
-                <p className="priceBook"><span className="priceBook">{hasOldPrice} €{props.price}</span><br />
+                <p className="price-book"><span className="price-book">{hasOldPrice} €{props.price}</span><br />
                     <Link to={props.slug}>{props.title}</Link> </p>
             </div>
         </div>

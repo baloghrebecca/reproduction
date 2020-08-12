@@ -4,7 +4,7 @@ import './imprintComponent.scss'
 const ImprintComponent = () => {
     return (
         <section id="imprint">
-            <div className="col1Imprint">
+            <div className="col-1-imprint">
                 <h2>IMPRINT</h2>
                 <p>Disclosure requirement pursuant to § 25 MedienG and
                     Information requirements pursuant to § 5 E-Commerce Act (ECG)
@@ -53,7 +53,7 @@ const ImprintComponent = () => {
                     (...)
                 </p>
             </div>
-            <div className="col2Imprint">
+            <div className="col-2-imprint">
                 <h2>TERMS AND CONDITIONS</h2>
                 <p>
                     Thank you for shopping with POOL publishing. Here is a list of details you’ll need to know before placing an order with us:

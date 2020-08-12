@@ -33,8 +33,8 @@ export default class GalleryContainer extends React.Component {
   handleOnLoad = (e) => {
     const slider = this.slider.current
     window.scrollBy(0, 1);
-    const firstSlideSize = slider.getElementsByClassName("imgContainerGallery")[0].clientWidth
-    const sliderArray = slider.getElementsByClassName("imgContainerGallery")
+    const firstSlideSize = slider.getElementsByClassName("img-container-gallery")[0].clientWidth
+    const sliderArray = slider.getElementsByClassName("img-container-gallery")
     this.setCurrentPositionAndLeftAndOfSlider();
     this.setState({
       sliderArray: sliderArray,
@@ -133,7 +133,7 @@ export default class GalleryContainer extends React.Component {
         ref={this.container}
         onTouchMove={this.handleTouchMove}
         style={{ overflow: this.state.overflow }}
-        id="galleryProductPage">
+        id="gallery-product-page">
         <div
           draggable="false"
           ref={this.slider}

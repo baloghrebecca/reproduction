@@ -88,14 +88,14 @@ export default class HeaderMain extends React.Component {
                 duration: 800,
             })
             .add({
-                targets: '#poolText',
+                targets: '#pool-text',
                 translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
                 // translateX: [0, `${widthOfPoolText}`],
                 easing: "easeOutExpo",
                 duration: 800,
             })
             .add({
-                targets: '#poolText',
+                targets: '#pool-text',
                 translateX: [0, 0],
                 opacity: [0, 1],
                 easing: "easeOutExpo",
@@ -108,7 +108,7 @@ export default class HeaderMain extends React.Component {
         this.setState({ displayText: 'none' })
         anime.timeline({ loop: false })
             .add({
-                targets: '#poolText',
+                targets: '#pool-text',
                 translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
                 easing: "easeOutExpo",
                 duration: 600,

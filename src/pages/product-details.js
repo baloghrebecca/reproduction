@@ -45,7 +45,7 @@ const ProductDetails = ({ data }) => {
 
   return (<>
     <HeaderMain itemsCount={cartItems} totalPrice={totalPrice}/>
-    <Layout class="contentWithoutMargin">
+    <Layout class="content-without-margin">
       <ProductPage
         handleAddToCart={handleAddToCart}
         title={titleUpperCase}

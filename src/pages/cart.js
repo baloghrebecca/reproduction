@@ -6,7 +6,7 @@ import HeaderMain from '../components/HeaderMain'
 import { showOverflow } from '../services/manageOverflow'
 import { removeProduct, decrementQuantity, incrementQuantity, getCart } from '../services/cart'
 
-const CartPage = (props) => {
+const CartPage = () => {
 
   const [cartItemsSize, setCartItemSize] = useState()
   const [, updateState] = React.useState();
@@ -43,7 +43,7 @@ const CartPage = (props) => {
 
   return (<>
     <HeaderMain />
-    <Layout class="contentWithoutMargin">
+    <Layout class="content-without-margin">
       <Cart 
         cartSize={cartItemsSize}
         removeItem={handleRemoveItem}

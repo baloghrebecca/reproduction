@@ -3,9 +3,9 @@
 //Pages
 
 #about,
-#aboutProductPageWrapper,
-#cartInfo,
-#cartCheckoutInfos,
+#about-product-page-wrapper,
+#cart-info,
+#cart-checkout-infos,
 #stockists {
   display: grid;
   grid-column-gap: $gap;
@@ -14,22 +14,22 @@
   padding: 0 $margin-left-right;
 }
 
-#cartInfo,
-#cartCheckoutInfos {
+#cart-info,
+#cart-checkout-infos {
   padding: 0;
 }
 
-.productPageCart {
+.product-page-cart {
   justify-self: end;
 }
 
-#aboutProductMobile {
+#about-product-mobile {
   display: none;
 }
 
 //Gallery + Slides
 
-#galleryProductPage {
+#gallery-product-page {
   position: relative;
   margin-top: 60px;
   overflow: hidden;
@@ -39,12 +39,12 @@
   margin-bottom: $margin-top;
 }
 
-.imgContainerGallery {
+.img-container-gallery {
   position: relative;
   display: block;
 }
 
-.imgContainerGallery img {
+.img-container-gallery img {
   height: 50vh;
   min-width: 100%;
   margin-right: 100px;
@@ -52,7 +52,7 @@
   object-fit: contain;
 }
 
-.imgContainerGallery img:nth-last-child() {
+.img-container-gallery img:nth-last-child() {
   margin-right: 0px;
   margin-left: 0px;
 }
@@ -77,67 +77,67 @@ img {
 
 //Cart
 
-#cartInfo {
+#cart-info {
   border-top: 1px solid $primary-color;
   margin: 0 $margin-left-right;
   padding-top: 18.5px;
   margin-top: 150px;
 }
 
-#cartCheckoutInfos {
+#cart-checkout-infos {
   border-top: 1px solid $primary-color;
   margin: 0 $margin-left-right;
   padding-top: 18.5px;
 }
 
-.cartListItem {
+.cart-list-item {
   color: $primary-grey;
 }
 
-#cartListQuantity p {
+#cart-list-quantity p {
   margin: 0;
 }
 
-.cartListQuantityInline {
+.cart-list-quantity-inline {
   width: 140px;
   display: flex;
   justify-content: space-between;
 }
 
-.itemQuantity {
+.item-quantity {
   min-width: 80px;
 }
 
-.cartGeneral {
+.cart-general {
   grid-column: 1 / span 3;
 }
 
-.cartPriceSubtotal {
+.cart-price-subtotal {
   grid-column: 5 / span 1;
 }
 
-.cartSubtotal {
+.cart-subtotal {
   text-align: end;
   grid-column: 8 / span 1;
 }
 
 @media (max-width: 1170px) {
   #about,
-  #aboutProductPageWrapper,
+  #about-product-page-wrapper,
   #stockists {
     grid-template-columns: $grid-tablet;
     grid-template-rows: 2;
   }
 
-  #aboutProductMobile {
+  #about-product-mobile {
     padding: 0 $margin-left-right;
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
-  #cartInfo,
-  #cartCheckoutInfos {
+  #cart-info,
+  #cart-checkout-infos {
     grid-column-gap: 15px;
     padding-left: 0;
     padding-right: 0;
@@ -146,34 +146,34 @@ img {
     margin: 0 $margin-left-right;
   }
 
-  #cartInfo {
+  #cart-info {
     margin-top: 137px;
   }
 
-  .cartSubtotal {
+  .cart-subtotal {
     grid-column: 4 / span 1;
   }
 
-  .cartGeneral {
+  .cart-general {
     grid-column: 1 / span 1;
   }
 
-  .cartPriceSubtotal {
+  .cart-price-subtotal {
     grid-column: 2 / span 1;
   }
 
-  .hideMobile {
+  .hide-mobile {
     display: none;
   }
 }
 
 @media (max-width: 750px) {
-  #galleryProductPage {
+  #gallery-product-page {
     margin-top: 45px;
     height: 410px;
   }
 
-  #sliderDots {
+  #slider-dots {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -195,7 +195,7 @@ img {
     background-color: $secondary-gray;
   }
 
-  #galleryProductPageMobile {
+  #gallery-product-page-mobile {
     margin-top: 45px;
     overflow: hidden;
     background-color: $primary-grey;
@@ -205,7 +205,7 @@ img {
     margin-bottom: $margin-top;
   }
 
-  #slidesMobile {
+  #slides-mobile {
     transition: transform 1s;
     width: 100vw;
     cursor: pointer;
@@ -216,13 +216,13 @@ img {
     align-items: center;
   }
 
-  .imgContainerGallery {
+  .img-container-gallery {
     display: flex;
     align-items: center;
     width: 100%;
   }
 
-  .imgContainerGallery img {
+  .img-container-gallery img {
     min-width: 100%;
     display: inline-block;
     object-fit: scale-down;
@@ -238,27 +238,27 @@ img {
     }
   }
 
-  .mobileCart img {
+  .mobile-cart img {
     width: 100vw;
   }
 
   #about,
-  #aboutProductPageWrapper,
+  #about-product-page-wrapper,
   #stockists {
     display: block;
   }
 
-  .cartListQuantityInline {
+  .cart-list-quantity-inline {
     width: 80px;
   }
   
-  .itemQuantity {
+  .item-quantity {
     min-width: 50px;
   }
 }
 
 @media (max-height: 800px) and (max-width: 750px) {
-  .imgContainerGallery img {
+  .img-container-gallery img {
     height: 43vh;
   }
 }

@@ -1,6 +1,6 @@
 @import "../styles/variables.scss";
 
-#headerMain {
+#header-main {
   background-color: $background-color;
   position: fixed;
   grid-column-gap: $gap;
@@ -17,7 +17,7 @@
   transition: ease all 1s;
 }
 
-#headerMainLandingPage {
+#header-main-landing-page {
   min-width: 0;
   width: 100%;
   position: absolute;
@@ -31,12 +31,12 @@
   padding: 0 $margin-left-right $margin-top $margin-left-right;
 }
 
-#headerMainLandingPage {
+#header-main-landing-page {
   padding: $margin-top $margin-left-right;
   grid-column-gap: 1.875rem;
 }
 
-#mobileNav {
+#mobile-nav {
   transition: all 0.5s;
   overflow: hidden;
   position: fixed;
@@ -49,7 +49,7 @@
   transform: translateY(-100%);
 }
 
-#mobileNestedNav {
+#mobile-nested-nav {
   height: 96%;
   display: flex;
   flex-direction: column;
@@ -58,8 +58,8 @@
   padding-bottom: 10px;
 }
 
-#mobileNestedNav a,
-#mobileNestedNav .linkMobileMenu {
+#mobile-nested-nav a,
+#mobile-nested-nav .link-mobile-menu {
   line-height: 1;
   width: 100%;
   display: block;
@@ -72,40 +72,40 @@
   // transition: ease 0.4s all;
 }
 
-#cartMobile {
+#cart-mobile {
   border-bottom: solid 1px $secondary-gray;
 }
 
-#privacyMobile {
+#privacy-mobile {
   border-bottom: solid 1px $secondary-gray;
 }
 
-// #mobileNestedNav a:nth-last-child(1) {
+// #mobile-nested-nav a:nth-last-child(1) {
 //   border-bottom: solid 1px $secondary-gray;
 // }
 
-// #mobileNavLastChild {
+// #mobile-navLastChild {
 //   border-bottom: solid 1px $secondary-gray;
 //   margin-bottom: 20px;
 //   padding-bottom: 0;
 //   // padding: 10px 0 0px 0;
 // }
 
-#mobileNestedNav .linkMobileMenu:nth-child(1) {
+#mobile-nested-nav .link-mobile-menu:nth-child(1) {
   border-top: none;
   padding-top: 0;
 }
 
-#mobileNav a:hover {
+#mobile-nav a:hover {
   color: $secondary-gray;
 }
 
-#poolText {
+#pool-text {
   display: inline-block;
   // transition: ease 0.4s all;
 }
 
-#beanWrapper {
+#bean-wrapper {
   transition: ease 0.4s all;
   margin: 0 1px;
 }
@@ -114,7 +114,7 @@
   fill: $primary-color;
 }
 
-#burgerWrapper {
+#burger-wrapper {
   transition: ease 0.3;
   width: 100%;
   display: flex;
@@ -164,103 +164,103 @@
   stroke: $secondary-gray;
 }
 
-#navMain,
-#navMainLanding {
+#nav-main,
+#nav-mainLanding {
   grid-column: 5 / span 3;
 }
 
-#navMainLanding a:nth-child(1) {
+#nav-mainLanding a:nth-child(1) {
   transition: color 0.5s linear;
 }
 
-#navMainLanding a:nth-child(1):hover {
+#nav-mainLanding a:nth-child(1):hover {
   transition: color 0.1s linear;
   color: $primary-grey;
 }
 
-#cartMain {
+#cart-main {
   justify-self: end;
   grid-column: 7 / span 2;
 }
 
-#h1Main {
+#h1-main {
   z-index: 101;
   cursor: default;
   grid-column: 1 / span 4;
   transition: opacity ease 0.4s;
 }
 
-#h1Main span {
+#h1-main span {
   transition: opacity ease 1s;
 }
 
-#h1Main:hover {
+#h1-main:hover {
   transition: all ease 1s;
 }
 
-.menuMain {
+.menu-main {
   display: none;
 }
 
 @media (max-width: 1200px) {
-  #h1Main {
+  #h1-main {
     cursor: pointer;
   }
 
-  .cartMain {
+  .cart-main {
     display: none;
   }
 
-  .menuMain {
+  .menu-main {
     display: inline-block;
   }
 
-  #navMain {
+  #nav-main {
     display: none;
   }
-  #headerMain,
-  #headerMainLandingPage {
+  #header-main,
+  #header-main-landing-page {
     display: flex;
     justify-content: space-between;
   }
 }
 
 @media (max-width: 750px) {
-  #mobileNestedNav {
+  #mobile-nested-nav {
     height: 98%;
   }
 
-  #h1mobile {
+  #h1-mobile {
     transition: all 0.3s ease;
     margin-top: 7px;
   }
 
-  #mobileNestedNav a,
-  #mobileNestedNav .linkMobileMenu {
+  #mobile-nested-nav a,
+  #mobile-nested-nav .link-mobile-menu {
     padding: 6px 0 4px 0;
   }
 
-  #mobileNavLastChild {
+  #mobile-navLastChild {
     padding: 0;
   }
 
-  #headerMain {
+  #header-main {
     font-size: $font-size-small;
     height: 50px;
     margin-bottom: $margin-bottom-mobile;
   }
 
-  #headerMainLandingPage {
+  #header-main-landing-page {
     font-size: $font-size-small;
     bottom: 15px;
   }
 
-  #h1Main {
+  #h1-main {
     cursor: pointer;
     font-size: $font-size-small;
   }
 
-  #mobileNav {
+  #mobile-nav {
     font-size: $font-size-small;
   }
 }

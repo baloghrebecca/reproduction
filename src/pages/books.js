@@ -11,7 +11,7 @@ const BooksPage = () => {
   });
 
   return (<>
-    <div id="booksMenuWrapper">
+    <div id="books-menu-wrapper">
       <HeaderMain />
     </div>
     <Layout class="content">

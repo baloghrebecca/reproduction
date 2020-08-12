@@ -17,31 +17,31 @@ const Navigation = (props) => {
     const hasTotalPrice = totalPrice === 0 ? '0' : priceFormatted
     const hadOneOrMoreItems = itemsSize === 1 ? 'ITEM' : 'ITEMS'
 
-    return (<header id="headerMain" style={{ visibility: props.visibility }}>
-        <h1 id="h1Main"
+    return (<header id="header-main" style={{ visibility: props.visibility }}>
+        <h1 id="h1-main"
             onClick={props.handleClick}
             onMouseEnter={props.handleMouseEnter}
             onMouseLeave={props.handleMouseLeave}>
             <span id='text' style={{ display: props.displayText }}>LIFE IS BETTER AT THE  </span>
-            <span id="poolText">P<span id="beanWrapper">{props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
+            <span id="pool-text">P<span id="bean-wrapper">{props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
         </h1>
 
-        <nav id="navMain">
+        <nav id="nav-main">
             <Link activeClassName="active" to='/books'>BOOKS</Link>,
             <Link activeClassName="active" to='/about'> ABOUT</Link>,
             <Link activeClassName="active" to='/stockists'> STOCKISTS</Link>
         </nav>
 
         <Link
-            className="menuMain"
+            className="menu-main"
             activeClassName="active"
             to='/'
             onClick={props.handleClick}
         >Menu</Link>
 
         <Link
-            id="cartMain"
-            className="cartMain"
+            id="cart-main"
+            className="cart-main"
             activeClassName="active"
             to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
     </header>)

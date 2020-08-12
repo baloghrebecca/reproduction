@@ -77,16 +77,16 @@ const SliderMobile = (props) => {
       onTouchStart={handleDragStart}
       onMouseUp={handleDragEnd}
       onMouseDown={handleDragStart}
-      id="galleryProductPageMobile">
+      id="gallery-product-page-mobile">
       <div
         draggable="false"
         ref={slider}
         style={{ transform: `translateX(${currentPosition}%)` }}
-        id="slidesMobile">
+        id="slides-mobile">
         {props.images}
       </div>
     </div>
-    <div id="sliderDots" key={props.items}>
+    <div id="slider-dots" key={props.items}>
       {dots}
     </div>
   </>)

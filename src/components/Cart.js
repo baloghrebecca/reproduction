@@ -39,53 +39,50 @@ const Cart = (props) => {
 
     const hasTotalSubtotalPrice = totalSubtotalPrice === 0 ? '0.00' : totalSubtotalPriceFormatted
 
-
-    console.log('check item size??', props.cartSize);
-
-    const whichGallery = windowWidth <= 750 ? <CartSliderMobile items={props.cartSize} images={<CartImages class="imgContainerGallery mobileCart" />} /> : <CartSlider images={<CartImages class="imgContainerGallery" />} />
+    const whichGallery = windowWidth <= 750 ? <CartSliderMobile items={props.cartSize} images={<CartImages class="img-container-gallery mobile-cart" />} /> : <CartSlider images={<CartImages class="img-container-gallery" />} />
     return (<>
         <section id="cart" >
             {whichGallery}
-            <div id="cartInfo">
-                <div className="cartGeneral">
+            <div id="cart-info">
+                <div className="cart-general">
                     <h1>PRODUCT</h1>
                     <CartProductName removeItem={props.removeItem} names={titles} items={items} />
                 </div>
-                <div className="cartPriceSubtotal">
-                    <div className="cartPrices">
+                <div className="cart-price-subtotal">
+                    <div className="cart-prices">
                         <h1>PRICE</h1>
                         <CartItem names={pricesFormatted} />
                     </div>
                 </div>
-                <div className="cartQuantitiy">
-                    <div className="cartQuanitityItem">
+                <div className="cart-quantitiy">
+                    <div className="cart-quanitity-item">
                         <h1>Quantity</h1>
                         <CartProductQuantity incrementQuantity={props.incrementQuantity} decrementQuantity={props.decrementQuantity} items={items} />
                     </div>
 
                 </div>
-                <div className="cartSubtotal">
-                    <div className="cartSubtotalItem">
+                <div className="cart-subtotal">
+                    <div className="cart-subtotalItem">
                         <h1>Subtotal</h1>
                         <CartItem names={subtotalFormatted} />
                     </div>
                 </div>
             </div>
-            <div id="cartCheckoutInfos">
-                <div className="cartGeneral">
+            <div id="cart-checkout-infos">
+                <div className="cart-general">
                     <h1><Link to='/'>PROCEEDE TO CHECKOUT</Link></h1>
                 </div>
-                <div className="cartPriceSubtotal">
+                <div className="cart-price-subtotal">
                     <h1>Subtotal</h1>
-                    <p className="cartListItem">€{hasTotalSubtotalPrice}</p>
+                    <p className="cart-list-item">€{hasTotalSubtotalPrice}</p>
                 </div>
-                <div className="cartQuantitiy">
+                <div className="cart-quantitiy">
                     <h1>Shipping</h1>
-                    <p className="cartListItem">€8.00</p>
+                    <p className="cart-list-item">€8.00</p>
                 </div>
-                <div className="cartSubtotal">
+                <div className="cart-subtotal">
                     <h1>Total</h1>
-                    <p className="cartListItem">€{totalPriceFormatted}</p>
+                    <p className="cart-list-item">€{totalPriceFormatted}</p>
                 </div>
             </div>
         </section ></>)
@@ -103,10 +100,6 @@ function getTitlesWithId(items) {
             id: product.id
         }
     })
-}
-
-function getQuantities(items) {
-    return items.map(product => product.quantity)
 }
 
 function getPrices(items) {

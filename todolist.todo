@@ -24,7 +24,6 @@ MENÜ:
 
 CART:
     ☐ Resizing mistake in columns < 1200px
-    ☐ MOBILE: DOTS! 
 
 FOOTER:
     ☐ Abstand vom Footer text zum footer anpassen. Wenn sich der footer text vergrößert, soll der Footer automatisch nach unten gepuscht werden. a la display block
@@ -45,4 +44,6 @@ FIXES:
     ✔ Text ersetzen Footer @done (8/8/2020, 10:34:31 PM)
     ✔ Schriftart ersetzen @done (8/11/2020, 9:27:26 AM)
 
-
+REFACTOR:
+    ☐ CSS: stopped at MainNav
+    ☐ landingpage: cart

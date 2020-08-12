@@ -27,7 +27,7 @@ sup {
     margin-top: 30px;
 }
 
-.priceBook {
+.price-book {
     margin-top: 16px;
     color: $primary-grey;
 }
@@ -38,7 +38,7 @@ sup {
     width: 100%;
 }
 
-.bookRenderingContainer {
+.book-rendering-container {
     cursor: pointer;
     min-width: 0;
     min-height: 0;
@@ -46,7 +46,7 @@ sup {
     // height: 100%;
 }
 
-.bookRenderingContainer img{
+.book-rendering-container img{
     min-width: 0;
     min-height: 0;
     max-width: 100%;
@@ -59,7 +59,7 @@ sup {
         grid-template-columns: 1fr 1fr;
     }
 
-    #aboutPoolBooksWrapper {
+    #about-pool-books-wrapper {
         display: block;
         padding-bottom: 0px;
     }
@@ -71,7 +71,7 @@ sup {
         grid-template-columns: 1fr;
     }
 
-    #aboutPoolBooksWrapper {
+    #about-pool-books-wrapper {
         display: block;
     }
 
@@ -79,7 +79,7 @@ sup {
         display: none;
     }
 
-    .priceBook {
+    .price-book {
         margin-top: 8px;
     }
 

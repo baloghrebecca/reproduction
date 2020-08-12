@@ -85,7 +85,7 @@ export default class HeaderLandingPageCopy extends React.Component {
         setDisplay()
         anime.timeline({ loop: false })
             .add({
-                targets: '#poolText',
+                targets: '#pool-text',
                 translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
                 easing: "easeOutExpo",
                 duration: 800,
@@ -104,7 +104,7 @@ export default class HeaderLandingPageCopy extends React.Component {
         this.setState({ displayText: 'none' })
         anime.timeline({ loop: false })
             .add({
-                targets: '#poolText',
+                targets: '#pool-text',
                 translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
                 easing: "easeOutExpo",
                 duration: 600,
@@ -127,7 +127,7 @@ export default class HeaderLandingPageCopy extends React.Component {
             setTimeout(hideLogo, 450)
 
             anime({
-                targets: '#landingPageWrapper',
+                targets: '#landing-page-wrapper',
                 translateY: height,
                 easing: 'easeInOutQuad',
                 complete: function (anim) {
@@ -149,8 +149,8 @@ export default class HeaderLandingPageCopy extends React.Component {
     //Refactor navigation
     render() {
         return (<>
-            <div id="landingPageWrapper">
-                <div ref={this.forms} style={{ overflow: 'hidden' }} onClick={(e) => this.handleScroll('/books', e)} id="formsDiv" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
+            <div id="landing-page-wrapper">
+                <div ref={this.forms} style={{ overflow: 'hidden' }} onClick={(e) => this.handleScroll('/books', e)} id="forms-div" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
                     <Forms />
                 </div>
                 <MobileNavigation
@@ -161,26 +161,27 @@ export default class HeaderLandingPageCopy extends React.Component {
                     bean={bean}
                     beanMobile={beanMobile}
                 />
-                <header ref={this.navigation} id="headerMainLandingPage" style={{ visibility: this.state.visibility }}>
-                    <h1 id="h1Main"
+                
+                <header ref={this.navigation} id="header-main-landing-page" style={{ visibility: this.state.visibility }}>
+                    <h1 id="h1-main"
                         onClick={this.handleClickLogo}
                         onMouseEnter={this.handleChange}
                         onMouseLeave={this.handleLeave}>
                         <span ref={this.poolText} id='text' style={{ display: this.state.displayText, transform: `translateX(-280px)` }}>LIFE IS BETTER AT THE  </span>
-                        <span id="poolText">P{this.state.flag ? <span style={{ opacity: this.state.opacityO }}>OO</span> : <span style={{ opacity: this.state.opacityBean }} id="beanWrapper">{this.state.width < 750 ? beanMobile : bean}</span>}L</span></h1>
-                    <nav id="navMain">
+                        <span id="pool-text">P{this.state.flag ? <span style={{ opacity: this.state.opacityO }}>OO</span> : <span style={{ opacity: this.state.opacityBean }} id="bean-wrapper">{this.state.width < 750 ? beanMobile : bean}</span>}L</span></h1>
+                    <nav id="nav-main">
                         <a onClick={(e) => this.handleScroll('/books', e)} style={{ cursor: 'pointer' }}>BOOKS</a>,
                         <a onClick={(e) => this.handleScroll('/about', e)} style={{ cursor: 'pointer' }}> ABOUT</a>,
                         <a onClick={(e) => this.handleScroll('/stockists', e)} style={{ cursor: 'pointer' }}> STOCKISTS</a>
                     </nav>
                     <Link
-                        className="menuMain"
+                        className="menu-main"
                         to='/'
                         onClick={this.handleClickLogo}
                     >Menu</Link>
                     <a
-                        className="cartMain"
-                        id="cartMain"
+                        className="cart-main"
+                        id="cart-main"
                         onClick={(e) => this.handleScroll('/cart', e)}
                         style={{ cursor: 'pointer' }}
                     >2 ITEMS (35€)</a>

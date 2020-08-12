@@ -2,7 +2,7 @@ import React from 'react'
 import './pages.scss'
 
 export const CartItem = (props) => {
-    const items = props.names.map((name, index) => <span key={index} className="cartListItem"> {name} <br /></span>);
+    const items = props.names.map((name, index) => <span key={index} className="cart-list-item"> {name} <br /></span>);
 
     return (
         <p>
@@ -12,7 +12,7 @@ export const CartItem = (props) => {
 
 export const CartProductName = (props) => {
     const items = props.items.map((item, index) =>
-        <span key={index} className="cartListItem">
+        <span key={index} className="cart-list-item">
             <a href="/" onClick={(e) => props.removeItem(item, e)}>&#120;</a>
             &nbsp;{item.title} <br />
         </span>);
@@ -25,8 +25,8 @@ export const CartProductName = (props) => {
 
 export const CartProductQuantity = (props) => {
     const items = props.items.map((item, index) =>
-        <p key={index} className="cartListItem cartListQuantityInline">
-            <span className="itemQuantity">{item.quantity}</span>
+        <p key={index} className="cart-list-item cart-list-quantity-inline">
+            <span className="item-quantity">{item.quantity}</span>
             <span>
                 <a href="/" onClick={(e) => props.decrementQuantity(item, e)}>-</a> &nbsp;
                 <a href="/" onClick={(e) => props.incrementQuantity(item, e)}>+</a>
@@ -35,7 +35,7 @@ export const CartProductQuantity = (props) => {
         </p>);
 
     return (
-        <div id="cartListQuantity">
+        <div id="cart-list-quantity">
             {items}
         </div>)
 }
