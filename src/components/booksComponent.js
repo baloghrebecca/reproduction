@@ -2,6 +2,7 @@ import React from 'react'
 import './books.scss'
 import { graphql, useStaticQuery } from "gatsby"
 import Book from './Book'
+import changePriceFormat from '../services/changePriceFormat'
 
 const Books = () => {
     const data = useStaticQuery(graphql`
@@ -13,6 +14,7 @@ const Books = () => {
             id
             titel
             preis
+            slug
             bilder_produktseite {
               url
               alternativeText
@@ -25,15 +27,13 @@ const Books = () => {
 
     const allProducts = [...data.allStrapiProduct.nodes]
     const productsRender = allProducts.map(product => {
-        const { alter_preis, id, titel, preis, bilder_produktseite } = product
+        const { alter_preis, id, titel, preis, bilder_produktseite, slug } = product
 
         const priceToDisplay = changePriceFormat(preis)
         const oldPriceToDisplay = changePriceFormat(alter_preis)
 
         const titleUpperCase = titel.toUpperCase()
-        bilder_produktseite.sort(compare).reverse();
-
-        const createSlugName = titel.replace(" ", "-").toLowerCase()
+        bilder_produktseite.sort(compare)
 
         return <Book
             title={titleUpperCase}
@@ -42,7 +42,7 @@ const Books = () => {
             key={id}
             images={bilder_produktseite}
             sliderLength={bilder_produktseite.length}
-            slug={createSlugName}
+            slug={slug}
         />
     })
 
@@ -56,14 +56,6 @@ const Books = () => {
 
 export default Books
 
-function changePriceFormat(preis) {
-    console.log('preis', preis);
-    const priceToString = preis.toString()
-    const priceAfterComma = priceToString.slice(priceToString.length - 3, priceToString.length - 1)
-    const priceBeforeComma = priceToString.slice(0, priceToString.length - 2)
-    const priceToDisplay = `${priceBeforeComma}.${priceAfterComma}`
-    return priceToDisplay
-}
 
 function compare(a, b) {
     if (a.name < b.name) {

@@ -50,7 +50,7 @@ export default class HeaderLandingPageCopy extends React.Component {
     updateWindowDimensions = () => {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
         //if desktop, hide mobile navigation
-        if (this.state.width > 1100) {
+        if (this.state.width > 1200) {
             this.setState({ top: "translateY(100%)", visibility: 'visible' })
             showOverflow();
         }
@@ -62,7 +62,7 @@ export default class HeaderLandingPageCopy extends React.Component {
     }
 
     handleClickLogo = (e) => {
-        if (this.state.width <= 1100) {
+        if (this.state.width <= 1200) {
             // e.preventDefault()
             this.setState({ top: 'translateY(-100%)', visibility: 'hidden' })
             //deactivate scroll on body
@@ -131,7 +131,6 @@ export default class HeaderLandingPageCopy extends React.Component {
                 translateY: height,
                 easing: 'easeInOutQuad',
                 complete: function (anim) {
-                    console.log(link);
                     const navigatoTo = () => {
                         if (link === '/books' || link === '/about' || link === '/stockists' || link === '/cart') {
                             navigate(`${link}`)

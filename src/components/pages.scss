@@ -14,7 +14,7 @@
   padding: 0 $margin-left-right;
 }
 
-#cartInfo, 
+#cartInfo,
 #cartCheckoutInfos {
   padding: 0;
 }
@@ -92,6 +92,20 @@ img {
 
 .cartListItem {
   color: $primary-grey;
+}
+
+#cartListQuantity p {
+  margin: 0;
+}
+
+.cartListQuantityInline {
+  width: 140px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.itemQuantity {
+  min-width: 80px;
 }
 
 .cartGeneral {
@@ -234,6 +248,13 @@ img {
     display: block;
   }
 
+  .cartListQuantityInline {
+    width: 80px;
+  }
+  
+  .itemQuantity {
+    min-width: 50px;
+  }
 }
 
 @media (max-height: 800px) and (max-width: 750px) {

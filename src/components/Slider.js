@@ -120,7 +120,7 @@ export default class GalleryContainer extends React.Component {
   }
 
   render() {
-    console.log(this.state.leftEndOfSlider, this.state.rightEndOfSlider, this.state.currentPosition);
+
     return (<>
       <div onLoad={this.handleOnLoad}
         onTouchMove={this.handleDrag}

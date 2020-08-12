@@ -6,9 +6,11 @@ GENERAL:
 SLIDER: 
     ☐ slider end later in safari :( 
 
+PRODUCT DETAILS: 
+    ☐ Markdown?? To HTML (hardfacts)
+
 SCROLL: 
     ☐ scroll up on without margin one
-
 
 STARTSEITE:
     ☐ Morping compatible for Safari, + Chrome mobile
@@ -20,9 +22,17 @@ MENÜ:
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
     ☐ Wrong scroll behaviour when clicking on books mobile/tablet @critical 
 
+CART:
+    ☐ ForceUpdate
+    ☐ Change Prices
+    ☐ Math for quantities
+    ☐ Resizing mistake in columns < 1200px
+
+FOOTER:
+    ☐ Abstand vom Footer text zum footer anpassen. Wenn sich der footer text vergrößert, soll der Footer automatisch nach unten gepuscht werden. a la display block
 
 BOOKS:
-    ☐ sometimes mouseLeave throws an error (probably problem with setIndex) @high (it goes on until "-1" , instead of stopping at "0")
+    ☐ sometimes mouseLeave throws an error (probably problem with setIndex) @high (it goes on until "-1" , instead of stopping at "0") (index problem because; index resetting with entering new book)
 
 FIXES: 
     ☐ refactor layout component
@@ -35,6 +45,6 @@ FIXES:
     ☐ Logo animation langsamer
     ☐ Cookie leiste
     ✔ Text ersetzen Footer @done (8/8/2020, 10:34:31 PM)
-    ☐ Schriftart ersetzen
+    ✔ Schriftart ersetzen @done (8/11/2020, 9:27:26 AM)
 
 

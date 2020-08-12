@@ -5,6 +5,48 @@
   margin-bottom: 0;
 }
 
+#aboutPoolBooksWrapper {
+  min-height: 0;
+  min-width:0;
+  margin: $margin-left-right;
+  display: grid;
+  grid-template-columns: $grid;
+  color: $primary-grey;
+  grid-template-rows: 0;
+  grid-column-gap: 1.875rem;
+  font-family: $font;
+  font-weight: 300;
+  height: 100%;
+  padding-bottom: 10px;
+}
+
+#aboutPoolBooksWrapper a {
+  color: $primary-grey;
+}
+
+#aboutPoolBooksWrapper a:hover {
+  color: black;
+}
+
+#aboutPoolBooksAboutText {
+  min-width:0;
+  grid-column: 1 / span 4;
+  min-height: 0;
+}
+
+#aboutPoolBooksAboutAddress {
+  min-height: 0;
+  min-width:0;
+  grid-column: 5 / span 3;
+}
+
+#aboutPoolBooksSocialMedia {
+  min-height: 0;
+  min-width:0;
+  justify-self: end;
+  grid-column: 7 / span 2;
+}
+
 #footer {
   width: 100%;
   z-index: 100;
@@ -17,13 +59,20 @@
   padding: $margin-top $margin-left-right $margin-top $margin-left-right;
   transition: all ease 1s;
   margin-top: $margin-bottom-primary;
+  margin-top: 300px;
 }
 
 #footerNav {
   grid-column: 5 / span 4;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1400px) {
+  #footer {
+    margin-top: 400px;
+  }
+}
+
+@media (max-width: 1200px) {
 
   #footerWrapper {
     margin-top: 90px;
@@ -33,4 +82,5 @@
     margin-top: 0px;
     display: none;
   }
+
 }

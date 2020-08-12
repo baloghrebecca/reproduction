@@ -50,7 +50,6 @@ const Book = (props) => {
         const width = e.currentTarget.offsetWidth
         const percentage = x / width
         const imageNumber = Math.floor(percentage * sliderLength)
-        console.log('img number', imageNumber);
 
         if (imageNumber > sliderLength - 1 || imageNumber === sliderLength) {
             setIndex(sliderLength - 1)
@@ -73,12 +72,10 @@ const Book = (props) => {
         //only repeat x number of times
         setIntervalLimited(function () {
             if (index > 0 && index < props.sliderLength) {
-                if (index === 0) {
-                    return;
-                }
+                //Sometimes prints -1, but it should stop at 0.
                 setIndex(prevIndex => prevIndex - 1)
             }
-        }, 10, index - 1)
+        }, 10, index)
 
         function setIntervalLimited(callback, interval, x) {
             for (var i = 0; i < x; i++) {
@@ -87,26 +84,22 @@ const Book = (props) => {
         }
     }
 
-    //Sometimes prints -1, but it should stop at 0.
-    console.log(index);
 
     const baseURL = 'http://localhost:1337'
 
     //Refactor this: 
-    const hasOldPrice = props.oldPrice !== '.' ? <strike>{props.oldPrice}</strike> : ''
+    const hasOldPrice = props.oldPrice !== '.0' ? <strike>€{props.oldPrice}</strike> : ''
     return (
         <div className="book">
             <div onTouchEnd={handleMouseLeave} onTouchMove={handleTouchMove} onMouseMove={handleMouseOver} ref={bookRender} className="bookRenderingContainer">
                 <img onMouseLeave={handleMouseLeave} alt={props.images[index].alternativeText} src={baseURL + props.images[index].url} />
             </div>
             <div>
-                <p className="priceBook"><span className="priceBook">{hasOldPrice} {props.price}</span><br />
-                    <Link to='/product-details'>{props.title}</Link> </p>
+                <p className="priceBook"><span className="priceBook">{hasOldPrice} €{props.price}</span><br />
+                    <Link to={props.slug}>{props.title}</Link> </p>
             </div>
         </div>
     )
 }
 
 export default Book
-
-const createSlug = (slug) => `/product-details/${slug}`

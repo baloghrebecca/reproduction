@@ -32,6 +32,7 @@ export default class HeaderMain extends React.Component {
         setTimeout(showLogo, 100)
     }
     componentDidMount() {
+        console.log('itemscount', this.props);
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
     }
@@ -43,7 +44,7 @@ export default class HeaderMain extends React.Component {
     updateWindowDimensions = () => {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
         //if desktop, hide mobile navigation
-        if (this.state.width > 1100) {
+        if (this.state.width > 1200) {
             this.setState({ top: "translateY(-100%)", visibility: 'visible' })
             showOverflow()
         }
@@ -58,7 +59,7 @@ export default class HeaderMain extends React.Component {
     }
 
     handleClickLogo = (e) => {
-        if (this.state.width <= 1100) {
+        if (this.state.width <= 1200) {
             e.preventDefault()
             this.setState({ top: 'translateY(0%)', visibility: 'hidden' })
             hideOverflow()
@@ -78,10 +79,9 @@ export default class HeaderMain extends React.Component {
     handleChange = () => {
         const { width } = this.state
         // this.setState({ displayText: 'inline-block' })
-        console.log(document.querySelector('#text'));
         //281
         //157
-        const widthOfPoolText = width <= 1100 ? 157 : 281
+        const widthOfPoolText = width <= 1200 ? 157 : 281
         anime.timeline({ loop: false })
             .add({
                 targets: '#text',
@@ -127,6 +127,7 @@ export default class HeaderMain extends React.Component {
                 beanMobile={beanMobile}
             />
             <Navigation
+                // numberOfItems={this.state.cartItemsLength}
                 translatePool={this.state.translatePool}
                 visibility={this.state.visibility}
                 handleClick={this.handleClickLogo}
