@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useEffect, useState} from 'react'
 import { Link } from 'gatsby'
+import changePriceFormat from '../services/changePriceFormat'
+import { sumOfItems, getTotalPrice } from '../services/cartMath'
 
 const MobileNavigation = (props) => {
+    const [itemsSize, setItemsSize] = useState(0)
+
+    useEffect(() => {
+        const itemsLength = sumOfItems()
+        setItemsSize(itemsLength)
+    });
+
+    const totalPrice = getTotalPrice()
+    const priceFormatted = changePriceFormat(totalPrice)
+
+    const hasTotalPrice = totalPrice === 0 ? '0' : priceFormatted
+    const hadOneOrMoreItems = itemsSize === 1 ? 'ITEM' : 'ITEMS'
+
+
     return (<nav id="mobileNav" style={{ display: props.display, transform: props.top }}>
         <div id="burgerWrapper">
             <div>
@@ -19,7 +35,7 @@ const MobileNavigation = (props) => {
                 <Link activeClassName="activeMobile" to='/books'>BOOKS</Link>
                 <Link activeClassName="activeMobile" to='/about'>ABOUT</Link>
                 <Link activeClassName="activeMobile" to='/stockists'>STOCKISTS</Link>
-                <Link id="cartMobile" activeClassName="activeMobile" to='/cart'>0 ITEMS (0€)</Link>
+<Link id="cartMobile" activeClassName="activeMobile" to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
             </div>
             <div id="mobileNavMain">
                 <Link activeClassName="activeMobile" to='/imprint'>

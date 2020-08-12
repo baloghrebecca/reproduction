@@ -40,8 +40,9 @@ const Cart = (props) => {
     const hasTotalSubtotalPrice = totalSubtotalPrice === 0 ? '0.00' : totalSubtotalPriceFormatted
 
 
+    console.log('check item size??', props.cartSize);
 
-    const whichGallery = windowWidth <= 750 ? <CartSliderMobile images={<CartImages class="imgContainerGallery mobileCart" />} /> : <CartSlider images={<CartImages class="imgContainerGallery" />} />
+    const whichGallery = windowWidth <= 750 ? <CartSliderMobile items={props.cartSize} images={<CartImages class="imgContainerGallery mobileCart" />} /> : <CartSlider images={<CartImages class="imgContainerGallery" />} />
     return (<>
         <section id="cart" >
             {whichGallery}

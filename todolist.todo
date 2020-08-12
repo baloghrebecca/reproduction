@@ -23,10 +23,8 @@ MENÜ:
     ☐ Wrong scroll behaviour when clicking on books mobile/tablet @critical 
 
 CART:
-    ☐ ForceUpdate
-    ☐ Change Prices
-    ☐ Math for quantities
     ☐ Resizing mistake in columns < 1200px
+    ☐ MOBILE: DOTS! 
 
 FOOTER:
     ☐ Abstand vom Footer text zum footer anpassen. Wenn sich der footer text vergrößert, soll der Footer automatisch nach unten gepuscht werden. a la display block

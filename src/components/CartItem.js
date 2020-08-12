@@ -26,7 +26,7 @@ export const CartProductName = (props) => {
 export const CartProductQuantity = (props) => {
     const items = props.items.map((item, index) =>
         <p key={index} className="cartListItem cartListQuantityInline">
-            <span class="itemQuantity">{item.quantity}</span>
+            <span className="itemQuantity">{item.quantity}</span>
             <span>
                 <a href="/" onClick={(e) => props.decrementQuantity(item, e)}>-</a> &nbsp;
                 <a href="/" onClick={(e) => props.incrementQuantity(item, e)}>+</a>
@@ -35,7 +35,7 @@ export const CartProductQuantity = (props) => {
         </p>);
 
     return (
-        <p id="cartListQuantity">
+        <div id="cartListQuantity">
             {items}
-        </p>)
+        </div>)
 }

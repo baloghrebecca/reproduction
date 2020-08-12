@@ -4,17 +4,23 @@ import './pages.scss'
 const SliderMobile = (props) => {
   const [currentPosition, setCurrentPosition] = useState(0)
   const [counter, setCounter] = useState(1)
-  const [sliderLength, setSliderLength] = useState()
+  const [sliderLength, setSliderLength] = useState(props.items)
   const [posX1, setPosX1] = useState()
   const [windowWidth, setWindowWith] = useState()
+  const [dots, setDots] = useState()
+
   const slider = useRef()
 
+  const cartLength = props.items
   useEffect(() => {
-    const slideLength = document.querySelector('#slidesMobile').childNodes.length
-    setSliderLength(slideLength)
+    setSliderLength(cartLength)
+
     const windowSize = window.innerWidth
     setWindowWith(windowSize)
-  }, []);
+
+    getDots(cartLength)
+
+  }, [cartLength]); //re-renders when CartLength changes
 
   const handleDragStart = (e) => {
     hideOverflow()
@@ -60,10 +66,9 @@ const SliderMobile = (props) => {
     for (var i = 1; i <= numberOfSlides; i++) {
       dots.push(<div key={i} className={counter === i ? 'dot dotActive' : 'dot'}></div>)
     }
-    return dots
-  }
 
-  const dots = getDots(sliderLength)
+    setDots(dots)
+  }
 
   return (<>
     <div
@@ -81,7 +86,7 @@ const SliderMobile = (props) => {
         {props.images}
       </div>
     </div>
-    <div id="sliderDots">
+    <div id="sliderDots" key={props.items}>
       {dots}
     </div>
   </>)

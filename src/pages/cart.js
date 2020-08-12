@@ -4,21 +4,25 @@ import Layout from '../components/Layout';
 import Cart from '../components/Cart'
 import HeaderMain from '../components/HeaderMain'
 import { showOverflow } from '../services/manageOverflow'
-import { removeProduct, decrementQuantity, incrementQuantity } from '../services/cart'
+import { removeProduct, decrementQuantity, incrementQuantity, getCart } from '../services/cart'
 
 const CartPage = (props) => {
 
+  const [cartItemsSize, setCartItemSize] = useState()
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
 
   useEffect(() => {
     showOverflow();
+    
+    setCartItemSize(getCart().length)
   });
 
   const handleRemoveItem = (product, e) => {
     preventDefault(e);
 
     removeProduct(product)
+    setCartItemSize(getCart().length)
     forceUpdate()
   }
 
@@ -26,6 +30,7 @@ const CartPage = (props) => {
     preventDefault(e);
 
     decrementQuantity(product)
+    setCartItemSize(getCart().length)
     forceUpdate()
   }
 
@@ -40,6 +45,7 @@ const CartPage = (props) => {
     <HeaderMain />
     <Layout class="contentWithoutMargin">
       <Cart 
+        cartSize={cartItemsSize}
         removeItem={handleRemoveItem}
         decrementQuantity={handleDecrementQuantity}
         incrementQuantity={handleIncrementQuantity}

@@ -32,7 +32,6 @@ export default class HeaderMain extends React.Component {
         setTimeout(showLogo, 100)
     }
     componentDidMount() {
-        console.log('itemscount', this.props);
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
     }
