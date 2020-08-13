@@ -7,7 +7,7 @@ import ReactMarkdown from 'react-markdown'
 
 const ProductPage = (props) => {
 
-    const hasOldPrice = props.oldPrice !== '.0' ? <strike>€{props.oldPrice}</strike> : ''
+    const hasOldPrice = props.oldPrice !== '0.0' ? <strike>€{props.oldPrice}</strike> : ''
 
     const getImageDivs = generateImageDivs(props.images)
 

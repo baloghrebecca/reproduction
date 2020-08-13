@@ -88,7 +88,7 @@ const Book = (props) => {
     const baseURL = 'http://localhost:1337'
 
     //Refactor this: 
-    const hasOldPrice = props.oldPrice !== '.0' ? <strike>€{props.oldPrice}</strike> : ''
+    const hasOldPrice = props.oldPrice !== '0.0' ? <strike>€{props.oldPrice}</strike> : ''
     return (
         <div className="book">
             <div onTouchEnd={handleMouseLeave} onTouchMove={handleTouchMove} onMouseMove={handleMouseOver} ref={bookRender} className="book-rendering-container">

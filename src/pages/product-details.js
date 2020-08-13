@@ -17,7 +17,7 @@ const ProductDetails = ({ data }) => {
     showOverflow();
   });
 
-  const { alter_preis, artist, beschreibung, preis, titel, hard_facts, bilder_slideshow, strapiId, bild_warenkorb } = data.strapiProduct
+  const { alter_preis, artist, beschreibung, preis, titel, hard_facts, bilder_slideshow, strapiId, bild_warenkorb, stripeID } = data.strapiProduct
 
   const rightFormatPrice = changePriceFormat(preis)
   const rightFormatOldPrice = changePriceFormat(alter_preis)
@@ -28,6 +28,7 @@ const ProductDetails = ({ data }) => {
     price: preis,
     title: titleUpperCase,
     quantity: 1,
+    stripeID: stripeID,
     image: `http://localhost:1337${bild_warenkorb[0].url}`
   }
 
@@ -56,6 +57,7 @@ const ProductDetails = ({ data }) => {
         aboutArtist={artist}
         images={bilder_slideshow}
         cartData={cartData}
+        stripeID={stripeID}
       />
     </Layout>
   </>)
@@ -69,6 +71,7 @@ export const query = graphql`
 query ProductDetails($id: String!) {
     strapiProduct(id: {eq: $id}) {
       strapiId
+      stripeID
       alter_preis
       artist
       beschreibung

@@ -112,6 +112,10 @@ img {
   grid-column: 1 / span 3;
 }
 
+.cart-general a {
+  cursor: pointer;
+}
+
 .cart-price-subtotal {
   grid-column: 5 / span 1;
 }

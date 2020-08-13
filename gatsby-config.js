@@ -20,6 +20,14 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Customer'],
+        secretKey: 'pk_test_51HFdbTHVWF33LGh7fEHNxjsejQxlFkriJ5kV2Anz4lPxgXjY1t0LH4sjiN45b82IZ7738LChp0AXb1Evz67Xzuxd008bQsVprn',
+        downloadFiles: true,
+      }
+    },
+    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {

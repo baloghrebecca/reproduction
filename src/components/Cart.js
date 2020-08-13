@@ -4,11 +4,11 @@ import CartSlider from './Slider'
 import CartSliderMobile from './SliderMobile'
 import CartImages from '../services/getCartImages'
 import { CartItem, CartProductName, CartProductQuantity } from './CartItem'
-import { Link } from 'gatsby'
 import _debounce from 'lodash.debounce'
 import { getCart } from '../services/cart'
 import changePriceFormat from '../services/changePriceFormat'
 import { getTotalPrice, getTotalPricePlusShipping } from '../services/cartMath'
+import { Checkout } from '../services/checkout'
 
 const Cart = (props) => {
     const [windowWidth, setWindowWidth] = useState()
@@ -26,20 +26,11 @@ const Cart = (props) => {
 
     const items = getCart()
 
-    const titles = getTitlesWithId(items)
-    const prices = getPrices(items)
-    const subtotals = getSubtotals(items)
-    const totalSubtotalPrice = getTotalPrice()
-    const totalPrice = getTotalPricePlusShipping()
-
-    const pricesFormatted = formatPrice(prices)
-    const subtotalFormatted = formatPrice(subtotals)
-    const totalSubtotalPriceFormatted = changePriceFormat(totalSubtotalPrice)
-    const totalPriceFormatted = changePriceFormat(totalPrice)
-
+    const { totalSubtotalPrice, totalSubtotalPriceFormatted, titles, pricesFormatted, subtotalFormatted, totalPriceFormatted } = getCartDetails(items)
     const hasTotalSubtotalPrice = totalSubtotalPrice === 0 ? '0.00' : totalSubtotalPriceFormatted
 
     const whichGallery = windowWidth <= 750 ? <CartSliderMobile items={props.cartSize} images={<CartImages class="img-container-gallery mobile-cart" />} /> : <CartSlider images={<CartImages class="img-container-gallery" />} />
+
     return (<>
         <section id="cart" >
             {whichGallery}
@@ -69,9 +60,7 @@ const Cart = (props) => {
                 </div>
             </div>
             <div id="cart-checkout-infos">
-                <div className="cart-general">
-                    <h1><Link to='/'>PROCEEDE TO CHECKOUT</Link></h1>
-                </div>
+                <Checkout cart={items}/>
                 <div className="cart-price-subtotal">
                     <h1>Subtotal</h1>
                     <p className="cart-list-item">€{hasTotalSubtotalPrice}</p>
@@ -86,8 +75,22 @@ const Cart = (props) => {
                 </div>
             </div>
         </section ></>)
-        }
+}
 export default Cart
+
+function getCartDetails(items) {
+    const titles = getTitlesWithId(items)
+    const prices = getPrices(items)
+    const subtotals = getSubtotals(items)
+    const totalSubtotalPrice = getTotalPrice()
+    const totalPrice = getTotalPricePlusShipping()
+
+    const pricesFormatted = formatPrice(prices)
+    const subtotalFormatted = formatPrice(subtotals)
+    const totalSubtotalPriceFormatted = changePriceFormat(totalSubtotalPrice)
+    const totalPriceFormatted = changePriceFormat(totalPrice)
+    return { totalSubtotalPrice, totalSubtotalPriceFormatted, titles, pricesFormatted, subtotalFormatted, totalPriceFormatted }
+}
 
 function formatPrice(prices) {
     return prices.map(price => '€' + changePriceFormat(price))
