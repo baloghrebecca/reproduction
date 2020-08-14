@@ -64,9 +64,11 @@ module.exports = {
           'product',
           // 'user'
         ],
-        singleType: [
-          `about-us`,
-          `footer`,
+        singleTypes: [
+          'about',
+          'footer',
+          'imprint',
+          'stockists',
         ], 
         queryLimit: 1000,
       },

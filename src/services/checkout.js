@@ -41,6 +41,7 @@ export const Checkout = (props) => {
     const redirectToCheckout = async event => {
         event.preventDefault()
         setLoading(true)
+
         const stripe = await getStripe()
         const { error } = await stripe.redirectToCheckout({
             mode: "payment",
@@ -58,8 +59,10 @@ export const Checkout = (props) => {
         }
     }
 
-    const checkoutButton = <a onClick={redirectToCheckout} >PROCEEDE TO CHECKOUT </a>
-    const isLoading = loading ? 'LOADING...' : checkoutButton
+    const checkoutButton = <a onClick={redirectToCheckout} href='/'>PROCEEDE TO CHECKOUT </a>
+    const isLoading = loading 
+    ? 'LOADING...' 
+    : checkoutButton
 
     return (
         <div className="cart-general">

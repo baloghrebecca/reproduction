@@ -1,27 +1,31 @@
 import React from 'react'
 import './footer.scss'
-import { Link } from 'gatsby'
+import { graphql, useStaticQuery, Link } from "gatsby"
+import ReactMarkdown from 'react-markdown'
 
 const Footer = () => {
+    const data = useStaticQuery(graphql`
+    query Footer {
+        strapiFooter {
+          footer__col1
+          footer__col2
+          footer__col3
+        }
+      }      
+      `)
+
+    //   <ReactMarkdown source={data.strapiAbout.about__col1} />
     return (
     <section id="footer-wrapper">
         <section id="about-pool-books-wrapper">
-            <p id="aboutPoolBooksAboutText">POOL is a contemporary publishing house based in Vienna and Berlin with a focus on illustration, graphic design and photography. Together with creatives from all over the world we create unique publications, speak at conferences about our experiences and run workshops on artist books and self-publishing.
-            <br /> <br />
-            The association, whose activities are not aimed at profit, pursues exclusively non-profit purposes, Promotion of art and culture, promotion of cultural activity, mediation of culture, enrichment of cultural life.
-            <br />POOL publishing
-            </p>
+            <div id="aboutPoolBooksAboutText">
+            <ReactMarkdown source={data.strapiFooter.footer__col1} />
+            </div>
             <p id="about-pool-books-about-address">
-                Straußengasse 18/5 <br />
-            1050 Vienna <br />
-            Austria <br />
-                <br />
-            hi@p-oo-l.com <br />
-            p-oo-l.com <br />
+            <ReactMarkdown source={data.strapiFooter.footer__col2} />
             </p>
             <p id="about-pool-books-social-media">
-                <a href="https://www.facebook.com/poolpublishing" target="blank">Facebook</a><br />
-                <a href="https://www.instagram.com/pool_publishing" target="blank">Instagram</a>
+            <ReactMarkdown source={data.strapiFooter.footer__col3} />
             </p>
         </section>
         <footer id="footer">

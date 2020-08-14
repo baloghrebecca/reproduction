@@ -1,13 +1,8 @@
 HEADER:
     ☐ POOL logo transition effect on hover @low
 
-GENERAL:
-
 SLIDER: 
     ☐ slider end later in safari :( 
-
-PRODUCT DETAILS: 
-    ☐ Markdown?? To HTML (hardfacts)
 
 SCROLL: 
     ☐ scroll up on without margin one
@@ -33,6 +28,9 @@ BOOKS:
 
 FIXES: 
     ☐ refactor layout component
+
+IMPRINT: 
+    ☐ Link to my website
 
 
  CART
