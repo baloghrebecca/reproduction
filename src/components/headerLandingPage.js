@@ -150,7 +150,12 @@ export default class HeaderLandingPageCopy extends React.Component {
     render() {
         return (<>
             <div id="landing-page-wrapper">
-                <div ref={this.forms} style={{ overflow: 'hidden' }} onClick={(e) => this.handleScroll('/books', e)} id="forms-div" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
+                <div
+                    ref={this.forms}
+                    style={{ overflow: 'hidden' }}
+                    onClick={(e) => this.handleScroll('/books', e)}
+                    id="forms-div"
+                    style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
                     <Forms />
                 </div>
                 <MobileNavigation
@@ -161,8 +166,11 @@ export default class HeaderLandingPageCopy extends React.Component {
                     bean={bean}
                     beanMobile={beanMobile}
                 />
-                
-                <header ref={this.navigation} id="header-main-landing-page" style={{ visibility: this.state.visibility }}>
+
+                <header
+                    ref={this.navigation}
+                    id="header-main-landing-page"
+                    style={{ visibility: this.state.visibility }}>
                     <h1 id="h1-main"
                         onClick={this.handleClickLogo}
                         onMouseEnter={this.handleChange}

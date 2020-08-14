@@ -65,8 +65,8 @@ module.exports = {
           // 'user'
         ],
         singleType: [
-          //`home-page`,
-          //`contact`,
+          `about-us`,
+          `footer`,
         ], 
         queryLimit: 1000,
       },

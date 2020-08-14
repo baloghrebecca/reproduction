@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react"
 import './pages.scss'
+import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
 const SliderMobile = (props) => {
   const [currentPosition, setCurrentPosition] = useState(0)
@@ -20,14 +21,17 @@ const SliderMobile = (props) => {
 
     getDots(cartLength)
 
-  }, [cartLength]); //re-renders when CartLength changes
+  }, [cartLength]); //re-renders when CartLength changes so the right amount of dots are displayed
 
   const handleDragStart = (e) => {
-    hideOverflow()
     const { clientX, type, touches } = e
+
+    hideOverflow()
+
     if (type === 'touchstart') {
       const touch = touches[0]
       const startX = touch.clientX
+
       setPosX1(startX)
     } else {
       setPosX1(clientX)
@@ -36,19 +40,26 @@ const SliderMobile = (props) => {
 
   const handleDragEnd = () => {
     showOverflow()
+
     const halfOfWindowWith = windowWidth / 2
+
     if (posX1 < halfOfWindowWith && counter <= sliderLength) {
+
       if (counter === 1) {
         const endPosition = 100 * (sliderLength)
         setCounter(sliderLength + 1)
         setCurrentPosition(-endPosition)
       }
+
       setCounter(prevCounter => prevCounter - 1)
       setCurrentPosition(prevCurrentPosition => prevCurrentPosition + 100)
     }
+
     if (posX1 > halfOfWindowWith && counter <= sliderLength) {
+
       setCounter(prevCounter => prevCounter + 1)
       setCurrentPosition(prevCurrentPosition => prevCurrentPosition - 100)
+
       if (counter === sliderLength) {
         setCounter(1)
         setCurrentPosition(0)
@@ -93,11 +104,3 @@ const SliderMobile = (props) => {
 }
 
 export default SliderMobile
-
-function showOverflow() {
-  document.body.style.overflow = ""
-}
-
-function hideOverflow() {
-  document.body.style.overflow = "hidden"
-}

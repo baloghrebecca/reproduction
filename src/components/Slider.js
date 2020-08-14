@@ -32,9 +32,12 @@ export default class GalleryContainer extends React.Component {
 
   handleOnLoad = (e) => {
     const slider = this.slider.current
+
     window.scrollBy(0, 1);
+
     const firstSlideSize = slider.getElementsByClassName("img-container-gallery")[0].clientWidth
     const sliderArray = slider.getElementsByClassName("img-container-gallery")
+
     this.setCurrentPositionAndLeftAndOfSlider();
     this.setState({
       sliderArray: sliderArray,
@@ -51,14 +54,18 @@ export default class GalleryContainer extends React.Component {
     const slider = this.slider.current
     //difference between first and end position of the mouse (total amount of pixel travelled)
     const posX2 = posX1 - e.clientX;
+
     this.setState({
       posX2: posX2,
       cursor: 'grabbing'
     })
+
     //the current left position of the slider 
     const sliderPositionLeft = slider.offsetLeft
+
     //get new position by subtracting the travelled pixel 
     const position = sliderPositionLeft - posX2
+
     this.setState({
       currentPosition: position
     })
@@ -66,9 +73,11 @@ export default class GalleryContainer extends React.Component {
 
   handleDragStart = (e) => {
     hideOverflow();
+
     this.setState({
       cursor: 'grabbing'
     })
+
     //initital start position of the mouse
     const positionXStart = e.clientX
     this.setState({
@@ -84,8 +93,10 @@ export default class GalleryContainer extends React.Component {
 
   handleTouchStart = (e) => {
     const { touches } = e
+
     if (touches && touches.length === 1) {
       hideOverflow();
+
       const touch = touches[0]
       const startX = touch.clientX
       this.setState({ posX1: startX })
@@ -96,6 +107,7 @@ export default class GalleryContainer extends React.Component {
     const slider = this.slider.current
     const posX2 = Math.floor(this.state.posX1 - e.touches[0].clientX)
     const sliderPositionLeft = slider.offsetLeft
+
     //repositions slider according to user input 
     const position = Math.floor(sliderPositionLeft - (posX2 + 60))
     this.setState({
@@ -106,12 +118,16 @@ export default class GalleryContainer extends React.Component {
 
   handleDragEnd = (e) => {
     const { currentPosition, leftEndOfSlider, rightEndOfSlider } = this.state
+
     showOverflow();
+
     this.setState({
       cursor: 'pointer'
     })
+
     const isSliderSmallerThanContainer = this.slider.current.offsetWidth < this.container.current.offsetWidth;
     const hasReachedTheEnd = currentPosition > leftEndOfSlider || rightEndOfSlider < -currentPosition || isSliderSmallerThanContainer
+    
     if (hasReachedTheEnd) {
       setTimeout(() => {
         this.setState({ currentPosition: leftEndOfSlider })

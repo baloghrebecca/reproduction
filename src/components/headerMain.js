@@ -61,6 +61,7 @@ export default class HeaderMain extends React.Component {
         if (this.state.width <= 1200) {
             e.preventDefault()
             this.setState({ top: 'translateY(0%)', visibility: 'hidden' })
+
             hideOverflow()
         }
     };
@@ -68,10 +69,12 @@ export default class HeaderMain extends React.Component {
     handleClickBurger = (e) => {
         e.preventDefault()
         e.stopPropagation()
+
         this.setState({ top: 'translateY(-100%)' })
         setTimeout(() => {
             this.setState({ visibility: 'visible' });
         }, 500)
+
         showOverflow()
     };
 
@@ -126,7 +129,6 @@ export default class HeaderMain extends React.Component {
                 beanMobile={beanMobile}
             />
             <Navigation
-                // numberOfItems={this.state.cartItemsLength}
                 translatePool={this.state.translatePool}
                 visibility={this.state.visibility}
                 handleClick={this.handleClickLogo}

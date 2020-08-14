@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'gatsby'
 import changePriceFormat from '../services/changePriceFormat'
 import { sumOfItems, getTotalPrice } from '../services/cartMath'
@@ -14,15 +14,20 @@ const MobileNavigation = (props) => {
     const totalPrice = getTotalPrice()
     const priceFormatted = changePriceFormat(totalPrice)
 
-    const hasTotalPrice = totalPrice === 0 ? '0' : priceFormatted
-    const hadOneOrMoreItems = itemsSize === 1 ? 'ITEM' : 'ITEMS'
+    const hasTotalPrice = totalPrice === 0
+        ? '0'
+        : priceFormatted
 
+    const hadOneOrMoreItems = itemsSize === 1
+        ? 'ITEM'
+        : 'ITEMS'
 
     return (<nav id="mobile-nav" style={{ display: props.display, transform: props.top }}>
         <div id="burger-wrapper">
             <div>
                 <h1 id="h1-mobile">
-                    LIFE IS BETTER AT THE <span id="pool-text">P<span id="bean-wrapper">{props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
+                    LIFE IS BETTER AT THE <span id="pool-text">P<span id="bean-wrapper">
+                        {props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
                 </h1>
             </div>
             <div>
@@ -35,7 +40,8 @@ const MobileNavigation = (props) => {
                 <Link activeClassName="active-mobile" to='/books'>BOOKS</Link>
                 <Link activeClassName="active-mobile" to='/about'>ABOUT</Link>
                 <Link activeClassName="active-mobile" to='/stockists'>STOCKISTS</Link>
-<Link id="cart-mobile" activeClassName="active-mobile" to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
+                <Link id="cart-mobile" activeClassName="active-mobile" to='/cart'>
+                    {itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
             </div>
             <div id="mobile-nav-main">
                 <Link activeClassName="active-mobile" to='/imprint'>

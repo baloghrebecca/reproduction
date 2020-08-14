@@ -1,17 +1,16 @@
 import React from 'react'
 import './pages.scss'
-
 import Slider from './Slider'
 import ReactMarkdown from 'react-markdown'
 
 
 const ProductPage = (props) => {
 
-    const hasOldPrice = props.oldPrice !== '0.0' ? <strike>€{props.oldPrice}</strike> : ''
+    const hasOldPrice = props.oldPrice !== '0.0'
+        ? <strike>€{props.oldPrice}</strike>
+        : ''
 
     const getImageDivs = generateImageDivs(props.images)
-
-    // const convertToHtml = <ReactMarkdown src={props.hardFacts} />
 
     return (
         <section id="product-page-wrapper">
@@ -22,7 +21,7 @@ const ProductPage = (props) => {
                 </p>
                 <p>
                     <a
-                        onClick={(e) => 
+                        onClick={(e) =>
                             props.handleAddToCart(props.cartData, e)
                         }
                         href='/'>ADD TO CART</a>
@@ -31,26 +30,33 @@ const ProductPage = (props) => {
             <div id="about-product-page-wrapper">
                 <div className="col-1">
                     <h2>{props.title}</h2>
-                    <p>{props.aboutBook}</p>
+                    <p>
+                        <ReactMarkdown source={props.aboutBook} />
+                    </p>
                 </div>
                 <div className="col-2">
                     <h2>Artist</h2>
-                    <p>{props.aboutArtist}</p>
+                    <p>
+                        <ReactMarkdown source={props.aboutArtist} />
+                    </p>
                 </div>
                 <div className="col-3">
                     <h2 className="hide-mobile">&nbsp; </h2>
-                    <p><span className="hide-mobile">{hasOldPrice} €{props.price} <br /> <br /></span>
-                        {props.hardFacts}
+                    <p>
+                        <span className="hide-mobile">{hasOldPrice} €{props.price}
+                            <br /> <br />
+                        </span>
+                        <ReactMarkdown source={props.hardFacts} />
                     </p>
                 </div>
                 <div className="col-4 product-page-cart hide-mobile">
-                    <h2>&nbsp; </h2>
+                    <h2>&nbsp; </h2> {/* placeholder */}
                     <p>
-                    <a
-                        onClick={(e) => 
-                            props.handleAddToCart(props.cartData, e)
-                        }
-                        href='/'>ADD TO CART</a>
+                        <a
+                            onClick={(e) =>
+                                props.handleAddToCart(props.cartData, e)
+                            }
+                            href='/'>ADD TO CART</a>
                     </p>
                 </div>
             </div>

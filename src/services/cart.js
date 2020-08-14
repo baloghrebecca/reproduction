@@ -51,6 +51,7 @@ export const decrementQuantity = (product) => {
         removeProduct(product)
         return;
        } 
+       
        cartProduct.quantity--
     } 
 

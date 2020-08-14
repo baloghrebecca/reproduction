@@ -20,8 +20,6 @@ const getStripe = () => {
 
 export const Checkout = (props) => {
 
-
-
     const [loading, setLoading] = useState(false)
     const items = getCart()
 

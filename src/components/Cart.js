@@ -27,9 +27,13 @@ const Cart = (props) => {
     const items = getCart()
 
     const { totalSubtotalPrice, totalSubtotalPriceFormatted, titles, pricesFormatted, subtotalFormatted, totalPriceFormatted } = getCartDetails(items)
-    const hasTotalSubtotalPrice = totalSubtotalPrice === 0 ? '0.00' : totalSubtotalPriceFormatted
+    const hasTotalSubtotalPrice = totalSubtotalPrice === 0
+        ? '0.00'
+        : totalSubtotalPriceFormatted
 
-    const whichGallery = windowWidth <= 750 ? <CartSliderMobile items={props.cartSize} images={<CartImages class="img-container-gallery mobile-cart" />} /> : <CartSlider images={<CartImages class="img-container-gallery" />} />
+    const whichGallery = windowWidth <= 750
+        ? <CartSliderMobile items={props.cartSize} images={<CartImages class="img-container-gallery mobile-cart" />} />
+        : <CartSlider images={<CartImages class="img-container-gallery" />} />
 
     return (<>
         <section id="cart" >
@@ -60,7 +64,7 @@ const Cart = (props) => {
                 </div>
             </div>
             <div id="cart-checkout-infos">
-                <Checkout cart={items}/>
+                <Checkout cart={items} />
                 <div className="cart-price-subtotal">
                     <h1>Subtotal</h1>
                     <p className="cart-list-item">€{hasTotalSubtotalPrice}</p>

@@ -37,10 +37,10 @@ const Book = (props) => {
     //update on window width resize
     useEffect(() => {
         setWindowWidth(window.innerWidth)
+
         if (window.innerWidth != windowWidth) {
             setWindowWidth(window.innerWidth)
         }
-
     });
 
     const handleTouchMove = (e) => {
@@ -88,14 +88,26 @@ const Book = (props) => {
     const baseURL = 'http://localhost:1337'
 
     //Refactor this: 
-    const hasOldPrice = props.oldPrice !== '0.0' ? <strike>€{props.oldPrice}</strike> : ''
+    const hasOldPrice = props.oldPrice !== '0.0'
+        ? <strike>€{props.oldPrice}</strike>
+        : ''
+
     return (
         <div className="book">
-            <div onTouchEnd={handleMouseLeave} onTouchMove={handleTouchMove} onMouseMove={handleMouseOver} ref={bookRender} className="book-rendering-container">
-                <img onMouseLeave={handleMouseLeave} alt={props.images[index].alternativeText} src={baseURL + props.images[index].url} />
+            <div
+                onTouchEnd={handleMouseLeave}
+                onTouchMove={handleTouchMove}
+                onMouseMove={handleMouseOver}
+                ref={bookRender}
+                className="book-rendering-container">
+                <img
+                    onMouseLeave={handleMouseLeave}
+                    alt={props.images[index].alternativeText}
+                    src={baseURL + props.images[index].url} />
             </div>
             <div>
-                <p className="price-book"><span className="price-book">{hasOldPrice} €{props.price}</span><br />
+                <p className="price-book">
+                    <span className="price-book">{hasOldPrice} €{props.price}</span><br />
                     <Link to={props.slug}>{props.title}</Link> </p>
             </div>
         </div>

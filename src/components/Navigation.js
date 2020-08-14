@@ -14,8 +14,13 @@ const Navigation = (props) => {
     const totalPrice = getTotalPrice()
     const priceFormatted = changePriceFormat(totalPrice)
 
-    const hasTotalPrice = totalPrice === 0 ? '0' : priceFormatted
-    const hadOneOrMoreItems = itemsSize === 1 ? 'ITEM' : 'ITEMS'
+    const hasTotalPrice = totalPrice === 0
+        ? '0'
+        : priceFormatted
+
+    const hadOneOrMoreItems = itemsSize === 1
+        ? 'ITEM'
+        : 'ITEMS'
 
     return (<header id="header-main" style={{ visibility: props.visibility }}>
         <h1 id="h1-main"
