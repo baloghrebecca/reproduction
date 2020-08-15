@@ -9,6 +9,8 @@ import { removeProduct, decrementQuantity, incrementQuantity, getCart } from '..
 const CartPage = () => {
 
   const [cartItemsSize, setCartItemSize] = useState()
+
+  //this forces a re-render
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
 

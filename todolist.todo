@@ -1,5 +1,5 @@
 HEADER:
-    ☐ POOL logo transition effect on hover @low
+    ☐ POOL logo transition effect on hover @low (opacity animation and POOL pubishing on top position fixed??? )
 
 SLIDER: 
     ☐ slider end later in safari :( 
@@ -39,8 +39,6 @@ IMPRINT:
  FEEDBACK:
     ☐ Logo animation langsamer
     ☐ Cookie leiste
-    ✔ Text ersetzen Footer @done (8/8/2020, 10:34:31 PM)
-    ✔ Schriftart ersetzen @done (8/11/2020, 9:27:26 AM)
 
 REFACTOR:
     ☐ CSS: stopped at MainNav

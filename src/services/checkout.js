@@ -6,7 +6,7 @@ import { getCart } from '../services/cart'
 let stripePromise
 const getStripe = () => {
     if (!stripePromise) {
-        stripePromise = loadStripe("pk_test_51HFdbTHVWF33LGh7fEHNxjsejQxlFkriJ5kV2Anz4lPxgXjY1t0LH4sjiN45b82IZ7738LChp0AXb1Evz67Xzuxd008bQsVprn")
+        stripePromise = loadStripe('sk_test_51HFdbTHVWF33LGh7aSNyxMHgJL6ZgxUro4Npcz0ilKzMCblEXlki5F3MqY5GDpV5H1PHuwLBaVDfbqyCLRKEog9n00ZNRrC1FD')
     }
     return stripePromise
 }

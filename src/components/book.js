@@ -85,7 +85,7 @@ const Book = (props) => {
     }
 
 
-    const baseURL = 'http://localhost:1337'
+    const baseURL = 'http://pool-backend.herokuapp.com'
 
     //Refactor this: 
     const hasOldPrice = props.oldPrice !== '0.0'

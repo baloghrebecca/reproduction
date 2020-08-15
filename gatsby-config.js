@@ -59,8 +59,9 @@ module.exports = {
     {
       resolve: 'gatsby-source-strapi',
       options: {
-        apiURL: 'http://localhost:1337',
-        contentTypes: [ // Collection of the Content Types you want to be able to request from Gatsby.
+        apiURL: process.env.API_URL || 'http://pool-backend.herokuapp.com',
+        // apiURL: 'http://localhost:1337',
+        contentTypes: [ // Collection of the Contentcc Types you want to be able to request from Gatsby.
           'product',
           // 'user'
         ],

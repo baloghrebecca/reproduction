@@ -67,7 +67,7 @@ export default ProductPage
 
 function generateImageDivs(images) {
     const generateImageDivs = images.map(image => {
-        const url = `http://localhost:1337${image.url}`
+        const url = `http://pool-backend.herokuapp.com${image.url}`
 
         return <div
             draggable="false"
