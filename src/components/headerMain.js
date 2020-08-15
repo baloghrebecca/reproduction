@@ -48,7 +48,7 @@ export default class HeaderMain extends React.Component {
             showOverflow()
         }
         if (this.state.width < 750) {
-            this.setState({ translatePool: "translateY(157px)"})
+            this.setState({ translatePool: "translateY(157px)" })
             showOverflow()
         }
     }
@@ -83,64 +83,60 @@ export default class HeaderMain extends React.Component {
         // this.setState({ displayText: 'inline-block' })
         //281
         //157
-        const widthOfPoolText = width <= 1200 ? 157 : 281
+        const setDisplay = () => this.setState({ displayText: 'inline-block' })
+        setDisplay()
         anime.timeline({ loop: false })
-            .add({
-                targets: '#text',
-                translateX: 250,
-                duration: 800,
-            })
             .add({
                 targets: '#pool-text',
                 translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
-                // translateX: [0, `${widthOfPoolText}`],
                 easing: "easeOutExpo",
                 duration: 800,
             })
             .add({
-                targets: '#pool-text',
-                translateX: [0, 0],
+                targets: '#text',
+                translateX: [-50, 0],
                 opacity: [0, 1],
                 easing: "easeOutExpo",
                 duration: 0,
-                // direction: 'alternate',
+                direction: 'alternate',
             })
     };
 
-    handleLeave = () => {
-        this.setState({ displayText: 'none' })
-        anime.timeline({ loop: false })
-            .add({
-                targets: '#pool-text',
-                translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
-                easing: "easeOutExpo",
-                duration: 600,
-            })
-    };
 
-    render() {
-        return (<>
-            <MobileNavigation
-                display={this.state.display}
-                top={this.state.top}
-                handleClick={this.handleClickBurger}
-                width={this.state.width}
-                bean={bean}
-                beanMobile={beanMobile}
-            />
-            <Navigation
-                translatePool={this.state.translatePool}
-                visibility={this.state.visibility}
-                handleClick={this.handleClickLogo}
-                handleClickMenu={this.handleClickBurger}
-                handleMouseEnter={this.handleChange}
-                handleMouseLeave={this.handleLeave}
-                displayText='inline-block'
-                width={this.state.width}
-                bean={bean}
-                beanMobile={beanMobile}
-            />
-        </>)
-    };
+handleLeave = () => {
+    this.setState({ displayText: 'none' })
+    anime.timeline({ loop: false })
+        .add({
+            targets: '#pool-text',
+            translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
+            easing: "easeOutExpo",
+            duration: 600,
+        })
+};
+
+render() {
+    return (<>
+        <MobileNavigation
+            display={this.state.display}
+            top={this.state.top}
+            handleClick={this.handleClickBurger}
+            width={this.state.width}
+            bean={bean}
+            beanMobile={beanMobile}
+        />
+        <Navigation
+            translatePool={this.state.translatePool}
+            visibility={this.state.visibility}
+            handleClick={this.handleClickLogo}
+            handleClickMenu={this.handleClickBurger}
+            handleMouseEnter={this.handleChange}
+            handleMouseLeave={this.handleLeave}
+            displayText={this.state.displayText}
+            width={this.state.width}
+            bean={bean}
+            beanMobile={beanMobile}
+        />
+    </>)
+};
 }
 
