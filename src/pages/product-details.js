@@ -68,7 +68,7 @@ export default ProductDetails
 //For some reason variables only work when you export your query
 //It does not work with useStaticQuery
 export const query = graphql`
-query ProductDetails($id: String!) {
+query ProductDetails($id: String) {
     strapiProduct(id: {eq: $id}) {
       strapiId
       stripeID
