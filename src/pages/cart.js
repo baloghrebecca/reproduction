@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import '../styles/index.scss';
 import Layout from '../components/layout';
-import Cart from '../components/cart'
-import HeaderMain from '../components/headermain'
-import { showOverflow } from '../services/manageoverflow'
+import Cart from '../components/Cart'
+import HeaderMain from '../components/headerMain'
+import { showOverflow } from '../services/manageOverflow'
 import { removeProduct, decrementQuantity, incrementQuantity, getCart } from '../services/cart'
 
 const CartPage = () => {

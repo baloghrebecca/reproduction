@@ -1,9 +1,9 @@
 import React, { useEffect } from "react"
 import '../styles/index.scss'
-import Layout from '../components/layout'
-import StockingsComponent from '../components/stockingscomponent'
-import HeaderMain from '../components/headermain'
-import { showOverflow } from '../services/manageoverflow'
+import Layout from '../components/Layout'
+import StockingsComponent from '../components/StockingsComponent'
+import HeaderMain from '../components/HeaderMain'
+import { showOverflow } from '../services/manageOverflow'
 
 const Stockists = () => {
   useEffect(() => {

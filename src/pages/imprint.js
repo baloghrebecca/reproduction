@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import '../styles/index.scss'
 import Layout from '../components/layout'
-import ImprintComponent from '../components/imprintcomponent'
-import HeaderMain from '../components/headermain'
-import { showOverflow } from '../services/manageoverflow'
+import ImprintComponent from '../components/imprintComponent'
+import HeaderMain from '../components/headerMain'
+import { showOverflow } from '../services/manageOverflow'
 
 const Imprint = () => {
   useEffect(() => {
