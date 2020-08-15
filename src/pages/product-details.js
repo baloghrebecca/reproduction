@@ -7,6 +7,7 @@ import { showOverflow } from '../services/manageOverflow'
 import changePriceFormat from '../services/changePriceFormat'
 import { addToCart } from '../services/cart'
 import { sumOfItems, getTotalPrice } from '../services/cartMath'
+import { graphql } from 'gatsby'
 
 const ProductDetails = ({ data }) => {
 

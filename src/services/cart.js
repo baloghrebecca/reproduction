@@ -4,13 +4,20 @@ export const setCart = (cart) => {
 
 export const getCart = () => {
     const emptyArray = []
-    const cart = JSON.parse(localStorage.getItem('cart'))
 
-    if (cart) {
-        return cart
+    if (localStorage) {
+        const cart = JSON.parse(localStorage.getItem('cart'))
+        if (cart) {
+            return cart
+        }
+
+    } else {
+
+        return emptyArray
+
     }
 
-    return emptyArray
+
 }
 
 export const addToCart = (product) => {
@@ -19,7 +26,7 @@ export const addToCart = (product) => {
     //Is Item already there?
     const indexOfProduct = findProduct(cart, product)
 
-    if(indexOfProduct !== -1) {
+    if (indexOfProduct !== -1) {
         cart[indexOfProduct].quantity++
     } else {
         product.quantity = 1
@@ -33,10 +40,10 @@ export const addToCart = (product) => {
 export const removeProduct = (product) => {
     const cart = getCart()
     const indexOfProduct = findProduct(cart, product)
-    
-    if(indexOfProduct !== -1) {
-        cart.splice( indexOfProduct, 1 );
-    } 
+
+    if (indexOfProduct !== -1) {
+        cart.splice(indexOfProduct, 1);
+    }
 
     setCart(cart)
 }
@@ -44,16 +51,16 @@ export const removeProduct = (product) => {
 export const decrementQuantity = (product) => {
     const cart = getCart()
     const indexOfProduct = findProduct(cart, product)
-    
-    if(indexOfProduct !== -1) {
-       const cartProduct = cart[indexOfProduct]
-       if (cartProduct.quantity === 1) {
-        removeProduct(product)
-        return;
-       } 
-       
-       cartProduct.quantity--
-    } 
+
+    if (indexOfProduct !== -1) {
+        const cartProduct = cart[indexOfProduct]
+        if (cartProduct.quantity === 1) {
+            removeProduct(product)
+            return;
+        }
+
+        cartProduct.quantity--
+    }
 
     setCart(cart)
 }
@@ -61,11 +68,11 @@ export const decrementQuantity = (product) => {
 export const incrementQuantity = (product) => {
     const cart = getCart()
     const indexOfProduct = findProduct(cart, product)
-    
-    if(indexOfProduct !== -1) {
-       const cartProduct = cart[indexOfProduct]
-       cartProduct.quantity++
-    } 
+
+    if (indexOfProduct !== -1) {
+        const cartProduct = cart[indexOfProduct]
+        cartProduct.quantity++
+    }
 
     setCart(cart)
 }
