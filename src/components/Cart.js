@@ -12,6 +12,8 @@ import { Checkout } from '../services/checkout'
 
 const Cart = (props) => {
     const [windowWidth, setWindowWidth] = useState()
+    const [items, setItems] = useState(getCart())
+
 
     //update on window width resize
     useEffect(() => {
@@ -19,12 +21,13 @@ const Cart = (props) => {
         const handleResize = _debounce(() => setWindowWidth(window.innerWidth), 10)
         window.addEventListener('resize', handleResize);
 
+        const cart = getCart()
+        setItems(cart)
+
         return () => {
             window.removeEventListener('resize', handleResize);
         }
     }, [])
-
-    const items = getCart()
 
     const { totalSubtotalPrice, totalSubtotalPriceFormatted, titles, pricesFormatted, subtotalFormatted, totalPriceFormatted } = getCartDetails(items)
     const hasTotalSubtotalPrice = totalSubtotalPrice === 0
