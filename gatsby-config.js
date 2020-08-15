@@ -23,7 +23,7 @@ module.exports = {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ['Customer'],
-        secretKey: 'pk_test_51HFdbTHVWF33LGh7fEHNxjsejQxlFkriJ5kV2Anz4lPxgXjY1t0LH4sjiN45b82IZ7738LChp0AXb1Evz67Xzuxd008bQsVprn',
+        secretKey: 'sk_test_51HFdbTHVWF33LGh7aSNyxMHgJL6ZgxUro4Npcz0ilKzMCblEXlki5F3MqY5GDpV5H1PHuwLBaVDfbqyCLRKEog9n00ZNRrC1FD',
         downloadFiles: true,
       }
     },
