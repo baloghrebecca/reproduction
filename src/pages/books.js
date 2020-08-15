@@ -1,9 +1,9 @@
-import React, { useEffect } from "react"
-import '../styles/index.scss'
-import Layout from '../components/Layout'
-import Books from '../components/BooksComponent'
-import HeaderMain from '../components/HeaderMain'
-import { showOverflow } from '../services/manageOverflow'
+// import React, { useEffect } from "react"
+// import '../styles/index.scss'
+// import Layout from '../components/Layout'
+// import Books from '../components/BooksComponent'
+// import HeaderMain from '../components/HeaderMain'
+// import { showOverflow } from '../services/manageOverflow'
 
 const BooksPage = () => {
   useEffect(() => {

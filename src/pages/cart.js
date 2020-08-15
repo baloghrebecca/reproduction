@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
-import '../styles/index.scss';
-import Layout from '../components/Layout';
-import Cart from '../components/Cart'
-import HeaderMain from '../components/HeaderMain'
-import { showOverflow } from '../services/manageOverflow'
-import { removeProduct, decrementQuantity, incrementQuantity, getCart } from '../services/cart'
+// import React, { useEffect, useState } from "react";
+// import '../styles/index.scss';
+// import Layout from '../components/Layout';
+// import Cart from '../components/Cart'
+// import HeaderMain from '../components/HeaderMain'
+// import { showOverflow } from '../services/manageOverflow'
+// import { removeProduct, decrementQuantity, incrementQuantity, getCart } from '../services/cart'
 
 const CartPage = () => {
 
