@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import './headerMain.scss'
-import Forms from './Forms'
+import Forms from './forms'
 import { navigate } from '@reach/router';
 import anime from 'animejs/lib/anime.es.js';
 import { showOverflow, hideOverflow } from '../services/manageOverflow'

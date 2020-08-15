@@ -1,7 +1,7 @@
 //This component mantains the page layout
 import React, { useState, useEffect, useRef } from 'react'
 import '../styles/index.scss'
-import Footer from './Footer'
+import Footer from './footer'
 import { Helmet } from "react-helmet"
 
 //refactor layout
