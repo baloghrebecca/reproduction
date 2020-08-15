@@ -1,13 +1,13 @@
-// import React, { useEffect, useState } from "react";
-// import '../styles/index.scss';
-// import Layout from '../components/Layout';
-// import ProductPage from '../components/Product';
-// import HeaderMain from '../components/HeaderMain'
-// import { showOverflow } from '../services/manageOverflow'
-// import changePriceFormat from '../services/changePriceFormat'
-// import { addToCart } from '../services/cart'
-// import { sumOfItems, getTotalPrice } from '../services/cartMath'
-// import { graphql } from 'gatsby'
+import React, { useEffect, useState } from "react";
+import '../styles/index.scss';
+import Layout from '../components/Layout';
+import ProductPage from '../components/Product';
+import HeaderMain from '../components/HeaderMain'
+import { showOverflow } from '../services/manageOverflow'
+import changePriceFormat from '../services/changePriceFormat'
+import { addToCart } from '../services/cart'
+import { sumOfItems, getTotalPrice } from '../services/cartMath'
+import { graphql } from 'gatsby'
 
 const ProductDetails = ({ data }) => {
 

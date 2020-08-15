@@ -1,10 +1,10 @@
-// import React, { useState, useEffect } from 'react'
-// import { Helmet } from "react-helmet"
-// import '../styles/index.scss'
-// import HeaderLandingPage from '../components/HeaderLandingPage'
-// import Layout from '../components/Layout'
-// import changePriceFormat from '../services/changePriceFormat'
-// import { sumOfItems, getTotalPrice } from '../services/cartMath'
+import React, { useState, useEffect } from 'react'
+import { Helmet } from "react-helmet"
+import '../styles/index.scss'
+import HeaderLandingPage from '../components/HeaderLandingPage'
+import Layout from '../components/Layout'
+import changePriceFormat from '../services/changePriceFormat'
+import { sumOfItems, getTotalPrice } from '../services/cartMath'
 
 const Home = () => {
   const [itemsSize, setItemsSize] = useState(0)
