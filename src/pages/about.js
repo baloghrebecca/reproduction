@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import '../styles/index.scss';
-import Layout from '../components/Layout';
-import AboutComponent from '../components/AboutComponent';
-import HeaderMain from '../components/HeaderMain'
-import { showOverflow } from '../services/manageOverflow'
+import Layout from '../components/layout';
+import AboutComponent from '../components/aboutcomponent';
+import HeaderMain from '../components/headermain'
+import { showOverflow } from '../services/manageoverflow'
 
 const About = () => {
   useEffect(() => {
