@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../styles/index.scss';
+
 import Layout from '../components/layout';
 import ProductPage from '../components/product';
 import HeaderMain from '../components/headerMain'
@@ -47,7 +47,7 @@ const ProductDetails = ({ data }) => {
 
   return (<>
     <HeaderMain itemsCount={cartItems} totalPrice={totalPrice}/>
-    <Layout class="content-without-margin">
+    <Layout class="contentWithoutMargin">
       <ProductPage
         handleAddToCart={handleAddToCart}
         title={titleUpperCase}

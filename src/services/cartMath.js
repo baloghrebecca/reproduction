@@ -2,7 +2,7 @@ import { getCart } from '../services/cart'
 
 export const sumOfItems = () => {
     const cart = getCart()
-    if (cart.length === 0) {
+    if (cart === 'undefined' || cart.length === 0) {
         return 0
     } else {
         const cartQuantities = cart.map(item => item.quantity)
@@ -14,7 +14,8 @@ export const sumOfItems = () => {
 
 export const getTotalPrice = () => {
     const cart = getCart()
-    if (cart.length === 0) {
+
+    if (cart === 'undefined' || cart.length === 0) {
         return 0
     } else {
         const multipliedQuantitityWithPrice = cart.map(item => item.quantity * item.price)

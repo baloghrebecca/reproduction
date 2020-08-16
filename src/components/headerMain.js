@@ -1,5 +1,5 @@
 import React from 'react'
-import './headerMain.scss'
+
 import anime from 'animejs/lib/anime.es.js';
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
 import Navigation from './Navigation'
@@ -87,7 +87,7 @@ export default class HeaderMain extends React.Component {
         setDisplay()
         anime.timeline({ loop: false })
             .add({
-                targets: '#pool-text',
+                targets: '#poolText',
                 translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
                 easing: "easeOutExpo",
                 duration: 800,
@@ -107,7 +107,7 @@ handleLeave = () => {
     this.setState({ displayText: 'none' })
     anime.timeline({ loop: false })
         .add({
-            targets: '#pool-text',
+            targets: '#poolText',
             translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
             easing: "easeOutExpo",
             duration: 600,

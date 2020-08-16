@@ -65,7 +65,7 @@ export const Checkout = (props) => {
     : checkoutButton
 
     return (
-        <div className="cart-general">
+        <div className="cartGeneral">
             <h1>
                 {isLoading}
             </h1>

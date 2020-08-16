@@ -15,16 +15,16 @@ const StockistsComponent = () => {
       `)
     return (
         <section id="stockists">
-            <div className="col-1">
+            <div className="col1">
                 <ReactMarkdown source={data.strapiStockists.stockists__col1} />
             </div>
-            <div className="col-2">
+            <div className="col2">
                 <ReactMarkdown source={data.strapiStockists.stockists__col2} />
             </div>
-            <div className="col-3">
+            <div className="col3">
                 <ReactMarkdown source={data.strapiStockists.stockists__col3} />
             </div>
-            <div className="col-4">
+            <div className="col4">
                 <ReactMarkdown source={data.strapiStockists.stockists__col4} />
             </div>
         </section >)

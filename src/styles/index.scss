@@ -1,5 +1,7 @@
 @import "../styles/variables.scss";
 
+
+
 @font-face {
   font-family: "Nuckle Book";
   src: url("../fonts/nuckle_medium-webfont.woff");
@@ -66,7 +68,7 @@ a:hover {
   color: $primary-grey;
 }
 
-.active-mobile {
+.activeMobile {
   color: $secondary-gray;
 }
 
@@ -75,7 +77,7 @@ a:hover {
   padding-top: $margin-bottom-primary;
 }
 
-.content-without-margin {
+.contentWithoutMargin {
   transition: all 0.6s ease;
   padding-top: 2px;
 }
@@ -86,45 +88,45 @@ a:hover {
 
 //Grid layout
 
-.col-1 {
+.col1 {
   grid-column: 1 / span 2;
 }
 
-.col-2 {
+.col2 {
   grid-column: 3 / span 2;
 }
 
-.col-3 {
+.col3 {
   grid-column: 5 / span 2;
 }
 
-.col-4 {
+.col4 {
   grid-column: 7 / span 2;
 }
 
 @media (max-width: 1170px) {
-  .col-1 {
+  .col1 {
     grid-column: 1 / span 2;
   }
 
-  .col-2 {
+  .col2 {
     grid-column: 3 / span 2;
   }
 
-  .col-3 {
+  .col3 {
     grid-column: 1 / span 2;
   }
 
-  .col-4 {
+  .col4 {
     grid-column: 3 / span 2;
   }
 }
 
 @media (max-width: 750px) {
-  .col-1,
-  .col-2,
-  .col-3,
-  .col-4 {
+  .col1,
+  .col2,
+  .col3,
+  .col4 {
     margin-bottom: $gap-mobile-bottom;
   }
 

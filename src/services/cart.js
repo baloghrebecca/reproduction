@@ -5,14 +5,14 @@ export const setCart = (cart) => {
 export const getCart = () => {
     const emptyArray = []
 
-    if (typeof localStorage !== 'undefined') {
-        const cart = JSON.parse(localStorage.getItem('cart'))
+    // if (typeof localStorage !== 'undefined') {
+    const cart = JSON.parse(localStorage.getItem('cart'))
 
-        if (cart) {
-            return cart
-        }
+    if (cart) {
+        return cart
+    }
 
-    } else {
+    else {
 
         return emptyArray
     }

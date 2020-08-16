@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import '../styles/index.scss';
+
 import Layout from '../components/layout';
 import Cart from '../components/Cart'
 import HeaderMain from '../components/headerMain'
@@ -45,7 +45,7 @@ const CartPage = () => {
 
   return (<>
     <HeaderMain />
-    <Layout class="content-without-margin">
+    <Layout class="contentWithoutMargin">
       <Cart 
         cartSize={cartItemsSize}
         removeItem={handleRemoveItem}

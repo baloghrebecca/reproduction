@@ -1,20 +1,24 @@
 import React, { useState, useEffect } from 'react'
 import { Helmet } from "react-helmet"
-import '../styles/index.scss'
+
 import HeaderLandingPage from '../components/headerLandingPage'
 import Layout from '../components/layout'
 import changePriceFormat from '../services/changePriceFormat'
-import { sumOfItems, getTotalPrice } from '../services/cartMath'
+import { sumOfItems, getTotalPrice, getCart } from '../services/cartMath'
 
 const Home = () => {
   const [itemsSize, setItemsSize] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
+    // const cart = getCart()
+
+      // setTotalPrice(getTotalPrice())
       const itemsLength = sumOfItems()
       setItemsSize(itemsLength)
-  });
+  }, []);
 
-  const totalPrice = getTotalPrice()
+
   const priceFormatted = changePriceFormat(totalPrice)
 
   const hasTotalPrice = totalPrice === 0 ? '0' : priceFormatted

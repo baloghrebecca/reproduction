@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import '../styles/index.scss'
+
 import Layout from '../components/layout'
 import Books from '../components/booksComponent'
 import HeaderMain from '../components/headerMain'
@@ -11,7 +11,7 @@ const BooksPage = () => {
   });
 
   return (<>
-    <div id="books-menu-wrapper">
+    <div id="booksMenuWrapper">
       <HeaderMain />
     </div>
     <Layout class="content">

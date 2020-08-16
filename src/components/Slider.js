@@ -1,5 +1,5 @@
 import * as React from "react"
-import './pages.scss'
+
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
 export default class GalleryContainer extends React.Component {
@@ -35,8 +35,8 @@ export default class GalleryContainer extends React.Component {
 
     window.scrollBy(0, 1);
 
-    const firstSlideSize = slider.getElementsByClassName("img-container-gallery")[0].clientWidth
-    const sliderArray = slider.getElementsByClassName("img-container-gallery")
+    const firstSlideSize = slider.getElementsByClassName("imgContainerGallery")[0].clientWidth
+    const sliderArray = slider.getElementsByClassName("imgContainerGallery")
 
     this.setCurrentPositionAndLeftAndOfSlider();
     this.setState({
@@ -149,7 +149,7 @@ export default class GalleryContainer extends React.Component {
         ref={this.container}
         onTouchMove={this.handleTouchMove}
         style={{ overflow: this.state.overflow }}
-        id="gallery-product-page">
+        id="galleryProductPage">
         <div
           draggable="false"
           ref={this.slider}

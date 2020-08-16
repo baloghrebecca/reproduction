@@ -1,6 +1,6 @@
 @import "../styles/variables.scss";
 
-#header-main {
+#headerMain {
   background-color: $background-color;
   position: fixed;
   grid-column-gap: $gap;
@@ -17,7 +17,7 @@
   transition: ease all 1s;
 }
 
-#header-main-landing-page {
+#headerMainLandingPage {
   min-width: 0;
   width: 100%;
   position: absolute;
@@ -31,12 +31,12 @@
   padding: 0 $margin-left-right $margin-top $margin-left-right;
 }
 
-#header-main-landing-page {
+#headerMainLandingPage {
   padding: $margin-top $margin-left-right;
   grid-column-gap: 1.875rem;
 }
 
-#mobile-nav {
+#mobileNav {
   transition: all 0.5s;
   overflow: hidden;
   position: fixed;
@@ -49,7 +49,7 @@
   transform: translateY(-100%);
 }
 
-#mobile-nested-nav {
+#mobileNestedNav {
   height: 96%;
   display: flex;
   flex-direction: column;
@@ -58,8 +58,8 @@
   padding-bottom: 10px;
 }
 
-#mobile-nested-nav a,
-#mobile-nested-nav .link-mobile-menu {
+#mobileNestedNav a,
+#mobileNestedNav .linkMobileMenu {
   line-height: 1;
   width: 100%;
   display: block;
@@ -80,7 +80,7 @@
   border-bottom: solid 1px $secondary-gray;
 }
 
-// #mobile-nested-nav a:nth-last-child(1) {
+// #mobileNestedNav a:nth-last-child(1) {
 //   border-bottom: solid 1px $secondary-gray;
 // }
 
@@ -91,21 +91,21 @@
 //   // padding: 10px 0 0px 0;
 // }
 
-#mobile-nested-nav .link-mobile-menu:nth-child(1) {
+#mobileNestedNav .linkMobileMenu:nth-child(1) {
   border-top: none;
   padding-top: 0;
 }
 
-#mobile-nav a:hover {
+#mobileNav a:hover {
   color: $secondary-gray;
 }
 
-#pool-text {
+#poolText {
   display: inline-block;
   // transition: ease 0.4s all;
 }
 
-#bean-wrapper {
+#beanWrapper {
   transition: ease 0.4s all;
   margin: 0 1px;
 }
@@ -114,7 +114,7 @@
   fill: $primary-color;
 }
 
-#burger-wrapper {
+#burgerWrapper {
   transition: ease 0.3;
   width: 100%;
   display: flex;
@@ -164,7 +164,7 @@
   stroke: $secondary-gray;
 }
 
-#nav-main,
+#navMain,
 #nav-mainLanding {
   grid-column: 5 / span 3;
 }
@@ -178,65 +178,65 @@
   color: $primary-grey;
 }
 
-#cart-main {
+#cartMain {
   justify-self: end;
   grid-column: 7 / span 2;
 }
 
-#h1-main {
+#h1Main {
   z-index: 101;
   cursor: default;
   grid-column: 1 / span 4;
   transition: opacity ease 0.4s;
 }
 
-#h1-main span {
+#h1Main span {
   transition: opacity ease 1s;
 }
 
-#h1-main:hover {
+#h1Main:hover {
   transition: all ease 1s;
 }
 
-.menu-main {
+.menuMain {
   display: none;
 }
 
 @media (max-width: 1200px) {
-  #h1-main {
+  #h1Main {
     cursor: pointer;
   }
 
-  .cart-main {
+  .cartMain {
     display: none;
   }
 
-  .menu-main {
+  .menuMain {
     display: inline-block;
   }
 
-  #nav-main {
+  #navMain {
     display: none;
   }
-  #header-main,
-  #header-main-landing-page {
+  #headerMain,
+  #headerMainLandingPage {
     display: flex;
     justify-content: space-between;
   }
 }
 
 @media (max-width: 750px) {
-  #mobile-nested-nav {
+  #mobileNestedNav {
     height: 98%;
   }
 
-  #h1-mobile {
+  #h1Mobile {
     transition: all 0.3s ease;
     margin-top: 7px;
   }
 
-  #mobile-nested-nav a,
-  #mobile-nested-nav .link-mobile-menu {
+  #mobileNestedNav a,
+  #mobileNestedNav .linkMobileMenu {
     padding: 6px 0 4px 0;
   }
 
@@ -244,23 +244,23 @@
     padding: 0;
   }
 
-  #header-main {
+  #headerMain {
     font-size: $font-size-small;
     height: 50px;
     margin-bottom: $margin-bottom-mobile;
   }
 
-  #header-main-landing-page {
+  #headerMainLandingPage {
     font-size: $font-size-small;
     bottom: 15px;
   }
 
-  #h1-main {
+  #h1Main {
     cursor: pointer;
     font-size: $font-size-small;
   }
 
-  #mobile-nav {
+  #mobileNav {
     font-size: $font-size-small;
   }
 }

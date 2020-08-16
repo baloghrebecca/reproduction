@@ -22,11 +22,11 @@ const MobileNavigation = (props) => {
         ? 'ITEM'
         : 'ITEMS'
 
-    return (<nav id="mobile-nav" style={{ display: props.display, transform: props.top }}>
-        <div id="burger-wrapper">
+    return (<nav id="mobileNav" style={{ display: props.display, transform: props.top }}>
+        <div id="burgerWrapper">
             <div>
-                <h1 id="h1-mobile">
-                    LIFE IS BETTER AT THE <span id="pool-text">P<span id="bean-wrapper">
+                <h1 id="h1Mobile">
+                    LIFE IS BETTER AT THE <span id="poolText">P<span id="beanWrapper">
                         {props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
                 </h1>
             </div>
@@ -35,19 +35,19 @@ const MobileNavigation = (props) => {
                 </div>
             </div>
         </div>
-        <div id="mobile-nested-nav">
-            <div id="mobile-nav-main">
-                <Link activeClassName="active-mobile" to='/books'>BOOKS</Link>
-                <Link activeClassName="active-mobile" to='/about'>ABOUT</Link>
-                <Link activeClassName="active-mobile" to='/stockists'>STOCKISTS</Link>
-                <Link id="cart-mobile" activeClassName="active-mobile" to='/cart'>
+        <div id="mobileNestedNav">
+            <div id="mobileNavMain">
+                <Link activeClassName="activeMobile" to='/books'>BOOKS</Link>
+                <Link activeClassName="activeMobile" to='/about'>ABOUT</Link>
+                <Link activeClassName="activeMobile" to='/stockists'>STOCKISTS</Link>
+                <Link id="cart-mobile" activeClassName="activeMobile" to='/cart'>
                     {itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
             </div>
-            <div id="mobile-nav-main">
-                <Link activeClassName="active-mobile" to='/imprint'>
-                    <div className="link-mobile-menu">IMPRINT</div>
-                    <div className="link-mobile-menu">TERMS</div>
-                    <div id="privacy-mobile" className="link-mobile-menu">PRIVACY POLICY</div>
+            <div id="mobileNavMain">
+                <Link activeClassName="activeMobile" to='/imprint'>
+                    <div className="linkMobileMenu">IMPRINT</div>
+                    <div className="linkMobileMenu">TERMS</div>
+                    <div id="privacy-mobile" className="linkMobileMenu">PRIVACY POLICY</div>
                 </Link>
             </div>
         </div>

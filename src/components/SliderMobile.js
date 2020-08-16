@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react"
-import './pages.scss'
+
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
 const SliderMobile = (props) => {
@@ -88,16 +88,16 @@ const SliderMobile = (props) => {
       onTouchStart={handleDragStart}
       onMouseUp={handleDragEnd}
       onMouseDown={handleDragStart}
-      id="gallery-product-page-mobile">
+      id="galleryProductPageMobile">
       <div
         draggable="false"
         ref={slider}
         style={{ transform: `translateX(${currentPosition}%)` }}
-        id="slides-mobile">
+        id="slidesMobile">
         {props.images}
       </div>
     </div>
-    <div id="slider-dots" key={props.items}>
+    <div id="sliderDots" key={props.items}>
       {dots}
     </div>
   </>)

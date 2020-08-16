@@ -3,9 +3,9 @@
 //Pages
 
 #about,
-#about-product-page-wrapper,
-#cart-info,
-#cart-checkout-infos,
+#aboutProductPageWrapper,
+#cartInfo,
+#cartCheckoutInfos,
 #stockists {
   display: grid;
   grid-column-gap: $gap;
@@ -14,22 +14,22 @@
   padding: 0 $margin-left-right;
 }
 
-#cart-info,
-#cart-checkout-infos {
+#cartInfo,
+#cartCheckoutInfos {
   padding: 0;
 }
 
-.product-page-cart {
+.productPageCart {
   justify-self: end;
 }
 
-#about-product-mobile {
+#aboutProductMobile {
   display: none;
 }
 
 //Gallery + Slides
 
-#gallery-product-page {
+#galleryProductPage {
   position: relative;
   margin-top: 60px;
   overflow: hidden;
@@ -39,12 +39,12 @@
   margin-bottom: $margin-top;
 }
 
-.img-container-gallery {
+.imgContainerGallery {
   position: relative;
   display: block;
 }
 
-.img-container-gallery img {
+.imgContainerGallery img {
   height: 50vh;
   min-width: 100%;
   margin-right: 100px;
@@ -52,7 +52,7 @@
   object-fit: contain;
 }
 
-.img-container-gallery img:nth-last-child() {
+.imgContainerGallery img:nth-last-child() {
   margin-right: 0px;
   margin-left: 0px;
 }
@@ -77,71 +77,71 @@ img {
 
 //Cart
 
-#cart-info {
+#cartInfo {
   border-top: 1px solid $primary-color;
   margin: 0 $margin-left-right;
   padding-top: 18.5px;
   margin-top: 150px;
 }
 
-#cart-checkout-infos {
+#cartCheckoutInfos {
   border-top: 1px solid $primary-color;
   margin: 0 $margin-left-right;
   padding-top: 18.5px;
 }
 
-.cart-list-item {
+.cartListItem {
   color: $primary-grey;
 }
 
-#cart-list-quantity p {
+#cartListQuantity p {
   margin: 0;
 }
 
-.cart-list-quantity-inline {
+.cartListQuantityInline {
   width: 140px;
   display: flex;
   justify-content: space-between;
 }
 
-.item-quantity {
+.itemQuantity {
   min-width: 80px;
 }
 
-.cart-general {
+.cartGeneral {
   grid-column: 1 / span 3;
 }
 
-.cart-general a {
+.cartGeneral a {
   cursor: pointer;
 }
 
-.cart-price-subtotal {
+.cartPriceSubtotal {
   grid-column: 5 / span 1;
 }
 
-.cart-subtotal {
+.cartSubtotal {
   text-align: end;
   grid-column: 8 / span 1;
 }
 
 @media (max-width: 1170px) {
   #about,
-  #about-product-page-wrapper,
+  #aboutProductPageWrapper,
   #stockists {
     grid-template-columns: $grid-tablet;
     grid-template-rows: 2;
   }
 
-  #about-product-mobile {
+  #aboutProductMobile {
     padding: 0 $margin-left-right;
     width: 100%;
     display: flex;
     justify-content: space-between;
   }
 
-  #cart-info,
-  #cart-checkout-infos {
+  #cartInfo,
+  #cartCheckoutInfos {
     grid-column-gap: 15px;
     padding-left: 0;
     padding-right: 0;
@@ -150,34 +150,34 @@ img {
     margin: 0 $margin-left-right;
   }
 
-  #cart-info {
+  #cartInfo {
     margin-top: 137px;
   }
 
-  .cart-subtotal {
+  .cartSubtotal {
     grid-column: 4 / span 1;
   }
 
-  .cart-general {
+  .cartGeneral {
     grid-column: 1 / span 1;
   }
 
-  .cart-price-subtotal {
+  .cartPriceSubtotal {
     grid-column: 2 / span 1;
   }
 
-  .hide-mobile {
+  .hideMobile {
     display: none;
   }
 }
 
 @media (max-width: 750px) {
-  #gallery-product-page {
+  #galleryProductPage {
     margin-top: 45px;
     height: 410px;
   }
 
-  #slider-dots {
+  #sliderDots {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -199,7 +199,7 @@ img {
     background-color: $secondary-gray;
   }
 
-  #gallery-product-page-mobile {
+  #galleryProductPageMobile {
     margin-top: 45px;
     overflow: hidden;
     background-color: $primary-grey;
@@ -209,7 +209,7 @@ img {
     margin-bottom: $margin-top;
   }
 
-  #slides-mobile {
+  #slidesMobile {
     transition: transform 1s;
     width: 100vw;
     cursor: pointer;
@@ -220,13 +220,13 @@ img {
     align-items: center;
   }
 
-  .img-container-gallery {
+  .imgContainerGallery {
     display: flex;
     align-items: center;
     width: 100%;
   }
 
-  .img-container-gallery img {
+  .imgContainerGallery img {
     min-width: 100%;
     display: inline-block;
     object-fit: scale-down;
@@ -242,27 +242,27 @@ img {
     }
   }
 
-  .mobile-cart img {
+  .mobileCart img {
     width: 100vw;
   }
 
   #about,
-  #about-product-page-wrapper,
+  #aboutProductPageWrapper,
   #stockists {
     display: block;
   }
 
-  .cart-list-quantity-inline {
+  .cartListQuantityInline {
     width: 80px;
   }
   
-  .item-quantity {
+  .itemQuantity {
     min-width: 50px;
   }
 }
 
 @media (max-height: 800px) and (max-width: 750px) {
-  .img-container-gallery img {
+  .imgContainerGallery img {
     height: 43vh;
   }
 }

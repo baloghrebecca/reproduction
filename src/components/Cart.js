@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import './pages.scss'
+
 import CartSlider from './Slider'
 import CartSliderMobile from './SliderMobile'
 import CartImages from '../services/getCartImages'
@@ -35,50 +35,50 @@ const Cart = (props) => {
         : totalSubtotalPriceFormatted
 
     const whichGallery = windowWidth <= 750
-        ? <CartSliderMobile items={props.cartSize} images={<CartImages class="img-container-gallery mobile-cart" />} />
-        : <CartSlider images={<CartImages class="img-container-gallery" />} />
+        ? <CartSliderMobile items={props.cartSize} images={<CartImages class="imgContainerGallery mobileCart" />} />
+        : <CartSlider images={<CartImages class="imgContainerGallery" />} />
 
     return (<>
         <section id="cart" >
             {whichGallery}
-            <div id="cart-info">
-                <div className="cart-general">
+            <div id="cartInfo">
+                <div className="cartGeneral">
                     <h1>PRODUCT</h1>
                     <CartProductName removeItem={props.removeItem} names={titles} items={items} />
                 </div>
-                <div className="cart-price-subtotal">
-                    <div className="cart-prices">
+                <div className="cartPriceSubtotal">
+                    <div className="cartPrices">
                         <h1>PRICE</h1>
                         <CartItem names={pricesFormatted} />
                     </div>
                 </div>
-                <div className="cart-quantitiy">
-                    <div className="cart-quanitity-item">
+                <div className="cartQuantitiy">
+                    <div className="cartQuanitityItem">
                         <h1>Quantity</h1>
                         <CartProductQuantity incrementQuantity={props.incrementQuantity} decrementQuantity={props.decrementQuantity} items={items} />
                     </div>
 
                 </div>
-                <div className="cart-subtotal">
-                    <div className="cart-subtotalItem">
+                <div className="cartQuanitityItem">
+                    <div className="cartSubtotalItem">
                         <h1>Subtotal</h1>
                         <CartItem names={subtotalFormatted} />
                     </div>
                 </div>
             </div>
-            <div id="cart-checkout-infos">
+            <div id="cartCheckoutInfos">
                 <Checkout cart={items} />
-                <div className="cart-price-subtotal">
+                <div className="cartPriceSubtotal">
                     <h1>Subtotal</h1>
-                    <p className="cart-list-item">€{hasTotalSubtotalPrice}</p>
+                    <p className="cartListItem">€{hasTotalSubtotalPrice}</p>
                 </div>
-                <div className="cart-quantitiy">
+                <div className="cartQuantitiy">
                     <h1>Shipping</h1>
-                    <p className="cart-list-item">€8.00</p>
+                    <p className="cartListItem">€8.00</p>
                 </div>
-                <div className="cart-subtotal">
+                <div className="cartSubtotal">
                     <h1>Total</h1>
-                    <p className="cart-list-item">€{totalPriceFormatted}</p>
+                    <p className="cartListItem">€{totalPriceFormatted}</p>
                 </div>
             </div>
         </section ></>)

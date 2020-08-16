@@ -1,5 +1,5 @@
 import React from 'react'
-import './pages.scss'
+
 import Slider from './Slider'
 import ReactMarkdown from 'react-markdown'
 
@@ -13,9 +13,9 @@ const ProductPage = (props) => {
     const getImageDivs = generateImageDivs(props.images)
 
     return (
-        <section id="product-page-wrapper">
+        <section id="productPageWrapper">
             <Slider images={getImageDivs} />
-            <div id="about-product-mobile">
+            <div id="aboutProductMobile">
                 <p>
                     {hasOldPrice} €{props.price}
                 </p>
@@ -27,29 +27,29 @@ const ProductPage = (props) => {
                         href='/'>ADD TO CART</a>
                 </p>
             </div>
-            <div id="about-product-page-wrapper">
-                <div className="col-1">
+            <div id="aboutProductPageWrapper">
+                <div className="col1">
                     <h2>{props.title}</h2>
                     <p>
                         <ReactMarkdown source={props.aboutBook} />
                     </p>
                 </div>
-                <div className="col-2">
+                <div className="col2">
                     <h2>Artist</h2>
                     <p>
                         <ReactMarkdown source={props.aboutArtist} />
                     </p>
                 </div>
-                <div className="col-3">
-                    <h2 className="hide-mobile">&nbsp; </h2>
+                <div className="col3">
+                    <h2 className="hideMobile">&nbsp; </h2>
                     <p>
-                        <span className="hide-mobile">{hasOldPrice} €{props.price}
+                        <span className="hideMobile">{hasOldPrice} €{props.price}
                             <br /> <br />
                         </span>
                         <ReactMarkdown source={props.hardFacts} />
                     </p>
                 </div>
-                <div className="col-4 product-page-cart hide-mobile">
+                <div className="col4 productPageCart hideMobile">
                     <h2>&nbsp; </h2> {/* placeholder */}
                     <p>
                         <a
@@ -72,7 +72,7 @@ function generateImageDivs(images) {
         return <div
             draggable="false"
             key={image.id}
-            className="img-container-gallery">
+            className="imgContainerGallery">
             <img draggable="false"
                 aria-label={image.alternativeText}
                 src={url} />

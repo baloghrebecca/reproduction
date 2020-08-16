@@ -1,11 +1,11 @@
 @import "../styles/variables.scss";
 
-#footer-wrapper {
+#footerWrapper {
   margin-top: $margin-bottom-primary;
   margin-bottom: 0;
 }
 
-#about-pool-books-wrapper {
+#aboutPoolBooksWrapper {
   min-height: 0;
   min-width:0;
   margin: $margin-left-right;
@@ -20,11 +20,11 @@
   padding-bottom: 10px;
 }
 
-#about-pool-books-wrapper a {
+#aboutPoolBooksWrapper a {
   color: $primary-grey;
 }
 
-#about-pool-books-wrapper a:hover {
+#aboutPoolBooksWrapper a:hover {
   color: black;
 }
 
@@ -34,13 +34,13 @@
   min-height: 0;
 }
 
-#about-pool-books-about-address {
+#aboutPoolBooksAboutAddress {
   min-height: 0;
   min-width:0;
   grid-column: 5 / span 3;
 }
 
-#about-pool-books-social-media {
+#aboutPoolBooksSociaMedia {
   min-height: 0;
   min-width:0;
   justify-self: end;
@@ -62,7 +62,7 @@
   // margin-top: 300px;
 }
 
-#footer-nav {
+#footerNav {
   grid-column: 5 / span 4;
 }
 
@@ -74,7 +74,7 @@
 
 @media (max-width: 1200px) {
 
-  #footer-wrapper {
+  #footerWrapper {
     margin-top: 90px;
   }
 

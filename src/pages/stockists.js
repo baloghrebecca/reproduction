@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import '../styles/index.scss'
+
 import Layout from '../components/layout'
 import StockingsComponent from '../components/stockingsComponent'
 import HeaderMain from '../components/headerMain'
