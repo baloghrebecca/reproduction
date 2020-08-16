@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './footer.module.scss'
 
 import { graphql, useStaticQuery, Link } from "gatsby"
 import ReactMarkdown from 'react-markdown'
@@ -16,21 +17,21 @@ const Footer = () => {
 
 
     return (<>
-        <section id="footerWrapper">
-            <section id="aboutPoolBooksWrapper">
-                <div id="aboutPoolBooksAboutText">
+        <section id={styles.footerWrapper}>
+            <section id={styles.aboutPoolBooksWrapper}>
+                <div id={styles.aboutPoolBooksAboutText}>
                     <ReactMarkdown source={data.strapiFooter.footer__col1} />
                 </div>
-                <p id="aboutPoolBooksAboutAddress">
+                <p id={styles.aboutPoolBooksAboutAddress}>
                     <ReactMarkdown source={data.strapiFooter.footer__col2} />
                 </p>
-                <p id="aboutPoolBooksSociaMedia">
+                <p id={styles.aboutPoolBooksSociaMedia}>
                     <ReactMarkdown source={data.strapiFooter.footer__col3} />
                 </p>
             </section>
         </section>
-        <footer id="footer">
-            <nav id="footerNav">
+        <footer id={styles.footer}>
+            <nav id={styles.footerNav}>
                 <Link activeClassName="active" to='/imprint'>IMPRINT, TERMS, PRIVACY POLICY</Link>
             </nav>
         </footer>

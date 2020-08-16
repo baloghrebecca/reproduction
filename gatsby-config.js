@@ -46,10 +46,10 @@ module.exports = {
     }, 
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
+    // `gatsby-plugin-offline`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-react-helmet',
-    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -61,6 +61,7 @@ module.exports = {
       resolve: `gatsby-plugin-styled-components`,
       options: {
         // Add any options here
+
       },
     },
     {

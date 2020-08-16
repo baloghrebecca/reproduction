@@ -1,5 +1,5 @@
 import React from 'react'
-
+import styles from './books.module.scss'
 import { graphql, useStaticQuery } from "gatsby"
 import Book from './book'
 import changePriceFormat from '../services/changePriceFormat'
@@ -47,7 +47,7 @@ const Books = () => {
     })
 
     return (<>
-        <section id="books">
+        <section id={styles.books}>
             {productsRender}
         </section>
     </>

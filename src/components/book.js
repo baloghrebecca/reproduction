@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-
+import styles from './books.module.scss'
 import { Link } from 'gatsby'
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
@@ -93,21 +93,21 @@ const Book = (props) => {
         : ''
 
     return (
-        <div className="book">
+        <div className={styles.book}>
             <div
                 onTouchEnd={handleMouseLeave}
                 onTouchMove={handleTouchMove}
                 onMouseMove={handleMouseOver}
                 ref={bookRender}
-                className="bookRenderingContainer">
+                className={styles.bookRenderingContainer}>
                 <img
                     onMouseLeave={handleMouseLeave}
                     alt={props.images[index].alternativeText}
                     src={baseURL + props.images[index].url} />
             </div>
             <div>
-                <p className="priceBook">
-                    <span className="priceBook">{hasOldPrice} €{props.price}</span><br />
+                <p className={styles.priceBook}>
+                    <span className={styles.priceBook}>{hasOldPrice} €{props.price}</span><br />
                     <Link to={props.slug}>{props.title}</Link> </p>
             </div>
         </div>
