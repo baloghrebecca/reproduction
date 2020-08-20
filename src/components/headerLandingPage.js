@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import styles from './headerMain.module.scss'
 
 import Forms from './forms'
 import { navigate } from '@reach/router';
@@ -149,12 +150,12 @@ export default class HeaderLandingPageCopy extends React.Component {
     //Refactor navigation
     render() {
         return (<>
-            <div id="landingPageWrapper">
+            <div id='landingPageWrapper'>
                 <div
                     ref={this.forms}
                     style={{ overflow: 'hidden' }}
                     onClick={(e) => this.handleScroll('/books', e)}
-                    id="formsDiv"
+                    id={styles.formsDiv}
                     style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
                     <Forms />
                 </div>
@@ -169,27 +170,27 @@ export default class HeaderLandingPageCopy extends React.Component {
 
                 <header
                     ref={this.navigation}
-                    id="headerMainLandingPage"
+                    id={styles.headerMainLandingPage}
                     style={{ visibility: this.state.visibility }}>
-                    <h1 id="h1Main"
+                    <h1 id={styles.h1Main}
                         onClick={this.handleClickLogo}
                         onMouseEnter={this.handleChange}
                         onMouseLeave={this.handleLeave}>
                         <span ref={this.poolText} id='text' style={{ display: this.state.displayText, transform: `translateX(-280px)` }}>LIFE IS BETTER AT THE  </span>
-                        <span id="poolText">P{this.state.flag ? <span style={{ opacity: this.state.opacityO }}>OO</span> : <span style={{ opacity: this.state.opacityBean }} id="beanWrapper">{this.state.width < 750 ? beanMobile : bean}</span>}L</span></h1>
-                    <nav id="navMain">
+                        <span id={styles.poolText}>P{this.state.flag ? <span style={{ opacity: this.state.opacityO }}>OO</span> : <span style={{ opacity: this.state.opacityBean }} id={styles.beanWrapper}>{this.state.width < 750 ? beanMobile : bean}</span>}L</span></h1>
+                    <nav id={styles.navMain}>
                         <a onClick={(e) => this.handleScroll('/books', e)} style={{ cursor: 'pointer' }}>BOOKS</a>,
                         <a onClick={(e) => this.handleScroll('/about', e)} style={{ cursor: 'pointer' }}> ABOUT</a>,
                         <a onClick={(e) => this.handleScroll('/stockists', e)} style={{ cursor: 'pointer' }}> STOCKISTS</a>
                     </nav>
                     <Link
-                        className="menuMain"
+                        className={styles.menuMain}
                         to='/'
                         onClick={this.handleClickLogo}
                     >Menu</Link>
                     <a
-                        className="cartMain"
-                        id="cartMain"
+                        className={styles.cartMain}
+                        id={styles.cartMain}
                         onClick={(e) => this.handleScroll('/cart', e)}
                         style={{ cursor: 'pointer' }}
                     >{this.props.itemSize} {this.props.items} ({this.props.totalPrice}€)</a>

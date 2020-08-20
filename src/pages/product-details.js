@@ -30,7 +30,7 @@ const ProductDetails = ({ data }) => {
     title: titleUpperCase,
     quantity: 1,
     stripeID: stripeID,
-    image: `http://pool-backend.herokuapp.com${bild_warenkorb[0].url}`
+    image: bild_warenkorb[0].url
   }
 
   const handleAddToCart = (product, e) => {

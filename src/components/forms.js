@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './forms.module.scss'
 
 import { FormPathsHorizontal, FormPathsVertical } from './formPaths'
 
@@ -14,10 +15,13 @@ export default class Forms extends React.Component {
             height: 0,
         }
         this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
+        this.form = React.createRef();
     }
 
     componentDidMount() {
-        document.getElementById("forms").style.height = window.innerHeight + 'px';
+        // document.getElementById("forms").style.height = window.innerHeight + 'px';
+        this.form.current.style.height = window.innerHeight + 'px';
+        console.log(this.form);
         this.setState({ horizontalPaths: FormPathsHorizontal })
         this.setState({ verticalPaths: FormPathsVertical })
         this.updateWindowDimensions();
@@ -38,12 +42,12 @@ export default class Forms extends React.Component {
         const renderHorizontalOrVerticalPaths = this.state.width > 600 ? this.state.horizontalPaths : this.state.verticalPaths
         const whichViewBox = this.state.width > 600 ? `0 0 1891.65 1049.79` : `0 0 397 851`
         return (<>
-            <section id="forms">
-                <svg className="formItem"
+            <section id={styles.forms} ref={this.form}>
+                <svg className={styles.formItem}
                     id="ab9e6db3-c004-49c5-b031-1fda9a52585a"
                     xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="none meet">
-                    <path id="form">
-                        <animate id="animationToCheck"
+                    <path id={styles.form}>
+                        <animate id={styles.animationToCheck}
                             repeatCount="indefinite" attributeName="d" dur="11s"
                             values={renderHorizontalOrVerticalPaths} />
                     </path>

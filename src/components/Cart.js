@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import styles from './pages.module.scss'
-
 import CartSlider from './Slider'
 import CartSliderMobile from './SliderMobile'
 import CartImages from '../services/getCartImages'
@@ -45,7 +44,10 @@ const Cart = (props) => {
             <div id={styles.cartInfo}>
                 <div className={styles.cartGeneral}>
                     <h1>PRODUCT</h1>
-                    <CartProductName removeItem={props.removeItem} names={titles} items={items} />
+                    <CartProductName 
+                    removeItem={props.removeItem} 
+                    names={titles} 
+                    items={items} />
                 </div>
                 <div className={styles.cartPriceSubtotal}>
                     <div className={styles.cartPrices}>
@@ -56,12 +58,15 @@ const Cart = (props) => {
                 <div className={styles.cartQuantitiy}>
                     <div className={styles.cartQuanitityItem}>
                         <h1>Quantity</h1>
-                        <CartProductQuantity incrementQuantity={props.incrementQuantity} decrementQuantity={props.decrementQuantity} items={items} />
+                        <CartProductQuantity 
+                        incrementQuantity={props.incrementQuantity} 
+                        decrementQuantity={props.decrementQuantity} 
+                        items={items} />
                     </div>
 
                 </div>
                 <div className={styles.cartQuanitityItem}>
-                    <div className={styles.cartSubtotalItem}>
+                    <div className={styles.cartQuanitityItem}>
                         <h1>Subtotal</h1>
                         <CartItem names={subtotalFormatted} />
                     </div>

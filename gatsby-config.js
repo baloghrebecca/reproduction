@@ -78,6 +78,7 @@ module.exports = {
           'footer',
           'imprint',
           'stockists',
+          'testi',
         ], 
         queryLimit: 1000,
       },
