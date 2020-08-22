@@ -1,8 +1,9 @@
 import React, { useEffect } from "react"
 
-import Layout from '../components/layout'
-import StockingsComponent from '../components/stockingsComponent'
 import HeaderMain from '../components/headerMain'
+import StockingsComponent from '../components/stockingsComponent'
+import Layout from '../components/layout'
+import Banner from '../components/cookiesBanner'
 import { showOverflow } from '../services/manageOverflow'
 
 const Stockists = () => {
@@ -15,7 +16,8 @@ const Stockists = () => {
     <Layout class="content">
       <StockingsComponent />
     </Layout>
-  </>)
+    <Banner />
+    </>)
 }
 
 export default Stockists

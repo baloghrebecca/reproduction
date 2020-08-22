@@ -1,7 +1,8 @@
 import React from 'react'
-
-import { graphql, useStaticQuery, Link } from "gatsby"
+import styles from '../styles/imprintComponent.module.scss'
+import { graphql, useStaticQuery } from "gatsby"
 import ReactMarkdown from 'react-markdown'
+
 
 const ImprintComponent = () => {
     const data = useStaticQuery(graphql`
@@ -12,12 +13,13 @@ const ImprintComponent = () => {
         }
       }           
       `)
+
     return (
-        <section id="imprint">
-            <div className="col1Imprint">
+        <section id={styles.imprint}>
+            <div className={styles.col1Imprint}>
                 <ReactMarkdown source={data.strapiImprint.imprint__col1} />
             </div>
-            <div className="col2Imprint">
+            <div className={styles.col2Imprint}>
                 <ReactMarkdown source={data.strapiImprint.imprint__col2} />
             </div>
         </section>)

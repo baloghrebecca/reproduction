@@ -1,8 +1,7 @@
 import React from 'react'
-import gridStyles from './grid.module.scss'
-import styles from './pages.module.scss'
 import { graphql, useStaticQuery } from "gatsby"
 import ReactMarkdown from 'react-markdown'
+import styles from '../styles/pages.module.scss'
 
 const AboutComponent = () => {
     const data = useStaticQuery(graphql`
@@ -18,18 +17,16 @@ const AboutComponent = () => {
 
     return (
         <section id={styles.about}>
-            <div className={gridStyles.col1}>
+            <div className={styles.col1}>
                 <ReactMarkdown source={data.strapiAbout.about__col1} />
             </div>
-
-            <div className={gridStyles.col2}>
+            <div className={styles.col2}>
                 <ReactMarkdown source={data.strapiAbout.about__col2} />
             </div>
-
-            <div className={gridStyles.col3}>
+            <div className={styles.col3}>
                 <ReactMarkdown source={data.strapiAbout.about__col3} />
             </div>
-            <div className={gridStyles.col4}>
+            <div className={styles.col4}>
                 <ReactMarkdown source={data.strapiAbout.about__col4} />
             </div>
         </section>)

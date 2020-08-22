@@ -1,5 +1,5 @@
 import * as React from "react"
-
+import styles from '../styles/pages.module.scss'
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
 export default class GalleryContainer extends React.Component {
@@ -26,6 +26,7 @@ export default class GalleryContainer extends React.Component {
   componentDidMount() {
     this.setCurrentPositionAndLeftAndOfSlider();
     this.handleResize();
+
     //repositions slideshow to the middle of the screen when resizing the browsers window
     window.addEventListener('resize', this.handleResize)
   }
@@ -34,11 +35,11 @@ export default class GalleryContainer extends React.Component {
     const slider = this.slider.current
 
     window.scrollBy(0, 1);
-
-    const firstSlideSize = slider.getElementsByClassName("imgContainerGallery")[0].clientWidth
-    const sliderArray = slider.getElementsByClassName("imgContainerGallery")
+    const firstSlideSize = slider.childNodes[0].clientWidth
+    const sliderArray = slider.childNodes
 
     this.setCurrentPositionAndLeftAndOfSlider();
+
     this.setState({
       sliderArray: sliderArray,
       slideSize: firstSlideSize,
@@ -52,6 +53,7 @@ export default class GalleryContainer extends React.Component {
   handleDrag = (e) => {
     const { posX1 } = this.state
     const slider = this.slider.current
+
     //difference between first and end position of the mouse (total amount of pixel travelled)
     const posX2 = posX1 - e.clientX;
 
@@ -80,6 +82,7 @@ export default class GalleryContainer extends React.Component {
 
     //initital start position of the mouse
     const positionXStart = e.clientX
+
     this.setState({
       posX1: positionXStart,
     })
@@ -96,7 +99,6 @@ export default class GalleryContainer extends React.Component {
 
     if (touches && touches.length === 1) {
       hideOverflow();
-
       const touch = touches[0]
       const startX = touch.clientX
       this.setState({ posX1: startX })
@@ -105,11 +107,14 @@ export default class GalleryContainer extends React.Component {
 
   handleTouchMove = (e) => {
     const slider = this.slider.current
+
     const posX2 = Math.floor(this.state.posX1 - e.touches[0].clientX)
+
     const sliderPositionLeft = slider.offsetLeft
 
     //repositions slider according to user input 
     const position = Math.floor(sliderPositionLeft - (posX2 + 60))
+
     this.setState({
       posX2: posX2,
       currentPosition: position
@@ -127,7 +132,6 @@ export default class GalleryContainer extends React.Component {
 
     const isSliderSmallerThanContainer = this.slider.current.offsetWidth < this.container.current.offsetWidth;
     const hasReachedTheEnd = currentPosition > leftEndOfSlider || rightEndOfSlider < -currentPosition || isSliderSmallerThanContainer
-    
     if (hasReachedTheEnd) {
       setTimeout(() => {
         this.setState({ currentPosition: leftEndOfSlider })
@@ -136,7 +140,6 @@ export default class GalleryContainer extends React.Component {
   }
 
   render() {
-
     return (<>
       <div onLoad={this.handleOnLoad}
         onTouchMove={this.handleDrag}
@@ -149,12 +152,12 @@ export default class GalleryContainer extends React.Component {
         ref={this.container}
         onTouchMove={this.handleTouchMove}
         style={{ overflow: this.state.overflow }}
-        id="galleryProductPage">
+        id={styles.galleryProductPage}>
         <div
           draggable="false"
           ref={this.slider}
           style={{ left: `${this.state.currentPosition}px`, cursor: this.state.cursor }}
-          id="slides">
+          id={styles.slides}>
           {this.props.images}
         </div>
       </div>
@@ -169,14 +172,15 @@ export default class GalleryContainer extends React.Component {
         currentPosition: 0,
         leftEndOfSlider: 0
       });
-    }
-    else {
+    } else {
       this.setState({
         currentPosition: Math.floor(window.innerWidth / 3),
         leftEndOfSlider: Math.floor(window.innerWidth / 3)
       });
     }
+
     const end = Math.floor(this.slider.current.scrollWidth - window.innerWidth / 2);
+    
     this.setState({
       containerWidth: window.innerWidth,
       rightEndOfSlider: end,

@@ -1,10 +1,8 @@
 @import "../styles/variables.scss";
 
-
-
 @font-face {
   font-family: "Nuckle Book";
-  src: url("../fonts/nuckle_medium-webfont.woff");
+  src: url("../fonts/NuckleBook.woff");
 }
 
 * {
@@ -86,49 +84,7 @@ a:hover {
   height: 1000px;
 }
 
-//Grid layout
-
-.col1 {
-  grid-column: 1 / span 2;
-}
-
-.col2 {
-  grid-column: 3 / span 2;
-}
-
-.col3 {
-  grid-column: 5 / span 2;
-}
-
-.col4 {
-  grid-column: 7 / span 2;
-}
-
-@media (max-width: 1170px) {
-  .col1 {
-    grid-column: 1 / span 2;
-  }
-
-  .col2 {
-    grid-column: 3 / span 2;
-  }
-
-  .col3 {
-    grid-column: 1 / span 2;
-  }
-
-  .col4 {
-    grid-column: 3 / span 2;
-  }
-}
-
 @media (max-width: 750px) {
-  .col1,
-  .col2,
-  .col3,
-  .col4 {
-    margin-bottom: $gap-mobile-bottom;
-  }
 
   .content {
     padding-top: 80px;

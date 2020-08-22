@@ -4,16 +4,18 @@ export const setCart = (cart) => {
 
 export const getCart = () => {
     const emptyArray = []
-
     if (typeof localStorage !== 'undefined') {
-        const cart = JSON.parse(localStorage.getItem('cart'))
+        if (localStorage.getItem('cart')) {
+            const cart = JSON.parse(localStorage.getItem('cart'))
 
-        if (cart) {
-            return cart
+            if (cart) {
+                return cart
+            }
         }
-    }
-    else {
-
+        else {
+            return emptyArray
+        }
+    } else {
         return emptyArray
     }
 }
@@ -47,6 +49,7 @@ export const removeProduct = (product) => {
 }
 
 export const decrementQuantity = (product) => {
+
     const cart = getCart()
     const indexOfProduct = findProduct(cart, product)
 
@@ -64,6 +67,7 @@ export const decrementQuantity = (product) => {
 }
 
 export const incrementQuantity = (product) => {
+
     const cart = getCart()
     const indexOfProduct = findProduct(cart, product)
 

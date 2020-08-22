@@ -23,12 +23,12 @@ export default class HeaderMain extends React.Component {
             widthBean: "33",
             opacity: 0,
             displayText: 'none',
-            translatePool: "translateY(281px)",
         }
     };
 
-    UNSAFE_componentWillMount() {
+    componentWillMount() {
         const showLogo = () => this.setState({ flag: true, opacity: 1 })
+
         setTimeout(showLogo, 100)
     }
     componentDidMount() {
@@ -42,13 +42,9 @@ export default class HeaderMain extends React.Component {
 
     updateWindowDimensions = () => {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
-        //if desktop, hide mobile navigation
+      
         if (this.state.width > 1200) {
             this.setState({ top: "translateY(-100%)", visibility: 'visible' })
-            showOverflow()
-        }
-        if (this.state.width < 750) {
-            this.setState({ translatePool: "translateY(157px)" })
             showOverflow()
         }
     }
@@ -60,8 +56,9 @@ export default class HeaderMain extends React.Component {
     handleClickLogo = (e) => {
         if (this.state.width <= 1200) {
             e.preventDefault()
-            this.setState({ top: 'translateY(0%)', visibility: 'hidden' })
 
+            this.setState({ top: 'translateY(0%)', visibility: 'hidden' })
+            
             hideOverflow()
         }
     };
@@ -74,17 +71,12 @@ export default class HeaderMain extends React.Component {
         setTimeout(() => {
             this.setState({ visibility: 'visible' });
         }, 500)
-
         showOverflow()
     };
 
     handleChange = () => {
-        const { width } = this.state
-        // this.setState({ displayText: 'inline-block' })
-        //281
-        //157
-        const setDisplay = () => this.setState({ displayText: 'inline-block' })
-        setDisplay()
+        this.setState({ displayText: 'inline-block' })
+
         anime.timeline({ loop: false })
             .add({
                 targets: '#poolText',
@@ -102,41 +94,40 @@ export default class HeaderMain extends React.Component {
             })
     };
 
+    handleLeave = () => {
+        this.setState({ displayText: 'none' })
 
-handleLeave = () => {
-    this.setState({ displayText: 'none' })
-    anime.timeline({ loop: false })
-        .add({
-            targets: '#poolText',
-            translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
-            easing: "easeOutExpo",
-            duration: 600,
-        })
-};
+        anime.timeline({ loop: false })
+            .add({
+                targets: '#poolText',
+                translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
+                easing: "easeOutExpo",
+                duration: 600,
+            })
+    };
 
-render() {
-    return (<>
-        <MobileNavigation
-            display={this.state.display}
-            top={this.state.top}
-            handleClick={this.handleClickBurger}
-            width={this.state.width}
-            bean={bean}
-            beanMobile={beanMobile}
-        />
-        <Navigation
-            translatePool={this.state.translatePool}
-            visibility={this.state.visibility}
-            handleClick={this.handleClickLogo}
-            handleClickMenu={this.handleClickBurger}
-            handleMouseEnter={this.handleChange}
-            handleMouseLeave={this.handleLeave}
-            displayText={this.state.displayText}
-            width={this.state.width}
-            bean={bean}
-            beanMobile={beanMobile}
-        />
-    </>)
-};
+    render() {
+        return (<>
+            <MobileNavigation
+                display={this.state.display}
+                top={this.state.top}
+                handleClick={this.handleClickBurger}
+                width={this.state.width}
+                bean={bean}
+                beanMobile={beanMobile}
+            />
+            <Navigation
+                visibility={this.state.visibility}
+                handleClick={this.handleClickLogo}
+                handleClickMenu={this.handleClickBurger}
+                handleMouseEnter={this.handleChange}
+                handleMouseLeave={this.handleLeave}
+                displayText={this.state.displayText}
+                width={this.state.width}
+                bean={bean}
+                beanMobile={beanMobile}
+            />
+        </>)
+    };
 }
 

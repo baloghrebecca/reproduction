@@ -2,18 +2,19 @@ import React, { useState, useEffect } from 'react'
 import { Helmet } from "react-helmet"
 
 import HeaderLandingPage from '../components/headerLandingPage'
+import Banner from '../components/cookiesBanner'
 import Layout from '../components/layout'
+
+
 import changePriceFormat from '../services/changePriceFormat'
-import { sumOfItems, getTotalPrice, getCart } from '../services/cartMath'
+import { sumOfItems, getTotalPrice } from '../services/cartMath'
 
 const Home = () => {
   const [itemsSize, setItemsSize] = useState(0)
   const [totalPrice, setTotalPrice] = useState(0)
 
   useEffect(() => {
-    // const cart = getCart()
-
-      // setTotalPrice(getTotalPrice())
+      setTotalPrice(getTotalPrice())
       const itemsLength = sumOfItems()
       setItemsSize(itemsLength)
   }, []);
@@ -24,6 +25,7 @@ const Home = () => {
   const hasTotalPrice = totalPrice === 0 ? '0' : priceFormatted
   const hadOneOrMoreItems = itemsSize === 1 ? 'ITEM' : 'ITEMS'
 
+
   return (<>
     <Helmet>
       <meta charSet="utf-8" />
@@ -31,6 +33,7 @@ const Home = () => {
       <link rel="canonical" href="https://p-oo-l.com" />
     </Helmet>
     <HeaderLandingPage totalPrice={hasTotalPrice} items={hadOneOrMoreItems} itemSize={itemsSize}/>
+    <Banner />
     <Layout>
       <div id="filler"></div>
     </Layout>

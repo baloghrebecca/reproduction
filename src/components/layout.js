@@ -1,6 +1,6 @@
 //This component mantains the page layout
 import React, { useState, useEffect, useRef } from 'react'
-import '../styles/index.scss'
+
 import Footer from './footer'
 import { Helmet } from "react-helmet"
 
@@ -30,11 +30,7 @@ const Layout = (props) => {
             <title>POOL Publishing</title>
             <link rel="canonical" href="https://p-oo-l.com" />
         </Helmet>
-        <div
-            ref={content}
-            className={props.class}
-            style={{ transform: `translateY(${top}%)`, opacity: opacity }}
-        >
+        <div ref={content} className={props.class} style={{ transform: `translateY(${top}%)`, opacity: opacity }}>
             {props.children}
         </div>
         <Footer />

@@ -3,6 +3,7 @@ HEADER:
 
 SLIDER: 
     ☐ slider end later in safari :( 
+    ☐ Slider end problem in general (NOT REALLY.... edge cases..... when screen width too big and height too small)
 
 SCROLL: 
     ☐ scroll up on without margin one
@@ -16,9 +17,7 @@ MENÜ:
     ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) @high 
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
     ☐ Wrong scroll behaviour when clicking on books mobile/tablet @critical 
-
-CART:
-    ☐ Resizing mistake in columns < 1200px
+    ☐ Menü LandingPAge + HeaderMain on scroll
 
 FOOTER:
     ☐ Abstand vom Footer text zum footer anpassen. Wenn sich der footer text vergrößert, soll der Footer automatisch nach unten gepuscht werden. a la display block
@@ -26,20 +25,16 @@ FOOTER:
 BOOKS:
     ☐ sometimes mouseLeave throws an error (probably problem with setIndex) @high (it goes on until "-1" , instead of stopping at "0") (index problem because; index resetting with entering new book)
 
-FIXES: 
-    ☐ refactor layout component
-
-IMPRINT: 
-    ☐ Link to my website
-
-
- CART
- https://www.youtube.com/watch?v=4-aqrPK5qi0&t=646s
+ CART:
+    ☐ Success case? Not Success? Error handling! (Cookie leiste)
+    ☐ URLs change after checkout
+    ☐ Cart Problem
  
  FEEDBACK:
     ☐ Logo animation langsamer
-    ☐ Cookie leiste
 
-REFACTOR:
-    ☐ CSS: stopped at MainNav
-    ☐ landingpage: cart
+COOKIES: 
+    ✔ Leiste @done (8/20/2020, 11:16:26 AM)
+
+ACCESSIBILITY:
+    ☐ Images Alternative Text

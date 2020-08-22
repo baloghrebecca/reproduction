@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 
-import Layout from '../components/layout';
-import ProductPage from '../components/product';
 import HeaderMain from '../components/headerMain'
+import ProductPage from '../components/product';
+import Layout from '../components/layout';
+import Banner from '../components/cookiesBanner'
 import { showOverflow } from '../services/manageOverflow'
+
 import changePriceFormat from '../services/changePriceFormat'
 import { addToCart } from '../services/cart'
 import { sumOfItems, getTotalPrice } from '../services/cartMath'
 import { graphql } from 'gatsby'
+
 
 const ProductDetails = ({ data }) => {
 
@@ -30,7 +33,7 @@ const ProductDetails = ({ data }) => {
     title: titleUpperCase,
     quantity: 1,
     stripeID: stripeID,
-    image: bild_warenkorb[0].url
+    image: bild_warenkorb[0]
   }
 
   const handleAddToCart = (product, e) => {
@@ -61,6 +64,7 @@ const ProductDetails = ({ data }) => {
         stripeID={stripeID}
       />
     </Layout>
+    <Banner />
   </>)
 }
 

@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, {useState, useEffect} from 'react'
+import styles from '../styles/headerMain.module.scss'
 import { Link } from 'gatsby'
 import changePriceFormat from '../services/changePriceFormat'
 import { sumOfItems, getTotalPrice } from '../services/cartMath'
@@ -22,36 +23,36 @@ const MobileNavigation = (props) => {
         ? 'ITEM'
         : 'ITEMS'
 
-    return (<nav id="mobileNav" style={{ display: props.display, transform: props.top }}>
-        <div id="burgerWrapper">
+    return (<nav id={styles.mobileNav} style={{ display: props.display, transform: props.top }}>
+        <div id={styles.burgerWrapper}>
             <div>
-                <h1 id="h1Mobile">
-                    LIFE IS BETTER AT THE <span id="poolText">P<span id="beanWrapper">
-                        {props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
+                <h1 id={styles.h1mobile}>
+                    LIFE IS BETTER AT THE <span id="poolText">P<span id={styles.beanWrapper}>{props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
                 </h1>
             </div>
             <div>
-                <div className="close" onClick={props.handleClick}>
+                <div className={styles.close} onClick={props.handleClick}>
                 </div>
             </div>
         </div>
-        <div id="mobileNestedNav">
-            <div id="mobileNavMain">
+        <div id={styles.mobileNestedNav}>
+            <div id={styles.mobileNavMain}>
                 <Link activeClassName="activeMobile" to='/books'>BOOKS</Link>
                 <Link activeClassName="activeMobile" to='/about'>ABOUT</Link>
                 <Link activeClassName="activeMobile" to='/stockists'>STOCKISTS</Link>
-                <Link id="cart-mobile" activeClassName="activeMobile" to='/cart'>
-                    {itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
+                <Link id={styles.cartMobile} activeClassName="activeMobile" to='/cart'>
+                {itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
             </div>
-            <div id="mobileNavMain">
+            <div id={styles.mobileNavMain}>
                 <Link activeClassName="activeMobile" to='/imprint'>
-                    <div className="linkMobileMenu">IMPRINT</div>
-                    <div className="linkMobileMenu">TERMS</div>
-                    <div id="privacy-mobile" className="linkMobileMenu">PRIVACY POLICY</div>
+                    <div className={styles.linkMobileMenu}>IMPRINT</div>
+                    <div className={styles.linkMobileMenu}>TERMS</div>
+                    <div id={styles.privacyMobile} className={styles.linkMobileMenu}>PRIVACY POLICY</div>
                 </Link>
             </div>
         </div>
     </nav>)
 }
+
 
 export default MobileNavigation

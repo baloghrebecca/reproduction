@@ -59,20 +59,11 @@ sup {
         grid-template-columns: 1fr 1fr;
     }
 
-    #aboutPoolBooksWrapper {
-        display: block;
-        padding-bottom: 0px;
-    }
-
 }
 
 @media (max-width: 750px) {
     #books {
         grid-template-columns: 1fr;
-    }
-
-    #aboutPoolBooksWrapper {
-        display: block;
     }
 
     .bookTitle {

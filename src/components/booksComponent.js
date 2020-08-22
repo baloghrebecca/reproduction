@@ -1,7 +1,7 @@
 import React from 'react'
-import styles from './books.module.scss'
-import { graphql, useStaticQuery } from "gatsby"
+import styles from '../styles/books.module.scss'
 import Book from './book'
+import { graphql, useStaticQuery } from "gatsby"
 import changePriceFormat from '../services/changePriceFormat'
 
 const Books = () => {

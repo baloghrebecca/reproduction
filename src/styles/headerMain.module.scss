@@ -6,7 +6,6 @@
   grid-column-gap: $gap;
   width: 100%;
   height: 60px;
-  z-index: 100;
   display: grid;
   grid-template-columns: $grid;
   grid-template-rows: 0;
@@ -21,19 +20,41 @@
   min-width: 0;
   width: 100%;
   position: absolute;
-  bottom: 25px;
+  min-height: 0;
+  bottom: 0px;
   //fixed height to make the jumping stop when resizing
-  height: 30px;
+  height: 70px;
   z-index: 9;
   display: grid;
   grid-template-columns: $grid;
   grid-template-rows: 0;
-  padding: 0 $margin-left-right $margin-top $margin-left-right;
+  padding: 0px $margin-left-right 0px $margin-left-right;
+  // padding: $margin-top $margin-left-right;
+  grid-column-gap: 1.875rem;
 }
 
 #headerMainLandingPage {
   padding: $margin-top $margin-left-right;
   grid-column-gap: 1.875rem;
+}
+
+.banner {
+    min-width: 0;
+    width: 100%;
+    position: absolute;
+    min-height: 0;
+    bottom: 0px;
+    //fixed height to make the jumping stop when resizing
+    height: 70px;
+    z-index: 9;
+    display: grid;
+    grid-template-columns: $grid;
+    grid-template-rows: 0;
+    padding: $margin-top $margin-left-right;
+    grid-column-gap: 1.875rem;
+    background-color: #fff;
+    opacity: 0.85;
+  
 }
 
 #mobileNav {

@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
-
-import Layout from '../components/layout'
-import ImprintComponent from '../components/imprintComponent'
 import HeaderMain from '../components/headerMain'
+import ImprintComponent from '../components/imprintComponent'
+import Layout from '../components/layout'
+import Banner from '../components/cookiesBanner'
 import { showOverflow } from '../services/manageOverflow'
 
 const Imprint = () => {
@@ -15,6 +15,7 @@ const Imprint = () => {
     <Layout class="content">
       <ImprintComponent />
     </Layout>
+    <Banner />
   </>
   )
 }

@@ -1,8 +1,7 @@
 import React from 'react'
-
+import styles from '../styles/pages.module.scss'
 import Slider from './Slider'
 import ReactMarkdown from 'react-markdown'
-
 
 const ProductPage = (props) => {
 
@@ -13,9 +12,9 @@ const ProductPage = (props) => {
     const getImageDivs = generateImageDivs(props.images)
 
     return (
-        <section id="productPageWrapper">
+        <section id={styles.productPageWrapper}>
             <Slider images={getImageDivs} />
-            <div id="aboutProductMobile">
+            <div id={styles.aboutProductMobile}>
                 <p>
                     {hasOldPrice} €{props.price}
                 </p>
@@ -27,30 +26,30 @@ const ProductPage = (props) => {
                         href='/'>ADD TO CART</a>
                 </p>
             </div>
-            <div id="aboutProductPageWrapper">
-                <div className="col1">
+            <div id={styles.aboutProductPageWrapper}>
+                <div className={styles.col1}>
                     <h2>{props.title}</h2>
                     <p>
                         <ReactMarkdown source={props.aboutBook} />
                     </p>
                 </div>
-                <div className="col2">
+                <div className={styles.col2}>
                     <h2>Artist</h2>
                     <p>
                         <ReactMarkdown source={props.aboutArtist} />
                     </p>
                 </div>
-                <div className="col3">
-                    <h2 className="hideMobile">&nbsp; </h2>
-                    <p>
-                        <span className="hideMobile">{hasOldPrice} €{props.price}
-                            <br /> <br />
-                        </span>
+                <div className={styles.col3}>
+                    <h2 className={styles.hideMobile}>&nbsp; </h2>
+                    <p><span className={styles.hideMobile}>
+                        {hasOldPrice} €{props.price}
+                        <br /> <br />
+                    </span>
                         <ReactMarkdown source={props.hardFacts} />
                     </p>
                 </div>
-                <div className="col4 productPageCart hideMobile">
-                    <h2>&nbsp; </h2> {/* placeholder */}
+                <div className={`${styles.col4} ${styles.productPageCart} ${styles.hideMobile}`}>
+                    <h2>&nbsp; </h2>
                     <p>
                         <a
                             onClick={(e) =>
@@ -67,18 +66,15 @@ export default ProductPage
 
 function generateImageDivs(images) {
     const generateImageDivs = images.map(image => {
-        const url = `http://pool-backend.herokuapp.com${image.url}`
-
         return <div
             draggable="false"
             key={image.id}
-            className="imgContainerGallery">
+            className={styles.imgContainerGallery}>
             <img draggable="false"
                 aria-label={image.alternativeText}
-                src={url} />
+                src={image.url} />
         </div>
     });
 
     return generateImageDivs;
 }
-

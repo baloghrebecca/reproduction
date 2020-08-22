@@ -1,8 +1,9 @@
 import React, { useEffect } from "react"
-
-import Layout from '../components/layout'
-import Books from '../components/booksComponent'
+// import '../styles/index.scss'
 import HeaderMain from '../components/headerMain'
+import Books from '../components/booksComponent'
+import Layout from '../components/layout'
+import Banner from '../components/cookiesBanner'
 import { showOverflow } from '../services/manageOverflow'
 
 const BooksPage = () => {
@@ -17,6 +18,7 @@ const BooksPage = () => {
     <Layout class="content">
       <Books />
     </Layout>
+    <Banner />
   </>)
 }
 

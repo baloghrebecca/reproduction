@@ -1,22 +1,16 @@
 import { loadStripe } from "@stripe/stripe-js"
 import React, { useState } from 'react'
 import { getCart } from '../services/cart'
+import styles from '../styles/pages.module.scss'
 
 //Stripe
 let stripePromise
 const getStripe = () => {
     if (!stripePromise) {
-        stripePromise = loadStripe('sk_test_51HFdbTHVWF33LGh7aSNyxMHgJL6ZgxUro4Npcz0ilKzMCblEXlki5F3MqY5GDpV5H1PHuwLBaVDfbqyCLRKEog9n00ZNRrC1FD')
+        stripePromise = loadStripe('pk_test_51HFdbTHVWF33LGh7fEHNxjsejQxlFkriJ5kV2Anz4lPxgXjY1t0LH4sjiN45b82IZ7738LChp0AXb1Evz67Xzuxd008bQsVprn')
     }
     return stripePromise
 }
-
-// {
-//     stripeCustomer(id: { eq: "customer_id_here" }) {
-//       id,
-//       name
-//     }
-//   }
 
 export const Checkout = (props) => {
 
@@ -46,8 +40,8 @@ export const Checkout = (props) => {
         const { error } = await stripe.redirectToCheckout({
             mode: "payment",
             lineItems: cartItemsForStripe,
-            successUrl: `http://localhost:8000/`,
-            cancelUrl: `http://localhost:8000/gacki`,
+            successUrl: `http://localhost:8200/cart`,
+            cancelUrl: `http://localhost:8200/cart`,
             billingAddressCollection: 'auto',
             shippingAddressCollection: {
                 allowedCountries: ['US', 'CA', 'AT', 'DE'],
@@ -59,13 +53,15 @@ export const Checkout = (props) => {
         }
     }
 
-    const checkoutButton = <a onClick={redirectToCheckout} href='/'>PROCEEDE TO CHECKOUT </a>
+    const checkoutButton = <a 
+    onClick={redirectToCheckout} 
+    href='/'>PROCEEDE TO CHECKOUT </a>
     const isLoading = loading 
     ? 'LOADING...' 
     : checkoutButton
 
     return (
-        <div className="cartGeneral">
+        <div className="cartCol1">
             <h1>
                 {isLoading}
             </h1>
@@ -73,3 +69,5 @@ export const Checkout = (props) => {
     )
 
 }
+
+//ERROR HANDLING

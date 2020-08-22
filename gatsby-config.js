@@ -20,19 +20,19 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-source-stripe`,
-      options: {
-        objects: ['Customer'],
-        secretKey: 'sk_test_51HFdbTHVWF33LGh7aSNyxMHgJL6ZgxUro4Npcz0ilKzMCblEXlki5F3MqY5GDpV5H1PHuwLBaVDfbqyCLRKEog9n00ZNRrC1FD',
-        downloadFiles: true,
-      }
-    },
-    {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
           include: /forms/ // See below to configure properly
         }
+      }
+    },
+    {
+      resolve: `gatsby-source-stripe`,
+      options: {
+        objects: ['Event', 'Product', 'Sku', 'Customer', 'Charge', 'Session'],
+        secretKey: 'sk_test_51HFdbTHVWF33LGh7aSNyxMHgJL6ZgxUro4Npcz0ilKzMCblEXlki5F3MqY5GDpV5H1PHuwLBaVDfbqyCLRKEog9n00ZNRrC1FD', //real key needed for graphQL
+        downloadFiles: true,
       }
     },
     {
@@ -46,24 +46,9 @@ module.exports = {
     }, 
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
-    // `gatsby-plugin-offline`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     'gatsby-plugin-react-helmet',
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: path.join(__dirname, `src`, `images`),
-      },
-    },
-    {
-      resolve: `gatsby-plugin-styled-components`,
-      options: {
-        // Add any options here
-
-      },
-    },
     {
       resolve: 'gatsby-source-strapi',
       options: {
@@ -78,7 +63,6 @@ module.exports = {
           'footer',
           'imprint',
           'stockists',
-          'testi',
         ], 
         queryLimit: 1000,
       },
@@ -96,6 +80,7 @@ module.exports = {
           },
         ],
       },
-    }
+    },
+    'gatsby-plugin-offline',
   ],
 }

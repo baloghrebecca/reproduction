@@ -1,5 +1,3 @@
-// //https://www.gatsbyjs.org/docs/node-apis/#onCreateNode
-
 const path = require('path')
 
 //utility function
