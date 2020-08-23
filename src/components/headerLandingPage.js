@@ -131,7 +131,7 @@ export default class HeaderLandingPageCopy extends React.Component {
 
             let height = -window.innerHeight + 60
             if (window.innerWidth < 750) {
-                height = -window.innerHeight + 60
+                height = -window.innerHeight + 50
             } else {
                 height = -window.innerHeight + 60
             }

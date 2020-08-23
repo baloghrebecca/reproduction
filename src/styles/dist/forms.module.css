@@ -1,0 +1,77 @@
+#header {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 0;
+  background-color: transparent;
+  padding: 0 1.0625rem 1.05rem 1.0625rem;
+  transition: all ease 1s;
+}
+
+#bean {
+  fill: #000;
+}
+
+#nav {
+  justify-self: center;
+  grid-column: 4/span 2;
+}
+
+.cart {
+  justify-self: end;
+  grid-column: 7/span 2;
+}
+
+#h1 {
+  cursor: pointer;
+  grid-column: 1/8;
+}
+
+#h1:hover {
+  transition: all ease 1s;
+}
+
+@media (max-width: 770px) {
+  #nav {
+    display: none;
+  }
+
+  #header {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+#formsDiv {
+  transition: all 0.5s linear;
+}
+
+#forms {
+  scroll-behavior: smooth;
+  position: relative;
+  z-index: -10;
+  height: 100vh;
+  width: 100%;
+  overflow: auto;
+  transition: all ease 1s;
+}
+
+.formItem {
+  padding: 1rem;
+  position: absolute;
+  display: block;
+  width: 100vw;
+  height: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+@media (max-width: 750px) {
+  #forms {
+    height: 100vh;
+  }
+}

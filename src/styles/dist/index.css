@@ -81,15 +81,7 @@ a:hover {
   height: 1000px;
 }
 
-#landingPageWrapper {
-  margin-top: 15px;
-}
-
 @media (max-width: 750px) {
-  #landingPageWrapper {
-    margin-top: 30px;
-  }
-
   .content {
     padding-top: 80px;
   }

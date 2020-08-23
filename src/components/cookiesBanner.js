@@ -5,8 +5,7 @@ import { onCookieAccept, hasCookieBeenAccepted } from '../services/cookie'
 
 const CookiesBanner = (props) => {
     const [cookiesAccepted, setCookiesAccepted] = useState(hasCookieBeenAccepted())
-    const [display, setDisplay] = useState()
-
+    const [display, setDisplay] = useState('grid')
 
     useEffect(() => {
 
@@ -24,33 +23,35 @@ const CookiesBanner = (props) => {
 
 
     const handleAcceptCookies = (e) => {
-
+        console.log('ckicked');
         e.preventDefault()
         e.stopPropagation()
 
         setCookiesAccepted(true)
         onCookieAccept()
 
-        if (cookiesAccepted === true) {
+        if (display === 'grid') {
+            console.log('entered true');
             setDisplay('none')
         }
         else {
+            console.log('entered false');
             setDisplay('grid')
         }
 
     }
 
     return (
-        <section className={styles.banner} style={{ display: display }} >
+        <section id={styles.banner} style={{ display: display }} >
             <div className={styles.col1}>
                 <h1 id={styles.h1Main}
                 >POOL</h1>
             </div>
-            <div id={styles.navMain}>
+            <div id={styles.bannerCookies}>
                 ACCEPT <Link to='/imprint'>COOKIES</Link>?
             </div>
-            <div className={styles.cartMain}
-                id={styles.cartMain}>
+            <div className={styles.bannerYes}
+                id={styles.bannerYes}>
                 <a href="/" onClick={(e) => handleAcceptCookies(e)}>YES</a>
             </div>
         </section>)
