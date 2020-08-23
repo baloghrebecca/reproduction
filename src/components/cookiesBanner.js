@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import styles from '../styles/headerMain.module.scss'
 import { Link } from 'gatsby'
 import { onCookieAccept, hasCookieBeenAccepted } from '../services/cookie'
-import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
 const CookiesBanner = (props) => {
     const [cookiesAccepted, setCookiesAccepted] = useState(hasCookieBeenAccepted())

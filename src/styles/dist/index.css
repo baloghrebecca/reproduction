@@ -1,19 +1,16 @@
-@import "../styles/variables.scss";
-
 @font-face {
   font-family: "Nuckle Book";
   src: url("../fonts/NuckleBook.woff");
 }
-
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
 body {
-  color: $primary-color;
-  font-family: $font;
-  font-size: $font-size;
+  color: #000;
+  font-family: "Nuckle Book", sans-serif;
+  font-size: 1.5625rem;
   margin: 0;
   padding: 0;
   height: 100%;
@@ -21,7 +18,7 @@ body {
 }
 
 path {
-  fill: $primary-grey;
+  fill: #dddddd;
 }
 
 section {
@@ -32,7 +29,7 @@ h1 {
   margin: 0;
   font-weight: normal;
   text-transform: uppercase;
-  font-size: $font-size;
+  font-size: 1.5625rem;
 }
 
 p {
@@ -44,7 +41,7 @@ p {
 h2 {
   font-weight: normal;
   text-transform: uppercase;
-  font-size: $font-size-small;
+  font-size: 14px;
   margin-bottom: 0.75rem;
 }
 
@@ -54,25 +51,25 @@ div {
 
 a {
   text-decoration: none;
-  color: $primary-color;
+  color: #000;
   margin: 0;
 }
 
 a:hover {
-  color: $primary-grey;
+  color: #dddddd;
 }
 
 .active {
-  color: $primary-grey;
+  color: #dddddd;
 }
 
 .activeMobile {
-  color: $secondary-gray;
+  color: #9b9b9b;
 }
 
 .content {
   transition: all 0.6s ease;
-  padding-top: $margin-bottom-primary;
+  padding-top: 13.5rem;
 }
 
 .contentWithoutMargin {
@@ -102,10 +99,10 @@ a:hover {
   }
 
   h1 {
-    font-size: $font-size-small;
+    font-size: 14px;
   }
 
   p {
-    font-size: $font-size-small;
+    font-size: 14px;
   }
 }

@@ -127,7 +127,7 @@ export default class HeaderLandingPageCopy extends React.Component {
         var fired = false;
 
         if (fired === false) {
-            hideOverflow();
+            // hideOverflow();
 
             let height = -window.innerHeight + 60
             if (window.innerWidth < 750) {

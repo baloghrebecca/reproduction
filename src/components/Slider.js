@@ -74,7 +74,7 @@ export default class GalleryContainer extends React.Component {
   }
 
   handleDragStart = (e) => {
-    hideOverflow();
+    // hideOverflow();
 
     this.setState({
       cursor: 'grabbing'

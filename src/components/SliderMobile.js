@@ -21,7 +21,7 @@ const SliderMobile = (props) => {
   }, [cart]);
 
   const handleDragStart = (e) => {
-    hideOverflow()
+    // hideOverflow()
 
     const { clientX, type, touches } = e
 
