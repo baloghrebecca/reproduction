@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../styles/headerMain.module.scss'
 import { Link } from 'gatsby'
 import changePriceFormat from '../services/changePriceFormat'

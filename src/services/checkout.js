@@ -67,7 +67,7 @@ export const Checkout = (props) => {
             <h1>
                 {props.cart === 0 
                 ? noProductsButton
-                : checkoutButton}
+                : isLoading}
             </h1>
         </div>
     )
