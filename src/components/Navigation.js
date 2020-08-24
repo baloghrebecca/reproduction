@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import styles from '../styles/headerMain.module.scss'
 import { Link } from 'gatsby'
 import changePriceFormat from '../services/changePriceFormat'
@@ -24,33 +24,48 @@ const Navigation = (props) => {
         : 'ITEMS'
 
 
-    return (<header id={styles.headerMain} style={{ visibility: props.visibility }}>
-    <h1 id={styles.h1Main}
-            onClick={props.handleClick}
+    return (<>
+        <div id={styles.dividerForMousover}
             onMouseEnter={props.handleMouseEnter}
-            onMouseLeave={props.handleMouseLeave}>
-            <span id='text' className={styles.text} style={{ display: props.displayText, transform: `translateX(-280px)` }}>LIFE IS BETTER AT THE  </span>
-            <span id="poolText">P<span id={styles.beanWrapper}>{props.width < 750 ? props.beanMobile : props.bean}</span>L</span></h1>
+            onMouseLeave={props.handleMouseLeave}
+            onClick={props.handleClick} >
+        </div>
+        <header
+            id={styles.headerMain} style={{ visibility: props.visibility }}>
+            <h1 id={styles.h1Main}
+                className='h1Main'
+            >
+                <p id='poolSubheadline' className={styles.poolSubheadline}
+                >LIFE IS BETTER AT THE
+            </p>
+                <div id="poolLogo" className="poolLogo"
 
-        <nav id={styles.navMain}>
-            <Link activeClassName="active" to='/books'>BOOKS</Link>,
+                >P
+            <p id={styles.beanWrapper}>{props.width < 750 ? props.beanMobile : props.bean}
+                    </p>L
+            </div>
+            </h1>
+
+            <nav id={styles.navMain}>
+                <Link activeClassName="active" to='/books'>BOOKS</Link>,
             <Link activeClassName="active" to='/about'> ABOUT</Link>,
             <Link activeClassName="active" to='/stockists'> STOCKISTS</Link>
-        </nav>
+            </nav>
 
-        <Link 
-        className={styles.menuMain} 
-        activeClassName="active" 
-        to='/'
-        onClick={props.handleClick}
-        >Menu</Link>
+            <Link
+                className={styles.menuMain}
+                activeClassName="active"
+                to='/'
+                onClick={props.handleClick}
+            >Menu</Link>
 
-        <Link
-            id={styles.cartMain}
-            className={styles.cartMain}
-            activeClassName="active"
-            to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
-    </header>)
+            <Link
+                id={styles.cartMain}
+                className={styles.cartMain}
+                activeClassName="active"
+                to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
+        </header>
+    </>)
 }
 
 export default Navigation

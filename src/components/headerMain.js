@@ -5,6 +5,7 @@ import { showOverflow, hideOverflow } from '../services/manageOverflow'
 import Navigation from './Navigation'
 import MobileNavigation from './MobileNavigation'
 import { bean, beanMobile } from '../services/getSvgBeans'
+import { ReducedMotion } from 'framer-motion';
 
 export default class HeaderMain extends React.Component {
     constructor(props) {
@@ -42,7 +43,7 @@ export default class HeaderMain extends React.Component {
 
     updateWindowDimensions = () => {
         this.setState({ width: window.innerWidth, height: window.innerHeight });
-      
+
         if (this.state.width > 1200) {
             this.setState({ top: "translateY(-100%)", visibility: 'visible' })
             showOverflow()
@@ -57,8 +58,15 @@ export default class HeaderMain extends React.Component {
         if (this.state.width <= 1200) {
             e.preventDefault()
 
+            let distance = this.getRightDistance();
+            anime({
+                targets: '.h1mobile',
+                translateX: [-distance, 0],
+                opacity: [0, 1],
+                easing: 'easeInOutQuad'
+            });
             this.setState({ top: 'translateY(0%)', visibility: 'hidden' })
-            
+
             hideOverflow()
         }
     };
@@ -67,44 +75,74 @@ export default class HeaderMain extends React.Component {
         e.preventDefault()
         e.stopPropagation()
 
-        this.setState({ top: 'translateY(-100%)' })
+        let distance = this.getRightDistance();
+
+        anime({
+            targets: '.h1mobile',
+            translateX: [0, -distance],
+            opacity: [1, 0],
+            easing: 'easeInOutQuad',
+            duration: 400
+        });
+
+        setTimeout(() => {
+            this.setState({ top: 'translateY(-100%)' })
+        }, 450)
+
         setTimeout(() => {
             this.setState({ visibility: 'visible' });
         }, 500)
+
         showOverflow()
     };
 
     handleChange = () => {
-        this.setState({ displayText: 'inline-block' })
+        let distance = this.getRightDistance();
 
-        anime.timeline({ loop: false })
-            .add({
-                targets: '#poolText',
-                translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
-                easing: "easeOutExpo",
-                duration: 800,
-            })
-            .add({
-                targets: '#text',
-                translateX: [-50, 0],
-                opacity: [0, 1],
-                easing: "easeOutExpo",
-                duration: 0,
-                direction: 'alternate',
-            })
-    };
+        anime({
+            targets: '#poolLogo',
+            translateX: [0, distance],
+            easing: 'easeInOutQuad'
+        });
+
+        anime({
+            targets: '#poolSubheadline',
+            opacity: [0, 1],
+            translateX: [-distance, 0],
+            easing: 'easeInOutQuad'
+        });
+
+    }
+
+
 
     handleLeave = () => {
-        this.setState({ displayText: 'none' })
+        let distance = this.getRightDistance();
 
-        anime.timeline({ loop: false })
-            .add({
-                targets: '#poolText',
-                translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
-                easing: "easeOutExpo",
-                duration: 600,
-            })
+        anime({
+            targets: '#poolLogo',
+            translateX: [distance, 0],
+            easing: 'easeInOutQuad'
+        });
+
+        anime({
+            targets: '#poolSubheadline',
+            opacity: [1, 0],
+            translateX: [0, -distance,],
+            easing: 'easeInOutQuad'
+        });
     };
+
+    getRightDistance() {
+        const { width } = this.state;
+
+        let distance = 290;
+        if (width < 750) {
+            distance = 161;
+        }
+
+        return distance;
+    }
 
     render() {
         return (<>
@@ -115,6 +153,7 @@ export default class HeaderMain extends React.Component {
                 width={this.state.width}
                 bean={bean}
                 beanMobile={beanMobile}
+                landingPage='false'
             />
             <Navigation
                 visibility={this.state.visibility}

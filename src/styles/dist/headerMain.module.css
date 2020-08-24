@@ -82,10 +82,6 @@
   border-top: solid 1px #9b9b9b;
 }
 
-#text {
-  display: inline-block;
-}
-
 #cart-mobile {
   border-bottom: solid 1px #9b9b9b;
 }
@@ -103,11 +99,67 @@
   color: #9b9b9b;
 }
 
-#poolText {
+#poolLogo {
   display: inline-block;
+  position: absolute;
+  left: 0;
+  margin-bottom: 0;
+}
+
+.poolSubheadline {
+  display: inline-block;
+  opacity: 0;
+  margin-right: 7px;
+  position: absolute;
+}
+
+#dividerForMousover {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  width: 200px;
+  height: 30px;
+  left: 0;
+  z-index: 1000000000;
+}
+
+#dividerForMousoverLandingPage {
+  cursor: pointer;
+  position: absolute;
+  bottom: 15px;
+  width: 200px;
+  height: 30px;
+  left: 0;
+  z-index: 1000000000;
+}
+
+#h1Main {
+  z-index: 101;
+  cursor: default;
+  grid-column: 1/span 4;
+  transition: opacity ease 0.4s;
+  display: flex;
+}
+
+#h1Main span {
+  transition: opacity ease 1s;
+}
+
+#h1Main:hover {
+  transition: all ease 1s;
+}
+
+.poolSubheadlineMobile {
+  display: inline;
+  margin: 0;
+}
+
+.menuMain {
+  display: none;
 }
 
 #beanWrapper {
+  display: inline-block;
   transition: ease 0.4s all;
   margin: 0 1px;
 }
@@ -185,25 +237,6 @@
   grid-column: 7/span 2;
 }
 
-#h1Main {
-  z-index: 101;
-  cursor: default;
-  grid-column: 1/span 4;
-  transition: opacity ease 0.4s;
-}
-
-#h1Main span {
-  transition: opacity ease 1s;
-}
-
-#h1Main:hover {
-  transition: all ease 1s;
-}
-
-.menuMain {
-  display: none;
-}
-
 @media (max-width: 1200px) {
   #h1Main {
     cursor: pointer;
@@ -247,15 +280,14 @@
     grid-column: 3/span 1;
     z-index: 3;
   }
+
+  .poolSubheadlineMobile {
+    display: inline;
+  }
 }
 @media (max-width: 750px) {
   #mobileNestedNav {
     height: 98%;
-  }
-
-  #h1Mobile {
-    transition: all 0.3s ease;
-    margin-top: 7px;
   }
 
   #mobileNestedNav a,

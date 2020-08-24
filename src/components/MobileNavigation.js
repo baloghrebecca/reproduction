@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import styles from '../styles/headerMain.module.scss'
 import { Link } from 'gatsby'
 import changePriceFormat from '../services/changePriceFormat'
 import { sumOfItems, getTotalPrice } from '../services/cartMath'
+import { bean, beanMobile } from '../services/getSvgBeans'
+import Icon from "../close.svg";
 
 const MobileNavigation = (props) => {
     const [itemsSize, setItemsSize] = useState(0)
 
     useEffect(() => {
         const itemsLength = sumOfItems()
+        console.log(<Icon />);
         setItemsSize(itemsLength)
     });
 
@@ -23,13 +26,16 @@ const MobileNavigation = (props) => {
         ? 'ITEM'
         : 'ITEMS'
 
+    const logoWithSVG = <span id="poolText">P<span id={styles.beanWrapper}>{props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
+    const logoWithoutSVG = <span id="poolText">POOL</span>
+
     return (<nav id={styles.mobileNav} style={{ display: props.display, transform: props.top }}>
         <div id={styles.burgerWrapper}>
-            <div>
-                <h1 id={styles.h1mobile}>
-                    LIFE IS BETTER AT THE <span id="poolText">P<span id={styles.beanWrapper}>{props.width < 750 ? props.beanMobile : props.bean}</span>L</span>
+        <h1 id={styles.h1mobile} className="h1mobile">
+                    LIFE IS BETTER AT THE { props.landingPage === 'true'
+                    ? logoWithoutSVG
+                    : logoWithSVG }
                 </h1>
-            </div>
             <div>
                 <div className={styles.close} onClick={props.handleClick}>
                 </div>
@@ -41,7 +47,7 @@ const MobileNavigation = (props) => {
                 <Link activeClassName="activeMobile" to='/about'>ABOUT</Link>
                 <Link activeClassName="activeMobile" to='/stockists'>STOCKISTS</Link>
                 <Link id={styles.cartMobile} activeClassName="activeMobile" to='/cart'>
-                {itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
+                    {itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
             </div>
             <div id={styles.mobileNavMain}>
                 <Link activeClassName="activeMobile" to='/imprint'>

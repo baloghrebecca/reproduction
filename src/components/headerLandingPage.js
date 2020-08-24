@@ -69,6 +69,14 @@ export default class HeaderLandingPageCopy extends React.Component {
     handleClickLogo = (e) => {
         if (this.state.width <= 1200) {
 
+            let distance = this.getRightDistance();
+            anime({
+                targets: '.h1mobile',
+                translateX: [-distance, 0],
+                opacity: [0, 1],
+                easing: 'easeInOutQuad'
+            });
+
             this.setState({ top: 'translateY(-100%)', visibility: 'hidden' })
 
             hideOverflow();
@@ -78,7 +86,19 @@ export default class HeaderLandingPageCopy extends React.Component {
     handleClickBurger = (e) => {
         e.preventDefault()
 
-        this.setState({ top: 'translateY(100%)' })
+        let distance = this.getRightDistance();
+
+        anime({
+            targets: '.h1mobile',
+            translateX: [0, -distance],
+            opacity: [1, 0],
+            easing: 'easeInOutQuad',
+            duration: 400
+        });
+
+        setTimeout(() => {
+            this.setState({ top: 'translateY(100%)' })
+        }, 450)
 
         setTimeout(() => {
             this.setState({ visibility: 'visible' });
@@ -89,37 +109,37 @@ export default class HeaderLandingPageCopy extends React.Component {
 
     handleChange = () => {
 
-        const setDisplay = () => this.setState({ displayText: 'inline-block' })
+        let distance = this.getRightDistance();
 
-        setDisplay()
+        anime({
+            targets: '#poolLogo',
+            translateX: [0, distance],
+            easing: 'easeInOutQuad'
+        });
 
-        anime.timeline({ loop: false })
-            .add({
-                targets: '#poolText',
-                translateX: [0, document.querySelector('#text').getBoundingClientRect().width + 6.2],
-                easing: "easeOutExpo",
-                duration: 800,
-            })
-            .add({
-                targets: '#text',
-                translateX: [-50, 0],
-                opacity: [0, 1],
-                easing: "easeOutExpo",
-                duration: 0,
-                direction: 'alternate',
-            })
+        anime({
+            targets: '#poolSubheadline',
+            opacity: [0, 1],
+            translateX: [-distance, 0],
+            easing: 'easeInOutQuad'
+        });
     };
 
     handleLeave = () => {
-        this.setState({ displayText: 'none' })
+        let distance = this.getRightDistance();
 
-        anime.timeline({ loop: false })
-            .add({
-                targets: '#poolText',
-                translateX: [document.querySelector('#text').getBoundingClientRect().width + 6.2, 0],
-                easing: "easeOutExpo",
-                duration: 600,
-            })
+        anime({
+            targets: '#poolLogo',
+            translateX: [distance, 0],
+            easing: 'easeInOutQuad'
+        });
+
+        anime({
+            targets: '#poolSubheadline',
+            opacity: [1, 0],
+            translateX: [0, -distance,],
+            easing: 'easeInOutQuad'
+        });
     };
 
     handleScroll = (link, e) => {
@@ -160,6 +180,17 @@ export default class HeaderLandingPageCopy extends React.Component {
         }
     }
 
+    getRightDistance() {
+        const { width } = this.state;
+
+        let distance = 290;
+        if (width < 750) {
+            distance = 161;
+        }
+
+        return distance;
+    }
+
     //Refactor navigation
     render() {
         return (<>
@@ -176,25 +207,29 @@ export default class HeaderLandingPageCopy extends React.Component {
                     width={this.state.width}
                     bean={bean}
                     beanMobile={beanMobile}
+                    landingPage='true'
                 />
 
                 <header ref={this.navigation} id={styles.headerMainLandingPage} style={{ visibility: this.state.visibility }}>
-
-                    <h1 id={styles.h1Main}
+                    <div id={styles.dividerForMousoverLandingPage}
                         onClick={this.handleClickLogo}
                         onMouseEnter={this.handleChange}
-                        onMouseLeave={this.handleLeave}>
-                        <span
-                            ref={this.poolText}
-                            id='text'
-                            className={styles.text}
-                            style={{ display: this.state.displayText, transform: `translateX(-280px)` }}>LIFE IS BETTER AT THE  </span>
-                        <span
-                            id="poolText"
-                            className={styles.poolText}>
+                        onMouseLeave={this.handleLeave}
+                    >
+                    </div>
+                    <h1 id={styles.h1Main}>
+                        <div
+                            ref={this.poolLogo}
+                            id='poolSubheadline'
+                            className={styles.poolSubheadline}
+                        >LIFE IS BETTER AT THE  </div>
+                        <p
+                            id="poolLogo"
+                            className={styles.poolLogo}>
                             P{this.state.flag
                                 ? <span style={{ opacity: this.state.opacityO }}>OO</span>
-                                : <span style={{ opacity: this.state.opacityBean }} id={styles.beanWrapper}>{this.state.width < 750 ? beanMobile : bean}</span>}L</span>
+                                : <span style={{ opacity: this.state.opacityBean }}
+                                    id={styles.beanWrapper}>{this.state.width < 750 ? beanMobile : bean}</span>}L</p>
                     </h1>
 
                     <nav id={styles.navMain}>
@@ -215,7 +250,7 @@ export default class HeaderLandingPageCopy extends React.Component {
                         onClick={(e) => this.handleScroll('/cart', e)}
                         style={{ cursor: 'pointer' }}
                     >{this.props.itemSize} {this.props.items} ({this.props.totalPrice}€)</a>
-                    
+
                 </header>
             </div>
         </>)

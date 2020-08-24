@@ -18,6 +18,7 @@ MENÜ:
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
     ✔ Wrong scroll behaviour when clicking on books mobile/tablet @critical @done (8/23/2020, 5:04:53 PM)
     ✔ Menü LandingPAge + HeaderMain on scroll @done (8/23/2020, 4:54:37 PM)
+    ☐ Pool Logo positioning in the middle of ex (vertical) (mobile)
 
 FOOTER:
     ☐ Abstand vom Footer text zum footer anpassen. Wenn sich der footer text vergrößert, soll der Footer automatisch nach unten gepuscht werden. a la display block
