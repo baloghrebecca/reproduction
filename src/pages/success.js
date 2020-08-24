@@ -10,14 +10,18 @@ const SuccessPage = () => {
         showOverflow();
     });
 
-    localStorage.removeItem('cart');
+    if (typeof localStorage !== 'undefined') {
+        if (localStorage.getItem('cart')) {
+            localStorage.removeItem('cart');
+        }
+    }
 
     return (<>
         <HeaderMain />
         <Layout class="content">
             <Books />
         </Layout>
-        <BannerPaymentStatus message="PAYMENT CONFIRMED. THANK YOU!" success='true'/>
+        <BannerPaymentStatus message="PAYMENT CONFIRMED. THANK YOU!" success='true' />
     </>)
 }
 
