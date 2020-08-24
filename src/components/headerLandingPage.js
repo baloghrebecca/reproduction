@@ -193,6 +193,16 @@ export default class HeaderLandingPageCopy extends React.Component {
 
     //Refactor navigation
     render() {
+        const cartLink = <a
+            className={styles.cartMain}
+            id={styles.cartMain}
+            onClick={(e) => this.handleScroll('/cart', e)}
+            style={{ cursor: 'pointer' }}
+        >{this.props.itemSize} {this.props.items} ({this.props.totalPrice}€)</a>
+
+        const cartLinkDeactivated = <p id={styles.cartMain}
+            className={styles.cartMain}>{this.props.itemSize} {this.props.items} ({this.props.totalPrice}€)</p>
+
         return (<>
             <div id="landingPageWrapper">
 
@@ -244,12 +254,9 @@ export default class HeaderLandingPageCopy extends React.Component {
                         onClick={this.handleClickLogo}
                     >Menu</Link>
 
-                    <a
-                        className={styles.cartMain}
-                        id={styles.cartMain}
-                        onClick={(e) => this.handleScroll('/cart', e)}
-                        style={{ cursor: 'pointer' }}
-                    >{this.props.itemSize} {this.props.items} ({this.props.totalPrice}€)</a>
+                    {this.props.itemSize === 0
+                        ? cartLinkDeactivated
+                        : cartLink}
 
                 </header>
             </div>

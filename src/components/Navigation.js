@@ -23,12 +23,22 @@ const Navigation = (props) => {
         ? 'ITEM'
         : 'ITEMS'
 
+    const cartLink = <Link
+        id={styles.cartMain}
+        className={styles.cartMain}
+        activeClassName="active"
+        to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
+
+    const cartLinkDeactivated = <p id={styles.cartMain}
+        className={styles.cartMain}>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</p>
+
 
     return (<>
         <div id={styles.dividerForMousover}
             onMouseEnter={props.handleMouseEnter}
             onMouseLeave={props.handleMouseLeave}
-            onClick={props.handleClick} >
+            onClick={props.handleClick}
+        >
         </div>
         <header
             id={styles.headerMain} style={{ visibility: props.visibility }}>
@@ -59,11 +69,9 @@ const Navigation = (props) => {
                 onClick={props.handleClick}
             >Menu</Link>
 
-            <Link
-                id={styles.cartMain}
-                className={styles.cartMain}
-                activeClassName="active"
-                to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
+            {itemsSize === 0
+                ? cartLinkDeactivated
+                : cartLink}
         </header>
     </>)
 }

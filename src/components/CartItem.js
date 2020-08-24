@@ -14,7 +14,7 @@ export const CartItem = (props) => {
 export const CartProductName = (props) => {
     const items = props.items.map((item, index) =>
         <span key={index} className={styles.cartListItem}>
-            <a href="/" onClick={(e) => props.removeItem(item, e)}>&#120;</a>
+            <a href="/" onClick={(e) => props.removeItem(item, e)}>&times;</a>
             &nbsp;{item.title} <br />
         </span>);
 

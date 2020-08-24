@@ -82,7 +82,6 @@ const Book = (props) => {
         ? <strike>€{props.oldPrice}</strike>
         : ''
 
-
     return (
         <div className={styles.book}>
             <div 
@@ -91,10 +90,12 @@ const Book = (props) => {
             onMouseMove={handleMouseOver} 
             ref={bookRender} 
             className={styles.bookRenderingContainer}>
+                <Link to={props.slug}>
                  <img
                     onMouseLeave={handleMouseLeave}
                     alt={props.images[index].alternativeText}
                     src={props.images[index].url} />
+                    </Link>
             </div>
             <div>
             <p className={styles.priceBook}>

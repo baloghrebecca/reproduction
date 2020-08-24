@@ -74,7 +74,7 @@ const Cart = (props) => {
             <div id={styles.cartCheckoutInfos}>
 
                 <div className={styles.cartCol1}>
-                    <Checkout cart={items} />
+                    <Checkout cart={props.cartSize} />
                 </div>
 
                 <div className={styles.cartCol2}>

@@ -40,8 +40,8 @@ export const Checkout = (props) => {
         const { error } = await stripe.redirectToCheckout({
             mode: "payment",
             lineItems: cartItemsForStripe,
-            successUrl: `http://localhost:8200/cart`,
-            cancelUrl: `http://localhost:8200/cart`,
+            successUrl: `/cart`,
+            cancelUrl: `/cart`,
             billingAddressCollection: 'auto',
             shippingAddressCollection: {
                 allowedCountries: ['US', 'CA', 'AT', 'DE'],
@@ -55,15 +55,19 @@ export const Checkout = (props) => {
 
     const checkoutButton = <a 
     onClick={redirectToCheckout} 
-    href='/'>PROCEEDE TO CHECKOUT </a>
+    href='/'>PROCEED TO CHECKOUT </a>
     const isLoading = loading 
     ? 'LOADING...' 
     : checkoutButton
 
+    const noProductsButton = ''
+
     return (
         <div className="cartCol1">
             <h1>
-                {isLoading}
+                {props.cart === 0 
+                ? noProductsButton
+                : checkoutButton}
             </h1>
         </div>
     )
