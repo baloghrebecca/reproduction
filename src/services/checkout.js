@@ -40,8 +40,8 @@ export const Checkout = (props) => {
         const { error } = await stripe.redirectToCheckout({
             mode: "payment",
             lineItems: cartItemsForStripe,
-            successUrl: `/cart`,
-            cancelUrl: `/cart`,
+            successUrl: `http://pool-preview.vercel.app/`,
+            cancelUrl: `http://pool-preview.vercel.app/`,
             billingAddressCollection: 'auto',
             shippingAddressCollection: {
                 allowedCountries: ['US', 'CA', 'AT', 'DE'],
