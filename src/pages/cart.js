@@ -4,22 +4,12 @@ import Cart from '../components/Cart'
 import Layout from '../components/layout';
 import Banner from '../components/cookiesBanner'
 import { showOverflow } from '../services/manageOverflow'
-import { graphql, useStaticQuery } from "gatsby"
 import { removeProduct, decrementQuantity, incrementQuantity, getCart } from '../services/cart'
 
 const CartPage = () => {
-  const data = useStaticQuery(graphql`
-  query Stripe {
-    stripeCharge {
-      status
-      payment_intent
-    }
-  }      
-    `)
 
-  console.log('stripe', data.stripeCharge.payment_intent);
   const [cartItemsSize, setCartItemSize] = useState()
-  
+
   //this forces a re-render
   const [, updateState] = React.useState();
   const forceUpdate = React.useCallback(() => updateState({}), []);
@@ -29,8 +19,6 @@ const CartPage = () => {
 
     setCartItemSize(getCart().length)
   });
-
-
 
   const handleRemoveItem = (product, e) => {
     preventDefault(e);
@@ -59,8 +47,8 @@ const CartPage = () => {
   return (<>
     <HeaderMain />
     <Layout class="contentWithoutMargin">
-      <Cart 
-      cartItems={cartItems}
+      <Cart
+        cartItems={cartItems}
         cartSize={cartItemsSize}
         removeItem={handleRemoveItem}
         decrementQuantity={handleDecrementQuantity}
@@ -72,7 +60,6 @@ const CartPage = () => {
 }
 
 export default CartPage
-
 
 function preventDefault(e) {
   e.stopPropagation();

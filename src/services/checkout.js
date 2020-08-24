@@ -40,38 +40,35 @@ export const Checkout = (props) => {
         const { error } = await stripe.redirectToCheckout({
             mode: "payment",
             lineItems: cartItemsForStripe,
-            successUrl: `http://pool-preview.vercel.app/`,
-            cancelUrl: `http://pool-preview.vercel.app/`,
+            successUrl: `http://localhost:8200/success`,
+            cancelUrl: `http://localhost:8200/cancel`,
             billingAddressCollection: 'auto',
             shippingAddressCollection: {
                 allowedCountries: ['US', 'CA', 'AT', 'DE'],
             }
         })
         if (error) {
-            console.log("Error:", error)
             setLoading(false)
         }
     }
 
-    const checkoutButton = <a 
-    onClick={redirectToCheckout} 
-    href='/'>PROCEED TO CHECKOUT </a>
-    const isLoading = loading 
-    ? 'LOADING...' 
-    : checkoutButton
+    const checkoutButton = <a
+        onClick={redirectToCheckout}
+        href='/'>PROCEED TO CHECKOUT </a>
+    const isLoading = loading
+        ? 'LOADING...'
+        : checkoutButton
 
     const noProductsButton = ''
 
     return (
         <div className="cartCol1">
             <h1>
-                {props.cart === 0 
-                ? noProductsButton
-                : isLoading}
+                {props.cart === 0
+                    ? noProductsButton
+                    : isLoading}
             </h1>
         </div>
     )
 
 }
-
-//ERROR HANDLING

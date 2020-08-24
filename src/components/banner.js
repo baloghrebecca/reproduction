@@ -1,59 +1,23 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styles from '../styles/headerMain.module.scss'
-import { Link } from 'gatsby'
-import { onCookieAccept, hasCookieBeenAccepted } from '../services/cookie'
+import { Link } from "gatsby"
 
-const BannerPaymentConfirmation = (props) => {
-    const [cookiesAccepted, setCookiesAccepted] = useState(hasCookieBeenAccepted())
-    const [display, setDisplay] = useState()
-
-
-    useEffect(() => {
-
-        const hasCookiesBeenAccepted = hasCookieBeenAccepted()
-        setCookiesAccepted(hasCookiesBeenAccepted)
-
-        if (cookiesAccepted === true) {
-            setDisplay('none')
-        }
-        else {
-            setDisplay('grid')
-        }
-
-    }, [])
-
-
-    const handleAcceptCookies = (e) => {
-
-        e.preventDefault()
-        e.stopPropagation()
-
-        setCookiesAccepted(true)
-        onCookieAccept()
-
-        if (cookiesAccepted === true) {
-            setDisplay('none')
-        }
-        else {
-            setDisplay('grid')
-        }
-
-    }
-
-    return (
-        <section className={styles.banner} style={{ display: display }} >
+export const BannerPaymentStatus = (props) => {
+    return (<>
+        <section id={styles.banner} >
             <div className={styles.col1}>
                 <h1 id={styles.h1Main}
                 >POOL</h1>
             </div>
-            <div id={styles.navMain}>
-                PAYMENT CONFIRMED! THANK YOU!
+            <div id={styles.bannerCookies}>
+                {props.message} { props.success === 'false' 
+                ? <span><Link to="/about">CONTACT US</Link>.</span>
+                : ''}
             </div>
-            <div className={styles.cartMain}
-                id={styles.cartMain}>
-                <a href="/" onClick={(e) => handleAcceptCookies(e)}>OK</a>
+            <div className={styles.bannerYes}
+                id={styles.bannerYes}>
+                <Link href="/books">OK</Link>
             </div>
-        </section>)
+        </section>
+    </>)
 }
-
-export default CookiesBanner;

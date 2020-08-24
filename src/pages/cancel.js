@@ -2,25 +2,24 @@ import React, { useEffect } from "react"
 import HeaderMain from '../components/headerMain'
 import Books from '../components/booksComponent'
 import Layout from '../components/layout'
-import Banner from '../components/cookiesBanner'
+import { BannerPaymentStatus } from '../components/banner'
 import { showOverflow } from '../services/manageOverflow'
+import { Link } from 'gatsby'
 
-const BooksPage = () => {
-
+const CancelPage = () => {
   useEffect(() => {
     showOverflow();
-
   });
 
+  const message = `ORDER CANCELLED.`
 
   return (<>
-    <HeaderMain />
+      <HeaderMain />
     <Layout class="content">
       <Books />
     </Layout>
-    <Banner />
+    <BannerPaymentStatus message={message} success='false' />
   </>)
 }
 
-export default BooksPage
-
+export default CancelPage

@@ -23,7 +23,6 @@ const CookiesBanner = (props) => {
 
 
     const handleAcceptCookies = (e) => {
-        console.log('ckicked');
         e.preventDefault()
         e.stopPropagation()
 
@@ -31,11 +30,9 @@ const CookiesBanner = (props) => {
         onCookieAccept()
 
         if (display === 'grid') {
-            console.log('entered true');
             setDisplay('none')
         }
         else {
-            console.log('entered false');
             setDisplay('grid')
         }
 

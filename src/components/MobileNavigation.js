@@ -11,7 +11,6 @@ const MobileNavigation = (props) => {
 
     useEffect(() => {
         const itemsLength = sumOfItems()
-        console.log(<Icon />);
         setItemsSize(itemsLength)
     });
 
