@@ -4,7 +4,7 @@ import { Link } from 'gatsby'
 import changePriceFormat from '../services/changePriceFormat'
 import { sumOfItems, getTotalPrice } from '../services/cartMath'
 import { bean, beanMobile } from '../services/getSvgBeans'
-import Icon from "../close.svg";
+import Icon from "../assets/close.svg";
 
 const MobileNavigation = (props) => {
     const [itemsSize, setItemsSize] = useState(0)
@@ -31,15 +31,18 @@ const MobileNavigation = (props) => {
 
     return (<nav id={styles.mobileNav} style={{ display: props.display, transform: props.top }}>
         <div id={styles.burgerWrapper}>
-        <h1 id={styles.h1mobile} className="h1mobile">
-                    LIFE IS BETTER AT THE { props.landingPage === 'true'
+            <h1 id={styles.h1mobile} className="h1mobile">
+                LIFE IS BETTER AT THE {props.landingPage === 'true'
                     ? logoWithoutSVG
-                    : logoWithSVG }
-                </h1>
+                    : logoWithSVG}
+            </h1>
             <div>
-                <div className={styles.close} onClick={props.handleClick}>
-                </div>
-            </div>
+        <div className={styles.close} onClick={props.handleClick}>
+            <Icon />
+        </div>
+            {/* <div className={styles.close} onClick={props.handleClick}>
+                </div> */}
+        </div>
         </div>
         <div id={styles.mobileNestedNav}>
             <div id={styles.mobileNavMain}>
@@ -57,7 +60,7 @@ const MobileNavigation = (props) => {
                 </Link>
             </div>
         </div>
-    </nav>)
+    </nav >)
 }
 
 

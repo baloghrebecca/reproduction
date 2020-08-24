@@ -58,6 +58,19 @@ a {
   margin: 0;
 }
 
+.closeSVG {
+  transition: all 0.5s ease;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  // background-color: red;
+  stroke: $secondary-gray;
+}
+
+.closeSVG:hover {
+  stroke: #000;
+}
+
 a:hover {
   color: $primary-grey;
 }
@@ -84,15 +97,7 @@ a:hover {
   height: 1000px;
 }
 
-// #landingPageWrapper {
-//   margin-top: 13px;
-// }
-
 @media (max-width: 750px) {
-  // #landingPageWrapper {
-  //   margin-top: 30px;
-  // }
-
   .content {
     padding-top: 80px;
   }
@@ -107,5 +112,10 @@ a:hover {
 
   p {
     font-size: $font-size-small;
+  }
+
+  .closeSVG {
+    height: 19px;
+    width: 19px;
   }
 }

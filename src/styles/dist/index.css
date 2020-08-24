@@ -55,6 +55,18 @@ a {
   margin: 0;
 }
 
+.closeSVG {
+  transition: all 0.5s ease;
+  cursor: pointer;
+  height: 25px;
+  width: 25px;
+  stroke: #9b9b9b;
+}
+
+.closeSVG:hover {
+  stroke: #000;
+}
+
 a:hover {
   color: #dddddd;
 }
@@ -96,5 +108,10 @@ a:hover {
 
   p {
     font-size: 14px;
+  }
+
+  .closeSVG {
+    height: 19px;
+    width: 19px;
   }
 }

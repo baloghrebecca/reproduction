@@ -23,7 +23,13 @@ module.exports = {
       resolve: "gatsby-plugin-react-svg",
       options: {
         rule: {
-          include: /src/
+          options: {
+            include: /assets/,
+            props: {
+              className: "closeSVG",
+              title: "close"
+            }
+          }
         }
       }
     },
@@ -43,7 +49,7 @@ module.exports = {
           urls: ["/fonts/fonts.css"],
         },
       }
-    }, 
+    },
     `gatsby-plugin-sass`,
     `gatsby-plugin-smoothscroll`,
     `gatsby-transformer-sharp`,
@@ -63,7 +69,7 @@ module.exports = {
           'footer',
           'imprint',
           'stockists',
-        ], 
+        ],
         queryLimit: 1000,
       },
     },

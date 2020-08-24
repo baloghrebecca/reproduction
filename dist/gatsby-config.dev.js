@@ -22,7 +22,13 @@ module.exports = {
     resolve: "gatsby-plugin-react-svg",
     options: {
       rule: {
-        include: /src/
+        options: {
+          include: /assets/,
+          props: {
+            className: "closeSVG",
+            title: "close"
+          }
+        }
       }
     }
   }, {

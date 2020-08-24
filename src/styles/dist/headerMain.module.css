@@ -173,31 +173,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding-right: 0.53125rem;
-}
-
-.close {
-  cursor: pointer;
-  position: fixed;
-  width: 24px;
-  height: 24px;
-}
-
-.close:before,
-.close:after {
-  position: fixed;
-  content: " ";
-  height: 25px;
-  width: 1.4px;
-  background-color: #9b9b9b;
-}
-
-.close:before {
-  transform: rotate(45deg);
-}
-
-.close:after {
-  transform: rotate(-45deg);
+  align-items: center;
 }
 
 #burgerIcon {
