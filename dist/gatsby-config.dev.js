@@ -35,7 +35,7 @@ module.exports = {
     resolve: "gatsby-source-stripe",
     options: {
       objects: ['Event', 'Product', 'Sku', 'Customer', 'Charge', 'Session'],
-      secretKey: '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',
+      secretKey: process.env.STRIPE_KEY || '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',
       //real key needed for graphQL
       downloadFiles: true
     }
@@ -50,12 +50,9 @@ module.exports = {
   }, "gatsby-plugin-sass", "gatsby-plugin-smoothscroll", "gatsby-transformer-sharp", "gatsby-plugin-sharp", 'gatsby-plugin-react-helmet', {
     resolve: 'gatsby-source-strapi',
     options: {
-      apiURL: process.env.API_URL || 'http://pool-backend.herokuapp.com',
-      // apiURL: 'http://localhost:1337',
-      contentTypes: [// Collection of the Contentcc Types you want to be able to request from Gatsby.
-      'product' // 'user'
-      ],
-      singleTypes: ['about', 'footer', 'imprint', 'stockists'],
+      apiURL: process.env.BACKEND_URL || 'http://pool-backend.herokuapp.com',
+      contentTypes: ['product'],
+      singleTypes: ['about', 'footer', 'imprint', 'shipping', 'stockists'],
       queryLimit: 1000
     }
   }, 'gatsby-plugin-sharp', {

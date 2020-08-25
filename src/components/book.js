@@ -38,7 +38,7 @@ const Book = (props) => {
         setWindowWidth(window.innerWidth)
         if (window.innerWidth != windowWidth) {
             setWindowWidth(window.innerWidth)
-        }
+        }        
     });
 
     const handleTouchMove = (e) => {
@@ -81,6 +81,7 @@ const Book = (props) => {
     const hasOldPrice = props.oldPrice !== '0.0'
         ? <strike>€{props.oldPrice}</strike>
         : ''
+
 
     return (
         <div className={styles.book}>

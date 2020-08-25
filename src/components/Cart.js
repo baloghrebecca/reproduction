@@ -10,8 +10,18 @@ import { getCart } from '../services/cart'
 import changePriceFormat from '../services/changePriceFormat'
 import { getTotalPrice, getTotalPricePlusShipping } from '../services/cartMath'
 import { Checkout } from '../services/checkout'
+import { useStaticQuery, graphql } from 'gatsby'
+
 
 const Cart = (props) => {
+    const data = useStaticQuery(graphql`
+    query ShippingPrice {
+        strapiShipping {
+          shipping_costs_in_cents
+        }
+      }      
+      `)
+
     const [windowWidth, setWindowWidth] = useState()
     const [items, setItems] = useState(getCart())
 
@@ -36,6 +46,9 @@ const Cart = (props) => {
     const whichGallery = windowWidth <= 750
         ? <CartSliderMobile images={<CartImages class={`${styles.imgContainerGallery} ${styles.mobileCart}`} />} />
         : <CartSlider images={<CartImages class={`${styles.imgContainerGallery}`} />} />
+
+
+    let priceShipping = changePriceFormat(data.strapiShipping.shipping_costs_in_cents)
 
     return (<>
         <section id={styles.cart} >
@@ -86,7 +99,7 @@ const Cart = (props) => {
 
                 <div className={styles.cartCol3}>
                     <h1>Shipping</h1>
-                    <p className={styles.cartListItem}>€8.00</p>
+                    <p className={styles.cartListItem}>€{priceShipping}</p>
                 </div>
 
                 <div className={styles.cartCol4}>

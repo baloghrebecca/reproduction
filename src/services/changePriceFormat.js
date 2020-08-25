@@ -3,6 +3,10 @@ export default function changePriceFormat(preis) {
         return '0.00'
     }
 
+    if (preis === null) {
+        return '0.00'
+    }
+
     const priceToString = preis.toString()
     const priceAfterComma = priceToString.slice(priceToString.length - 2, priceToString.length)
     const priceBeforeComma = priceToString.slice(0, priceToString.length - 2)

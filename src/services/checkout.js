@@ -1,6 +1,7 @@
 import { loadStripe } from "@stripe/stripe-js"
 import React, { useState } from 'react'
 import { getCart } from '../services/cart'
+import { useStaticQuery,  graphql} from 'gatsby'
 
 //Stripe
 let stripePromise
@@ -12,6 +13,13 @@ const getStripe = () => {
 }
 
 export const Checkout = (props) => {
+    const data = useStaticQuery(graphql`
+    query Shipping {
+        strapiShipping {
+          StripeID
+        }
+      }      
+      `)
 
     const [loading, setLoading] = useState(false)
     const items = getCart()
@@ -25,8 +33,10 @@ export const Checkout = (props) => {
         return newItem
     })
 
+    const stripeID = data.strapiShipping.StripeID
+
     const shippingCosts = {
-        price: 'price_1HJwM1Gb1IG5l2E04YaVY27A',
+        price: stripeID,
         quantity: 1
     }
     cartItemsForStripe.push(shippingCosts)

@@ -7,7 +7,7 @@ import changePriceFormat from '../services/changePriceFormat'
 const Books = () => {
     const data = useStaticQuery(graphql`
     query ProductOverview {
-        allStrapiProduct(sort: {fields: id, order: ASC}) {
+        allStrapiProduct(sort: {fields: id, order: ASC}, filter: {id: {eq: "Product_3"}}) {
           nodes {
             alter_preis
             strapiId
@@ -22,7 +22,7 @@ const Books = () => {
             }
           }
         }
-      }      
+      }    
       `)
 
     const allProducts = [...data.allStrapiProduct.nodes]
@@ -34,6 +34,7 @@ const Books = () => {
 
         const titleUpperCase = titel.toUpperCase()
         bilder_produktseite.sort(compare)
+
 
         return <Book
             title={titleUpperCase}
