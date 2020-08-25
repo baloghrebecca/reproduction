@@ -1,13 +1,12 @@
 import { loadStripe } from "@stripe/stripe-js"
 import React, { useState } from 'react'
 import { getCart } from '../services/cart'
-import styles from '../styles/pages.module.scss'
 
 //Stripe
 let stripePromise
 const getStripe = () => {
     if (!stripePromise) {
-        stripePromise = loadStripe('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')
+        stripePromise = loadStripe('pk_live_51HFijtGb1IG5l2E0d9MdbIqMXqizLHVIFlBXhltc16XxTVNEnkV0pNiwY5jJXoYjv2J1vbgOrei8Td01BS47IGtP00ruzRYqgZ')
     }
     return stripePromise
 }
