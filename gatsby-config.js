@@ -37,7 +37,7 @@ module.exports = {
       resolve: `gatsby-source-stripe`,
       options: {
         objects: ['Event', 'Product', 'Sku', 'Customer', 'Charge', 'Session'],
-        secretKey: 'sk_test_51HFdbTHVWF33LGh7aSNyxMHgJL6ZgxUro4Npcz0ilKzMCblEXlki5F3MqY5GDpV5H1PHuwLBaVDfbqyCLRKEog9n00ZNRrC1FD', //real key needed for graphQL
+        secretKey: 'sk_test_51HFijtGb1IG5l2E0vgAGpFzzv9QUdTmXCjn6uUmyTmProXJtqZjvzCEjJQJ72u5qGMlgj6R4NU07ohpzLP3yE75900XZ5vV125', //real key needed for graphQL
         downloadFiles: true,
       }
     },

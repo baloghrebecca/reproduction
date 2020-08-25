@@ -7,7 +7,7 @@ import styles from '../styles/pages.module.scss'
 let stripePromise
 const getStripe = () => {
     if (!stripePromise) {
-        stripePromise = loadStripe('pk_test_51HFdbTHVWF33LGh7fEHNxjsejQxlFkriJ5kV2Anz4lPxgXjY1t0LH4sjiN45b82IZ7738LChp0AXb1Evz67Xzuxd008bQsVprn')
+        stripePromise = loadStripe('pk_test_51HFijtGb1IG5l2E0ALIZrusAPMKX7flH9At1FLEtDkqiy4CcpZuuXFuD5QSmG38cpNytlbfYEobkZuOtKBhtJ27Q00EXc9vSyp')
     }
     return stripePromise
 }
@@ -27,7 +27,7 @@ export const Checkout = (props) => {
     })
 
     const shippingCosts = {
-        price: 'price_1HFgU7HVWF33LGh7XXHr8qIb',
+        price: 'price_1HJwM1Gb1IG5l2E04YaVY27A',
         quantity: 1
     }
     cartItemsForStripe.push(shippingCosts)
