@@ -7,7 +7,7 @@ import styles from '../styles/pages.module.scss'
 let stripePromise
 const getStripe = () => {
     if (!stripePromise) {
-        stripePromise = loadStripe('pk_test_51HFijtGb1IG5l2E0ALIZrusAPMKX7flH9At1FLEtDkqiy4CcpZuuXFuD5QSmG38cpNytlbfYEobkZuOtKBhtJ27Q00EXc9vSyp')
+        stripePromise = loadStripe('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')
     }
     return stripePromise
 }
