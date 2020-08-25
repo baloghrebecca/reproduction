@@ -40,7 +40,7 @@ const ProductPage = (props) => {
                     </p>
                 </div>
                 <div className={styles.col3}>
-                    <h2 className={styles.hideMobile}>&nbsp; </h2>
+                    <h2 className={styles.hideMobile}>Info </h2>
                     <p><span className={styles.hideMobile}>
                         {hasOldPrice} €{props.price}
                         <br /> <br />
