@@ -39,6 +39,11 @@ const Book = (props) => {
         if (window.innerWidth != windowWidth) {
             setWindowWidth(window.innerWidth)
         }        
+
+        //this fixes the -1 index bug
+        if (index === 0) {
+            setIndex(1)
+        }
     });
 
     const handleTouchMove = (e) => {
@@ -82,6 +87,7 @@ const Book = (props) => {
         ? <strike>€{props.oldPrice}</strike>
         : ''
 
+        console.log(index);
 
     return (
         <div className={styles.book}>
