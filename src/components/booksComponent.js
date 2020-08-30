@@ -7,7 +7,7 @@ import changePriceFormat from '../services/changePriceFormat'
 const Books = () => {
     const data = useStaticQuery(graphql`
     query ProductOverview {
-        allStrapiProduct(sort: {fields: id, order: ASC}, filter: {id: {eq: "Product_3"}}) {
+        allStrapiProduct(sort: {fields: id, order: ASC}) {
           nodes {
             alter_preis
             strapiId
@@ -15,6 +15,7 @@ const Books = () => {
             titel
             preis
             slug
+            is_sold_out
             bilder_produktseite {
               url
               alternativeText
@@ -27,7 +28,7 @@ const Books = () => {
 
     const allProducts = [...data.allStrapiProduct.nodes]
     const productsRender = allProducts.map(product => {
-        const { alter_preis, id, titel, preis, bilder_produktseite, slug } = product
+        const { alter_preis, id, titel, preis, bilder_produktseite, slug, is_sold_out } = product
 
         const priceToDisplay = changePriceFormat(preis)
         const oldPriceToDisplay = changePriceFormat(alter_preis)
@@ -35,12 +36,12 @@ const Books = () => {
         const titleUpperCase = titel.toUpperCase()
         bilder_produktseite.sort(compare)
 
-
         return <Book
             title={titleUpperCase}
             price={priceToDisplay}
             oldPrice={oldPriceToDisplay}
             key={id}
+            isSoldOut={is_sold_out}
             images={bilder_produktseite}
             sliderLength={bilder_produktseite.length}
             slug={slug}

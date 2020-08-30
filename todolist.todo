@@ -1,6 +1,5 @@
 SLIDER: 
     ☐ slider end later in safari :( 
-    ☐ Slider end problem in general (NOT REALLY.... edge cases..... when screen width too big and height too small)
 
 STARTSEITE:
     ☐ Morping compatible for Safari, + Chrome mobile
@@ -9,15 +8,10 @@ MENÜ:
     ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) @high 
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
 
-BOOKS:
-    ☐ sometimes mouseLeave throws an error (probably problem with setIndex) @high (it goes on until "-1" , instead of stopping at "0") (index problem because; index resetting with entering new book)
-
- CART:
-    ✔ Success case? Not Success? Error handling! (Cookie leiste) @done (8/24/2020, 11:32:06 PM)
-    ✔ URLs change after checkout @done (8/24/2020, 11:32:09 PM)
-    ☐ Cart Problem 
-
-
+TO-DO:
+    ☐ Bücher mit 3D Freischalten
+    ☐ Sold out einbauen 
+    ☐ 3 Bücher Problem Slider
 
 
 

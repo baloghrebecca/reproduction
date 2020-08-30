@@ -26,7 +26,6 @@ export default class GalleryContainer extends React.Component {
   componentDidMount() {
     this.setCurrentPositionAndLeftAndOfSlider();
     this.handleResize();
-
     //repositions slideshow to the middle of the screen when resizing the browsers window
     window.addEventListener('resize', this.handleResize)
   }

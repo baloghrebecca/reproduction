@@ -21,7 +21,7 @@ const ProductDetails = ({ data }) => {
     showOverflow();
   });
 
-  const { alter_preis, artist, beschreibung, preis, titel, hard_facts, bilder_slideshow, strapiId, bild_warenkorb, stripeID } = data.strapiProduct
+  const { alter_preis, artist, beschreibung, preis, titel, hard_facts, bilder_slideshow, strapiId, bild_warenkorb, stripeID, is_sold_out } = data.strapiProduct
 
   const rightFormatPrice = changePriceFormat(preis)
   const rightFormatOldPrice = changePriceFormat(alter_preis)
@@ -62,6 +62,7 @@ const ProductDetails = ({ data }) => {
         images={bilder_slideshow}
         cartData={cartData}
         stripeID={stripeID}
+        isSoldOut={is_sold_out}
       />
     </Layout>
     <Banner />
@@ -80,6 +81,7 @@ query ProductDetails($id: String) {
       alter_preis
       artist
       beschreibung
+      is_sold_out
       bilder_slideshow {
         id
         url

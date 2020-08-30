@@ -11,6 +11,12 @@ const ProductPage = (props) => {
 
     const getImageDivs = generateImageDivs(props.images)
 
+    const cartLink =  <a onClick={(e) => props.handleAddToCart(props.cartData, e)} href='/'>ADD TO CART</a>
+    const soldOutText = "Sold out"
+    const isSoldOut = props.isSoldOut 
+    ? soldOutText 
+    : cartLink
+
     return (
         <section id={styles.productPageWrapper}>
             <Slider images={getImageDivs} />
@@ -51,11 +57,7 @@ const ProductPage = (props) => {
                 <div className={`${styles.col4} ${styles.productPageCart} ${styles.hideMobile}`}>
                     <h2>&nbsp; </h2>
                     <p>
-                        <a
-                            onClick={(e) =>
-                                props.handleAddToCart(props.cartData, e)
-                            }
-                            href='/'>ADD TO CART</a>
+                        {isSoldOut}
                     </p>
                 </div>
             </div>

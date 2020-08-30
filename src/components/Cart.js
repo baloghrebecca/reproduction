@@ -47,7 +47,6 @@ const Cart = (props) => {
         ? <CartSliderMobile images={<CartImages class={`${styles.imgContainerGallery} ${styles.mobileCart}`} />} />
         : <CartSlider images={<CartImages class={`${styles.imgContainerGallery}`} />} />
 
-
     let priceShipping = changePriceFormat(data.strapiShipping.shipping_costs_in_cents)
 
     return (<>
