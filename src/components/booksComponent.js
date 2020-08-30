@@ -7,7 +7,7 @@ import changePriceFormat from '../services/changePriceFormat'
 const Books = () => {
     const data = useStaticQuery(graphql`
     query ProductOverview {
-        allStrapiProduct(sort: {fields: id, order: ASC}) {
+        allStrapiProduct(sort: {fields: order, order: DESC}) {
           nodes {
             alter_preis
             strapiId
