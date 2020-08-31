@@ -54,40 +54,7 @@ const Cart = (props) => {
         <section id={styles.cart} >
             {whichGallery}
 
-            {/* <div className={styles.cartTitles}>
-                <div className={styles.cartCol1}>
-                    <h1 className={styles.cartCol1}>
-                        Product
-                    </h1>
-                </div>
-
-                <div className={styles.cartCol2}>
-                    <div className={styles.cartSubtotal}>
-                        <h1>QUANTITY</h1>
-                    </div>
-                </div>
-
-                <div className={styles.cartCol3}>
-                    <h1>PRICE</h1>
-                </div>
-
-                <div className={styles.cartCol4}>
-                    <h1>SUBTOTAL</h1>
-                </div>
-
-            </div> */}
-
             <div className={styles.cartInfo}>
-
-                {/* <ProductWithInfos
-                    removeItem={props.removeItem}
-                    titles={titles}
-                    items={items}
-                    incrementQuantity={props.incrementQuantity}
-                    decrementQuantity={props.decrementQuantity}
-                    prices={pricesFormatted}
-                    subtotal={subtotalFormatted}
-                /> */}
 
                 <div className={styles.cartCol1}>
                     <h1>PRODUCT</h1>
@@ -99,10 +66,10 @@ const Cart = (props) => {
 
                 <div className={styles.cartCol2}>
                     <h1>Quantity</h1>
-                        <CartProductQuantity
-                            incrementQuantity={props.incrementQuantity}
-                            decrementQuantity={props.decrementQuantity}
-                            items={items} />
+                    <CartProductQuantity
+                        incrementQuantity={props.incrementQuantity}
+                        decrementQuantity={props.decrementQuantity}
+                        items={items} />
                 </div>
 
                 <div className={styles.cartCol3}>
@@ -119,7 +86,7 @@ const Cart = (props) => {
 
             <div id={styles.cartCheckoutInfos}>
 
-                <div className={styles.cartCol1}>
+                <div className={styles.cartCol1Checkout}>
                     <Checkout cart={props.cartSize} />
                 </div>
 
@@ -138,6 +105,10 @@ const Cart = (props) => {
                 <div className={styles.cartCol4}>
                     <h1>Total</h1>
                     <p className={styles.cartListItem}>€{totalPriceFormatted}</p>
+                </div>
+
+                <div className={styles.cartCol1Mobile}>
+                    <Checkout cart={props.cartSize} />
                 </div>
             </div>
         </section ></>)
