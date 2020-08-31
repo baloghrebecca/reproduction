@@ -305,7 +305,6 @@ img {
   }
 
   .cartInfo {
-    justify-content: space-between;
     padding-top: 9px;
   }
 
@@ -318,13 +317,13 @@ img {
   .cartCol2 {
     padding-top: 9px;
     grid-row-start: 2;
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 3;
   }
 
   .cartCol3 {
     padding-top: 9px;
     grid-row-start: 2;
-    grid-column: 3 / span 2;
+    grid-column: 3 / span 1;
   }
 
   .cartCol4 {
@@ -340,12 +339,12 @@ img {
 
     .cartCol2 {
       grid-row-start: 1;
-      grid-column: 1 / span 2;
+      grid-column: 1 / span 3;
     }
 
     .cartCol3 {
       grid-row-start: 1;
-      grid-column: 3 / span 2;
+      grid-column: 3 / span 1;
     }
 
     .cartCol1Checkout {
