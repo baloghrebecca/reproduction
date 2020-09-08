@@ -36,6 +36,7 @@ export default class Forms extends React.Component {
 //https://css-tricks.com/many-tools-shape-morphing/
 //https://thednp.github.io/kute.js/
     render() {
+        
         const renderHorizontalOrVerticalPaths = this.state.width > 600 ? this.state.horizontalPaths : this.state.verticalPaths
         const whichViewBox = this.state.width > 600 ? `0 0 1891.65 1049.79` : `0 0 397 851`
         return (<>

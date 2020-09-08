@@ -1,8 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import styles from '../styles/headerMain.module.scss'
-import styleForm from '../styles/forms.module.scss'
-import Forms from './forms'
+import FormsHover from './formsHover'
 import { navigate } from '@reach/router';
 import anime from 'animejs/lib/anime.es.js';
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
@@ -206,9 +205,8 @@ export default class HeaderLandingPageCopy extends React.Component {
         return (<>
             <div id="landingPageWrapper">
 
-                <div ref={this.forms} style={{ overflow: 'hidden' }} onClick={(e) => this.handleScroll('/books', e)} id="formsDiv" style={{ opacity: this.state.opacity, display: this.state.displayForms }}>
-                    <Forms />
-                </div>
+                    <FormsHover opacity={this.state.opacity} displayForms={this.state.displayForms} handleScroll={(e) => this.handleScroll('/books', e)} />
+
 
                 <MobileNavigation
                     display={this.state.display}
