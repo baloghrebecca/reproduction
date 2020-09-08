@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import styles from '../styles/forms.module.scss'
-import { shapes } from './shapes'
+import { shapes, shapesMobile } from './shapes'
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
 
 const FormsHover = (props) => {
@@ -83,8 +83,9 @@ const FormsHover = (props) => {
         }
     }
 
-    const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 397 851`
-console.log(index);
+    const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 1080 1920`
+    const whatShapes = windowWidth > 600 ? shapes : shapesMobile
+
     return (
         <div ref={forms} style={{ overflow: 'hidden' }} 
         onClick={props.handleScroll} 
@@ -96,7 +97,7 @@ console.log(index);
             <section id={styles.forms} >
                 <svg
                     className={styles.formItem} xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="none meet">
-                    <path className="cls-1" d={shapes[index]} /></svg>
+                    <path id={styles.form} d={whatShapes[index]} /></svg>
             </section>
         </div>
     )
