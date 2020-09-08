@@ -6,6 +6,7 @@ import { showOverflow, hideOverflow } from '../services/manageOverflow'
 const FormsHover = (props) => {
     const [index, setIndex] = useState(0);
     const [windowWidth, setWindowWidth] = useState()
+    const [windowHeight, setWindowHeight] = useState()
     const forms = useRef()
 
     const handleMouseOver = (e) => {
@@ -39,6 +40,10 @@ const FormsHover = (props) => {
         setWindowWidth(window.innerWidth)
         if (window.innerWidth != windowWidth) {
             setWindowWidth(window.innerWidth)
+        }
+        setWindowHeight(window.innerHeight)
+        if (window.innerHeight != windowHeight) {
+            setWindowHeight(window.innerHeight)
         }
 
         //this fixes the -1 index bug
@@ -83,8 +88,12 @@ const FormsHover = (props) => {
         }
     }
 
+    let width = windowWidth*2
+    let height = windowHeight*2
+    console.log(height);
     const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 1080 1920`
     const whatShapes = windowWidth > 600 ? shapes : shapesMobile
+
 
     return (
         <div ref={forms} style={{ overflow: 'hidden' }} 
@@ -96,7 +105,7 @@ const FormsHover = (props) => {
             onMouseMove={handleMouseOver}>
             <section id={styles.forms} >
                 <svg
-                    className={styles.formItem} xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="none meet">
+                    className={styles.formItem} xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="preserveAspectRatio meet">
                     <path id={styles.form} d={whatShapes[index]} /></svg>
             </section>
         </div>
