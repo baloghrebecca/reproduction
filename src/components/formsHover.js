@@ -37,13 +37,13 @@ const FormsHover = (props) => {
 
     //update on window width resize
     useEffect(() => {
-        setWindowWidth(window.screen.height)
-        if (window.screen.height != windowWidth) {
-            setWindowWidth(window.screen.height)
+        setWindowWidth(window.innerWidth)
+        if (window.innerWidth != windowWidth) {
+            setWindowWidth(window.innerWidth)
         }
-        setWindowHeight(window.screen.width)
-        if (window.screen.width != windowHeight) {
-            setWindowHeight(window.screen.width)
+        setWindowHeight(window.innerHeight)
+        if (window.innerHeight != windowHeight) {
+            setWindowHeight(window.innerHeight)
         }
 
         //this fixes the -1 index bug
