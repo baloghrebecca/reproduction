@@ -3,6 +3,7 @@
 
 #formsDiv {
   transition: all 0.5s linear;
+  height: 100%;
 }
 
 #forms {
@@ -20,7 +21,7 @@
   position: absolute;
   display: block;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   top: 0;
   bottom: 0;
   left: 0;

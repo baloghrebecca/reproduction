@@ -88,9 +88,8 @@ const FormsHover = (props) => {
         }
     }
 
-    let width = windowWidth*2
-    let height = windowHeight*2
-    console.log(height);
+
+    console.log(windowHeight);
     const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 1080 1920`
     const whatShapes = windowWidth > 600 ? shapes : shapesMobile
 
@@ -105,7 +104,9 @@ const FormsHover = (props) => {
             onMouseMove={handleMouseOver}>
             <section id={styles.forms} >
                 <svg
-                    className={styles.formItem} xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="meet">
+                    className={styles.formItem} xmlns="http://www.w3.org/2000/svg" 
+                    viewBox={whichViewBox} preserveAspectRatio="none meet"
+                    >
                     <path id={styles.form} d={whatShapes[index]} /></svg>
             </section>
         </div>
