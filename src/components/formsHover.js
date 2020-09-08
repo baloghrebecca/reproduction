@@ -105,7 +105,7 @@ const FormsHover = (props) => {
             onMouseMove={handleMouseOver}>
             <section id={styles.forms} >
                 <svg
-                    className={styles.formItem} xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="preserveAspectRatio meet">
+                    className={styles.formItem} xmlns="http://www.w3.org/2000/svg" viewBox={whichViewBox} preserveAspectRatio="meet">
                     <path id={styles.form} d={whatShapes[index]} /></svg>
             </section>
         </div>
