@@ -97,13 +97,13 @@ const FormsHover = (props) => {
     return (
         <div ref={forms} style={{ overflow: 'hidden' }} 
         onClick={props.handleScroll} 
-        id="formsDiv" 
+        id={styles.formsDiv}
         style={{ opacity: props.opacity, display: props.displayForms }}
             onTouchEnd={handleMouseLeave}
             onTouchMove={handleTouchMove}
             onMouseMove={handleMouseOver}>
             <section id={styles.forms} >
-                <svg
+                <svg width="100%" height="100%"
                     className={styles.formItem} xmlns="http://www.w3.org/2000/svg" 
                     viewBox={whichViewBox} preserveAspectRatio="none meet"
                     >
