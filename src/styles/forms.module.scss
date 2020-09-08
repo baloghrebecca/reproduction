@@ -9,19 +9,18 @@
   scroll-behavior: smooth;
   position: relative;
   z-index: -10;
-  // height: 100vh;
+  height: 100vh;
   width: 100%;
   overflow: auto;
   transition: all ease 1s;
 }
 
 .formItem {
-  min-height: -webkit-fill-available;
   padding: 1rem;
   position: absolute;
   display: block;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   top: 0;
   bottom: 0;
   left: 0;
@@ -33,7 +32,6 @@
     //this is a fallback
     // height: 100vh;
     //this makes the height: 100% on mobile
-    min-height: -webkit-fill-available;
     height: 100vh;
   }
 }

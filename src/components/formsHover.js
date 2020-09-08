@@ -37,13 +37,13 @@ const FormsHover = (props) => {
 
     //update on window width resize
     useEffect(() => {
-        setWindowWidth(window.innerWidth)
-        if (window.innerWidth != windowWidth) {
-            setWindowWidth(window.innerWidth)
+        setWindowWidth(window.screen.height)
+        if (window.screen.height != windowWidth) {
+            setWindowWidth(window.screen.height)
         }
-        setWindowHeight(window.innerHeight)
-        if (window.innerHeight != windowHeight) {
-            setWindowHeight(window.innerHeight)
+        setWindowHeight(window.screen.width)
+        if (window.screen.width != windowHeight) {
+            setWindowHeight(window.screen.width)
         }
 
         //this fixes the -1 index bug
@@ -89,7 +89,8 @@ const FormsHover = (props) => {
     }
 
 
-    console.log(windowHeight);
+    var width = window.screen.width;
+    var height = window.screen.width;
     const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 1080 1920`
     const whatShapes = windowWidth > 600 ? shapes : shapesMobile
 
@@ -103,7 +104,7 @@ const FormsHover = (props) => {
             onTouchMove={handleTouchMove}
             onMouseMove={handleMouseOver}>
             <section id={styles.forms} >
-                <svg width="100%" height="100%"
+                <svg width={width} height={height}
                     className={styles.formItem} xmlns="http://www.w3.org/2000/svg" 
                     viewBox={whichViewBox} preserveAspectRatio="none meet"
                     >
