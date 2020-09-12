@@ -38,7 +38,7 @@ const Book = (props) => {
         setWindowWidth(window.innerWidth)
         if (window.innerWidth != windowWidth) {
             setWindowWidth(window.innerWidth)
-        }        
+        }
 
         //this fixes the -1 index bug
         if (index === 0) {
@@ -73,7 +73,7 @@ const Book = (props) => {
             if (index > 0 && index < props.sliderLength) {
                 setIndex(prevIndex => prevIndex - 1)
             }
-        }, 10, index-1)
+        }, 10, index - 1)
 
         function setIntervalLimited(callback, interval, x) {
             for (var i = 0; i < x; i++) {
@@ -87,25 +87,27 @@ const Book = (props) => {
         ? <strike>€{props.oldPrice}</strike>
         : ''
 
-        console.log(index);
+    console.log(index);
 
     return (
         <div className={styles.book}>
-            <div 
-            onTouchEnd={handleMouseLeave} 
-            onTouchMove={handleTouchMove} 
-            onMouseMove={handleMouseOver} 
-            ref={bookRender} 
-            className={styles.bookRenderingContainer}>
+            <div
+                onTouchEnd={handleMouseLeave}
+                onTouchMove={handleTouchMove}
+                onMouseMove={handleMouseOver}
+                ref={bookRender}
+                className={styles.bookRenderingContainer}>
                 <Link to={props.slug}>
-                 <img
-                    onMouseLeave={handleMouseLeave}
-                    alt={props.images[index].alternativeText}
-                    src={props.images[index].url} />
-                    </Link>
+                    <div className={styles.imageContainer}>
+                        <img className="bookImage"
+                            onMouseLeave={handleMouseLeave}
+                            alt={props.images[index].alternativeText}
+                            src={props.images[index].url} />
+                    </div>
+                </Link>
             </div>
             <div>
-            <p className={styles.priceBook}>
+                <p className={styles.priceBook}>
                     <span className={styles.priceBook}>{hasOldPrice} €{props.price}</span><br />
                     <Link to={props.slug}>{props.title}</Link> </p>
             </div>

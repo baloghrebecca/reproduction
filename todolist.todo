@@ -1,14 +1,12 @@
-SLIDER: 
-    ✔ slider end later in safari :( (passt laut Max) @done (8/31/2020, 2:13:41 PM) 
-
-STARTSEITE:
-    ☐ Morping compatible for Safari, + Chrome mobile
-
 MENÜ: 
     ☐ menü landing page verhalten genau so wie menü normal (problem height resizeing) @high 
         problem: resizing on top and not bottom of mobile navigation, behaviour flipped from the other naviation
 
+STARTSEITE:
+    ☐ Form mobile height
 
+BOOKS: 
+    ☐ Quadratisch
 
 
     
