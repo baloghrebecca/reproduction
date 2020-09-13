@@ -95,6 +95,7 @@ const FormsHover = (props) => {
 
 
     return (
+        <Div100vh>
         <div ref={forms} style={{ overflow: 'hidden' }} 
         onClick={props.handleScroll} 
         id={styles.formsDiv}
@@ -105,11 +106,13 @@ const FormsHover = (props) => {
             <section id={styles.forms} >
                 <svg 
                     className={styles.formItem} xmlns="http://www.w3.org/2000/svg" 
-                    viewBox={whichViewBox} preserveAspectRatio="none meet"
+                    viewBox={whichViewBox} 
+                    preserveAspectRatio="none meet"
                     >
                     <path id={styles.form} d={whatShapes[index]} /></svg>
             </section>
         </div>
+        </Div100vh>
     )
 }
 
