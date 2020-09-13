@@ -90,7 +90,7 @@ const FormsHover = (props) => {
     }
 
 
-    const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 397 950`
+    const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 397 1080`
     const whatShapes = windowWidth > 600 ? shapes : shapesMobile
 
 
