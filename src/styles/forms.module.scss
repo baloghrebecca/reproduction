@@ -28,11 +28,14 @@
 }
 
 @media (max-width: 750px) {
+
+  .formItem {
+    padding-bottom: 50px;
+  }
   #forms {
     //this is a fallback
     // height: 100vh;
     //this makes the height: 100% on mobile
-    height: 95vh;
-    // padding-bottom: 80px;
+    height: 100vh;
   }
 }
