@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import styles from '../styles/forms.module.scss'
 import { shapes, shapesMobile } from './shapes'
 import { showOverflow, hideOverflow } from '../services/manageOverflow'
+import Div100vh from 'react-div-100vh';
 
 const FormsHover = (props) => {
     const [index, setIndex] = useState(0);
@@ -89,7 +90,7 @@ const FormsHover = (props) => {
     }
 
 
-    const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 397 851`
+    const whichViewBox = windowWidth > 600 ? `0 0 1920 1080` : `0 0 397 870`
     const whatShapes = windowWidth > 600 ? shapes : shapesMobile
 
 
