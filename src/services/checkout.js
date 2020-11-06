@@ -48,7 +48,6 @@ export const Checkout = (props) => {
         const stripe = await getStripe()
         const { error } = await stripe.redirectToCheckout({
             mode: "payment",
-            payment_method_types: ['card'],
             lineItems: cartItemsForStripe,
             successUrl: `http://pool-preview.vercel.app/success`,
             cancelUrl: `http://pool-preview.vercel.app/cancel`,
