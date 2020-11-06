@@ -87,7 +87,6 @@ const Book = (props) => {
         ? <strike>€{props.oldPrice}</strike>
         : ''
 
-    console.log(index);
 
     return (
         <div className={styles.book}>

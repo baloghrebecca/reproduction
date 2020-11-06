@@ -11,7 +11,7 @@ const FormsHover = (props) => {
     const forms = useRef()
 
     const handleMouseOver = (e) => {
-        console.log('enter toucnmove');
+      
         const sliderLength = shapes.length
         showOverflow();
         //get the x position of the element 
