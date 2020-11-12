@@ -220,6 +220,10 @@
   grid-column: 7 / span 2;
 }
 
+.cartLinkMobile {
+  display: none;
+}
+
 @media (max-width: 1200px) {
   #h1Main {
     cursor: pointer;
@@ -227,6 +231,10 @@
 
   .cartMain {
     display: none;
+  }
+
+  .cartLinkMobile {
+    display: block;
   }
 
   .menuMain {

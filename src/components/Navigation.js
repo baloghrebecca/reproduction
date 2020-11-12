@@ -29,6 +29,12 @@ const Navigation = (props) => {
         activeClassName="active"
         to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
 
+    const cartLinkMobile = <Link
+        id={styles.cartMain}
+        className={styles.cartLinkMobile}
+        activeClassName="active"
+        to='/cart'>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</Link>
+
     const cartLinkDeactivated = <p id={styles.cartMain}
         className={styles.cartMain}>{itemsSize} {hadOneOrMoreItems} ({hasTotalPrice}€)</p>
 
@@ -62,6 +68,15 @@ const Navigation = (props) => {
             <Link activeClassName="active" to='/stockists'> STOCKISTS</Link>
             </nav>
 
+
+            {itemsSize === 0
+                ? cartLinkDeactivated
+                : cartLink}
+
+            {itemsSize === 0
+                ? ''
+                : cartLinkMobile}
+
             <Link
                 className={styles.menuMain}
                 activeClassName="active"
@@ -69,9 +84,7 @@ const Navigation = (props) => {
                 onClick={props.handleClick}
             >Menu</Link>
 
-            {itemsSize === 0
-                ? cartLinkDeactivated
-                : cartLink}
+
         </header>
     </>)
 }
