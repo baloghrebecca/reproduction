@@ -53,6 +53,7 @@ export const decrementQuantity = (product) => {
     const cart = getCart()
     const indexOfProduct = findProduct(cart, product)
 
+    //Decrement or remove product when 0
     if (indexOfProduct !== -1) {
         const cartProduct = cart[indexOfProduct]
         if (cartProduct.quantity === 1) {
@@ -70,7 +71,14 @@ export const incrementQuantity = (product) => {
 
     const cart = getCart()
     const indexOfProduct = findProduct(cart, product)
+    const productQuanitity = cart[indexOfProduct].quantity
 
+    //No more than 5 products
+    if (productQuanitity === 5) {
+     return
+    }
+
+    //Choose the right product to increment
     if (indexOfProduct !== -1) {
         const cartProduct = cart[indexOfProduct]
         cartProduct.quantity++
