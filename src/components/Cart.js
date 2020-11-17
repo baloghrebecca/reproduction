@@ -24,6 +24,7 @@ const Cart = (props) => {
 
     const [windowWidth, setWindowWidth] = useState()
     const [items, setItems] = useState(getCart())
+    const [shipping, setShipping] = useState(data.strapiShipping.shipping_costs_in_cents)
 
     useEffect(() => {
         setWindowWidth(window.innerWidth)
@@ -38,7 +39,7 @@ const Cart = (props) => {
         }
     }, [props.cartItems])
 
-    const { totalSubtotalPrice, totalSubtotalPriceFormatted, titles, pricesFormatted, subtotalFormatted, totalPriceFormatted } = getCartDetails(items)
+    const { totalSubtotalPrice, totalSubtotalPriceFormatted, titles, pricesFormatted, subtotalFormatted, totalPriceFormatted } = getCartDetails(items, shipping)
 
     const hasTotalSubtotalPrice = totalSubtotalPrice === 0
         ? '0.00'
@@ -115,12 +116,12 @@ const Cart = (props) => {
 }
 export default Cart
 
-function getCartDetails(items) {
+function getCartDetails(items, shipping) {
     const titles = getTitlesWithId(items)
     const prices = getPrices(items)
     const subtotals = getSubtotals(items)
     const totalSubtotalPrice = getTotalPrice()
-    const totalPrice = getTotalPricePlusShipping()
+    const totalPrice = getTotalPricePlusShipping(shipping)
 
     const pricesFormatted = formatPrice(prices)
     const subtotalFormatted = formatPrice(subtotals)
