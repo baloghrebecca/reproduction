@@ -74,9 +74,9 @@ export const incrementQuantity = (product) => {
     const productQuanitity = cart[indexOfProduct].quantity
 
     //No more than 5 products
-    if (productQuanitity === 5) {
-     return
-    }
+    // if (productQuanitity === 5) {
+    //  return
+    // }
 
     //Choose the right product to increment
     if (indexOfProduct !== -1) {
